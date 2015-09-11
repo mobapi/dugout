@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: about.html:5
+msgid "About the application"
+msgstr ""
+
+#: configuration.html:76
+msgid "Address"
+msgstr ""
+
+#: configuration.html:78
+msgid "Address (host name or IP)"
+msgstr ""
+
+#: project.html:144
+msgid "Alias"
+msgstr ""
+
+#: configuration.html:39
+#: configuration.html:40
+msgid "Automagically detect the command path"
+msgstr ""
+
+#: configuration.html:94
+msgid "Certificate"
+msgstr ""
+
+#: index.html:51
+msgid "Close"
+msgstr ""
+
+#: project.html:190
+msgid "Command"
+msgstr ""
+
+#: configuration.html:8
+#: index.html:44
+msgid "Configuration"
+msgstr ""
+
+#: project.html:122
+msgid "Configuration values"
+msgstr ""
+
+#: project.html:37
+#: project.html:43
+msgid "Container"
+msgstr ""
+
+#: project.html:143
+msgid "Container id"
+msgstr ""
+
+#: project.html:178
+msgid "Container mount point"
+msgstr ""
+
+#: project.html:160
+msgid "Container port"
+msgstr ""
+
+#: configuration.html:36
+msgid "Docker command path"
+msgstr ""
+
+#: app.js:191
+msgid "English"
+msgstr ""
+
+#: app.js:224
+msgid "Error"
+msgstr ""
+
+#: app.js:194
+msgid "French"
+msgstr ""
+
+#: project.html:76
+msgid "History"
+msgstr ""
+
+#: sidebar.html:6
+msgid "Home"
+msgstr ""
+
+#: project.html:177
+msgid "Host directory"
+msgstr ""
+
+#: project.html:161
+msgid "Host port"
+msgstr ""
+
+#: project.html:127
+msgid "Id"
+msgstr ""
+
+#: project.html:57
+#: project.html:64
+msgid "Image"
+msgstr ""
+
+#: project.html:82
+msgid "Informations"
+msgstr ""
+
+#: configuration.html:24
+msgid "Language"
+msgstr ""
+
+#: project.html:139
+msgid "Links"
+msgstr ""
+
+#: project.html:25
+msgid "Log"
+msgstr ""
+
+#: app.js:297
+msgid "Made with %(love)s in French Guiana by"
+msgstr ""
+
+#: index.html:57
+msgid "Maximize"
+msgstr ""
+
+#: index.html:54
+msgid "Minimize"
+msgstr ""
+
+#: index.html:39
+#: project.html:109
+msgid "Open projects configuration file"
+msgstr ""
+
+#: configuration.html:64
+msgid "Path"
+msgstr ""
+
+#: project.html:113
+msgid "Please choose a directory"
+msgstr ""
+
+#: configuration.html:82
+#: configuration.html:84
+msgid "Port"
+msgstr ""
+
+#: project.html:156
+msgid "Ports"
+msgstr ""
+
+#: project.html:212
+msgid "Processing..."
+msgstr ""
+
+#: sidebar.html:11
+msgid "Projects"
+msgstr ""
+
+#: project.html:10
+msgid "Running"
+msgstr ""
+
+#: configuration.html:90
+msgid "Secure connection"
+msgstr ""
+
+#: configuration.html:42
+msgid "Select the command"
+msgstr ""
+
+#: sidebar.html:14
+msgid "Start all projects"
+msgstr ""
+
+#: sidebar.html:30
+msgid "Start project"
+msgstr ""
+
+#: sidebar.html:17
+msgid "Stop all projects"
+msgstr ""
+
+#: sidebar.html:33
+msgid "Stop project"
+msgstr ""
+
+#: project.html:11
+msgid "Stopped"
+msgstr ""
+
+#: app.js:225
+msgid "The configuration could not be saved."
+msgstr ""
+
+#: app.js:137
+msgid "This file is not a valid json file !"
+msgstr ""
+
+#: project.html:133
+msgid "Title"
+msgstr ""
+
+#: index.html:29
+msgid "Toggle navigation"
+msgstr ""
+
+#: configuration.html:54
+msgid "UNIX Socket"
+msgstr ""
+
+#: project.html:68
+msgid "Update"
+msgstr ""
+
+#: project.html:102
+msgid "Variables"
+msgstr ""
+
+#: project.html:173
+msgid "Volumes"
+msgstr ""
+
+#: configuration.html:10
+#: index.html:46
+#: project.html:96
+msgid "invalid"
+msgstr ""
+
+#: configuration.html:9
+msgid "valid"
+msgstr ""

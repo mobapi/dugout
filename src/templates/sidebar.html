@@ -1,0 +1,48 @@
+<div class="navbar-transparent sidebar" role="navigation">
+	<div class="sidebar-nav navbar-collapse collapse">
+		<ul class="nav" id="side-menu">
+			<li>
+				<a ui-sref="home">
+					<i class="fa fa-home fa-fw"></i> {{'Home'|translate}}
+				</a>
+			</li>
+			<li ng-if="projects">
+				<a href="#" class="pull-left">
+					<i class="fa fa-sitemap fa-fw"></i> {{'Projects'|translate}}
+				</a>
+				<span ng-if="$root.globalConfMgr.valid" class="btn-group btn-group-sm pull-right" style="padding: 10px 15px">
+					<button class="btn btn-primary" ng-click="ctrl.startAll()" title="{{'Start all projects'|translate}}">
+						<i class="fa fa-play"></i>
+					</button>
+					<button class="btn btn-danger" ng-click="ctrl.stopAll()" title="{{'Stop all projects'|translate}}">
+						<i class="fa fa-stop"></i>
+					</button>
+				</span>
+				<div class="clearfix"></div>
+				<ul class="nav nav-second-level">
+					<li ng-repeat="(pid, project) in projects">
+						<a ui-sref="project({id: pid})">
+							<i class="fa fa-gear"></i>
+							{{project.title}}
+						</a>
+						<span class="abs-r-15 abs-t-5">
+							<span  ng-if="$root.globalConfMgr.valid && project.runtime.configurationValid">
+								<button ng-if="!project.runtime.docker.container" class="btn btn-primary btn-sm" ng-click="project.startContainer()" title="{{'Start project'|translate}}">
+									<i class="fa fa-play"></i>
+								</button>
+								<button ng-if="project.runtime.docker.container" class="btn btn-danger btn-sm pull-right" ng-click="project.stopContainer()" title="{{'Stop project'|translate}}">
+									<i class="fa fa-stop"></i>
+								</button>
+							</span>
+							<i ng-if="!$root.globalConfMgr.valid || !project.runtime.configurationValid" class="fa fa-warning fa-2x text-danger"></i>
+						</span>
+					</li>
+				</ul>
+			</li>
+			<li class="footer">
+				<span ng-bind-html="footerSentence"></span>
+				<a external-link href="http://www.mobapi.com/">MOBAPI</a>
+			</li>
+		</ul>
+	</div>
+</div>

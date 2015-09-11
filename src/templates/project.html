@@ -1,0 +1,219 @@
+<div class="project full-height">
+
+	<nav class="breadcrumb">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<h4>
+						{{project.title}}
+						<small>{{project.id}}</small>
+						<span class="label label-primary" ng-if="project.runtime.docker.container">{{'Running'|translate}}</span>
+						<span class="label label-warning" ng-if="!project.runtime.docker.container">{{'Stopped'|translate}}</span>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="content">
+
+		<tabset class="tabset full-height">
+			<!-- Log tab -->
+			<tab>
+				<tab-heading>
+					<i class="fa fa-th-list"></i>
+					{{'Log'|translate}}
+				</tab-heading>
+				<perfect-scrollbar class="log scroller full-height" scroll-glue>
+					<pre>{{project.runtime.containerLog}}</pre>
+				</perfect-scrollbar>
+			</tab>
+			<!-- /Log tab -->
+
+			<!-- Container tab -->
+			<tab style="position: relative;">
+				<tab-heading>
+					<i class="fa fa-info"></i>
+					{{'Container'|translate}}
+				</tab-heading>
+				<perfect-scrollbar class="scroller full-height">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12">
+								<h5>{{'Container'|translate}} <small>{{project.id}} (#{{project.runtime.docker.container.id}})</small></h5>
+								<pre ng-if="project.runtime.docker" pretty-json="project.runtime.docker.container.infos"></pre>
+								<!-- <div ng-model="project.runtime.docker.containerInfos" ui-ace readonly></div> -->
+							</div>
+						</div>
+					</div>
+				</perfect-scrollbar>
+			</tab>
+			<!-- /Container tab -->
+
+			<!-- Image tab -->
+			<tab style="position: relative;">
+				<tab-heading>
+					<i class="fa fa-info"></i>
+					{{'Image'|translate}}
+				</tab-heading>
+				<perfect-scrollbar class="scroller full-height">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12">
+								<div>
+									<h5 class="pull-left">{{'Image'|translate}} <small>{{project.image}}</small></h5>
+									<div class="pull-right">
+										<a class="btn btn-primary" ng-click="ctrl.pullImage()">
+											<i class="fa fa-download"></i>
+											{{'Update'|translate}}
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<h5>{{'History'|translate}}</h5>
+								<pre ng-if="project.runtime.docker">{{project.runtime.docker.image.history}}</pre>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<h5>{{'Informations'|translate}}</h5>
+								<pre ng-if="project.runtime.docker">{{project.runtime.docker.image.infos}}</pre>
+							</div>
+						</div>
+					</div>
+				</perfect-scrollbar>
+			</tab>
+			<!-- /Image tab -->
+
+			<!-- Configuration tab -->
+			<tab>
+				<tab-heading>
+					<i class="fa fa-gears"></i>
+					Configuration
+					<small ng-if="!project.runtime.configurationValid" class="label label-danger">{{'invalid'|translate}}</small>
+				</tab-heading>
+				<perfect-scrollbar class="scroller full-height">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12">
+								<h3>{{'Variables'|translate}}</h3>
+							</div>
+							<div class="col-xs-12">
+								<form>
+									<div ng-repeat="(varName, var) in project.variables" class="form-group">
+										<label>{{var.label}}</label>
+										<div class="controls">
+											<button ng-if="var.type == 'directory'" class="btn btn-primary" directory-choose ng-model="var.value" title="{{'Open projects configuration file'|translate}}">
+												<i class="fa fa-folder-o"></i>
+											</button>
+											<span ng-bind="var.value"></span>
+											<span ng-if="!var.value && var.mandatory">{{'Please choose a directory'|translate}}</span>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="conf-values">
+							<div class="row">
+								<div class="col-xs-12">
+									<h3>{{'Configuration values'|translate}}</h3>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<label>{{'Id'|translate}}</label>
+									<span class="conf-value">{{project.id}}</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<label>{{'Title'|translate}}</label>
+									<span class="conf-value">{{project.title}}</span>
+								</div>
+							</div>
+							<div ng-if="project.links" class="row">
+								<div class="col-xs-12">
+									<label>{{'Links'|translate}}</label>
+									<span class="conf-value">
+										<ul class="list-group">
+											<li class="list-group-item list-group-header">
+												<span>{{'Container id'|translate}}</span>
+												<span class="pull-right">{{'Alias'|translate}}</span>
+											</li>
+											<li class="list-group-item" ng-repeat="(k, v) in project.links">
+												<span>{{v}}</span>
+												<span class="pull-right">{{k}}</span>
+											</li>
+										</ul>
+									</span>
+								</div>
+							</div>
+							<div ng-if="project.ports" class="row">
+								<div class="col-xs-12">
+									<label>{{'Ports'|translate}}</label>
+									<span class="conf-value">
+										<ul class="list-group">
+											<li class="list-group-item list-group-header">
+												<span>{{'Container port'|translate}}</span>
+												<span class="pull-right">{{'Host port'|translate}}</span>
+											</li>
+											<li class="list-group-item" ng-repeat="(k, v) in project.ports">
+												<span>{{k}}</span>
+												<span class="pull-right">{{v}}</span>
+											</li>
+										</ul>
+									</span>
+								</div>
+							</div>
+							<div ng-if="project.volumes" class="row">
+								<div class="col-xs-12">
+									<label>{{'Volumes'|translate}}</label>
+									<span class="conf-value">
+										<ul class="list-group">
+											<li class="list-group-item list-group-header">
+												<span>{{'Host directory'|translate}}</span>
+												<span class="pull-right">{{'Container mount point'|translate}}</span>
+											</li>
+											<li class="list-group-item" ng-repeat="(k, v) in project.volumes">
+												<span>{{v}}</span>
+												<span class="pull-right">{{k}}</span>
+											</li>
+										</ul>
+									</span>
+								</div>
+							</div>
+							<div ng-if="project.cmd" class="row">
+								<div class="col-xs-12">
+									<label>{{'Command'|translate}}</label>
+									<span class="conf-value">{{project.cmd}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</perfect-scrollbar>
+			</tab>
+			<!-- /Configuration tab -->
+		</tabset>
+
+	</div>
+</div>
+
+
+<script type="text/ng-template" id="pullDialog.html">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 fa-spin-fix">
+				<div ng-if="!pullImageLog">
+					<h3>
+						<i class="fa fa-gear fa-spin"></i>
+						{{'Processing...'|translate}}
+					</h3>
+				</div>
+				<pre>{{pullImageLog}}</pre>
+			</div>
+		</div>
+	</div>
+</script>

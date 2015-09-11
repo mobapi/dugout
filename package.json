@@ -1,0 +1,49 @@
+{
+  "name": "Dugout",
+  "version": "1.0.0",
+  "description": "",
+  "author": "MOBAPI Team <team@mobapi.com>",
+  "homepage": "http://www.mobapi.com/",
+  "main": "index.html",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "coffee-script": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-angular-gettext": "*",
+    "gulp-coffee": "*",
+    "gulp-concat": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-minify-html": "*",
+    "gulp-ng-html2js": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "gulp-watch": "*",
+    "node-webkit-builder": "*",
+    "merge2": "*",
+    "vinyl-paths": "*"
+  },
+  "scripts": {
+    "build": "gulp clean && gulp && gulp build",
+    "build_mac_icon": "./iconset.sh MOBAPI-logo-square.png",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "license": "proprietary",
+  "window": {
+    "title": "Dugout",
+    "icon": "images/logo.png",
+    "toolbar": false,
+    "frame": false,
+    "width": 1280,
+    "height": 768,
+    "min_width": 480,
+    "min_height": 300,
+    "resizable": true,
+    "position": "mouse",
+    "single-instance": true
+  },
+  "node-remote": "localhost"
+}

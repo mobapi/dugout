@@ -1,0 +1,92 @@
+.map path.parcours {
+	stroke: #66f;
+	stroke-width: 3px;
+}
+
+
+.UserMarker {
+}
+
+.UserMarker .dot,
+.UserMarker .pulse2 {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.UserMarker .pulse2 {
+	width: 10px;
+	height: 10px;
+	border: 4px solid #648B18;
+	border-radius: 30px;
+	background-color: transparent;
+	z-index: 10;
+	margin-left: -9px;
+	margin-top: -9px;
+}
+
+.UserMarker .dot {
+	border: 5px solid #648B18;
+	background: transparent;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	border-radius: 60px;
+	height: 50px;
+	width: 50px;
+	z-index: 1;
+	opacity: 0;
+	margin-left: -30px;
+	margin-top: -30px;
+	-webkit-animation: pulse 3s ease-out;
+	-moz-animation: pulse 3s ease-out;
+	animation: pulse 3s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+@-moz-keyframes pulse {
+	0% {
+		-moz-transform: scale(0);
+		opacity: 0.0;
+	}
+	25% {
+		-moz-transform: scale(0);
+		opacity: 0.1;
+	}
+	50% {
+		-moz-transform: scale(0.1);
+		opacity: 0.3;
+	}
+	75% {
+		-moz-transform: scale(0.5);
+		opacity: 0.5;
+	}
+	100% {
+		-moz-transform: scale(1);
+		opacity: 0.0;
+	}
+}
+
+@-webkit-keyframes "pulse" {
+	0% {
+		-webkit-transform: scale(0);
+		opacity: 0.0;
+	}
+	25% {
+		-webkit-transform: scale(0);
+		opacity: 0.1;
+	}
+	50% {
+		-webkit-transform: scale(0.1);
+		opacity: 0.3;
+	}
+	75% {
+		-webkit-transform: scale(0.5);
+		opacity: 0.5;
+	}
+	100% {
+		-webkit-transform: scale(1);
+		opacity: 0.0;
+	}
+}

@@ -1,0 +1,37 @@
+.nav-tabs > li {
+	border: none;
+	border-bottom: 3px solid transparent;
+	transition: border 300ms ease;
+}
+
+.nav-tabs > li.active {
+	border-bottom: 3px solid #32afb2;
+}
+
+.nav-tabs > li > a {
+	color: #666;
+	background-color: transparent;
+	border: none;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+	color: #32afb2;
+	background-color: transparent;
+	border: none;
+}
+
+.tab-pane {
+	color: #333;
+}
+
+
+.content > .tabset > .tab-content {
+	height: 100%;
+}
+
+.content > .tabset > .tab-content > .tab-pane {
+	height: calc(100% - 60px);
+}

@@ -1,0 +1,5 @@
+.nwcache/
+bower_components/
+build/
+node_modules/
+www/

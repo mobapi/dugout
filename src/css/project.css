@@ -1,0 +1,14 @@
+.project .content .nav-tabs {
+}
+
+.project .log pre {
+	display: inline-block;
+	font-size: 0.9em;
+	word-wrap: normal;
+	overflow-x: hidden;
+}
+
+.project .conf-values .conf-value {
+	float: right;
+	width: 80%;
+}

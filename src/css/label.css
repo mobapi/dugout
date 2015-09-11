@@ -1,0 +1,9 @@
+.label-primary,
+.label-primary:hover,
+.label-primary:focus,
+.label-primary.focus,
+.label-primary:active,
+.label-primary.active {
+	background-color: #32afb2;
+	border-color: #2B9799;
+}

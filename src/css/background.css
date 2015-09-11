@@ -1,0 +1,27 @@
+#background {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 1;
+	display: block;
+	/*background-image: url('../images/logo.png');*/
+	background-size: 30%;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	-webkit-filter: blur(10px);
+	/*-webkit-animation: animate_background 16s ease 0s infinite;*/
+}
+
+@-webkit-keyframes animate_background { 
+	0% { 
+		-webkit-filter: blur(20px);
+	} 
+	50% { 
+		-webkit-filter: blur(8px);
+	} 
+	100% { 
+		-webkit-filter: blur(20px);
+	} 
+}

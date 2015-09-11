@@ -1,0 +1,270 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: François Luciotto <francois.luciotto@bitwip.fr>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: about.html:5
+msgid "About the application"
+msgstr "A propos de l’application"
+
+#: configuration.html:76
+msgid "Address"
+msgstr "Adresse"
+
+#: configuration.html:78
+msgid "Address (host name or IP)"
+msgstr "Adresse (nom d’hôte ou IP)"
+
+#: project.html:144
+msgid "Alias"
+msgstr "Alias"
+
+#: configuration.html:39 configuration.html:40
+msgid "Automagically detect the command path"
+msgstr "Détecter automatiquement le chemin de la commande"
+
+#: configuration.html:94
+msgid "Certificate"
+msgstr "Certificat"
+
+#: index.html:51
+msgid "Close"
+msgstr "Fermer"
+
+#: project.html:190
+msgid "Command"
+msgstr "Commande"
+
+#: configuration.html:8 index.html:44
+msgid "Configuration"
+msgstr "Configuration"
+
+#: project.html:122
+msgid "Configuration values"
+msgstr "Valeurs de configuration"
+
+#: project.html:37 project.html:43
+msgid "Container"
+msgstr "Conteneur"
+
+#: project.html:143
+msgid "Container id"
+msgstr "Identifiant du conteneur"
+
+#: project.html:178
+msgid "Container mount point"
+msgstr "Point de montage dans le conteneur"
+
+#: project.html:160
+msgid "Container port"
+msgstr "Port du conteneur"
+
+#: configuration.html:36
+msgid "Docker command path"
+msgstr "Chemin de la commande docker"
+
+#: app.js:191
+msgid "English"
+msgstr "Anglais"
+
+#: app.js:224
+msgid "Error"
+msgstr "Erreur"
+
+#: app.js:194
+msgid "French"
+msgstr "Français"
+
+#: project.html:76
+msgid "History"
+msgstr "Historique"
+
+#: sidebar.html:6
+msgid "Home"
+msgstr "Accueil"
+
+#: project.html:177
+msgid "Host directory"
+msgstr "Répertoire de l’hôte"
+
+#: project.html:161
+msgid "Host port"
+msgstr "Port de l’hôte"
+
+#: project.html:127
+msgid "Id"
+msgstr "Identifiant"
+
+#: project.html:57 project.html:64
+msgid "Image"
+msgstr "Image"
+
+#: project.html:82
+msgid "Informations"
+msgstr "Informations"
+
+#: configuration.html:24
+msgid "Language"
+msgstr "Langue"
+
+#: project.html:139
+msgid "Links"
+msgstr "Liens"
+
+#: project.html:25
+msgid "Log"
+msgstr "Traces"
+
+#: app.js:297
+msgid "Made with %(love)s in French Guiana by"
+msgstr "Réalisé avec %(love)s en Guyane française par"
+
+#: index.html:57
+msgid "Maximize"
+msgstr "Agrandir"
+
+#: index.html:54
+msgid "Minimize"
+msgstr "Réduire"
+
+#: index.html:39 project.html:109
+msgid "Open projects configuration file"
+msgstr "Ouvrir un fichier de configuration de projets"
+
+#: configuration.html:64
+msgid "Path"
+msgstr "Chemin"
+
+#: project.html:113
+msgid "Please choose a directory"
+msgstr "Veuillez choisir un répertoire"
+
+#: configuration.html:82 configuration.html:84
+msgid "Port"
+msgstr "Port"
+
+#: project.html:156
+msgid "Ports"
+msgstr "Ports"
+
+#: project.html:212
+msgid "Processing..."
+msgstr "Traitement en cours …"
+
+#: sidebar.html:11
+msgid "Projects"
+msgstr "Projets"
+
+#: project.html:10
+msgid "Running"
+msgstr "Démarré"
+
+#: configuration.html:90
+msgid "Secure connection"
+msgstr "Connexion sécurisée"
+
+#: configuration.html:42
+msgid "Select the command"
+msgstr "Sélectionner la commande"
+
+#: sidebar.html:14
+msgid "Start all projects"
+msgstr "Démarrer tous les projets"
+
+#: sidebar.html:30
+msgid "Start project"
+msgstr "Démarrer le projet"
+
+#: sidebar.html:17
+msgid "Stop all projects"
+msgstr "Arrêter tous les projets"
+
+#: sidebar.html:33
+msgid "Stop project"
+msgstr "Arrêter le projet"
+
+#: project.html:11
+msgid "Stopped"
+msgstr "Arrêté"
+
+#: app.js:225
+msgid "The configuration could not be saved."
+msgstr "La configuration ne peut pas être enregistrée."
+
+#: app.js:137
+msgid "This file is not a valid json file !"
+msgstr "Le fichier n’est pas un ficher JSON valide !"
+
+#: project.html:133
+msgid "Title"
+msgstr "Titre"
+
+#: index.html:29
+msgid "Toggle navigation"
+msgstr "Basculer la navigation"
+
+#: configuration.html:54
+msgid "UNIX Socket"
+msgstr "Socket UNIX"
+
+#: project.html:68
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: project.html:102
+msgid "Variables"
+msgstr "Variables"
+
+#: project.html:173
+msgid "Volumes"
+msgstr "Volumes"
+
+#: configuration.html:10 index.html:46 project.html:96
+msgid "invalid"
+msgstr "invalide"
+
+#: configuration.html:9
+msgid "valid"
+msgstr "valide"
+
+#~ msgid "Open configuration file"
+#~ msgstr "Ouvrir un fichier de configuration"
+
+#~ msgid "Working directory"
+#~ msgstr "Répertoire de travail"
+
+#~ msgid "Made with %(love)s in French Guiana by %(author)s"
+#~ msgstr "Créé avec %(love)s en Guyane française par %(author)s"
+
+#~ msgid "Commands"
+#~ msgstr "Commandes"
+
+#~ msgid "Dashboard"
+#~ msgstr "Tableau de bord"
+
+#~ msgid "Start the docker container"
+#~ msgstr "Démarrer le conteneur docker"
+
+#~ msgid "Stop the docker container"
+#~ msgstr "Arrêter le conteneur docker"
+
+#~ msgid "The configuration is invalid."
+#~ msgstr "La configuration est invalide."
+
+#~ msgid "The configuration in invalid."
+#~ msgstr "La configuration est invalide."
+
+#~ msgid "detect"
+#~ msgstr "détecter"
+
+#~ msgid "Protocol"
+#~ msgstr "Protocole"

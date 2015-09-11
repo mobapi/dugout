@@ -1,0 +1,39 @@
+.btn,
+.btn:focus,
+.btn:active {
+	outline: none !important;
+}
+
+.btn-circle {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.428571429;
+	border-radius: 15px;
+}
+
+.btn-circle.btn-sm {
+	width: 15px;
+	height: 15px;
+	padding: 1px 0;
+	font-size: 9px;
+	line-height: 1.428571429;
+	border-radius: 8px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-color: #32afb2;
+	border-color: #2B9799;
+}
+
+.btn-secondary {
+	background-color: #88912D;
+}
