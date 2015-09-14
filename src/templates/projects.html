@@ -1,0 +1,40 @@
+<div class="projects full-height">
+
+	<div class="content">
+
+		<div class="container-fluid">
+			<div class="row m-t-50">
+				<div class="col-sm-6" ng-repeat="project in projects">
+					<div class="panel panel-color panel-projects">
+						<div class="panel-body">
+							<h4>{{project.title}}</h4>
+						</div>
+						<div class="panel-footer">
+							<span class="pull-right">
+								<a ui-sref="project.logs({id: project.id})" title="{{'Log'|translate}}">
+									<i class="fa fa-th-list"></i>
+									<span>{{'Log'|translate}}</span>
+								</a>
+								<a ui-sref="project.container({id: project.id})" title="{{'Container'|translate}}">
+									<i class="fa fa-align-justify fa-rotate-90"></i>
+									<span>{{'Container'|translate}}</span>
+								</a>
+								<a ui-sref="project.image({id: project.id})" title="{{'Image'|translate}}">
+									<i class="fa fa-clone"></i>
+									<span>{{'Image'|translate}}</span>
+								</a>
+								<a ui-sref="project.configuration({id: project.id})" title="{{'Configuration'|translate}}">
+									<i class="fa fa-gear"></i>
+									<span>{{'Configuration'|translate}}</span>
+								</a>
+							</span>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

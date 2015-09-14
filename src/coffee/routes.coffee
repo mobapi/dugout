@@ -2,7 +2,7 @@ app
 .config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
 
 	# if none of the states are matched, use this as the fallback
-	$urlRouterProvider.otherwise '/home'
+	$urlRouterProvider.otherwise '/projects'
 
 	$stateProvider
 
@@ -16,12 +16,6 @@ app
 			'main':
 				template: '<div ui-view class="full-height"></div>'
 
-	.state 'home',
-		parent: 'app'
-		url: '/home'
-		templateUrl: 'home.html'
-		controller: 'homeCtrl as ctrl'
-
 	.state 'about',
 		parent: 'app'
 		url: '/about'
@@ -34,7 +28,14 @@ app
 		templateUrl: 'configuration.html'
 		controller: 'configurationCtrl as ctrl'
 
+	.state 'projects',
+		parent: 'app'
+		url: '/projects'
+		templateUrl: 'projects.html'
+		controller: 'projectsCtrl as ctrl'
+
 	.state 'project',
+		abstract: true
 		parent: 'app'
 		url: '/projects/:id'
 		templateUrl: 'project.html'
@@ -43,5 +44,25 @@ app
 			project: ['$stateParams', 'projectsMgr', ($stateParams, projectsMgr) ->
 				return projectsMgr.get $stateParams.id
 			]
+
+	.state 'project.logs',
+		url: '/logs'
+		templateUrl: 'project_logs.html'
+		controller: 'projectLogsCtrl as ctrl'
+
+	.state 'project.container',
+		url: '/container'
+		templateUrl: 'project_container.html'
+		controller: 'projectContainerCtrl as ctrl'
+
+	.state 'project.image',
+		url: '/image'
+		templateUrl: 'project_image.html'
+		controller: 'projectImageCtrl as ctrl'
+
+	.state 'project.configuration',
+		url: '/configuration'
+		templateUrl: 'project_configuration.html'
+		controller: 'projectConfigurationCtrl as ctrl'
 
 ]

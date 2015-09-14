@@ -1,0 +1,99 @@
+<perfect-scrollbar class="scroller full-height">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<h3>{{'Variables'|translate}}</h3>
+			</div>
+			<div class="col-xs-12">
+				<form>
+					<div ng-repeat="(varName, var) in project.variables" class="form-group">
+						<label>{{var.label}}</label>
+						<div class="controls">
+							<button ng-if="var.type == 'directory'" class="btn btn-primary" directory-choose ng-model="var.value" title="{{'Open projects configuration file'|translate}}">
+								<i class="fa fa-folder-o"></i>
+							</button>
+							<span ng-bind="var.value"></span>
+							<span ng-if="!var.value && var.mandatory">{{'Please choose a directory'|translate}}</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="conf-values">
+			<div class="row">
+				<div class="col-xs-12">
+					<h3>{{'Configuration values'|translate}}</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>{{'Id'|translate}}</label>
+					<span class="conf-value">{{project.id}}</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>{{'Title'|translate}}</label>
+					<span class="conf-value">{{project.title}}</span>
+				</div>
+			</div>
+			<div ng-if="project.links" class="row">
+				<div class="col-xs-12">
+					<label>{{'Links'|translate}}</label>
+					<span class="conf-value">
+						<ul class="list-group">
+							<li class="list-group-item list-group-header">
+								<span>{{'Container id'|translate}}</span>
+								<span class="pull-right">{{'Alias'|translate}}</span>
+							</li>
+							<li class="list-group-item" ng-repeat="(k, v) in project.links">
+								<span>{{v}}</span>
+								<span class="pull-right">{{k}}</span>
+							</li>
+						</ul>
+					</span>
+				</div>
+			</div>
+			<div ng-if="project.ports" class="row">
+				<div class="col-xs-12">
+					<label>{{'Ports'|translate}}</label>
+					<span class="conf-value">
+						<ul class="list-group">
+							<li class="list-group-item list-group-header">
+								<span>{{'Container port'|translate}}</span>
+								<span class="pull-right">{{'Host port'|translate}}</span>
+							</li>
+							<li class="list-group-item" ng-repeat="(k, v) in project.ports">
+								<span>{{k}}</span>
+								<span class="pull-right">{{v}}</span>
+							</li>
+						</ul>
+					</span>
+				</div>
+			</div>
+			<div ng-if="project.volumes" class="row">
+				<div class="col-xs-12">
+					<label>{{'Volumes'|translate}}</label>
+					<span class="conf-value">
+						<ul class="list-group">
+							<li class="list-group-item list-group-header">
+								<span>{{'Host directory'|translate}}</span>
+								<span class="pull-right">{{'Container mount point'|translate}}</span>
+							</li>
+							<li class="list-group-item" ng-repeat="(k, v) in project.volumes">
+								<span>{{v}}</span>
+								<span class="pull-right">{{k}}</span>
+							</li>
+						</ul>
+					</span>
+				</div>
+			</div>
+			<div ng-if="project.cmd" class="row">
+				<div class="col-xs-12">
+					<label>{{'Command'|translate}}</label>
+					<span class="conf-value">{{project.cmd}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</perfect-scrollbar>

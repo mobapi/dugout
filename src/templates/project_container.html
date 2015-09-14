@@ -1,0 +1,11 @@
+<perfect-scrollbar class="scroller full-height">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<h5>{{'Container'|translate}} <small>{{project.id}} (#{{project.runtime.docker.container.id}})</small></h5>
+				<pre ng-if="project.runtime.docker" pretty-json="project.runtime.docker.container.infos"></pre>
+				<!-- <div ng-model="project.runtime.docker.containerInfos" ui-ace readonly></div> -->
+			</div>
+		</div>
+	</div>
+</perfect-scrollbar>

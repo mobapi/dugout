@@ -74,3 +74,7 @@ pre {
 .list-group .list-group-header {
 	background-color: #eee;
 }
+
+.panel-projects .panel-footer a span {
+	display: inline-block;
+}

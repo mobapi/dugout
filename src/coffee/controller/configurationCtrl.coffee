@@ -10,10 +10,10 @@ app
 			$scope.conf = $scope.$root.globalConfMgr.conf
 			$scope.languages = [{
 				id: 'en'
-				name: gettextCatalog.getString gettext('English')
+				name: 'English'
 			}, {
 				id: 'fr'
-				name: gettextCatalog.getString gettext('French')
+				name: 'Français'
 			}]
 			$scope.$watch 'conf', (newVal, oldVal) =>
 				$scope.isConfigurationValid = $scope.globalConfMgr.isConfigurationValid()

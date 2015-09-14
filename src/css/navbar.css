@@ -32,7 +32,7 @@
 .navbar .navbar-brand h2 {
 	margin: 0;
 	margin-right: 100px;
-	margin-top: -5px;
+	/*margin-top: -5px;*/
 }
 
 .navbar .navbar-brand img {
@@ -99,5 +99,10 @@
 	display: inline;
 	color: #ffd478 !important;
 	padding: 0;
+}
+
+
+.navbar-static-top > .nav > li {
+	display: inline-block;
 }
 

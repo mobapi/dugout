@@ -1,0 +1,45 @@
+<perfect-scrollbar class="scroller full-height">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<h5 class="pull-left">{{'Image'|translate}} <small>{{project.image}}</small></h5>
+					<div class="pull-right">
+						<a class="btn btn-primary" ng-click="ctrl.pullImage()">
+							<i class="fa fa-download"></i>
+							{{'Update'|translate}}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h5>{{'History'|translate}}</h5>
+				<pre ng-if="project.runtime.docker">{{project.runtime.docker.image.history}}</pre>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h5>{{'Informations'|translate}}</h5>
+				<pre ng-if="project.runtime.docker">{{project.runtime.docker.image.infos}}</pre>
+			</div>
+		</div>
+	</div>
+</perfect-scrollbar>
+
+<script type="text/ng-template" id="pullDialog.html">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 fa-spin-fix">
+				<div ng-if="!pullImageLog">
+					<h3>
+						<i class="fa fa-gear fa-spin"></i>
+						{{'Processing...'|translate}}
+					</h3>
+				</div>
+				<pre>{{pullImageLog}}</pre>
+			</div>
+		</div>
+	</div>
+</script>
