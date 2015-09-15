@@ -1,3 +1,9 @@
+.tab {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
 .nav-tabs > li {
 	border: none;
 	border-bottom: 3px solid transparent;
@@ -28,10 +34,8 @@
 }
 
 
-.content > .tabset > .tab-content {
-	height: 100%;
-}
-
-.content > .tabset > .tab-content > .tab-pane {
-	height: calc(100% - 60px);
+.tab > .tab-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }

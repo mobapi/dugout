@@ -1,0 +1,80 @@
+<nav class="navbar navbar-color navbar-static-top" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">{{'Toggle navigation'|translate}}</span>
+			<span class="fa fa-bars"></span>
+		</button>
+		<a class="navbar-brand" ui-sref="projects">
+			<h2>Dugout</h2>
+			<img src="images/logo.png" />
+		</a>
+	</div>
+	<ul class="nav navbar-nav pull-right">
+		<li>
+			<a file-chooser href="#" ng-model="configurationFilePath" title="{{'Open projects configuration file'|translate}}">
+				<i class="fa fa-folder-o fa-2x"></i>
+			</a>
+		</li>
+		<li>
+			<a ui-sref="configuration" title="{{'Configuration'|translate}}" ng-class="{'active': activeState == 'configuration'}">
+				<i class="stream stream-cog fa-2x"></i>
+				<small ng-if="!$root.globalConfMgr.valid" class="label label-danger pull-right">{{'invalid'|translate}}</small>
+			</a>
+		</li>
+	</ul>
+	<div class="buttons nav">
+		<button class="btn btn-circle btn-sm btn-danger" ng-click="ctrl.closeApp()" title="{{'Close'|translate}}">
+			<i class="fa fa-times"></i>
+		</button>
+		<button class="btn btn-circle btn-sm btn-warning" ng-click="ctrl.minimizeApp()" title="{{'Minimize'|translate}}">
+			<i class="fa fa-minus"></i>
+		</button>
+		<button class="btn btn-circle btn-sm btn-success" ng-click="ctrl.maximizeApp()" title="{{'Maximize'|translate}}">
+			<i class="fa fa-unsorted"></i>
+		</button>
+	</div>
+
+	<div class="navbar-transparent sidebar" role="navigation">
+		<div class="sidebar-nav navbar-collapse collapse">
+			<ul class="nav" id="side-menu">
+				<li ng-if="projects">
+					<a ui-sref="projects" class="pull-left" ng-class="{'active': activeState == 'projects'}" title="{{'All projects'|translate}}">
+						<i class="fa fa-sitemap fa-fw"></i> {{'Projects'|translate}}
+					</a>
+					<span ng-if="$root.globalConfMgr.valid" class="btn-group btn-group-sm pull-right" style="padding: 10px 15px">
+						<button class="btn btn-primary" ng-click="ctrl.startAll()" title="{{'Start all projects'|translate}}">
+							<i class="fa fa-play"></i>
+						</button>
+						<button class="btn btn-warning" ng-click="ctrl.stopAll()" title="{{'Stop all projects'|translate}}">
+							<i class="fa fa-stop"></i>
+						</button>
+					</span>
+					<div class="clearfix"></div>
+					<ul class="nav nav-second-level">
+						<li ng-repeat="(pid, project) in projects">
+							<a ui-sref="project.logs({id: pid})" ng-class="{'active': activeProject.id == pid}">
+								<i class="stream stream-module"></i>
+								{{project.title}}
+							</a>
+							<span class="abs-r-15 abs-t-5">
+								<span  ng-if="$root.globalConfMgr.valid && project.runtime.configurationValid">
+									<button ng-if="!project.runtime.docker.container" class="btn btn-primary btn-sm" ng-click="project.startContainer()" title="{{'Start project'|translate}}">
+										<i class="fa fa-play"></i>
+									</button>
+									<button ng-if="project.runtime.docker.container" class="btn btn-warning btn-sm pull-right" ng-click="project.stopContainer()" title="{{'Stop project'|translate}}">
+										<i class="fa fa-stop"></i>
+									</button>
+								</span>
+								<i ng-if="!$root.globalConfMgr.valid || !project.runtime.configurationValid" class="fa fa-warning fa-2x text-danger"></i>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li class="footer">
+					<span ng-bind-html="footerSentence"></span>
+					<a external-link href="http://www.mobapi.com/">MOBAPI</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

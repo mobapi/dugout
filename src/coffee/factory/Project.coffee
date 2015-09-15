@@ -45,13 +45,22 @@ app
 				q.reject error
 			return q.promise
 
+		substitute: (params, vars) ->
+			out = {}
+			for kp, p of params
+				if typeof p == 'object'
+					out[kp] = @substitute params[kp], vars
+				else
+					out[kp] = _.template(p)(vars)
+			return out
+
 		startContainer: ->
 			# Parameters
 			params = {
 				hostname: @hostname if @hostname
 				links: @links if @links
 				ports: @ports if @ports
-				volumes: @volumes if @volumes
+				volumes: angular.copy @volumes if @volumes
 				cmd: @cmd if @cmd
 			}
 			# Variables
@@ -59,11 +68,9 @@ app
 			for k, v of @variables
 				vars[k] = v.value
 			# Variables substitution
-			for kp, p of params
-				for kv, v of params[kp]
-					params[kp][kv] = _.template(params[kp][kv])(vars)
+			@runtime.params = @substitute params, vars
 			# Start !
-			dockerUtil.startContainer(@id, @image, @docker_cmd, params).then null
+			dockerUtil.startContainer(@id, @image, @docker_cmd, @runtime.params).then null
 			, (error) =>
 				console.error "Unable to start container: error #{error}"
 				@checkContainerStatus()

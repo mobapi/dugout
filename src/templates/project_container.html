@@ -1,11 +1,14 @@
-<perfect-scrollbar class="scroller full-height">
+<perfect-scrollbar ng-if="project.runtime.docker.container" class="scroller flex-full-height">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
-				<h5>{{'Container'|translate}} <small>{{project.id}} (#{{project.runtime.docker.container.id}})</small></h5>
-				<pre ng-if="project.runtime.docker" pretty-json="project.runtime.docker.container.infos"></pre>
-				<!-- <div ng-model="project.runtime.docker.containerInfos" ui-ace readonly></div> -->
+				<h4>{{'Container'|translate}} <small>{{project.id}} (#{{project.runtime.docker.container.id}})</small></h4>
+				<pre pretty-json="project.runtime.docker.container.infos"></pre>
 			</div>
 		</div>
 	</div>
 </perfect-scrollbar>
+
+<div ng-if="!project.runtime.docker.container" class="text-empty">
+	<span>{{'The container is not running'|translate}}</span>
+</div>

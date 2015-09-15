@@ -1,19 +1,34 @@
-<perfect-scrollbar class="scroller full-height">
+<perfect-scrollbar class="scroller flex-full-height">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
-				<h3>{{'Variables'|translate}}</h3>
+				<h4>{{'Variables'|translate}}</h4>
 			</div>
 			<div class="col-xs-12">
 				<form>
 					<div ng-repeat="(varName, var) in project.variables" class="form-group">
-						<label>{{var.label}}</label>
-						<div class="controls">
-							<button ng-if="var.type == 'directory'" class="btn btn-primary" directory-choose ng-model="var.value" title="{{'Open projects configuration file'|translate}}">
+						<label>{{var.label}} <small class="text-grayed">{{varName}}</small></label>
+						<div class="controls" ng-if="var.type == 'directory'">
+							<button class="btn btn-primary" file-chooser="directory" ng-model="var.value" title="{{var.label}}">
 								<i class="fa fa-folder-o"></i>
 							</button>
-							<span ng-bind="var.value"></span>
-							<span ng-if="!var.value && var.mandatory">{{'Please choose a directory'|translate}}</span>
+							<span ng-bind="var.value" class="form-control"></span>
+							<span ng-if="!var.value && var.mandatory" class="form-control">{{'Please choose a directory'|translate}}</span>
+						</div>
+						<div class="controls" ng-if="var.type == 'file'">
+							<button class="btn btn-primary" file-chooser ng-model="var.value" title="{{var.label}}">
+								<i class="fa fa-folder-o"></i>
+							</button>
+							<span ng-bind="var.value" class="form-control"></span>
+							<span ng-if="!var.value && var.mandatory" class="form-control">{{'Please choose a file'|translate}}</span>
+						</div>
+						<div class="controls" ng-if="var.type == 'string'">
+							<input type="text" ng-model="var.value" class="form-control" />
+							<span ng-if="!var.value && var.mandatory">{{'Please type a value'|translate}}</span>
+						</div>
+						<div class="controls" ng-if="var.type == 'integer'">
+							<input type="number" ng-model="var.value" class="form-control" />
+							<span ng-if="!var.value && var.mandatory">{{'Please type a value'|translate}}</span>
 						</div>
 					</div>
 				</form>
@@ -22,7 +37,7 @@
 		<div class="conf-values">
 			<div class="row">
 				<div class="col-xs-12">
-					<h3>{{'Configuration values'|translate}}</h3>
+					<h4>{{'Configuration values'|translate}}</h4>
 				</div>
 			</div>
 			<div class="row">

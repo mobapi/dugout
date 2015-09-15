@@ -51,6 +51,7 @@
 
 .navbar-color .nav > li > a {
 	color: #eee;
+	background-color: transparent;
 }
 
 .navbar-color .sidebar .nav > li > a {
@@ -63,10 +64,9 @@
 }
 }
 
-.navbar-color .nav > li > a:hover,
-.navbar-color .nav > li > a:focus {
+.navbar-color .nav > li > a.active {
 	background-color: transparent;
-	color: #ffd478;
+	color: #bb5b31;
 }
 
 .sidebar ul li {

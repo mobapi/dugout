@@ -1,7 +1,7 @@
 app
 .service 'globalConfMgr',
-['$q', 'process', 'boot2docker', 'localStorageService',
-($q, process, boot2docker, storage) ->
+['$q', 'process', 'localStorageService',
+($q, process, storage) ->
 
 	class Service
 
@@ -17,27 +17,13 @@ app
 				language = 'en'
 			@setLanguage language
 
-		# getLanguage: ->
-		# 	try
-		# 		language = JSON.parse storage.get 'language'
-		# 	return language
-
 		setLanguage: (language) ->
-			# $rootScope.language = language
 			@conf.language = language
 			gettextCatalog.setCurrentLanguage language
 			@save()
-			# storage.set 'language', JSON.stringify language
 
 		removeLanguage: ->
 			storage.remove 'language'
-
-
-		# getDockerIp: ->
-		# 	defer = $q.defer()
-		# 	boot2docker.getIp().then (ip) ->
-		# 		defer.resolve ip
-		# 	return defer.promise
 
 		isConfigurationValid: ->
 			@valid = false

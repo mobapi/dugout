@@ -5,10 +5,26 @@ input.form-control:active {
 	box-shadow: none;
 }
 
-input[type=text].form-control {
+input[type=text].form-control,
+input[type=number].form-control {
 	background-color: transparent;
 	border: none;
 	border-radius: 0;
-	border-bottom: 1px solid #555;
+	border-bottom: 1px solid #ddd;
 	color: #333;
+}
+
+input[type=text].form-control:focus,
+input[type=number].form-control:focus {
+	border-bottom: 1px solid #bbb;
+}
+
+span.form-control {
+	border: none;
+	box-shadow: none;
+}
+
+.controls > button {
+	float: left;
+	margin-right: 30px;
 }

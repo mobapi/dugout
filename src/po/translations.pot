@@ -16,8 +16,12 @@ msgstr ""
 msgid "Address (host name or IP)"
 msgstr ""
 
-#: project.html:144
+#: project_configuration.html:47
 msgid "Alias"
+msgstr ""
+
+#: navbar.html:41
+msgid "All projects"
 msgstr ""
 
 #: configuration.html:39
@@ -29,37 +33,42 @@ msgstr ""
 msgid "Certificate"
 msgstr ""
 
-#: index.html:51
+#: navbar.html:26
 msgid "Close"
 msgstr ""
 
-#: project.html:190
+#: project_configuration.html:93
 msgid "Command"
 msgstr ""
 
+#: app.js:355
 #: configuration.html:8
-#: index.html:44
+#: navbar.html:19
+#: projects.html:26
+#: projects.html:28
 msgid "Configuration"
 msgstr ""
 
-#: project.html:122
+#: project_configuration.html:25
 msgid "Configuration values"
 msgstr ""
 
-#: project.html:37
-#: project.html:43
+#: app.js:345
+#: project_container.html:5
+#: projects.html:18
+#: projects.html:20
 msgid "Container"
 msgstr ""
 
-#: project.html:143
+#: project_configuration.html:46
 msgid "Container id"
 msgstr ""
 
-#: project.html:178
+#: project_configuration.html:81
 msgid "Container mount point"
 msgstr ""
 
-#: project.html:160
+#: project_configuration.html:63
 msgid "Container port"
 msgstr ""
 
@@ -67,44 +76,34 @@ msgstr ""
 msgid "Docker command path"
 msgstr ""
 
-#: app.js:191
-msgid "English"
-msgstr ""
-
-#: app.js:224
+#: app.js:241
 msgid "Error"
 msgstr ""
 
-#: app.js:194
-msgid "French"
-msgstr ""
-
-#: project.html:76
+#: project_image.html:18
 msgid "History"
 msgstr ""
 
-#: sidebar.html:6
-msgid "Home"
-msgstr ""
-
-#: project.html:177
+#: project_configuration.html:80
 msgid "Host directory"
 msgstr ""
 
-#: project.html:161
+#: project_configuration.html:64
 msgid "Host port"
 msgstr ""
 
-#: project.html:127
+#: project_configuration.html:30
 msgid "Id"
 msgstr ""
 
-#: project.html:57
-#: project.html:64
+#: app.js:350
+#: project_image.html:6
+#: projects.html:22
+#: projects.html:24
 msgid "Image"
 msgstr ""
 
-#: project.html:82
+#: project_image.html:24
 msgid "Informations"
 msgstr ""
 
@@ -112,28 +111,30 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: project.html:139
+#: project_configuration.html:42
 msgid "Links"
 msgstr ""
 
-#: project.html:25
-msgid "Log"
+#: app.js:340
+#: projects.html:14
+#: projects.html:16
+msgid "Logs"
 msgstr ""
 
-#: app.js:297
+#: app.js:261
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
-#: index.html:57
+#: navbar.html:32
 msgid "Maximize"
 msgstr ""
 
-#: index.html:54
+#: navbar.html:29
 msgid "Minimize"
 msgstr ""
 
-#: index.html:39
-#: project.html:109
+#: navbar.html:14
+#: project_configuration.html:12
 msgid "Open projects configuration file"
 msgstr ""
 
@@ -141,7 +142,7 @@ msgstr ""
 msgid "Path"
 msgstr ""
 
-#: project.html:113
+#: project_configuration.html:16
 msgid "Please choose a directory"
 msgstr ""
 
@@ -150,15 +151,15 @@ msgstr ""
 msgid "Port"
 msgstr ""
 
-#: project.html:156
+#: project_configuration.html:59
 msgid "Ports"
 msgstr ""
 
-#: project.html:212
+#: project_image.html:38
 msgid "Processing..."
 msgstr ""
 
-#: sidebar.html:11
+#: navbar.html:42
 msgid "Projects"
 msgstr ""
 
@@ -174,19 +175,19 @@ msgstr ""
 msgid "Select the command"
 msgstr ""
 
-#: sidebar.html:14
+#: navbar.html:45
 msgid "Start all projects"
 msgstr ""
 
-#: sidebar.html:30
+#: navbar.html:61
 msgid "Start project"
 msgstr ""
 
-#: sidebar.html:17
+#: navbar.html:48
 msgid "Stop all projects"
 msgstr ""
 
-#: sidebar.html:33
+#: navbar.html:64
 msgid "Stop project"
 msgstr ""
 
@@ -194,19 +195,27 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: app.js:225
+#: app.js:242
 msgid "The configuration could not be saved."
 msgstr ""
 
-#: app.js:137
+#: project_container.html:13
+msgid "The container is not running"
+msgstr ""
+
+#: project_logs.html:6
+msgid "The logs are empty"
+msgstr ""
+
+#: app.js:154
 msgid "This file is not a valid json file !"
 msgstr ""
 
-#: project.html:133
+#: project_configuration.html:36
 msgid "Title"
 msgstr ""
 
-#: index.html:29
+#: navbar.html:4
 msgid "Toggle navigation"
 msgstr ""
 
@@ -214,21 +223,20 @@ msgstr ""
 msgid "UNIX Socket"
 msgstr ""
 
-#: project.html:68
+#: project_image.html:10
 msgid "Update"
 msgstr ""
 
-#: project.html:102
+#: project_configuration.html:5
 msgid "Variables"
 msgstr ""
 
-#: project.html:173
+#: project_configuration.html:76
 msgid "Volumes"
 msgstr ""
 
 #: configuration.html:10
-#: index.html:46
-#: project.html:96
+#: navbar.html:21
 msgid "invalid"
 msgstr ""
 

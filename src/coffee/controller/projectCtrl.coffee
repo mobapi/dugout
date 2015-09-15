@@ -7,16 +7,15 @@ app
 
 		constructor: ->
 			$scope.project = project
-			console.dir $state
 			$scope.tabs = [{
 				uri: 'logs'
-				label: gettextCatalog.getString gettext('Log')
-				iconClass: 'fa fa-th-list'
+				label: gettextCatalog.getString gettext('Logs')
+				iconClass: 'stream stream-window-list'
 				uiSref: "project.logs"
 			}, {
 				uri: 'container'
 				label: gettextCatalog.getString gettext('Container')
-				iconClass: 'fa fa-align-justify fa-rotate-90'
+				iconClass: 'stream stream-box'
 				uiSref: "project.container"
 			}, {
 				uri: 'image'
@@ -26,7 +25,7 @@ app
 			}, {
 				uri: 'configuration'
 				label: gettextCatalog.getString gettext('Configuration')
-				iconClass: 'fa fa-gear'
+				iconClass: 'stream stream-cog'
 				uiSref: "project.configuration"
 			}]
 			sp = $state.current.name.split '.'

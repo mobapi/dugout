@@ -1,5 +1,5 @@
 app
-.directive 'directoryChoose', ->
+.directive 'fileChooser', ->
 	
 	class Directive
 
@@ -11,8 +11,14 @@ app
 		transclude: 'element'
 
 		link: (scope, element, attrs, controller, transclude) ->
+			dir = attrs.fileChooser == 'directory'
 			$transcluded = transclude()
-			$input = $('<input>').css({'display': 'none'}).attr('type', 'file').attr('nwdirectory', 'nwdirectory')
+			$input = $('<input>')
+				.css
+					display: 'none'
+				.attr 'type', 'file'
+			if dir
+				$input.attr 'nwdirectory', 'nwdirectory'
 			element.after $input
 			element.after $transcluded
 

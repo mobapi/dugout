@@ -10,9 +10,9 @@ app
 		abstract: true
 		url: ''
 		views:
-			'sidebar':
-				templateUrl: 'sidebar.html'
-				controller: 'sidebarCtrl as ctrl'
+			'navbar':
+				templateUrl: 'navbar.html'
+				controller: 'navbarCtrl as ctrl'
 			'main':
 				template: '<div ui-view class="full-height"></div>'
 

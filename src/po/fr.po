@@ -24,9 +24,13 @@ msgstr "Adresse"
 msgid "Address (host name or IP)"
 msgstr "Adresse (nom d’hôte ou IP)"
 
-#: project.html:144
+#: project_configuration.html:47
 msgid "Alias"
 msgstr "Alias"
+
+#: navbar.html:41
+msgid "All projects"
+msgstr "Tous les projets"
 
 #: configuration.html:39 configuration.html:40
 msgid "Automagically detect the command path"
@@ -36,35 +40,36 @@ msgstr "Détecter automatiquement le chemin de la commande"
 msgid "Certificate"
 msgstr "Certificat"
 
-#: index.html:51
+#: navbar.html:26
 msgid "Close"
 msgstr "Fermer"
 
-#: project.html:190
+#: project_configuration.html:93
 msgid "Command"
 msgstr "Commande"
 
-#: configuration.html:8 index.html:44
+#: app.js:355 configuration.html:8 navbar.html:19 projects.html:26
+#: projects.html:28
 msgid "Configuration"
 msgstr "Configuration"
 
-#: project.html:122
+#: project_configuration.html:25
 msgid "Configuration values"
 msgstr "Valeurs de configuration"
 
-#: project.html:37 project.html:43
+#: app.js:345 project_container.html:5 projects.html:18 projects.html:20
 msgid "Container"
 msgstr "Conteneur"
 
-#: project.html:143
+#: project_configuration.html:46
 msgid "Container id"
 msgstr "Identifiant du conteneur"
 
-#: project.html:178
+#: project_configuration.html:81
 msgid "Container mount point"
 msgstr "Point de montage dans le conteneur"
 
-#: project.html:160
+#: project_configuration.html:63
 msgid "Container port"
 msgstr "Port du conteneur"
 
@@ -72,43 +77,31 @@ msgstr "Port du conteneur"
 msgid "Docker command path"
 msgstr "Chemin de la commande docker"
 
-#: app.js:191
-msgid "English"
-msgstr "Anglais"
-
-#: app.js:224
+#: app.js:241
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:194
-msgid "French"
-msgstr "Français"
-
-#: project.html:76
+#: project_image.html:18
 msgid "History"
 msgstr "Historique"
 
-#: sidebar.html:6
-msgid "Home"
-msgstr "Accueil"
-
-#: project.html:177
+#: project_configuration.html:80
 msgid "Host directory"
 msgstr "Répertoire de l’hôte"
 
-#: project.html:161
+#: project_configuration.html:64
 msgid "Host port"
 msgstr "Port de l’hôte"
 
-#: project.html:127
+#: project_configuration.html:30
 msgid "Id"
 msgstr "Identifiant"
 
-#: project.html:57 project.html:64
+#: app.js:350 project_image.html:6 projects.html:22 projects.html:24
 msgid "Image"
 msgstr "Image"
 
-#: project.html:82
+#: project_image.html:24
 msgid "Informations"
 msgstr "Informations"
 
@@ -116,27 +109,27 @@ msgstr "Informations"
 msgid "Language"
 msgstr "Langue"
 
-#: project.html:139
+#: project_configuration.html:42
 msgid "Links"
 msgstr "Liens"
 
-#: project.html:25
-msgid "Log"
+#: app.js:340 projects.html:14 projects.html:16
+msgid "Logs"
 msgstr "Traces"
 
-#: app.js:297
+#: app.js:261
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
-#: index.html:57
+#: navbar.html:32
 msgid "Maximize"
 msgstr "Agrandir"
 
-#: index.html:54
+#: navbar.html:29
 msgid "Minimize"
 msgstr "Réduire"
 
-#: index.html:39 project.html:109
+#: navbar.html:14 project_configuration.html:12
 msgid "Open projects configuration file"
 msgstr "Ouvrir un fichier de configuration de projets"
 
@@ -144,7 +137,7 @@ msgstr "Ouvrir un fichier de configuration de projets"
 msgid "Path"
 msgstr "Chemin"
 
-#: project.html:113
+#: project_configuration.html:16
 msgid "Please choose a directory"
 msgstr "Veuillez choisir un répertoire"
 
@@ -152,15 +145,15 @@ msgstr "Veuillez choisir un répertoire"
 msgid "Port"
 msgstr "Port"
 
-#: project.html:156
+#: project_configuration.html:59
 msgid "Ports"
 msgstr "Ports"
 
-#: project.html:212
+#: project_image.html:38
 msgid "Processing..."
 msgstr "Traitement en cours …"
 
-#: sidebar.html:11
+#: navbar.html:42
 msgid "Projects"
 msgstr "Projets"
 
@@ -176,19 +169,19 @@ msgstr "Connexion sécurisée"
 msgid "Select the command"
 msgstr "Sélectionner la commande"
 
-#: sidebar.html:14
+#: navbar.html:45
 msgid "Start all projects"
 msgstr "Démarrer tous les projets"
 
-#: sidebar.html:30
+#: navbar.html:61
 msgid "Start project"
 msgstr "Démarrer le projet"
 
-#: sidebar.html:17
+#: navbar.html:48
 msgid "Stop all projects"
 msgstr "Arrêter tous les projets"
 
-#: sidebar.html:33
+#: navbar.html:64
 msgid "Stop project"
 msgstr "Arrêter le projet"
 
@@ -196,19 +189,27 @@ msgstr "Arrêter le projet"
 msgid "Stopped"
 msgstr "Arrêté"
 
-#: app.js:225
+#: app.js:242
 msgid "The configuration could not be saved."
 msgstr "La configuration ne peut pas être enregistrée."
 
-#: app.js:137
+#: project_container.html:13
+msgid "The container is not running"
+msgstr "Le conteneur n’est pas démarré"
+
+#: project_logs.html:6
+msgid "The logs are empty"
+msgstr "Les traces sont vides"
+
+#: app.js:154
 msgid "This file is not a valid json file !"
 msgstr "Le fichier n’est pas un ficher JSON valide !"
 
-#: project.html:133
+#: project_configuration.html:36
 msgid "Title"
 msgstr "Titre"
 
-#: index.html:29
+#: navbar.html:4
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
 
@@ -216,25 +217,37 @@ msgstr "Basculer la navigation"
 msgid "UNIX Socket"
 msgstr "Socket UNIX"
 
-#: project.html:68
+#: project_image.html:10
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: project.html:102
+#: project_configuration.html:5
 msgid "Variables"
 msgstr "Variables"
 
-#: project.html:173
+#: project_configuration.html:76
 msgid "Volumes"
 msgstr "Volumes"
 
-#: configuration.html:10 index.html:46 project.html:96
+#: configuration.html:10 navbar.html:21
 msgid "invalid"
 msgstr "invalide"
 
 #: configuration.html:9
 msgid "valid"
 msgstr "valide"
+
+#~ msgid "Log"
+#~ msgstr "Traces"
+
+#~ msgid "English"
+#~ msgstr "Anglais"
+
+#~ msgid "French"
+#~ msgstr "Français"
+
+#~ msgid "Home"
+#~ msgstr "Accueil"
 
 #~ msgid "Open configuration file"
 #~ msgstr "Ouvrir un fichier de configuration"

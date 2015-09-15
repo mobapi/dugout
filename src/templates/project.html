@@ -1,4 +1,4 @@
-<div class="project full-height">
+<div class="page-content project">
 
 	<nav class="breadcrumb">
 		<div class="container-fluid">
@@ -17,15 +17,19 @@
 
 	<div class="content">
 
-		<ul class="nav nav-tabs">
-			<li ng-class="tabClass(tab)" ng-repeat="tab in tabs">
-				<a ng-click="setSelectedTab(tab)">
-					<i ng-class="tab.iconClass"></i>
-					{{tab.label}}
-				</a>
-			</li>
-		</ul>
-		<div class="full-height" ui-view></div>
+		<div class="tab">
+			<ul class="nav nav-tabs">
+				<li ng-class="tabClass(tab)" ng-repeat="tab in tabs">
+					<a href="" ng-click="setSelectedTab(tab)">
+						<i ng-class="tab.iconClass"></i>
+						{{tab.label}}
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="flex-full-height" ui-view></div>
+			</div>
+		</div>
 
 	</div>
 
