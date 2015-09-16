@@ -9,6 +9,7 @@ html2js = require 'gulp-ng-html2js'
 merge = require 'merge2'
 minifyhtml = require 'gulp-minify-html'
 NodeWebkitBuilder = require 'node-webkit-builder'
+packagejson = require './package.json'
 vinylpaths = require 'vinyl-paths'
 
 nw =
@@ -93,51 +94,43 @@ files =
 gulp.task 'libs', [ 'libs_js', 'libs_css', 'libs_fonts' ]
 
 gulp.task 'libs_js', ->
-	return gulp
-		.src files.libs.js
+	return gulp.src files.libs.js
 		.pipe concat("libs.js")
 		.pipe gulp.dest("#{directories.dist}/js/")
 
 gulp.task 'libs_css', ->
-	return gulp
-		.src files.libs.css
+	return gulp.src files.libs.css
 		.pipe concat("libs.css")
 		.pipe gulp.dest("#{directories.dist}/css/")
 
 gulp.task 'libs_fonts', ->
-	return gulp
-		.src files.libs.fonts
+	return gulp.src files.libs.fonts
 		.pipe gulp.dest("#{directories.dist}/fonts/")
 
 
 # App
-gulp.task 'app', [ 'app_index', 'app_js', 'app_css', 'app_images', 'app_fonts', 'app_data' ], ->
-	gulp
-		.src "package.json"
+gulp.task 'app', [ 'app_index', 'app_js', 'app_css', 'app_images', 'app_fonts' ], ->
+	return gulp.src "package.json"
 		.pipe gulp.dest("#{directories.dist}")
 
 gulp.task 'app_index', ->
-	return gulp
-		.src files.app.index
+	return gulp.src files.app.index
 		.pipe gulp.dest("#{directories.dist}/")
 
 gulp.task 'app_js', [ 'app_coffee', 'app_templates', 'app_translations' ], ->
-	return gulp
-		.src [ "#{directories.dist}/js/coffee.js", "#{directories.dist}/js/templates.js", "#{directories.dist}/js/translations.js" ]
+	return gulp.src [ "#{directories.dist}/js/coffee.js", "#{directories.dist}/js/templates.js", "#{directories.dist}/js/translations.js" ]
 		.pipe vinylpaths(del)
 		.pipe concat('app.js')
 		.pipe gulp.dest("#{directories.dist}/js/")
 
 gulp.task 'app_coffee', ->
-	return gulp
-		.src files.app.coffee
+	return gulp.src files.app.coffee
 		.pipe coffee({ bare: true }).on('error', gutil.log)
 		.pipe concat("coffee.js")
 		.pipe gulp.dest("#{directories.dist}/js/")
 
 gulp.task 'app_templates', ->
-	return gulp
-		.src files.app.templates
+	return gulp.src files.app.templates
 		.pipe minifyhtml(
 			empty: true
 			spare: true
@@ -151,8 +144,7 @@ gulp.task 'app_templates', ->
 		.pipe gulp.dest("#{directories.dist}/js/")
 
 gulp.task 'app_translations', ->
-	return gulp
-		.src files.app.po
+	return gulp.src files.app.po
 		.pipe gettext.compile({
 			# options to pass to angular-gettext-tools...
 			format: 'javascript'
@@ -161,8 +153,7 @@ gulp.task 'app_translations', ->
 		.pipe gulp.dest("#{directories.dist}/js/")
 
 gulp.task 'app_css', ->
-	return gulp
-		.src files.app.css
+	return gulp.src files.app.css
 		.pipe concat("app.css")
 		.pipe gulp.dest("#{directories.dist}/css/")
 
@@ -176,11 +167,6 @@ gulp.task 'app_fonts', ->
 		.src files.app.fonts
 		.pipe gulp.dest("#{directories.dist}/fonts/")
 
-gulp.task 'app_data', ->
-	return gulp
-		.src "#{directories.source}/data/**/*"
-		.pipe gulp.dest("#{directories.dist}/data/")
-
 gulp.task 'app_build', ->
 	nodeWebkit = new NodeWebkitBuilder
 		version: nw.version
@@ -193,15 +179,20 @@ gulp.task 'app_build', ->
 		macZip: false
 		macIcns: "icon.icns"
 	nodeWebkit.on 'log', console.log
-	nodeWebkit.build().then ->
-		console.log 'Built !'
-	, (error) ->
-		console.error error
+	return nodeWebkit.build()
+
+gulp.task 'build', [ 'app_build' ], ->
+	platformsBuildDirs = []
+	for platform in nw.platforms
+		platformsBuildDirs.push "#{directories.build}/#{packagejson.version}/#{platform}/"
+	for platformBuildDir in platformsBuildDirs
+		gulp.src "projects.sample.json"
+			.pipe gulp.dest platformBuildDir
 
 
 gulp.task 'pot', ->
 	return gulp
-		.src([ files.app.index, "#{directories.dist}/js/app.js", files.app.templates ])
+		.src [ files.app.index, "#{directories.dist}/js/app.js", files.app.templates ]
 		.pipe gettext.extract("translations.pot", {
 			# options to pass to angular-gettext-tools...
 		})
@@ -221,4 +212,4 @@ gulp.task 'clean', (callback) ->
 
 gulp.task 'default', [ 'libs', 'app' ]
 
-gulp.task 'build', [ 'app_build' ]
+# gulp.task 'build', [ 'app_build' ]
