@@ -28,7 +28,7 @@ The projects configuration file is a JSON file, which must contain an object des
 Each project has several fields to describe it, some are mandatories, some are optional:
 
 |Field|Mandatory|Type|Description|
-|-|
+|---|---|---|---|
 |title|x|string|Title of the container|
 |image|x|string|Image name|
 |ports| |object|Ports redirection mappings|
@@ -123,7 +123,7 @@ Each variable will have a corresponding input field in the configuration tab of 
 ##### Variable description
 
 |Field|Mandatory|Type|Description|
-|-|
+|---|---|---|---|
 |label|x|string|Label of the variable input field|
 |type|x|string|Variable type, possible values are: "string", "number", "directory", "file"|
 |value| | |Variable default value|
@@ -143,7 +143,7 @@ Each variable will have a corresponding input field in the configuration tab of 
 A variable could be reference in the project configuration, as the following examples:
 
 |Variable|Reference|
-|-|
+|---|---|
 |a|${a}|
 |i|${i}|
 |repo|${repo}|
