@@ -38,7 +38,8 @@ if [ ! -f "$1" ]; then
 fi
 
 if [ -z "$SIPS" -o -z "$ICONUTIL" ]; then
-	echo "Not on a Mac, aborting Mac app icon creation"
+	echo "It seems you do not have sips nor iconutil, maybe you are not on a Mac..."
+	echo "Aborting Mac app icon creation."
 	exit
 fi
 

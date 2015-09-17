@@ -189,6 +189,7 @@ to:
 
 - npm
 - bower
+- wine, if not building on a windows platform (for the win ico)
 
 ### Steps
 
@@ -200,5 +201,10 @@ The binaries will be in the `build` directory.
 
 To build the mac icon:
 
-    chmod 755 iconset.sh
-    ./iconset.sh src/images/logo.png
+    chmod 755 buildMacIconset.sh
+    ./buildMacIconset.sh src/images/logo.png
+
+To build the win icon:
+
+    chmod 755 buildWinIco.sh
+    ./buildWinIco.sh src/images/logo.png

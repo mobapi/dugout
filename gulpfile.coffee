@@ -178,6 +178,7 @@ gulp.task 'app_build', ->
 			return @appVersion
 		macZip: false
 		macIcns: "icon.icns"
+		winIco: "icon.ico"
 	nodeWebkit.on 'log', console.log
 	return nodeWebkit.build()
 
