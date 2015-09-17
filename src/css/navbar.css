@@ -1,6 +1,11 @@
+.no-drag {
+	-webkit-app-region: no-drag;
+}
+
 .navbar {
-	margin-bottom: 0;
+	-webkit-app-region: drag;
 	-webkit-user-select: none;
+	margin-bottom: 0;
 }
 
 .navbar-header {
@@ -9,20 +14,20 @@
 
 @media (min-width: 768px) {
 .sidebar {
-  margin-top: 0;
+  margin-top: 65px;
 }
 }
 
 .navbar .nav.buttons {
 	margin-left: 8px;
 	margin-top: 5px;
-	-webkit-app-region: drag;
-	-webkit-user-select: none;
+	width: 60px;
 }
 
 .navbar-color {
 	background-color: #32afb2;
 	color: #eee;
+	border: none;
 }
 
 .navbar-color .navbar-brand {

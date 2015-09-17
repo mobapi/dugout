@@ -16,18 +16,6 @@ app
 			'main':
 				template: '<div ui-view class="full-height"></div>'
 
-	.state 'about',
-		parent: 'app'
-		url: '/about'
-		templateUrl: 'about.html'
-		controller: 'aboutCtrl as ctrl'
-
-	.state 'configuration',
-		parent: 'app'
-		url: '/configuration'
-		templateUrl: 'configuration.html'
-		controller: 'configurationCtrl as ctrl'
-
 	.state 'projects',
 		parent: 'app'
 		url: '/projects'
@@ -64,5 +52,11 @@ app
 		url: '/configuration'
 		templateUrl: 'project_configuration.html'
 		controller: 'projectConfigurationCtrl as ctrl'
+
+	.state 'configuration',
+		parent: 'app'
+		url: '/configuration'
+		templateUrl: 'configuration.html'
+		controller: 'configurationCtrl as ctrl'
 
 ]

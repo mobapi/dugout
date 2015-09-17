@@ -1,4 +1,4 @@
-<div class="conf full-height">
+<div class="page-content conf full-height">
 
 	<nav class="breadcrumb">
 		<div class="container-fluid">
@@ -14,94 +14,112 @@
 		</div>
 	</nav>
 
-	<div class="content">
+	<div class="full-height">
 
-		<div class="container">
+		<perfect-scrollbar class="scroller full-height">
 
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">
-						<label>{{'Language'|translate}}</label>
-						<div class="">
-							<select class="form-control" ng-model="conf.language" ng-options="language.id as language.name for language in languages">
-							</select>
+			<div class="container-fluid">
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label>{{'Language'|translate}}</label>
+							<div class="">
+								<select class="form-control" ng-model="conf.language" ng-options="language.id as language.name for language in languages">
+								</select>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">
-						<label>{{'Docker command path'|translate}}</label>
-						<div class="">
-							<input style="display: none;" class="form-control" id="file_dockercommand" file="conf.dockerCommand" type="file" />
-							<button class="btn btn-primary" ng-click="ctrl.detectCmd('docker')" title="{{'Automagically detect the command path'|translate}}">
-								<i class="fa fa-search" title="{{'Automagically detect the command path'|translate}}"></i>
-							</button>
-							<button class="btn btn-primary" ng-click="ctrl.selectFile('dockercommand')" title="{{'Select the command'|translate}}">...</button>
-							<span>{{conf.dockerCommand}}</span>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label>{{'Docker command path'|translate}}</label>
+							<div class="">
+								<input style="display: none;" class="form-control" id="file_dockercommand" file="conf.dockerCommand" type="file" />
+								<button class="btn btn-primary" ng-click="ctrl.detectCmd('docker')" title="{{'Automagically detect the command path'|translate}}">
+									<i class="fa fa-search" title="{{'Automagically detect the command path'|translate}}"></i>
+								</button>
+								<button class="btn btn-primary" ng-click="ctrl.selectFile('dockercommand')" title="{{'Select the command'|translate}}">...</button>
+								<span>{{conf.dockerCommand}}</span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">
-						<label>
-							<input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="socket" />
-							{{'UNIX Socket'|translate}}
-						</label>
-						<label>
-							 <input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="tcpip" />
-							 TCP/IP
-						</label>
-					</div>
-
-					<div ng-if="conf.docker.connectionType == 'socket'">
-						<div class="form-group">
-							<label>{{'Path'|translate}}</label>
-							<div class="">
-								<button class="btn btn-primary" ng-click="ctrl.selectFile('docker_socket')">...</button>
-								<input style="display: none;" class="form-control" id="file_docker_socket" file="conf.docker.socket" type="file" />
-								<span>{{conf.docker.socket}}</span>
-							</div>
-						</div>
-					</div>
-
-					<div ng-if="conf.docker.connectionType == 'tcpip'">
-
-						<div class="form-group">
-							<label>{{'Address'|translate}}</label>
-							<div class="">
-								<input type="text" class="form-control" placeholder="{{'Address (host name or IP)'|translate}}" ng-model="conf.docker.address" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label>{{'Port'|translate}}</label>
-							<div class="">
-								<input type="text" class="form-control" placeholder="{{'Port'|translate}}" ng-model="conf.docker.port" />
-							</div>
-						</div>
+				<div class="row">
+					<div class="col-xs-12">
 						<div class="form-group">
 							<label>
-								<input type="checkbox" ng-model="conf.docker.secure" />
-								{{'Secure connection'|translate}}
+								<input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="socket" />
+								{{'UNIX Socket'|translate}}
+							</label>
+							<label>
+								 <input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="tcpip" />
+								 TCP/IP
 							</label>
 						</div>
-						<div ng-if="conf.docker.secure" class="form-group">
-							<label>{{'Certificate'|translate}}</label>
-							<div class="">
-								<button class="btn btn-primary" ng-click="ctrl.selectFile('docker_cert_path')">...</button>
-								<input style="display: none;" class="form-control" id="file_docker_cert_path" file="conf.docker.certPath" type="file" nwdirectory />
-								<span>{{conf.docker.certPath}}</span>
+					</div>
+				</div>
+
+				<div ng-if="conf.docker.connectionType == 'socket'">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<label>{{'Path'|translate}}</label>
+								<div class="">
+									<button class="btn btn-primary" ng-click="ctrl.selectFile('docker_socket')">...</button>
+									<input style="display: none;" class="form-control" id="file_docker_socket" file="conf.docker.socket" type="file" />
+									<span>{{conf.docker.socket}}</span>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<div ng-if="conf.docker.connectionType == 'tcpip'">
+					<div class="row">
+						<div class="col-xs-8">
+							<div class="form-group">
+								<label>{{'Address'|translate}}</label>
+								<div class="">
+									<input type="text" class="form-control" placeholder="{{'Address (host name or IP)'|translate}}" ng-model="conf.docker.address" />
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group">
+								<label>{{'Port'|translate}}</label>
+								<div class="">
+									<input type="text" class="form-control" placeholder="{{'Port'|translate}}" ng-model="conf.docker.port" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<label>
+									<input type="checkbox" ng-model="conf.docker.secure" />
+									{{'Secure connection'|translate}}
+								</label>
+							</div>
+							<div ng-if="conf.docker.secure" class="form-group">
+								<label>{{'Certificate'|translate}}</label>
+								<div class="">
+									<button class="btn btn-primary" ng-click="ctrl.selectFile('docker_cert_path')">...</button>
+									<input style="display: none;" class="form-control" id="file_docker_cert_path" file="conf.docker.certPath" type="file" nwdirectory />
+									<span>{{conf.docker.certPath}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
-		</div>
+
+		</perfect-scrollbar>
 
 	</div>
 

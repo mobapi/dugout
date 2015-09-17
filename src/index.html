@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="full-height">
 
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -16,20 +16,14 @@
 
 <body ng-controller="appCtrl" class="full-height">
 
-	<div id="background"></div>
+	<toaster-container></toaster-container>
 
-    <div id="wrapper" class="full-height">
+	<!-- Navigation -->
+	<div ui-view="navbar"></div>
+	<!-- /Navigation -->
 
-		<toaster-container></toaster-container>
-
-		<!-- Navigation -->
-		<div ui-view="navbar"></div>
-		<!-- /Navigation -->
-
-        <div id="page-wrapper">
-        	<div ui-view="main" class="full-height"></div>
-        </div>
-
+	<div class="page-wrapper full-height">
+		<div ui-view="main" class="full-height"></div>
 	</div>
 
 </body>

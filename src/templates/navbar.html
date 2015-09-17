@@ -1,40 +1,40 @@
 <nav class="navbar navbar-color navbar-static-top" role="navigation">
 	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<button type="button" class="navbar-toggle no-drag" data-toggle="collapse" data-target=".navbar-collapse">
 			<span class="sr-only">{{'Toggle navigation'|translate}}</span>
 			<span class="fa fa-bars"></span>
 		</button>
-		<a class="navbar-brand" ui-sref="projects">
+		<a class="navbar-brand no-drag" ui-sref="projects">
 			<h2>Dugout</h2>
 			<img src="images/logo.png" />
 		</a>
 	</div>
 	<ul class="nav navbar-nav pull-right">
 		<li>
-			<a file-chooser href="#" ng-model="configurationFilePath" title="{{'Open projects configuration file'|translate}}">
+			<a file-chooser class="no-drag" href="#" ng-model="configurationFilePath" title="{{'Open projects configuration file'|translate}}">
 				<i class="fa fa-folder-o fa-2x"></i>
 			</a>
 		</li>
 		<li>
-			<a ui-sref="configuration" title="{{'Configuration'|translate}}" ng-class="{'active': activeState == 'configuration'}">
+			<a ui-sref="configuration" class="no-drag" title="{{'Configuration'|translate}}" ng-class="{'active': activeState == 'configuration'}">
 				<i class="stream stream-cog fa-2x"></i>
 				<small ng-if="!$root.globalConfMgr.valid" class="label label-danger pull-right">{{'invalid'|translate}}</small>
 			</a>
 		</li>
 	</ul>
-	<div class="buttons nav">
-		<button class="btn btn-circle btn-sm btn-danger" ng-click="ctrl.closeApp()" title="{{'Close'|translate}}">
+	<div class="nav navbar-nav buttons">
+		<button class="btn btn-circle btn-sm btn-danger no-drag" ng-click="ctrl.closeApp()" title="{{'Close'|translate}}">
 			<i class="fa fa-times"></i>
 		</button>
-		<button class="btn btn-circle btn-sm btn-warning" ng-click="ctrl.minimizeApp()" title="{{'Minimize'|translate}}">
+		<button class="btn btn-circle btn-sm btn-warning no-drag" ng-click="ctrl.minimizeApp()" title="{{'Minimize'|translate}}">
 			<i class="fa fa-minus"></i>
 		</button>
-		<button class="btn btn-circle btn-sm btn-success" ng-click="ctrl.maximizeApp()" title="{{'Maximize'|translate}}">
+		<button class="btn btn-circle btn-sm btn-success no-drag" ng-click="ctrl.maximizeApp()" title="{{'Maximize'|translate}}">
 			<i class="fa fa-unsorted"></i>
 		</button>
 	</div>
 
-	<div class="navbar-transparent sidebar" role="navigation">
+	<div class="navbar-transparent sidebar no-drag" role="navigation">
 		<div class="sidebar-nav navbar-collapse collapse">
 			<ul class="nav" id="side-menu">
 				<li ng-if="projects">

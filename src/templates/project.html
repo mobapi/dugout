@@ -1,4 +1,4 @@
-<div class="page-content project">
+<div class="page-content project full-height">
 
 	<nav class="breadcrumb">
 		<div class="container-fluid">
@@ -15,9 +15,9 @@
 		</div>
 	</nav>
 
-	<div class="content">
+	<div class="full-height">
 
-		<div class="tab">
+		<div class="tab full-height">
 			<ul class="nav nav-tabs">
 				<li ng-class="tabClass(tab)" ng-repeat="tab in tabs">
 					<a href="" ng-click="setSelectedTab(tab)">
@@ -26,8 +26,8 @@
 					</a>
 				</li>
 			</ul>
-			<div class="tab-content">
-				<div class="flex-full-height" ui-view></div>
+			<div class="tab-content full-height">
+				<div class="full-height" ui-view></div>
 			</div>
 		</div>
 
