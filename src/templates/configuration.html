@@ -37,18 +37,19 @@
 						<div class="form-group">
 							<label>{{'Docker command path'|translate}}</label>
 							<div class="">
-								<input style="display: none;" class="form-control" id="file_dockercommand" file="conf.dockerCommand" type="file" />
-								<button class="btn btn-primary" ng-click="ctrl.detectCmd('docker')" title="{{'Automagically detect the command path'|translate}}">
+								<button ng-if="platform == 'linux' || platform == 'darwin'" class="btn btn-primary" ng-click="ctrl.detectCmd('docker')" title="{{'Automagically detect the command path'|translate}}">
 									<i class="fa fa-search" title="{{'Automagically detect the command path'|translate}}"></i>
 								</button>
-								<button class="btn btn-primary" ng-click="ctrl.selectFile('dockercommand')" title="{{'Select the command'|translate}}">...</button>
-								<span>{{conf.dockerCommand}}</span>
+								<button class="btn btn-primary" file-chooser ng-model="conf.dockerCommand" title="{{'Select the docker command'|translate}}">
+									<i class="fa fa-folder-o"></i>
+								</button>
+								<span>{{conf.dockerCommand}}</span-->
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="row">
+				<div ng-if="platform == 'linux'" class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
 							<label>

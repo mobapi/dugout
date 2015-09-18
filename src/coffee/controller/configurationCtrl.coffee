@@ -8,6 +8,9 @@ app
 		constructor: ->
 			$scope.globalConfMgr = $scope.$root.globalConfMgr
 			$scope.conf = $scope.$root.globalConfMgr.conf
+			$scope.platform = window.process.platform
+			if $scope.platform != 'linux'
+				$scope.conf.docker.connectionType = 'tcpip'
 			$scope.languages = [{
 				id: 'en'
 				name: 'English'
@@ -20,9 +23,6 @@ app
 				if newVal and newVal != oldVal
 					@save()
 			, true
-
-		selectFile: (index) ->
-			$("#file_#{index}").trigger 'click'
 
 		detectCmd: (cmd) ->
 			$scope.globalConfMgr.detectCmd(cmd).then (path) =>

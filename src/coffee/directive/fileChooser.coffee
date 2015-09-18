@@ -25,11 +25,13 @@ app
 			clickListener = (event) ->
 				event.preventDefault()
 				$input.trigger 'click'
+				return false
 			$transcluded[0].addEventListener 'click', clickListener
 
 			fileChangeListener = (event) ->
 				scope.ngModel = @value
 				scope.$apply()
+				return false
 			$input[0].addEventListener 'change', fileChangeListener
 
 		controllerAs: 'ctrl'
