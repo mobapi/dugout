@@ -15,7 +15,7 @@ vinylpaths = require 'vinyl-paths'
 nw =
 	version: '0.12.3'
 	cacheDir: '.nwcache'
-	platforms: [ 'linux64', 'osx64', 'win64' ]
+	platforms: [ 'linux64', 'osx64' ]
 
 directories =
 	source: 'src'
@@ -168,7 +168,7 @@ gulp.task 'app_fonts', ->
 		.pipe gulp.dest("#{directories.dist}/fonts/")
 
 gulp.task 'app_build', ->
-	nodeWebkit = new NodeWebkitBuilder
+	options = {
 		version: nw.version
 		buildDir: directories.build
 		cacheDir: nw.cacheDir
@@ -178,7 +178,10 @@ gulp.task 'app_build', ->
 			return @appVersion
 		macZip: false
 		macIcns: "icon.icns"
-		winIco: "icon.ico"
+	}
+	if 'win64' in nw.platforms
+		options.winIco = "icon.ico"
+	nodeWebkit = new NodeWebkitBuilder options
 	nodeWebkit.on 'log', console.log
 	return nodeWebkit.build()
 
