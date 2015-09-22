@@ -12,15 +12,15 @@
 							<button class="btn btn-primary" file-chooser="directory" ng-model="var.value" title="{{var.label}}">
 								<i class="fa fa-folder-o"></i>
 							</button>
-							<span ng-bind="var.value" class="form-control"></span>
-							<span ng-if="!var.value && var.mandatory" class="form-control">{{'Please choose a directory'|translate}}</span>
+							<span ng-show="var.value" ng-bind="var.value" class="form-control"></span>
+							<span ng-show="!var.value && var.mandatory" class="form-control">{{'Please choose a directory'|translate}}</span>
 						</div>
 						<div class="controls" ng-if="var.type == 'file'">
 							<button class="btn btn-primary" file-chooser ng-model="var.value" title="{{var.label}}">
 								<i class="fa fa-folder-o"></i>
 							</button>
-							<span ng-bind="var.value" class="form-control"></span>
-							<span ng-if="!var.value && var.mandatory" class="form-control">{{'Please choose a file'|translate}}</span>
+							<span ng-show="var.value" ng-bind="var.value" class="form-control"></span>
+							<span ng-show="!var.value && var.mandatory" class="form-control">{{'Please choose a file'|translate}}</span>
 						</div>
 						<div class="controls" ng-if="var.type == 'string'">
 							<input type="text" ng-model="var.value" class="form-control" />
