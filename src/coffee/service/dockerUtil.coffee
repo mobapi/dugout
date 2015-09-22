@@ -27,25 +27,24 @@ app
 					DOCKER_CERT_PATH: @globalConf.docker.certPath
 				}
 
-		getContainerStatus: (containerName) ->
-			q = $q.defer()
-			if globalConfMgr.isConfigurationValid()
-				cmd = "#{@globalConf.dockerCommand} inspect --type=container #{containerName}"
-				process.exec(cmd, @buildDockerEnv()).then (stdout, stderr) =>
-					q.resolve true
-				, (error, stderr) =>
-					q.resolve false
-			else
-				q.reject()
-			return q.promise
+		# getContainerStatus: (containerName) ->
+		# 	q = $q.defer()
+		# 	if globalConfMgr.isConfigurationValid()
+		# 		cmd = "#{@globalConf.dockerCommand} inspect --type=container #{containerName}"
+		# 		process.exec(cmd, @buildDockerEnv()).then (stdout, stderr) =>
+		# 			q.resolve true
+		# 		, (error, stderr) =>
+		# 			q.resolve false
+		# 	else
+		# 		q.reject()
+		# 	return q.promise
 
-		startContainer: (containerName, imageName, cmd, parameters) ->
+		createContainer: (containerName, imageName, cmd, parameters) ->
 			q = $q.defer()
 			if globalConfMgr.isConfigurationValid()
 				cmdline = []
 				cmdline.push @globalConf.dockerCommand
-				cmdline.push "run"
-				cmdline.push "-d"
+				cmdline.push "create"
 				cmdline.push "--name"
 				cmdline.push containerName
 				# Host name
@@ -84,6 +83,20 @@ app
 				q.reject()
 			return q.promise
 
+		startContainer: (containerName) ->
+			q = $q.defer()
+			if globalConfMgr.isConfigurationValid()
+				cmdline = []
+				cmdline.push @globalConf.dockerCommand
+				cmdline.push "start"
+				cmdline.push containerName
+				# Start the process
+				process.spawn cmdline[0], cmdline.slice(1), @buildDockerEnv()
+				.then q.resolve, q.reject, q.notify
+			else
+				q.reject()
+			return q.promise
+
 		stopContainer: (containerName) ->
 			q = $q.defer()
 			return q.reject() if not @globalConf
@@ -115,20 +128,9 @@ app
 		getContainerInfos: (containerName) ->
 			q = $q.defer()
 			return q.reject() if not @globalConf
-			result = {}
-			# Container & image infos
 			@inspectContainer(containerName).then (containerInfos) =>
 				infos = JSON.parse containerInfos
-				containerId = infos[0].Id
-				imageName = infos[0].Config.Image
-				result =
-					infos: containerInfos
-					id: containerId
-				q.resolve result
-				# @inspectImage(imageName).then (imageInfos) =>
-				# 	result.imageInfos = imageInfos
-				# , (error, stderr) ->
-				# 	q.reject error, stderr
+				q.resolve infos[0]
 			, (error, stderr) ->
 				q.reject error, stderr
 			return q.promise
@@ -136,7 +138,7 @@ app
 		inspectContainer: (containerName) ->
 			q = $q.defer()
 			return q.reject() if not @globalConf
-			cmd = "#{@globalConf.dockerCommand} inspect #{containerName}"
+			cmd = "#{@globalConf.dockerCommand} inspect --type=container #{containerName}"
 			process.exec(cmd, @buildDockerEnv()).then (stdout, stderr) =>
 				q.resolve stdout
 			, (error, stderr) =>

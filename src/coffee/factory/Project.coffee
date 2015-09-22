@@ -10,7 +10,12 @@ app
 			@runtime = {
 				globalConf: {}
 				configurationValid: false
-				docker: {}
+				docker:
+					image: {}
+					container:
+						addToLog: (data) ->
+							@log = "" if not @log
+							@log += data
 			}
 
 		checkConfiguration: ->
@@ -25,22 +30,12 @@ app
 			q = $q.defer()
 			dockerUtil.getImageInfos(@image).then (infos) =>
 				@runtime.docker.image = infos
-				dockerUtil.getContainerStatus(@id).then (status) =>
-					if status
-						console.log "Container #{@id} is up"
-						# @runtime.docker = {} if not @runtime.docker
-						dockerUtil.getContainerInfos(@id).then (infos) =>
-							# angular.extend @runtime.docker.container, infos
-							@runtime.docker.container = infos
-							q.resolve()
-						, (error) =>
-							q.reject error
-						@startContainerLog()
-					else
-						console.log "Container #{@id} is down"
-						delete @runtime.docker.container
-						@stopContainerLog()
-						q.resolve()
+				dockerUtil.getContainerInfos(@id).then (infos) =>
+					@runtime.docker.container.infos = infos
+					q.resolve()
+				, (error) =>
+					delete @runtime.docker.container.infos
+					q.reject error
 			, (error) =>
 				q.reject error
 			return q.promise
@@ -69,35 +64,40 @@ app
 				vars[k] = v.value
 			# Variables substitution
 			@runtime.params = @substitute params, vars
-			# Start !
-			dockerUtil.startContainer(@id, @image, @docker_cmd, @runtime.params).then null
+			# Create container
+			dockerUtil.createContainer(@id, @image, @docker_cmd, @runtime.params).then =>
+				# And start it !
+				dockerUtil.startContainer(@id).then =>
+					@startContainerLog()
+					@checkContainerStatus()
+				, (error) =>
+					console.error "Unable to start container: error #{error}"
+					@checkContainerStatus()
 			, (error) =>
-				console.error "Unable to start container: error #{error}"
+				console.error "Unable to create container: error #{error}"
 				@checkContainerStatus()
 			, (data) =>
 				@checkContainerStatus()
-				@runtime.containerLog = "" if not @runtime.containerLog
-				@runtime.imageLog += data.stdout.toString() if data.stdout
-				@runtime.containerLog += data.stderr.toString() if data.stderr
+				@runtime.docker.container.addToLog data.stdout.toString() if data.stdout
+				@runtime.docker.container.addToLog data.stderr.toString() if data.stderr
 
 		stopContainer: ->
 			dockerUtil.stopContainer(@id).then =>
+				@stopContainerLog()
 				@checkContainerStatus()
 			, (error) =>
 				console.dir error
 				@checkContainerStatus()
 
 		startContainerLog: ->
-			# @runtime.containerLogProcess = process
-			@runtime.containerLog = ""
-			dockerUtil.startContainerLog(@id).then null
-			, =>
-				# delete @runtime.containerLogProcess if @runtime.containerLogProcess
-				delete @runtime.containerLog if @runtime.containerLog
+			return if @runtime.docker.container.logging
+			dockerUtil.startContainerLog(@id).then =>
+				@runtime.docker.container.logging = true
+			, (error) =>
+				console.dir error
 			, (data) =>
-				@runtime.containerLog = "" if not @runtime.containerLog
-				@runtime.containerLog += data.stdout.toString() if data.stdout
-				# @runtime.containerLog += data.stderr.toString() if data.stderr
+				@runtime.docker.container.logging = true
+				@runtime.docker.container.addToLog data.stdout.toString() if data.stdout
 
 		stopContainerLog: ->
 			return

@@ -6,7 +6,7 @@ app
 	class Process
 
 		exec: (cmd, env) ->
-			console.log cmd
+			console.debug "exec: #{cmd}"
 			q = $q.defer()
 			require('child_process').exec "#{cmd}",
 				env: env
@@ -16,12 +16,13 @@ app
 			return q.promise
 
 		spawn: (cmd, args, env) ->
-			console.log "#{cmd} #{args.join(' ')}"
+			console.debug "spawn: #{cmd} #{args.join(' ')}"
 			q = $q.defer()
-			p = require('child_process').spawn "#{cmd}", args,
+			p = require('child_process').spawn cmd, args,
 				env: env
 			p.on 'exit', (code) ->
 				return q.reject code if code
+				# console.log "#{cmd} #{args[0]}: exit #{code}"
 				return q.resolve()
 			p.stdout.on 'data', (data) ->
 				q.notify

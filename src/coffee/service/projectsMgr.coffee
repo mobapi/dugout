@@ -22,8 +22,7 @@ app
 				# Check project configuration
 				project.checkConfiguration()
 				# Docker status
-				project.checkContainerStatus().then null, (error) ->
-					console.error error
+				project.checkContainerStatus()
 				# Add project to projects list
 				@projects[id] = project
 			# console.dir @projects
