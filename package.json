@@ -6,6 +6,7 @@
   "homepage": "http://www.mobapi.com/",
   "main": "index.html",
   "dependencies": {
+    "ps-node": "*"
   },
   "devDependencies": {
     "coffee-script": "*",

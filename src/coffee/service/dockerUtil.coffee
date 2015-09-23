@@ -27,18 +27,6 @@ app
 					DOCKER_CERT_PATH: @globalConf.docker.certPath
 				}
 
-		# getContainerStatus: (containerName) ->
-		# 	q = $q.defer()
-		# 	if globalConfMgr.isConfigurationValid()
-		# 		cmd = "#{@globalConf.dockerCommand} inspect --type=container #{containerName}"
-		# 		process.exec(cmd, @buildDockerEnv()).then (stdout, stderr) =>
-		# 			q.resolve true
-		# 		, (error, stderr) =>
-		# 			q.resolve false
-		# 	else
-		# 		q.reject()
-		# 	return q.promise
-
 		createContainer: (containerName, imageName, cmd, parameters) ->
 			q = $q.defer()
 			if globalConfMgr.isConfigurationValid()
@@ -102,7 +90,6 @@ app
 			return q.reject() if not @globalConf
 			cmd = "#{@globalConf.dockerCommand} rm -f #{containerName}"
 			process.exec(cmd, @buildDockerEnv()).then (stdout, stderr) =>
-				# @stopContainerLog()
 				q.resolve()
 			, (error, stderr) =>
 				q.reject error
@@ -114,15 +101,25 @@ app
 			process.spawn(@globalConf.dockerCommand, [ 'logs', '-f', containerName ], @buildDockerEnv()).then null, q.reject, q.notify
 			return q.promise
 
-		stopContainerLog: (containerLogProcess) ->
+		stopContainerLog: (containerName) ->
 			q = $q.defer()
 			return q.reject() if not @globalConf
-			if containerLogProcess
-				ret = containerLogProcess.kill()
-				console.log "kill #{containerLogProcess.pid} => #{ret}"
+			ps = require 'ps-node'
+			ps.lookup
+				command: "docker"
+				arguments: "logs -f #{containerName}"
+			, (error, results) ->
+				if error
+					return q.reject error
+				console.dir results
+				for result in results
+					console.log "PID: #{result}"
 				q.resolve()
-			else
-				q.reject()
+			# cmd = "#{@globalConf.dockerCommand} rm -f #{containerName}"
+			# process.exec(cmd, @buildDockerEnv()).then (stdout, stderr) =>
+			# 	q.resolve()
+			# , (error, stderr) =>
+			# 	q.reject error
 			return q.promise
 
 		getContainerInfos: (containerName) ->

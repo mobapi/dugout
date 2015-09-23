@@ -100,10 +100,11 @@ app
 				@runtime.docker.container.addToLog data.stdout.toString() if data.stdout
 
 		stopContainerLog: ->
-			return
-			# dockerUtil.stopContainerLog(@runtime.containerLogProcess).then =>
-			# 	delete @runtime.containerLogProcess
-			# 	delete @runtime.containerLog
+			dockerUtil.stopContainerLog(@id).then =>
+				delete @runtime.docker.container.log
+				@runtime.docker.container.logging = false
+			, (error) =>
+				console.dir error
 
 		pullImage: ->
 			d = $q.defer()
