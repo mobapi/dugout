@@ -37,7 +37,7 @@
 						<div class="form-group">
 							<label>{{'Docker command path'|translate}}</label>
 							<div class="">
-								<button ng-if="platform == 'linux' || platform == 'darwin'" class="btn btn-primary" ng-click="ctrl.detectCmd('docker')" title="{{'Automagically detect the command path'|translate}}">
+								<button ng-if="platform == 'linux' || platform == 'darwin'" class="btn btn-primary" ng-click="ctrl.detectDocker()" title="{{'Automagically detect the command path'|translate}}">
 									<i class="fa fa-search" title="{{'Automagically detect the command path'|translate}}"></i>
 								</button>
 								<button class="btn btn-primary" file-chooser ng-model="conf.dockerCommand" title="{{'Select the docker command'|translate}}">

@@ -8,7 +8,7 @@ gutil = require 'gulp-util'
 html2js = require 'gulp-ng-html2js'
 merge = require 'merge2'
 minifyhtml = require 'gulp-minify-html'
-NodeWebkitBuilder = require 'node-webkit-builder'
+NodeWebkitBuilder = require 'nw-builder'
 packagejson = require './package.json'
 vinylpaths = require 'vinyl-paths'
 

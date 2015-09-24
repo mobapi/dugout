@@ -22,7 +22,7 @@
     "gulp-uglify": "*",
     "gulp-util": "*",
     "gulp-watch": "*",
-    "node-webkit-builder": "*",
+    "nw-builder": "*",
     "merge2": "*",
     "vinyl-paths": "*"
   },

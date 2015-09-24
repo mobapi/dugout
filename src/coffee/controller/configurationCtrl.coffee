@@ -24,9 +24,9 @@ app
 					@save()
 			, true
 
-		detectCmd: (cmd) ->
-			$scope.globalConfMgr.detectCmd(cmd).then (path) =>
-				$scope.globalConfMgr.conf.commands[cmd] = path
+		detectDocker: ->
+			$scope.globalConfMgr.detectCmd('docker').then (path) =>
+				$scope.globalConfMgr.conf.dockerCommand = path
 
 		save: ->
 			$scope.globalConfMgr.setLanguage $scope.conf.language
