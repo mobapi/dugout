@@ -70,8 +70,9 @@
 							<div class="form-group">
 								<label>{{'Path'|translate}}</label>
 								<div class="">
-									<button class="btn btn-primary" ng-click="ctrl.selectFile('docker_socket')">...</button>
-									<input style="display: none;" class="form-control" id="file_docker_socket" file="conf.docker.socket" type="file" />
+									<button class="btn btn-primary" file-chooser ng-model="conf.docker.socket" title="{{'Select the socket path'|translate}}">
+										<i class="fa fa-folder-o"></i>
+									</button>
 									<span>{{conf.docker.socket}}</span>
 								</div>
 							</div>
@@ -109,8 +110,9 @@
 							<div ng-if="conf.docker.secure" class="form-group">
 								<label>{{'Certificate'|translate}}</label>
 								<div class="">
-									<button class="btn btn-primary" ng-click="ctrl.selectFile('docker_cert_path')">...</button>
-									<input style="display: none;" class="form-control" id="file_docker_cert_path" file="conf.docker.certPath" type="file" nwdirectory />
+									<button class="btn btn-primary" file-chooser="directory" ng-model="conf.docker.certPath" title="{{'Select the certificates path'|translate}}">
+										<i class="fa fa-folder-o"></i>
+									</button>
 									<span>{{conf.docker.certPath}}</span>
 								</div>
 							</div>
