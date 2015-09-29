@@ -13,14 +13,16 @@ app
 				template: 'pullDialog.html'
 				className: 'ngdialog-theme-default'
 				scope: $scope
+			$scope.pullImageLog = []
 			$scope.project.pullImage().then ->
 				# dialog.close()
 				$scope.pullImageLog += "\n\nUpdate done."
 			, (error) ->
 				console.error error
 			, (data) ->
-				$scope.pullImageLog = "" if not $scope.pullImageLog
-				$scope.pullImageLog += data
+				data._id = Math.round((new Date()).getTime() * Math.random() * 10000)
+				console.dir data
+				$scope.pullImageLog.push data
 
 	return new Controller()
 

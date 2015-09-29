@@ -1,7 +1,7 @@
 app
 .service 'globalConfMgr',
-['$q', 'process', 'localStorageService',
-($q, process, storage) ->
+['$q', 'localStorageService',
+($q, storage) ->
 
 	class Service
 
@@ -27,7 +27,6 @@ app
 
 		isConfigurationValid: ->
 			@valid = false
-			return @valid if not @conf.dockerCommand
 			return @valid if not @conf.docker
 			return @valid if not @conf.docker.connectionType
 			return @valid if @conf.docker.connectionType == 'socket' and not @conf.docker.socket
@@ -35,20 +34,6 @@ app
 			return @valid if @conf.docker.connectionType == 'tcpip' and @conf.docker.secure and not @conf.docker.certPath
 			@valid = true
 			return @valid
-
-		detectCmd: (cmd) ->
-			defer = $q.defer()
-			process.exec("which #{cmd}").then (stdout, stderr) ->
-				console.log "stderr: #{stderr}" if stderr
-				if stdout
-					path = stdout.replace "\n", ""
-				defer.resolve(path) if stdout
-				defer.reject()
-			, (error, stderr) ->
-				console.log 'exec error: ' + error
-				console.log stderr
-				defer.reject()
-			return defer.promise
 
 		load: ->
 			q = $q.defer()

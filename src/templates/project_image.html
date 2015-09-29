@@ -13,16 +13,22 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" ng-if="project.runtime.docker.image.history">
 			<div class="col-xs-12">
 				<h5>{{'History'|translate}}</h5>
-				<pre ng-if="project.runtime.docker">{{project.runtime.docker.image.history}}</pre>
+				<div ng-repeat="h in project.runtime.docker.image.history" class="row">
+					<div class="col-xs-2">{{h.Id|limitTo: 12}}</div>
+					<div class="col-xs-2">{{h.Created}}</div>
+					<div class="col-xs-5">{{h.CreatedBy}}</div>
+					<div class="col-xs-1">{{h.Size}}</div>
+					<div class="col-xs-2">{{h.Comment}}</div>
+				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" ng-if="project.runtime.docker.image.infos">
 			<div class="col-xs-12">
 				<h5>{{'Informations'|translate}}</h5>
-				<pre ng-if="project.runtime.docker">{{project.runtime.docker.image.infos}}</pre>
+				<pre pretty-json="project.runtime.docker.image.infos"></pre>
 			</div>
 		</div>
 	</div>
@@ -30,16 +36,19 @@
 
 <script type="text/ng-template" id="pullDialog.html">
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row" ng-if="!pullImageLog.length">
 			<div class="col-xs-12 fa-spin-fix">
-				<div ng-if="!pullImageLog">
+				<div>
 					<h3>
 						<i class="fa fa-gear fa-spin"></i>
 						{{'Processing...'|translate}}
 					</h3>
 				</div>
-				<pre>{{pullImageLog}}</pre>
 			</div>
 		</div>
+		<div class="row" ng-repeat="l in pullImageLog track by l._id">
+			<div class="col-xs-4">{{l.id}}</div>
+			<div class="col-xs-8">{{l.status}}</div>
+		</div
 	</div>
 </script>

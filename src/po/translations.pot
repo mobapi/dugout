@@ -4,19 +4,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: about.html:5
-msgid "About the application"
-msgstr ""
-
-#: configuration.html:76
+#: configuration.html:72
 msgid "Address"
 msgstr ""
 
-#: configuration.html:78
+#: configuration.html:74
 msgid "Address (host name or IP)"
 msgstr ""
 
-#: project_configuration.html:47
+#: project_configuration.html:62
 msgid "Alias"
 msgstr ""
 
@@ -24,24 +20,19 @@ msgstr ""
 msgid "All projects"
 msgstr ""
 
-#: configuration.html:39
-#: configuration.html:40
-msgid "Automagically detect the command path"
-msgstr ""
-
-#: configuration.html:94
-msgid "Certificate"
+#: configuration.html:96
+msgid "Certificates path"
 msgstr ""
 
 #: navbar.html:26
 msgid "Close"
 msgstr ""
 
-#: project_configuration.html:93
+#: project_configuration.html:108
 msgid "Command"
 msgstr ""
 
-#: app.js:355
+#: app.js:336
 #: configuration.html:8
 #: navbar.html:19
 #: projects.html:26
@@ -49,34 +40,30 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
-#: project_configuration.html:25
+#: project_configuration.html:40
 msgid "Configuration values"
 msgstr ""
 
-#: app.js:345
+#: app.js:326
 #: project_container.html:5
 #: projects.html:18
 #: projects.html:20
 msgid "Container"
 msgstr ""
 
-#: project_configuration.html:46
+#: project_configuration.html:61
 msgid "Container id"
 msgstr ""
 
-#: project_configuration.html:81
+#: project_configuration.html:96
 msgid "Container mount point"
 msgstr ""
 
-#: project_configuration.html:63
+#: project_configuration.html:78
 msgid "Container port"
 msgstr ""
 
-#: configuration.html:36
-msgid "Docker command path"
-msgstr ""
-
-#: app.js:241
+#: app.js:176
 msgid "Error"
 msgstr ""
 
@@ -84,44 +71,44 @@ msgstr ""
 msgid "History"
 msgstr ""
 
-#: project_configuration.html:80
+#: project_configuration.html:95
 msgid "Host directory"
 msgstr ""
 
-#: project_configuration.html:64
+#: project_configuration.html:79
 msgid "Host port"
 msgstr ""
 
-#: project_configuration.html:30
+#: project_configuration.html:45
 msgid "Id"
 msgstr ""
 
-#: app.js:350
+#: app.js:331
 #: project_image.html:6
 #: projects.html:22
 #: projects.html:24
 msgid "Image"
 msgstr ""
 
-#: project_image.html:24
+#: project_image.html:30
 msgid "Informations"
 msgstr ""
 
-#: configuration.html:24
+#: configuration.html:26
 msgid "Language"
 msgstr ""
 
-#: project_configuration.html:42
+#: project_configuration.html:57
 msgid "Links"
 msgstr ""
 
-#: app.js:340
+#: app.js:321
 #: projects.html:14
 #: projects.html:16
 msgid "Logs"
 msgstr ""
 
-#: app.js:261
+#: app.js:196
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
@@ -133,12 +120,15 @@ msgstr ""
 msgid "Minimize"
 msgstr ""
 
+#: project_configuration.html:91
+msgid "Mounts"
+msgstr ""
+
 #: navbar.html:14
-#: project_configuration.html:12
 msgid "Open projects configuration file"
 msgstr ""
 
-#: configuration.html:64
+#: configuration.html:56
 msgid "Path"
 msgstr ""
 
@@ -146,16 +136,25 @@ msgstr ""
 msgid "Please choose a directory"
 msgstr ""
 
+#: project_configuration.html:23
+msgid "Please choose a file"
+msgstr ""
+
+#: project_configuration.html:27
+#: project_configuration.html:31
+msgid "Please type a value"
+msgstr ""
+
+#: configuration.html:80
 #: configuration.html:82
-#: configuration.html:84
 msgid "Port"
 msgstr ""
 
-#: project_configuration.html:59
+#: project_configuration.html:74
 msgid "Ports"
 msgstr ""
 
-#: project_image.html:38
+#: project_image.html:44
 msgid "Processing..."
 msgstr ""
 
@@ -167,12 +166,16 @@ msgstr ""
 msgid "Running"
 msgstr ""
 
-#: configuration.html:90
+#: configuration.html:92
 msgid "Secure connection"
 msgstr ""
 
-#: configuration.html:42
-msgid "Select the command"
+#: configuration.html:98
+msgid "Select the certificates path"
+msgstr ""
+
+#: configuration.html:58
+msgid "Select the socket path"
 msgstr ""
 
 #: navbar.html:45
@@ -195,7 +198,7 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: app.js:242
+#: app.js:177
 msgid "The configuration could not be saved."
 msgstr ""
 
@@ -207,11 +210,11 @@ msgstr ""
 msgid "The logs are empty"
 msgstr ""
 
-#: app.js:154
+#: app.js:217
 msgid "This file is not a valid json file !"
 msgstr ""
 
-#: project_configuration.html:36
+#: project_configuration.html:51
 msgid "Title"
 msgstr ""
 
@@ -219,7 +222,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: configuration.html:54
+#: configuration.html:42
 msgid "UNIX Socket"
 msgstr ""
 
@@ -229,10 +232,6 @@ msgstr ""
 
 #: project_configuration.html:5
 msgid "Variables"
-msgstr ""
-
-#: project_configuration.html:76
-msgid "Volumes"
 msgstr ""
 
 #: configuration.html:10

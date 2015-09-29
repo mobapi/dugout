@@ -7,6 +7,7 @@ app
 
 		constructor: ->
 			$scope.project = project
+			project.startContainerLog()
 
 	return new Controller()
 

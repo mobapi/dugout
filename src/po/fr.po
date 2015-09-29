@@ -9,22 +9,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: about.html:5
-msgid "About the application"
-msgstr "A propos de l’application"
-
-#: configuration.html:76
+#: configuration.html:72
 msgid "Address"
 msgstr "Adresse"
 
-#: configuration.html:78
+#: configuration.html:74
 msgid "Address (host name or IP)"
 msgstr "Adresse (nom d’hôte ou IP)"
 
-#: project_configuration.html:47
+#: project_configuration.html:62
 msgid "Alias"
 msgstr "Alias"
 
@@ -32,52 +28,44 @@ msgstr "Alias"
 msgid "All projects"
 msgstr "Tous les projets"
 
-#: configuration.html:39 configuration.html:40
-msgid "Automagically detect the command path"
-msgstr "Détecter automatiquement le chemin de la commande"
-
-#: configuration.html:94
-msgid "Certificate"
-msgstr "Certificat"
+#: configuration.html:96
+msgid "Certificates path"
+msgstr "Chemin des certificats"
 
 #: navbar.html:26
 msgid "Close"
 msgstr "Fermer"
 
-#: project_configuration.html:93
+#: project_configuration.html:108
 msgid "Command"
 msgstr "Commande"
 
-#: app.js:355 configuration.html:8 navbar.html:19 projects.html:26
+#: app.js:336 configuration.html:8 navbar.html:19 projects.html:26
 #: projects.html:28
 msgid "Configuration"
 msgstr "Configuration"
 
-#: project_configuration.html:25
+#: project_configuration.html:40
 msgid "Configuration values"
 msgstr "Valeurs de configuration"
 
-#: app.js:345 project_container.html:5 projects.html:18 projects.html:20
+#: app.js:326 project_container.html:5 projects.html:18 projects.html:20
 msgid "Container"
 msgstr "Conteneur"
 
-#: project_configuration.html:46
+#: project_configuration.html:61
 msgid "Container id"
 msgstr "Identifiant du conteneur"
 
-#: project_configuration.html:81
+#: project_configuration.html:96
 msgid "Container mount point"
 msgstr "Point de montage dans le conteneur"
 
-#: project_configuration.html:63
+#: project_configuration.html:78
 msgid "Container port"
 msgstr "Port du conteneur"
 
-#: configuration.html:36
-msgid "Docker command path"
-msgstr "Chemin de la commande docker"
-
-#: app.js:241
+#: app.js:176
 msgid "Error"
 msgstr "Erreur"
 
@@ -85,39 +73,39 @@ msgstr "Erreur"
 msgid "History"
 msgstr "Historique"
 
-#: project_configuration.html:80
+#: project_configuration.html:95
 msgid "Host directory"
 msgstr "Répertoire de l’hôte"
 
-#: project_configuration.html:64
+#: project_configuration.html:79
 msgid "Host port"
 msgstr "Port de l’hôte"
 
-#: project_configuration.html:30
+#: project_configuration.html:45
 msgid "Id"
 msgstr "Identifiant"
 
-#: app.js:350 project_image.html:6 projects.html:22 projects.html:24
+#: app.js:331 project_image.html:6 projects.html:22 projects.html:24
 msgid "Image"
 msgstr "Image"
 
-#: project_image.html:24
+#: project_image.html:30
 msgid "Informations"
 msgstr "Informations"
 
-#: configuration.html:24
+#: configuration.html:26
 msgid "Language"
 msgstr "Langue"
 
-#: project_configuration.html:42
+#: project_configuration.html:57
 msgid "Links"
 msgstr "Liens"
 
-#: app.js:340 projects.html:14 projects.html:16
+#: app.js:321 projects.html:14 projects.html:16
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:261
+#: app.js:196
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
@@ -129,11 +117,15 @@ msgstr "Agrandir"
 msgid "Minimize"
 msgstr "Réduire"
 
-#: navbar.html:14 project_configuration.html:12
+#: project_configuration.html:91
+msgid "Mounts"
+msgstr "Montages"
+
+#: navbar.html:14
 msgid "Open projects configuration file"
 msgstr "Ouvrir un fichier de configuration de projets"
 
-#: configuration.html:64
+#: configuration.html:56
 msgid "Path"
 msgstr "Chemin"
 
@@ -141,15 +133,23 @@ msgstr "Chemin"
 msgid "Please choose a directory"
 msgstr "Veuillez choisir un répertoire"
 
-#: configuration.html:82 configuration.html:84
+#: project_configuration.html:23
+msgid "Please choose a file"
+msgstr "Veuillez choisir un fichier"
+
+#: project_configuration.html:27 project_configuration.html:31
+msgid "Please type a value"
+msgstr "Veuillez entrer une valeur"
+
+#: configuration.html:80 configuration.html:82
 msgid "Port"
 msgstr "Port"
 
-#: project_configuration.html:59
+#: project_configuration.html:74
 msgid "Ports"
 msgstr "Ports"
 
-#: project_image.html:38
+#: project_image.html:44
 msgid "Processing..."
 msgstr "Traitement en cours …"
 
@@ -161,13 +161,17 @@ msgstr "Projets"
 msgid "Running"
 msgstr "Démarré"
 
-#: configuration.html:90
+#: configuration.html:92
 msgid "Secure connection"
 msgstr "Connexion sécurisée"
 
-#: configuration.html:42
-msgid "Select the command"
-msgstr "Sélectionner la commande"
+#: configuration.html:98
+msgid "Select the certificates path"
+msgstr "Sélectionnez le chemin des certificats"
+
+#: configuration.html:58
+msgid "Select the socket path"
+msgstr "Sélectionnez le chemin du socket"
 
 #: navbar.html:45
 msgid "Start all projects"
@@ -189,7 +193,7 @@ msgstr "Arrêter le projet"
 msgid "Stopped"
 msgstr "Arrêté"
 
-#: app.js:242
+#: app.js:177
 msgid "The configuration could not be saved."
 msgstr "La configuration ne peut pas être enregistrée."
 
@@ -201,11 +205,11 @@ msgstr "Le conteneur n’est pas démarré"
 msgid "The logs are empty"
 msgstr "Les traces sont vides"
 
-#: app.js:154
+#: app.js:217
 msgid "This file is not a valid json file !"
 msgstr "Le fichier n’est pas un ficher JSON valide !"
 
-#: project_configuration.html:36
+#: project_configuration.html:51
 msgid "Title"
 msgstr "Titre"
 
@@ -213,7 +217,7 @@ msgstr "Titre"
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
 
-#: configuration.html:54
+#: configuration.html:42
 msgid "UNIX Socket"
 msgstr "Socket UNIX"
 
@@ -225,10 +229,6 @@ msgstr "Mettre à jour"
 msgid "Variables"
 msgstr "Variables"
 
-#: project_configuration.html:76
-msgid "Volumes"
-msgstr "Volumes"
-
 #: configuration.html:10 navbar.html:21
 msgid "invalid"
 msgstr "invalide"
@@ -236,6 +236,24 @@ msgstr "invalide"
 #: configuration.html:9
 msgid "valid"
 msgstr "valide"
+
+#~ msgid "Certificate"
+#~ msgstr "Certificat"
+
+#~ msgid "About the application"
+#~ msgstr "A propos de l’application"
+
+#~ msgid "Automagically detect the command path"
+#~ msgstr "Détecter automatiquement le chemin de la commande"
+
+#~ msgid "Docker command path"
+#~ msgstr "Chemin de la commande docker"
+
+#~ msgid "Select the command"
+#~ msgstr "Sélectionner la commande"
+
+#~ msgid "Volumes"
+#~ msgstr "Volumes"
 
 #~ msgid "Log"
 #~ msgstr "Traces"

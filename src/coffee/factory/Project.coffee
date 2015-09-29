@@ -44,7 +44,12 @@ app
 			out = {}
 			for kp, p of params
 				if typeof p == 'object'
-					out[kp] = @substitute params[kp], vars
+					if p.length
+						out[kp] = []
+						for a, k in p
+							out[kp][k] = @substitute params[kp][k], vars
+					else
+						out[kp] = @substitute params[kp], vars
 				else
 					out[kp] = _.template(p)(vars)
 			return out
@@ -55,7 +60,7 @@ app
 				hostname: @hostname if @hostname
 				links: @links if @links
 				ports: @ports if @ports
-				volumes: angular.copy @volumes if @volumes
+				mounts: angular.copy @mounts if @mounts
 				cmd: @cmd if @cmd
 			}
 			# Variables
@@ -65,14 +70,9 @@ app
 			# Variables substitution
 			@runtime.params = @substitute params, vars
 			# Create container
-			dockerUtil.createContainer(@id, @image, @docker_cmd, @runtime.params).then =>
-				# And start it !
-				dockerUtil.startContainer(@id).then =>
-					@startContainerLog()
-					@checkContainerStatus()
-				, (error) =>
-					console.error "Unable to start container: error #{error}"
-					@checkContainerStatus()
+			dockerUtil.startContainer(@id, @image, @runtime.params).then (container) =>
+				@startContainerLog()
+				@checkContainerStatus()
 			, (error) =>
 				console.error "Unable to create container: error #{error}"
 				@checkContainerStatus()
@@ -83,7 +83,7 @@ app
 
 		stopContainer: ->
 			dockerUtil.stopContainer(@id).then =>
-				@stopContainerLog()
+				@stopContainerLog(@id)
 				@checkContainerStatus()
 			, (error) =>
 				console.dir error
@@ -97,20 +97,18 @@ app
 				console.dir error
 			, (data) =>
 				@runtime.docker.container.logging = true
-				@runtime.docker.container.addToLog data.stdout.toString() if data.stdout
+				@runtime.docker.container.addToLog data if data
 
 		stopContainerLog: ->
-			dockerUtil.stopContainerLog(@id).then =>
-				delete @runtime.docker.container.log
-				@runtime.docker.container.logging = false
-			, (error) =>
-				console.dir error
+			@runtime.docker.container.logging = false
+			# return if not @runtime.docker.container.logging
+			# dockerUtil.stopContainerLog(@id).then =>
+			# , (error) =>
+			# 	console.dir error
 
 		pullImage: ->
 			d = $q.defer()
-			dockerUtil.pullImage(@image).then d.resolve, d.reject
-			, (data) =>
-				d.notify data.stdout.toString()
+			dockerUtil.pullImage(@image).then d.resolve, d.reject, d.notify
 			return d.promise
 
 	return Project

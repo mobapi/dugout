@@ -86,17 +86,17 @@
 					</span>
 				</div>
 			</div>
-			<div ng-if="project.volumes" class="row">
+			<div ng-if="project.mounts" class="row">
 				<div class="col-xs-12">
-					<label>{{'Volumes'|translate}}</label>
+					<label>{{'Mounts'|translate}}</label>
 					<span class="conf-value">
 						<ul class="list-group">
 							<li class="list-group-item list-group-header">
 								<span>{{'Host directory'|translate}}</span>
 								<span class="pull-right">{{'Container mount point'|translate}}</span>
 							</li>
-							<li class="list-group-item" ng-repeat="(k, v) in project.volumes">
-								<span>{{v}}</span>
+							<li class="list-group-item" ng-repeat="(k, m) in project.mounts">
+								<span>{{m}}</span>
 								<span class="pull-right">{{k}}</span>
 							</li>
 						</ul>

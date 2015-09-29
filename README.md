@@ -32,7 +32,7 @@ Each project has several fields to describe it, some are mandatories, some are o
 |title|x|string|Title of the container|
 |image|x|string|Image name|
 |ports| |object|Ports redirection mappings|
-|volumes| |object|Volumes mounts mappings|
+|mounts| |object|Volumes mounts mappings|
 |links| |object|Container links mappings|
 |cmd| |string|Command line to run in the container (defaults to "CMD" of the dockerfile)|
 |variables| |object|Variables|
@@ -43,7 +43,7 @@ Each project has several fields to describe it, some are mandatories, some are o
             "image": "<image name>",
             "ports": {
             },
-            "volumes": {
+            "mounts": {
             },
             "links": {
             },
@@ -80,7 +80,7 @@ Field of type object containing the ports redirections mappings.
         "443/tcp": "444"
     }
 
-#### volumes
+#### mounts
 
 Field of type object containing the volumes mounts mappings.
 
@@ -156,7 +156,7 @@ A variable could be reference in the project configuration, as the following exa
         "ports": {
             "80/tcp": "8080"
         },
-        "volumes": {
+        "mounts": {
             "/usr/share/nginx/html:ro": "${repositoryDirectory}/dist"
         },
         "variables": {
@@ -169,16 +169,16 @@ A variable could be reference in the project configuration, as the following exa
         }
     }
 
-Note the the *repositoryDirectory* is referenced in volumes as *${repositoryDirectory}.*
-In this example, if the user choose "/home/me/myproject" for the *repositoryDirectory* value, the volumes will be calculated from:
+Note the the *repositoryDirectory* is referenced in `mounts as *${repositoryDirectory}.*
+In this example, if the user choose "/home/me/myproject" for the *repositoryDirectory* value, the `mounts` will be calculated from:
 
-        "volumes": {
+        "mounts": {
             "/usr/share/nginx/html:ro": "${repositoryDirectory}/dist"
         },
 
 to:
 
-        "volumes": {
+        "mounts": {
             "/usr/share/nginx/html:ro": "/home/me/myproject/dist"
         },
 

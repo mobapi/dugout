@@ -6,6 +6,7 @@
   "homepage": "http://www.mobapi.com/",
   "main": "index.html",
   "dependencies": {
+    "dockerode": "*",
     "ps-node": "*"
   },
   "devDependencies": {

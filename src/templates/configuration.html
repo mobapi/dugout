@@ -32,22 +32,7 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="form-group">
-							<label>{{'Docker command path'|translate}}</label>
-							<div class="">
-								<button ng-if="platform == 'linux' || platform == 'darwin'" class="btn btn-primary" ng-click="ctrl.detectDocker()" title="{{'Automagically detect the command path'|translate}}">
-									<i class="fa fa-search" title="{{'Automagically detect the command path'|translate}}"></i>
-								</button>
-								<button class="btn btn-primary" file-chooser ng-model="conf.dockerCommand" title="{{'Select the docker command'|translate}}">
-									<i class="fa fa-folder-o"></i>
-								</button>
-								<span>{{conf.dockerCommand}}</span-->
-							</div>
-						</div>
-					</div>
-				</div>
+				<h4>Docker</h4>
 
 				<div ng-if="platform == 'linux'" class="row">
 					<div class="col-xs-12">
@@ -108,7 +93,7 @@
 								</label>
 							</div>
 							<div ng-if="conf.docker.secure" class="form-group">
-								<label>{{'Certificate'|translate}}</label>
+								<label>{{'Certificates path'|translate}}</label>
 								<div class="">
 									<button class="btn btn-primary" file-chooser="directory" ng-model="conf.docker.certPath" title="{{'Select the certificates path'|translate}}">
 										<i class="fa fa-folder-o"></i>
