@@ -30,6 +30,37 @@ app
 		get: (id) ->
 			return @projects[id]
 
+		start: (project) ->
+			d = $q.defer()
+			tasks = []
+			for link, k of project.links
+				subproject = @projects[k]
+				((subproject) =>
+					tasks.push (callback) =>
+						if subproject.runtime.docker.container.infos
+							return callback null, subproject
+						else
+							@start subproject
+							.then ->
+								callback null, subproject
+							, (error) ->
+								callback error
+				)(subproject)
+			async.parallel tasks, (error, results) ->
+				if error
+					console.dir
+						error: error
+						results: results
+				if results.length == tasks.length
+					project.startContainer().then ->
+						d.resolve()
+					, (error) ->
+						d.reject()
+			return d.promise
+
+		stop: (project) ->
+			project.stopContainer()
+
 		startAll: ->
 			for name, project of @projects
 				project.startContainer()			

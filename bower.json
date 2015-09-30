@@ -27,6 +27,7 @@
     "angular-scroll-glue": "*",
     "angular-ui-router": "*",
     "angularjs-toaster": "*",
+    "async": "*",
     "bootstrap": "*",
     "font-awesome": "4.4.*",
     "jquery": "1.*",

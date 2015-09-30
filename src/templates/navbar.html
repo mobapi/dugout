@@ -58,10 +58,10 @@
 							</a>
 							<span class="abs-r-15 abs-t-5">
 								<span  ng-if="$root.globalConfMgr.valid && project.runtime.configurationValid">
-									<button ng-if="!project.runtime.docker.container.infos.State" class="btn btn-primary btn-sm" ng-click="project.startContainer()" title="{{'Start project'|translate}}">
+									<button ng-if="!project.runtime.docker.container.infos.State" class="btn btn-primary btn-sm" ng-click="ctrl.start(project)" title="{{'Start project'|translate}}">
 										<i class="fa fa-play"></i>
 									</button>
-									<button ng-if="project.runtime.docker.container.infos.State" class="btn btn-warning btn-sm pull-right" ng-click="project.stopContainer()" title="{{'Stop project'|translate}}">
+									<button ng-if="project.runtime.docker.container.infos.State" class="btn btn-warning btn-sm pull-right" ng-click="ctrl.stop(project)" title="{{'Stop project'|translate}}">
 										<i class="fa fa-stop"></i>
 									</button>
 								</span>

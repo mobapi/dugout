@@ -56,6 +56,7 @@ files =
 			"#{directories.libs}/angular-scroll-glue/src/scrollglue.js"
 			"#{directories.libs}/angular-ui-router/release/angular-ui-router.js"
 			"#{directories.libs}/angularjs-toaster/toaster.js"
+			"#{directories.libs}/async/dist/async.js"
 			"#{directories.libs}/bootstrap/dist/js/bootstrap.js"
 			"#{directories.libs}/lodash/lodash.js"
 			"#{directories.libs}/metisMenu/dist/metisMenu.js"

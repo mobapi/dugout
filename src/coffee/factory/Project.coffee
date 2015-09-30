@@ -55,6 +55,7 @@ app
 			return out
 
 		startContainer: ->
+			d = $q.defer()
 			# Parameters
 			params = {
 				hostname: @hostname if @hostname
@@ -73,13 +74,16 @@ app
 			dockerUtil.startContainer(@id, @image, @runtime.params).then (container) =>
 				@startContainerLog()
 				@checkContainerStatus()
+				d.resolve()
 			, (error) =>
 				console.error "Unable to create container: error #{error}"
 				@checkContainerStatus()
+				d.reject()
 			, (data) =>
 				@checkContainerStatus()
 				@runtime.docker.container.addToLog data.stdout.toString() if data.stdout
 				@runtime.docker.container.addToLog data.stderr.toString() if data.stderr
+			return d.promise
 
 		stopContainer: ->
 			dockerUtil.stopContainer(@id).then =>
