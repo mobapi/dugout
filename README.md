@@ -97,6 +97,7 @@ Field of type object containing the volumes mounts mappings.
 #### links
 
 Field of type object containing the container links mappings.
+*Important:* the linked containers are seen as dependencies, Dugout will take care of starting the projects in the right order.
 
     {
         "<alias>": "<container name>"
