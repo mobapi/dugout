@@ -6,13 +6,8 @@
 		htmlElement = document.querySelector 'html'
 		angular.bootstrap htmlElement, modules
 
-	if window.cordova?
-		document.addEventListener 'deviceready', ->
+	document.onreadystatechange = ->
+		if document.readyState == 'complete'
 			ngBootstrap()
-		, false
-	else
-		document.onreadystatechange = ->
-			if document.readyState == 'complete'
-				ngBootstrap()
 
 )()

@@ -169,11 +169,14 @@ gulp.task 'app_fonts', ->
 		.pipe gulp.dest("#{directories.dist}/fonts/")
 
 gulp.task 'app_build', ->
+	nw_builder_files = [ "#{directories.dist}/**/*" ]
+	for d of packagejson.dependencies
+		nw_builder_files.push "node_modules/#{d}/**/*"
 	options = {
 		version: nw.version
 		buildDir: directories.build
 		cacheDir: nw.cacheDir
-		files: "#{directories.dist}/**/*"
+		files: nw_builder_files
 		platforms: nw.platforms
 		buildType: ->
 			return @appVersion
