@@ -34,7 +34,7 @@ app
 					return cb null, container
 			if @globalConf.docker.connectionType == 'socket'
 				@docker = new Docker
-					socketPath: "unix://#{globalConf.docker.socket}"
+					socketPath: "#{@globalConf.docker.socket}"
 			else if @globalConf.docker.connectionType == 'tcpip'
 				options = {
 					host: @globalConf.docker.address
