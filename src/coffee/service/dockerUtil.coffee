@@ -50,13 +50,12 @@ app
 		startContainer: (containerName, imageName, parameters) ->
 			q = $q.defer()
 			if globalConfMgr.isConfigurationValid()
-				opts = {
+				opts =
 					name: containerName
 					Image: imageName
 					# Tty: true
 					Hostname: containerName
 					HostConfig: {}
-				}
 				if parameters.hostname
 					opts.Hostname = parameters.hostname
 				if parameters.cmd

@@ -46,10 +46,10 @@ app
 			return d.promise
 
 		start: (project) ->
-			projectsMgr.start(project)
+			projectsMgr.start project
 
 		stop: (project) ->
-			projectsMgr.stop(project)
+			projectsMgr.stop project
 
 		startAll: ->
 			projectsMgr.startAll()
