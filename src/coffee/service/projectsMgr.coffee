@@ -1,7 +1,7 @@
 app
 .service 'projectsMgr',
-['$q', '$http', 'localStorageService', 'Project',
-($q, $http, storage, Project) ->
+['$q', '$http', 'toaster', 'localStorageService', 'Project',
+($q, $http, toaster, storage, Project) ->
 
 	class Service
 
@@ -55,7 +55,11 @@ app
 					project.startContainer().then ->
 						d.resolve()
 					, (error) ->
-						d.reject()
+						toaster.pop
+							type: 'error'
+							title: gettextCatalog.getString gettext('Error')
+							body: "Unable to create container: #{error}"
+						d.reject error
 			return d.promise
 
 		stop: (project) ->

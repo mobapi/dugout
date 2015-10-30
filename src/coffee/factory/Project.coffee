@@ -1,7 +1,7 @@
 app
 .factory 'Project',
-['$q', 'toaster', 'dockerUtil',
-($q, toaster, dockerUtil) ->
+['$q', 'dockerUtil',
+($q, dockerUtil) ->
 
 	class Project
 
@@ -77,12 +77,8 @@ app
 				d.resolve()
 			, (error) =>
 				console.error "Unable to create container: error #{error}"
-				toaster.pop
-					type: 'error'
-					title: gettextCatalog.getString gettext('Error')
-					body: "Unable to create container: #{error}"
 				@checkContainerStatus()
-				d.reject()
+				d.reject error
 			, (data) =>
 				@checkContainerStatus()
 				@runtime.docker.container.addToLog data.stdout.toString() if data.stdout
@@ -103,10 +99,6 @@ app
 				@runtime.docker.container.logging = true
 			, (error) =>
 				console.dir error
-				toaster.pop
-					type: 'error'
-					title: gettextCatalog.getString gettext('Error')
-					body: "Unable to start container log: #{error.message}"
 			, (data) =>
 				@runtime.docker.container.logging = true
 				@runtime.docker.container.addToLog data if data
