@@ -1,14 +1,14 @@
-<div class="page-content project full-height">
+<div class="page-content container-fluid full-height">
 
 	<nav class="breadcrumb">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12">
 					<h4>
-						{{project.title}}
-						<small>{{project.id}}</small>
-						<span class="label label-primary" ng-if="project.runtime.docker.container.infos.State.Running">{{'Running'|translate}}</span>
-						<span class="label label-warning" ng-if="!project.runtime.docker.container.infos.State.Running">{{'Stopped'|translate}}</span>
+						{{container.title}}
+						<small>{{container.id}}</small>
+						<span class="label label-primary" ng-if="container.runtime.docker.container.infos.State.Running">{{'Running'|translate}}</span>
+						<span class="label label-warning" ng-if="!container.runtime.docker.container.infos.State.Running">{{'Stopped'|translate}}</span>
 					</h4>
 				</div>
 			</div>

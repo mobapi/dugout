@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.6\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: configuration.html:72
@@ -20,124 +20,156 @@ msgstr "Adresse"
 msgid "Address (host name or IP)"
 msgstr "Adresse (nom d’hôte ou IP)"
 
-#: project_configuration.html:62
+#: container_configuration.html:62
 msgid "Alias"
 msgstr "Alias"
 
-#: navbar.html:41
-msgid "All projects"
-msgstr "Tous les projets"
+#: navbar.html:45
+msgid "All containers"
+msgstr "Tous les conteneurs"
 
 #: configuration.html:96
 msgid "Certificates path"
 msgstr "Chemin des certificats"
 
-#: navbar.html:26
+#: app.js:768
+msgid "Clear recent files"
+msgstr "Effacer les fichiers récents"
+
+#: navbar.html:30
 msgid "Close"
 msgstr "Fermer"
 
-#: project_configuration.html:108
+#: container_configuration.html:108
 msgid "Command"
 msgstr "Commande"
 
-#: app.js:336 configuration.html:8 navbar.html:19 projects.html:26
-#: projects.html:28
+#: app.js:262 configuration.html:8 containers.html:26 containers.html:28
+#: navbar.html:23
 msgid "Configuration"
 msgstr "Configuration"
 
-#: project_configuration.html:40
+#: container_configuration.html:40
 msgid "Configuration values"
 msgstr "Valeurs de configuration"
 
-#: app.js:326 project_container.html:5 projects.html:18 projects.html:20
+#: app.js:252 container_container.html:5 containers.html:18 containers.html:20
 msgid "Container"
 msgstr "Conteneur"
 
-#: project_configuration.html:61
+#: container_configuration.html:61
 msgid "Container id"
 msgstr "Identifiant du conteneur"
 
-#: project_configuration.html:96
+#: container_configuration.html:96
 msgid "Container mount point"
 msgstr "Point de montage dans le conteneur"
 
-#: project_configuration.html:78
+#: container_configuration.html:78
 msgid "Container port"
 msgstr "Port du conteneur"
 
-#: app.js:176
+#: navbar.html:46
+msgid "Containers"
+msgstr "Conteneurs"
+
+#: app.js:730
+msgid "Current file: %(file)s"
+msgstr "Fichier courant : %(file)s"
+
+#: app.js:182 app.js:63 app.js:873
 msgid "Error"
 msgstr "Erreur"
 
-#: project_image.html:18
+#: app.js:1226
+msgid "File %(file)s is empty"
+msgstr "Le fichier %(file)s est vide"
+
+#: app.js:1221
+msgid "File %(file)s is not a valid json file"
+msgstr "Le fichier %(file)s n'est pas un fichier json valide"
+
+#: container_image.html:18
 msgid "History"
 msgstr "Historique"
 
-#: project_configuration.html:95
+#: container_configuration.html:95
 msgid "Host directory"
 msgstr "Répertoire de l’hôte"
 
-#: project_configuration.html:79
+#: container_configuration.html:79
 msgid "Host port"
 msgstr "Port de l’hôte"
 
-#: project_configuration.html:45
+#: container_configuration.html:45
 msgid "Id"
 msgstr "Identifiant"
 
-#: app.js:331 project_image.html:6 projects.html:22 projects.html:24
+#: app.js:257 container_image.html:6 containers.html:22 containers.html:24
 msgid "Image"
 msgstr "Image"
 
-#: project_image.html:30
+#: container_image.html:30
 msgid "Informations"
 msgstr "Informations"
+
+#: configuration.html:10 navbar.html:25
+msgid "invalid"
+msgstr "invalide"
 
 #: configuration.html:26
 msgid "Language"
 msgstr "Langue"
 
-#: project_configuration.html:57
+#: container_configuration.html:57
 msgid "Links"
 msgstr "Liens"
 
-#: app.js:321 projects.html:14 projects.html:16
+#: app.js:247 containers.html:14 containers.html:16
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:196
+#: app.js:366
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
-#: navbar.html:32
+#: navbar.html:36
 msgid "Maximize"
 msgstr "Agrandir"
 
-#: navbar.html:29
+#: navbar.html:33
 msgid "Minimize"
 msgstr "Réduire"
 
-#: project_configuration.html:91
+#: container_configuration.html:91
 msgid "Mounts"
 msgstr "Montages"
 
-#: navbar.html:14
-msgid "Open projects configuration file"
-msgstr "Ouvrir un fichier de configuration de projets"
+#: app.js:709 navbar.html:18
+msgid "Open containers configuration file"
+msgstr "Ouvrir un fichier de configuration de conteneurs"
+
+#: navbar.html:15
+msgid "Open menu"
+msgstr "Ouvrir le menu"
+
+#: app.js:708
+msgid "Open..."
+msgstr "Ouvrir..."
 
 #: configuration.html:56
 msgid "Path"
 msgstr "Chemin"
 
-#: project_configuration.html:16
+#: container_configuration.html:16
 msgid "Please choose a directory"
 msgstr "Veuillez choisir un répertoire"
 
-#: project_configuration.html:23
+#: container_configuration.html:23
 msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"
 
-#: project_configuration.html:27 project_configuration.html:31
+#: container_configuration.html:27 container_configuration.html:31
 msgid "Please type a value"
 msgstr "Veuillez entrer une valeur"
 
@@ -145,19 +177,19 @@ msgstr "Veuillez entrer une valeur"
 msgid "Port"
 msgstr "Port"
 
-#: project_configuration.html:74
+#: container_configuration.html:74
 msgid "Ports"
 msgstr "Ports"
 
-#: project_image.html:44
+#: container_image.html:44
 msgid "Processing..."
 msgstr "Traitement en cours …"
 
-#: navbar.html:42
-msgid "Projects"
-msgstr "Projets"
+#: app.js:742
+msgid "Recent files"
+msgstr "Fichiers récents"
 
-#: project.html:10
+#: container.html:10
 msgid "Running"
 msgstr "Démarré"
 
@@ -173,43 +205,43 @@ msgstr "Sélectionnez le chemin des certificats"
 msgid "Select the socket path"
 msgstr "Sélectionnez le chemin du socket"
 
-#: navbar.html:45
-msgid "Start all projects"
-msgstr "Démarrer tous les projets"
+#: navbar.html:49
+msgid "Start all containers"
+msgstr "Démarrer tous les conteneurs"
 
-#: navbar.html:61
-msgid "Start project"
-msgstr "Démarrer le projet"
+#: navbar.html:65
+msgid "Start container"
+msgstr "Démarrer le conteneur"
 
-#: navbar.html:48
-msgid "Stop all projects"
-msgstr "Arrêter tous les projets"
+#: navbar.html:52
+msgid "Stop all containers"
+msgstr "Arrêter tous les conteneurs"
 
-#: navbar.html:64
-msgid "Stop project"
-msgstr "Arrêter le projet"
+#: navbar.html:68
+msgid "Stop container"
+msgstr "Arrêter le conteneur"
 
-#: project.html:11
+#: container.html:11
 msgid "Stopped"
 msgstr "Arrêté"
 
-#: app.js:177
+#: app.js:183
 msgid "The configuration could not be saved."
 msgstr "La configuration ne peut pas être enregistrée."
 
-#: project_container.html:13
+#: app.js:64
+msgid "The configuration file could not be loaded."
+msgstr "Le fichier de configuration ne peut pas être ouvert."
+
+#: container_container.html:13
 msgid "The container is not running"
 msgstr "Le conteneur n’est pas démarré"
 
-#: project_logs.html:6
+#: container_logs.html:6
 msgid "The logs are empty"
 msgstr "Les traces sont vides"
 
-#: app.js:217
-msgid "This file is not a valid json file !"
-msgstr "Le fichier n’est pas un ficher JSON valide !"
-
-#: project_configuration.html:51
+#: container_configuration.html:51
 msgid "Title"
 msgstr "Titre"
 
@@ -221,21 +253,50 @@ msgstr "Basculer la navigation"
 msgid "UNIX Socket"
 msgstr "Socket UNIX"
 
-#: project_image.html:10
+#: container_image.html:10
 msgid "Update"
 msgstr "Mettre à jour"
-
-#: project_configuration.html:5
-msgid "Variables"
-msgstr "Variables"
-
-#: configuration.html:10 navbar.html:21
-msgid "invalid"
-msgstr "invalide"
 
 #: configuration.html:9
 msgid "valid"
 msgstr "valide"
+
+#: container_configuration.html:5
+msgid "Variables"
+msgstr "Variables"
+
+#~ msgid "Empty file !"
+#~ msgstr "Fichier vide !"
+
+#~ msgid "This file is not a valid json file !"
+#~ msgstr "Le fichier n’est pas un ficher JSON valide !"
+
+#~ msgid "Current:"
+#~ msgstr "Actuel :"
+
+#~ msgid "containers"
+#~ msgstr "conteneurs"
+
+#~ msgid "All projects"
+#~ msgstr "Tous les projets"
+
+#~ msgid "Open projects configuration file"
+#~ msgstr "Ouvrir un fichier de configuration de projets"
+
+#~ msgid "Projects"
+#~ msgstr "Projets"
+
+#~ msgid "Start all projects"
+#~ msgstr "Démarrer tous les projets"
+
+#~ msgid "Start project"
+#~ msgstr "Démarrer le projet"
+
+#~ msgid "Stop all projects"
+#~ msgstr "Arrêter tous les projets"
+
+#~ msgid "Stop project"
+#~ msgstr "Arrêter le projet"
 
 #~ msgid "Certificate"
 #~ msgstr "Certificat"

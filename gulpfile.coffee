@@ -171,6 +171,7 @@ gulp.task 'app_fonts', ->
 gulp.task 'app_build', ->
 	nw_builder_files = [ "node_modules/**/*" ]
 	for d of packagejson.devDependencies
+		nw_builder_files.push "!node_modules/**/node_modules/**/*"
 		nw_builder_files.push "!node_modules/#{d}/**/*"
 	for i in [ '!node_modules/nw-gyp/**', '!node_modules/**/*.bin',
 		'!node_modules/**/*.c', '!node_modules/**/*.h',
@@ -206,7 +207,7 @@ gulp.task 'build', [ 'app_build' ], ->
 			gulp.src "#{olddirectory}/**/*"
 				.pipe gulp.dest newdirectory
 				.on 'end', ->
-					gulp.src "projects.sample.json"
+					gulp.src "project.sample.json"
 						.pipe gulp.dest newdirectory
 						.on 'end', ->
 							del olddirectory
@@ -216,10 +217,8 @@ gulp.task 'build', [ 'app_build' ], ->
 gulp.task 'pot', ->
 	return gulp
 		.src [ files.app.index, "#{directories.dist}/js/app.js", files.app.templates ]
-		.pipe gettext.extract("translations.pot", {
-			# options to pass to angular-gettext-tools...
-		})
-		.pipe gulp.dest("#{directories.source}/po/")
+		.pipe gettext.extract "translations.pot"
+		.pipe gulp.dest "#{directories.source}/po/"
 
 
 gulp.task 'watch', () ->

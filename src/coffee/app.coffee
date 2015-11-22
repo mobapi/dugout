@@ -45,12 +45,21 @@ app = angular.module 'dugout', [
 ]
 
 # Run run run !
-.run [ '$rootScope', 'globalConfMgr', 'dockerUtil', 'projectsMgr',
-($rootScope, globalConfMgr, dockerUtil, projectsMgr) ->
+.run [ '$rootScope', 'toaster', 'globalConfMgr', 'filesMgr', 'dockerUtil', 'containersMgr',
+($rootScope, toaster, globalConfMgr, filesMgr, dockerUtil, containersMgr) ->
 	globalConfMgr.load().then ->
 		$rootScope.globalConfMgr = globalConfMgr
 		dockerUtil.init()
-		projectsMgr.init()
+		recentFiles = filesMgr.loadRecentFiles()
+		if recentFiles.length
+			filesMgr.loadConfigurationFile recentFiles[0]
+			.then (data) ->
+				containersMgr.init data
+			, (error) ->
+				toaster.pop
+					type: 'error'
+					title: gettextCatalog.getString gettext('Error')
+					body: gettextCatalog.getString gettext('The configuration file could not be loaded.')
 	, (error) ->
 		console.dir error
 ]

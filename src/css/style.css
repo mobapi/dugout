@@ -65,6 +65,7 @@ body {
 }
 
 .page-content {
+	padding: 0;
 }
 
 .page-content > .full-height {
@@ -82,6 +83,6 @@ pre {
 	background-color: #eee;
 }
 
-.panel-projects .panel-footer a span {
+.panel-container .panel-footer a span {
 	display: inline-block;
 }

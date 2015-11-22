@@ -4,16 +4,20 @@
 			<span class="sr-only">{{'Toggle navigation'|translate}}</span>
 			<span class="fa fa-bars"></span>
 		</button>
-		<a class="navbar-brand no-drag" ui-sref="projects">
+		<a class="navbar-brand no-drag" ui-sref="containers">
 			<h2>Dugout</h2>
 			<img src="images/logo.png" />
 		</a>
 	</div>
 	<ul class="nav navbar-nav pull-right">
 		<li>
-			<a file-chooser class="no-drag" href="#" ng-model="configurationFilePath" title="{{'Open projects configuration file'|translate}}">
+			<input type="file" id="openConfigurationFile" style="display:none;" />
+			<a class="no-drag" href="#" ng-click="ctrl.openPopupMenu($event)" title="{{'Open menu'|translate}}">
 				<i class="fa fa-folder-o fa-2x"></i>
 			</a>
+			<!--a file-chooser class="no-drag" href="#" ng-model="configurationFilePath" title="{{'Open containers configuration file'|translate}}">
+				<i class="fa fa-folder-o fa-2x"></i>
+			</a-->
 		</li>
 		<li>
 			<a ui-sref="configuration" class="no-drag" title="{{'Configuration'|translate}}" ng-class="{'active': activeState == 'configuration'}">
@@ -37,35 +41,35 @@
 	<div class="navbar-transparent sidebar no-drag" role="navigation">
 		<div class="sidebar-nav navbar-collapse collapse">
 			<ul class="nav" id="side-menu">
-				<li ng-if="projects">
-					<a ui-sref="projects" class="pull-left" ng-class="{'active': activeState == 'projects'}" title="{{'All projects'|translate}}">
-						<i class="fa fa-sitemap fa-fw"></i> {{'Projects'|translate}}
+				<li ng-if="containers">
+					<a ui-sref="containers" class="pull-left" ng-class="{'active': activeState == 'containers'}" title="{{'All containers'|translate}}">
+						<i class="fa fa-sitemap fa-fw"></i> {{'Containers'|translate}}
 					</a>
 					<span ng-if="$root.globalConfMgr.valid" class="btn-group btn-group-sm pull-right" style="padding: 10px 15px">
-						<button class="btn btn-primary" ng-click="ctrl.startAll()" title="{{'Start all projects'|translate}}">
+						<button class="btn btn-primary" ng-click="ctrl.startAll()" title="{{'Start all containers'|translate}}">
 							<i class="fa fa-play"></i>
 						</button>
-						<button class="btn btn-warning" ng-click="ctrl.stopAll()" title="{{'Stop all projects'|translate}}">
+						<button class="btn btn-warning" ng-click="ctrl.stopAll()" title="{{'Stop all containers'|translate}}">
 							<i class="fa fa-stop"></i>
 						</button>
 					</span>
 					<div class="clearfix"></div>
 					<ul class="nav nav-second-level">
-						<li ng-repeat="(pid, project) in projects">
-							<a ui-sref="project.logs({id: pid})" ng-class="{'active': activeProject.id == pid}">
+						<li ng-repeat="(pid, container) in containers">
+							<a ui-sref="container.logs({id: pid})" ng-class="{'active': activecontainer.id == pid}">
 								<i class="stream stream-module"></i>
-								{{project.title}}
+								{{container.title}}
 							</a>
 							<span class="abs-r-15 abs-t-5">
-								<span  ng-if="$root.globalConfMgr.valid && project.runtime.configurationValid">
-									<button ng-if="!project.runtime.docker.container.infos.State" class="btn btn-primary btn-sm" ng-click="ctrl.start(project)" title="{{'Start project'|translate}}">
+								<span  ng-if="$root.globalConfMgr.valid && container.runtime.configurationValid">
+									<button ng-if="!container.runtime.docker.container.infos.State" class="btn btn-primary btn-sm" ng-click="ctrl.start(container)" title="{{'Start container'|translate}}">
 										<i class="fa fa-play"></i>
 									</button>
-									<button ng-if="project.runtime.docker.container.infos.State" class="btn btn-warning btn-sm pull-right" ng-click="ctrl.stop(project)" title="{{'Stop project'|translate}}">
+									<button ng-if="container.runtime.docker.container.infos.State" class="btn btn-warning btn-sm pull-right" ng-click="ctrl.stop(container)" title="{{'Stop container'|translate}}">
 										<i class="fa fa-stop"></i>
 									</button>
 								</span>
-								<i ng-if="!$root.globalConfMgr.valid || !project.runtime.configurationValid" class="fa fa-warning fa-2x text-danger"></i>
+								<i ng-if="!$root.globalConfMgr.valid || !container.runtime.configurationValid" class="fa fa-warning fa-2x text-danger"></i>
 							</span>
 						</li>
 					</ul>

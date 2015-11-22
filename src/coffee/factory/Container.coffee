@@ -1,9 +1,9 @@
 app
-.factory 'Project',
+.factory 'Container',
 ['$q', 'dockerUtil',
 ($q, dockerUtil) ->
 
-	class Project
+	class Container
 
 		constructor: (@id, conf) ->
 			angular.extend @, conf
@@ -115,6 +115,6 @@ app
 			dockerUtil.pullImage(@image).then d.resolve, d.reject, d.notify
 			return d.promise
 
-	return Project
+	return Container
 
 ]

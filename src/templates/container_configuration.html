@@ -6,7 +6,7 @@
 			</div>
 			<div class="col-xs-12">
 				<form>
-					<div ng-repeat="(varName, var) in project.variables" class="form-group">
+					<div ng-repeat="(varName, var) in container.variables" class="form-group">
 						<label>{{var.label}} <small class="text-grayed">{{varName}}</small></label>
 						<div class="controls" ng-if="var.type == 'directory'">
 							<button class="btn btn-primary" file-chooser="directory" ng-model="var.value" title="{{var.label}}">
@@ -43,16 +43,16 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<label>{{'Id'|translate}}</label>
-					<span class="conf-value">{{project.id}}</span>
+					<span class="conf-value">{{container.id}}</span>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
 					<label>{{'Title'|translate}}</label>
-					<span class="conf-value">{{project.title}}</span>
+					<span class="conf-value">{{container.title}}</span>
 				</div>
 			</div>
-			<div ng-if="project.links" class="row">
+			<div ng-if="container.links" class="row">
 				<div class="col-xs-12">
 					<label>{{'Links'|translate}}</label>
 					<span class="conf-value">
@@ -61,7 +61,7 @@
 								<span>{{'Container id'|translate}}</span>
 								<span class="pull-right">{{'Alias'|translate}}</span>
 							</li>
-							<li class="list-group-item" ng-repeat="(k, v) in project.links">
+							<li class="list-group-item" ng-repeat="(k, v) in container.links">
 								<span>{{v}}</span>
 								<span class="pull-right">{{k}}</span>
 							</li>
@@ -69,7 +69,7 @@
 					</span>
 				</div>
 			</div>
-			<div ng-if="project.ports" class="row">
+			<div ng-if="container.ports" class="row">
 				<div class="col-xs-12">
 					<label>{{'Ports'|translate}}</label>
 					<span class="conf-value">
@@ -78,7 +78,7 @@
 								<span>{{'Container port'|translate}}</span>
 								<span class="pull-right">{{'Host port'|translate}}</span>
 							</li>
-							<li class="list-group-item" ng-repeat="(k, v) in project.ports">
+							<li class="list-group-item" ng-repeat="(k, v) in container.ports">
 								<span>{{k}}</span>
 								<span class="pull-right">{{v}}</span>
 							</li>
@@ -86,7 +86,7 @@
 					</span>
 				</div>
 			</div>
-			<div ng-if="project.mounts" class="row">
+			<div ng-if="container.mounts" class="row">
 				<div class="col-xs-12">
 					<label>{{'Mounts'|translate}}</label>
 					<span class="conf-value">
@@ -95,7 +95,7 @@
 								<span>{{'Host directory'|translate}}</span>
 								<span class="pull-right">{{'Container mount point'|translate}}</span>
 							</li>
-							<li class="list-group-item" ng-repeat="(k, m) in project.mounts">
+							<li class="list-group-item" ng-repeat="(k, m) in container.mounts">
 								<span>{{m}}</span>
 								<span class="pull-right">{{k}}</span>
 							</li>
@@ -103,10 +103,10 @@
 					</span>
 				</div>
 			</div>
-			<div ng-if="project.cmd" class="row">
+			<div ng-if="container.cmd" class="row">
 				<div class="col-xs-12">
 					<label>{{'Command'|translate}}</label>
-					<span class="conf-value">{{project.cmd}}</span>
+					<span class="conf-value">{{container.cmd}}</span>
 				</div>
 			</div>
 		</div>

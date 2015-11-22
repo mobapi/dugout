@@ -1,12 +1,12 @@
 app
-.controller 'projectImageCtrl',
-['$scope', '$state', 'ngDialog', 'project',
-($scope, $state, ngDialog, project) ->
+.controller 'containerImageCtrl',
+['$scope', '$state', 'ngDialog', 'container',
+($scope, $state, ngDialog, container) ->
 
 	class Controller
 
 		constructor: ->
-			$scope.project = project
+			$scope.container = container
 
 		pullImage: ->
 			dialog = ngDialog.open
@@ -14,7 +14,7 @@ app
 				className: 'ngdialog-theme-default'
 				scope: $scope
 			$scope.pullImageLog = []
-			$scope.project.pullImage().then ->
+			$scope.container.pullImage().then ->
 				# dialog.close()
 				$scope.pullImageLog += "\n\nUpdate done."
 			, (error) ->

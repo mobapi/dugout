@@ -1,15 +1,15 @@
-.projects {
+.containers {
 	padding-top: 30px;
 }
 
-.project .log pre {
+.container .log pre {
 	display: inline-block;
 	font-size: 0.9em;
 	word-wrap: normal;
 	overflow-x: hidden;
 }
 
-.project .conf-values .conf-value {
+.container .conf-values .conf-value {
 	float: right;
 	width: 80%;
 }

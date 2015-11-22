@@ -2,7 +2,7 @@ app
 .config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
 
 	# if none of the states are matched, use this as the fallback
-	$urlRouterProvider.otherwise '/projects'
+	$urlRouterProvider.otherwise '/containers'
 
 	$stateProvider
 
@@ -16,42 +16,42 @@ app
 			'main':
 				template: '<div ui-view class="full-height"></div>'
 
-	.state 'projects',
+	.state 'containers',
 		parent: 'app'
-		url: '/projects'
-		templateUrl: 'projects.html'
-		controller: 'projectsCtrl as ctrl'
+		url: '/containers'
+		templateUrl: 'containers.html'
+		controller: 'containersCtrl as ctrl'
 
-	.state 'project',
+	.state 'container',
 		abstract: true
 		parent: 'app'
-		url: '/projects/:id'
-		templateUrl: 'project.html'
-		controller: 'projectCtrl as ctrl'
+		url: '/containers/:id'
+		templateUrl: 'container.html'
+		controller: 'containerCtrl as ctrl'
 		resolve:
-			project: ['$stateParams', 'projectsMgr', ($stateParams, projectsMgr) ->
-				return projectsMgr.get $stateParams.id
+			container: ['$stateParams', 'containersMgr', ($stateParams, containersMgr) ->
+				return containersMgr.get $stateParams.id
 			]
 
-	.state 'project.logs',
+	.state 'container.logs',
 		url: '/logs'
-		templateUrl: 'project_logs.html'
-		controller: 'projectLogsCtrl as ctrl'
+		templateUrl: 'container_logs.html'
+		controller: 'containerLogsCtrl as ctrl'
 
-	.state 'project.container',
+	.state 'container.container',
 		url: '/container'
-		templateUrl: 'project_container.html'
-		controller: 'projectContainerCtrl as ctrl'
+		templateUrl: 'container_container.html'
+		controller: 'containerContainerCtrl as ctrl'
 
-	.state 'project.image',
+	.state 'container.image',
 		url: '/image'
-		templateUrl: 'project_image.html'
-		controller: 'projectImageCtrl as ctrl'
+		templateUrl: 'container_image.html'
+		controller: 'containerImageCtrl as ctrl'
 
-	.state 'project.configuration',
+	.state 'container.configuration',
 		url: '/configuration'
-		templateUrl: 'project_configuration.html'
-		controller: 'projectConfigurationCtrl as ctrl'
+		templateUrl: 'container_configuration.html'
+		controller: 'containerConfigurationCtrl as ctrl'
 
 	.state 'configuration',
 		parent: 'app'

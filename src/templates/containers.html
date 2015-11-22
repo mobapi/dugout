@@ -1,29 +1,29 @@
-<div class="projects full-height">
+<div class="containers full-height">
 
 	<div class="content">
 
 		<div class="container-fluid">
 			<div class="row m-t-50">
-				<div class="col-sm-6" ng-repeat="project in projects">
-					<div class="panel panel-color panel-projects">
+				<div class="col-sm-6" ng-repeat="container in containers">
+					<div class="panel panel-color panel-containers">
 						<div class="panel-body">
-							<h4>{{project.title}}</h4>
+							<h4>{{container.title}}</h4>
 						</div>
 						<div class="panel-footer">
 							<span class="pull-right">
-								<a ui-sref="project.logs({id: project.id})" title="{{'Logs'|translate}}">
+								<a ui-sref="container.logs({id: container.id})" title="{{'Logs'|translate}}">
 									<i class="stream stream-window-list"></i>
 									<span>{{'Logs'|translate}}</span>
 								</a>
-								<a ui-sref="project.container({id: project.id})" title="{{'Container'|translate}}">
+								<a ui-sref="container.container({id: container.id})" title="{{'Container'|translate}}">
 									<i class="stream stream-box"></i>
 									<span>{{'Container'|translate}}</span>
 								</a>
-								<a ui-sref="project.image({id: project.id})" title="{{'Image'|translate}}">
+								<a ui-sref="container.image({id: container.id})" title="{{'Image'|translate}}">
 									<i class="fa fa-clone"></i>
 									<span>{{'Image'|translate}}</span>
 								</a>
-								<a ui-sref="project.configuration({id: project.id})" title="{{'Configuration'|translate}}">
+								<a ui-sref="container.configuration({id: container.id})" title="{{'Configuration'|translate}}">
 									<i class="stream stream-cog"></i>
 									<span>{{'Configuration'|translate}}</span>
 								</a>

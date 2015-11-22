@@ -30,7 +30,7 @@ app
 			return @valid if not @conf.docker
 			return @valid if not @conf.docker.connectionType
 			return @valid if @conf.docker.connectionType == 'socket' and not @conf.docker.socket
-			return @valid if @conf.docker.connectionType == 'tcpip' and (not @conf.docker.address or not @conf.docker.port )
+			return @valid if @conf.docker.connectionType == 'tcpip' and (not @conf.docker.address or not @conf.docker.port)
 			return @valid if @conf.docker.connectionType == 'tcpip' and @conf.docker.secure and not @conf.docker.certPath
 			@valid = true
 			return @valid

@@ -1,32 +1,32 @@
 app
-.controller 'projectCtrl',
-['$scope', '$state', 'project',
-($scope, $state, project) ->
+.controller 'containerCtrl',
+['$scope', '$state', 'container',
+($scope, $state, container) ->
 
 	class Controller
 
 		constructor: ->
-			$scope.project = project
+			$scope.container = container
 			$scope.tabs = [{
 				uri: 'logs'
 				label: gettextCatalog.getString gettext('Logs')
 				iconClass: 'stream stream-window-list'
-				uiSref: "project.logs"
+				uiSref: "container.logs"
 			}, {
 				uri: 'container'
 				label: gettextCatalog.getString gettext('Container')
 				iconClass: 'stream stream-box'
-				uiSref: "project.container"
+				uiSref: "container.container"
 			}, {
 				uri: 'image'
 				label: gettextCatalog.getString gettext('Image')
 				iconClass: 'fa fa-clone'
-				uiSref: "project.image"
+				uiSref: "container.image"
 			}, {
 				uri: 'configuration'
 				label: gettextCatalog.getString gettext('Configuration')
 				iconClass: 'stream stream-cog'
-				uiSref: "project.configuration"
+				uiSref: "container.configuration"
 			}]
 			sp = $state.current.name.split '.'
 			stateLastPart = sp[sp.length-1]
@@ -35,7 +35,7 @@ app
 			$scope.setSelectedTab = (tab) ->
 				$scope.selectedTab = tab
 				$state.go tab.uiSref,
-					id: $scope.project.id
+					id: $scope.container.id
 			$scope.tabClass = (tab) ->
 				if $scope.selectedTab == tab
 					return "active"
