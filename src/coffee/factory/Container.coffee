@@ -62,6 +62,7 @@ app
 				links: @links if @links
 				ports: @ports if @ports
 				mounts: angular.copy @mounts if @mounts
+				environment: @environment if @environment
 				cmd: @cmd if @cmd
 			}
 			# Variables

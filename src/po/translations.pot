@@ -24,7 +24,7 @@ msgstr ""
 msgid "Certificates path"
 msgstr ""
 
-#: app.js:768
+#: app.js:593
 msgid "Clear recent files"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: container_configuration.html:108
+#: container_configuration.html:125
 msgid "Command"
 msgstr ""
 
@@ -71,21 +71,30 @@ msgstr ""
 msgid "Containers"
 msgstr ""
 
-#: app.js:730
+#: app.js:555
 msgid "Current file: %(file)s"
 msgstr ""
 
+#: container_configuration.html:108
+msgid "Environment"
+msgstr ""
+
+#: container_configuration.html:112
+msgid "Environment variable"
+msgstr ""
+
 #: app.js:182
+#: app.js:542
 #: app.js:63
-#: app.js:873
+#: app.js:698
 msgid "Error"
 msgstr ""
 
-#: app.js:1226
+#: app.js:1061
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1221
+#: app.js:1056
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -151,7 +160,7 @@ msgstr ""
 msgid "Mounts"
 msgstr ""
 
-#: app.js:709
+#: app.js:528
 #: navbar.html:18
 msgid "Open containers configuration file"
 msgstr ""
@@ -160,7 +169,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:708
+#: app.js:527
 msgid "Open..."
 msgstr ""
 
@@ -194,7 +203,7 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: app.js:742
+#: app.js:567
 msgid "Recent files"
 msgstr ""
 
@@ -268,6 +277,10 @@ msgstr ""
 
 #: configuration.html:9
 msgid "valid"
+msgstr ""
+
+#: container_configuration.html:113
+msgid "Value"
 msgstr ""
 
 #: container_configuration.html:5

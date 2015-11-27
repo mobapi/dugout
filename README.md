@@ -7,12 +7,12 @@ The app is built for Mac OS X (64 bits), Linux (64 bits) and Windows (64 bits).
 ## Run
 
 - Download the [latest release](https://github.com/mobapi/dugout/releases/latest) for your platform, and unzip it.
-- Build your own projects configuration file. See `projects.sample.json`.
+- Build your own projects configuration file. See `project.sample.json`.
 - Launch the app and load your configuration file
 - Configure your projects if needed, and start them up !
 - You're done !
 
-### The "projects sample" configuration file
+### The "project sample" configuration file (project.sample.json)
 
 This file is a sample of a common micro-service application: a three-tier web app.
 The 3 containers (aka tiers) are:
@@ -34,6 +34,7 @@ Each project has several fields to describe it, some are mandatories, some are o
 |ports| |object|Ports redirection mappings|
 |mounts| |object|Volumes mounts mappings|
 |links| |object|Container links mappings|
+|environment| |object|Environment variables|
 |cmd| |string|Command line to run in the container (defaults to "CMD" of the dockerfile)|
 |variables| |object|Variables|
 
@@ -46,6 +47,8 @@ Each project has several fields to describe it, some are mandatories, some are o
             "mounts": {
             },
             "links": {
+            },
+            "environment": {
             },
             "cmd": "<command line to run when the container starts>",
             "variables": {
@@ -109,6 +112,22 @@ Field of type object containing the container links mappings.
         "mydatabase": "my-database"
     }
 In this example, the container named "my-database" is linked in the current container via a "/etc/hosts" alias ("mydatabase").
+
+#### environment
+
+Field of type object containing the environment variables.
+
+
+    {
+        "<environment variable name>": "<value>"
+    }
+
+*Example:*
+
+    {
+        "MYSQL_ROOT_PASSWORD": "aGr34tPa55w0rD"
+    }
+In this example, the environment variable named "MYSQL_ROOT_PASSWORD" will have the value "aGr34tPa55w0rD".
 
 #### cmd
 

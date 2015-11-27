@@ -83,6 +83,10 @@ app
 						opts.HostConfig.PortBindings[k] = [{
 							HostPort: p
 						}]
+				if parameters.environment
+					opts.Env = []
+					for k, v of parameters.environment
+						opts.Env.push "#{k}=#{v}"
 				@docker.createContainer opts, (error, container) ->
 					if error
 						return q.reject error

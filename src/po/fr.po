@@ -32,7 +32,7 @@ msgstr "Tous les conteneurs"
 msgid "Certificates path"
 msgstr "Chemin des certificats"
 
-#: app.js:768
+#: app.js:593
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
@@ -40,7 +40,7 @@ msgstr "Effacer les fichiers récents"
 msgid "Close"
 msgstr "Fermer"
 
-#: container_configuration.html:108
+#: container_configuration.html:125
 msgid "Command"
 msgstr "Commande"
 
@@ -73,19 +73,27 @@ msgstr "Port du conteneur"
 msgid "Containers"
 msgstr "Conteneurs"
 
-#: app.js:730
+#: app.js:555
 msgid "Current file: %(file)s"
 msgstr "Fichier courant : %(file)s"
 
-#: app.js:182 app.js:63 app.js:873
+#: container_configuration.html:108
+msgid "Environment"
+msgstr "Environnement"
+
+#: container_configuration.html:112
+msgid "Environment variable"
+msgstr "Variable d'environnement"
+
+#: app.js:182 app.js:542 app.js:63 app.js:698
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1226
+#: app.js:1061
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1221
+#: app.js:1056
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -145,7 +153,7 @@ msgstr "Réduire"
 msgid "Mounts"
 msgstr "Montages"
 
-#: app.js:709 navbar.html:18
+#: app.js:528 navbar.html:18
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -153,7 +161,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:708
+#: app.js:527
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -185,7 +193,7 @@ msgstr "Ports"
 msgid "Processing..."
 msgstr "Traitement en cours …"
 
-#: app.js:742
+#: app.js:567
 msgid "Recent files"
 msgstr "Fichiers récents"
 
@@ -260,6 +268,10 @@ msgstr "Mettre à jour"
 #: configuration.html:9
 msgid "valid"
 msgstr "valide"
+
+#: container_configuration.html:113
+msgid "Value"
+msgstr "Valeur"
 
 #: container_configuration.html:5
 msgid "Variables"

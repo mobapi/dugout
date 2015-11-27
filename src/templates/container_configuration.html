@@ -103,6 +103,23 @@
 					</span>
 				</div>
 			</div>
+			<div ng-if="container.environment" class="row">
+				<div class="col-xs-12">
+					<label>{{'Environment'|translate}}</label>
+					<span class="conf-value">
+						<ul class="list-group">
+							<li class="list-group-item list-group-header">
+								<span>{{'Environment variable'|translate}}</span>
+								<span class="pull-right">{{'Value'|translate}}</span>
+							</li>
+							<li class="list-group-item" ng-repeat="(k, v) in container.environment">
+								<span>{{k}}</span>
+								<span class="pull-right">{{v}}</span>
+							</li>
+						</ul>
+					</span>
+				</div>
+			</div>
 			<div ng-if="container.cmd" class="row">
 				<div class="col-xs-12">
 					<label>{{'Command'|translate}}</label>
