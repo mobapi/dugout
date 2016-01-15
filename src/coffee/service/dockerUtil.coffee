@@ -125,37 +125,16 @@ app
 					follow: true
 					stdout: true
 					stderr: true
+					tty: false
 				, (error, stream) ->
 					if error
 						return q.reject error
-					# Duplex = require('stream').Duplex
-					# stdout = new Duplex
-					# 	read: (n) ->
-					# 		console.dir @
-					# 	write: (chunk, encoding, next) ->
-					# 		@push chunk, encoding
-					# 		return true
-					# stderr = new Duplex
-					# 	read: (n) ->
-					# 		console.Dir @
-					# 	write: (chunk, encoding, next) ->
-					# 		@push chunk, encoding
-					# 		return true
-					# console.dir stdout
-					stream.setEncoding 'utf8'
-					# container.modem.demuxStream stream, stdout, stderr
-					stream.on 'readable', ->
-						data = ""
-						while((chunk = stream.read()) != null)
-							data += chunk
-						q.notify data
-					# stream.on 'end', ->
-					# 	stream.destroy()
-						# q.resolve()
-					# container.modem.demuxStream stream, stdout, stderr
-					# q.notify
-					# 	stdout: stdout
-					# 	stderr: stderr
+					Stream = require 'stream'
+					stdout = new Stream.PassThrough()
+					stderr = new Stream.PassThrough()
+					container.modem.demuxStream stream, stdout, stderr
+					stdout.on 'data', (chunk) ->
+						q.notify chunk.toString()
 			return q.promise
 
 		# stopContainerLog: (containerName) ->
