@@ -62,12 +62,25 @@ app
 			container.stopContainer()
 
 		startAll: ->
-			for name, container of @containers
+			for containerId, container of @containers
 				container.startContainer()			
 
 		stopAll: ->
-			for name, container of @containers
-				container.stopContainer()
+			d = $q.defer()
+			tasks = []
+			for containerId, container of @containers
+				((container) =>
+					tasks.push (callback) =>
+						container.stopContainer().then ->
+							callback null
+						, (error) ->
+							callback error
+				)(container)
+			async.parallel tasks, (error, results) ->
+				return d.reject error if error
+				if results.length == tasks.length
+					d.resolve()
+			return d.promise
 
 		save: ->
 			containers = angular.copy @containers

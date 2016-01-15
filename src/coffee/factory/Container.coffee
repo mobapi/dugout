@@ -87,12 +87,16 @@ app
 			return d.promise
 
 		stopContainer: ->
+			d = $q.defer()
 			dockerUtil.stopContainer(@id).then =>
 				@stopContainerLog(@id)
 				@checkContainerStatus()
+				d.resolve()
 			, (error) =>
 				console.dir error
 				@checkContainerStatus()
+				d.reject()
+			return d.promise
 
 		startContainerLog: ->
 			return if @runtime.docker.container.logging

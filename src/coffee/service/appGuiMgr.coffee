@@ -9,7 +9,7 @@ app
 			@gui = require 'nw.gui'
 			@window = @gui.Window.get()
 			$rootScope.$on 'recentFilesChanged', (event, data) =>
-				@createPopupMenu data.currentFile, data.recentFiles
+				@createPopupMenu data.recentFiles
 
 		createMenu: ->
 			if window.process.platform != 'darwin'
@@ -24,7 +24,7 @@ app
 
 			@window.menu = menubar
 
-		createPopupMenu: (currentFile, recentFiles) ->
+		createPopupMenu: (recentFiles) ->
 			@popupMenu = new @gui.Menu()
 			openConfigurationFileMenuItem = new @gui.MenuItem
 				label: gettextCatalog.getString gettext('Open...')
@@ -47,15 +47,6 @@ app
 			@popupMenu.append openConfigurationFileMenuItem
 			@popupMenu.append new @gui.MenuItem
 				type: 'separator'
-			# Current file
-			if currentFile
-				menuItem = new @gui.MenuItem
-					label: sprintf gettextCatalog.getString(gettext('Current file: %(file)s')),
-						file: currentFile
-					enabled: false
-				@popupMenu.append menuItem
-				@popupMenu.append new @gui.MenuItem
-					type: 'separator'
 			# Recent files
 			if recentFiles.length
 				menuItem = new @gui.MenuItem
