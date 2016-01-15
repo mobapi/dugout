@@ -45,8 +45,8 @@ app = angular.module 'dugout', [
 ]
 
 # Run run run !
-.run [ '$rootScope', 'toaster', 'globalConfMgr', 'filesMgr', 'dockerUtil', 'containersMgr',
-($rootScope, toaster, globalConfMgr, filesMgr, dockerUtil, containersMgr) ->
+.run [ '$rootScope', 'toaster', 'globalConfMgr', 'filesMgr', 'dockerUtil', 'projectMgr',
+($rootScope, toaster, globalConfMgr, filesMgr, dockerUtil, projectMgr) ->
 	globalConfMgr.load().then ->
 		$rootScope.globalConfMgr = globalConfMgr
 		dockerUtil.init()
@@ -54,7 +54,7 @@ app = angular.module 'dugout', [
 		if recentFiles.length
 			filesMgr.loadConfigurationFile recentFiles[0]
 			.then (data) ->
-				containersMgr.init data
+				projectMgr.init data
 			, (error) ->
 				toaster.pop
 					type: 'error'

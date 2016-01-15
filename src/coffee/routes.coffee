@@ -2,7 +2,7 @@ app
 .config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
 
 	# if none of the states are matched, use this as the fallback
-	$urlRouterProvider.otherwise '/containers'
+	$urlRouterProvider.otherwise '/project'
 
 	$stateProvider
 
@@ -16,11 +16,11 @@ app
 			'main':
 				template: '<div ui-view class="full-height"></div>'
 
-	.state 'containers',
+	.state 'project',
 		parent: 'app'
-		url: '/containers'
-		templateUrl: 'containers.html'
-		controller: 'containersCtrl as ctrl'
+		url: '/project'
+		templateUrl: 'project.html'
+		controller: 'projectCtrl as ctrl'
 
 	.state 'container',
 		abstract: true

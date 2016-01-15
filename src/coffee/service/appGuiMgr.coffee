@@ -1,7 +1,7 @@
 app
 .service 'appGuiMgr',
-['$rootScope', 'toaster', 'filesMgr', 'containersMgr',
-($rootScope, toaster, filesMgr, containersMgr) ->
+['$rootScope', 'toaster', 'filesMgr', 'projectMgr',
+($rootScope, toaster, filesMgr, projectMgr) ->
 
 	class Service
 
@@ -36,8 +36,8 @@ app
 				evt = input.on 'change', ->
 					filesMgr.loadConfigurationFile @value
 					.then (data) ->
-						containersMgr.stopAll()
-						containersMgr.init data
+						projectMgr.stop()
+						projectMgr.init data
 					, (error) ->
 						toaster.pop
 							type: 'error'
@@ -69,8 +69,8 @@ app
 						menuItem.click = ->
 							filesMgr.loadConfigurationFile recentFile
 							.then (data) ->
-								containersMgr.stopAll()
-								containersMgr.init data
+								projectMgr.stop()
+								projectMgr.init data
 						@popupMenu.append menuItem
 					)(recentFile)
 				# Clear recent files

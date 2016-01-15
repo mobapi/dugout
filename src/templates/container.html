@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<h4>
-						{{container.title}}
+						{{container.name}}
 						<small>{{container.id}}</small>
 						<span class="label label-primary" ng-if="container.runtime.docker.container.infos.State.Running">{{'Running'|translate}}</span>
 						<span class="label label-warning" ng-if="!container.runtime.docker.container.infos.State.Running">{{'Stopped'|translate}}</span>

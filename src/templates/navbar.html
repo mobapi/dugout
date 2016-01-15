@@ -4,7 +4,7 @@
 			<span class="sr-only">{{'Toggle navigation'|translate}}</span>
 			<span class="fa fa-bars"></span>
 		</button>
-		<a class="navbar-brand no-drag" ui-sref="containers">
+		<a class="navbar-brand no-drag" ui-sref="project">
 			<h2>Dugout</h2>
 			<img src="images/logo.png" />
 		</a>
@@ -38,11 +38,23 @@
 		</button>
 	</div>
 
+	<div class="nav navbar-nav">
+		<div>
+			<h6>{{project.path}}</h6>
+		</div>
+		<div>
+			<h4>
+				{{project.name}}
+				{{project.version}}
+			</h4>
+		</div>
+	</div>
+
 	<div class="navbar-transparent sidebar no-drag" role="navigation">
 		<div class="sidebar-nav navbar-collapse collapse">
 			<ul class="nav" id="side-menu">
-				<li ng-if="containers">
-					<a ui-sref="containers" class="pull-left" ng-class="{'active': activeState == 'containers'}" title="{{'All containers'|translate}}">
+				<li ng-if="project.containers">
+					<a ui-sref="project" class="pull-left" ng-class="{'active': activeState == 'containers'}" title="{{'All containers'|translate}}">
 						<i class="fa fa-sitemap fa-fw"></i> {{'Containers'|translate}}
 					</a>
 					<span ng-if="$root.globalConfMgr.valid" class="btn-group btn-group-sm pull-right" style="padding: 10px 15px">
@@ -55,10 +67,10 @@
 					</span>
 					<div class="clearfix"></div>
 					<ul class="nav nav-second-level">
-						<li ng-repeat="(pid, container) in containers">
+						<li ng-repeat="(pid, container) in project.containers">
 							<a ui-sref="container.logs({id: pid})" ng-class="{'active': activecontainer.id == pid}">
 								<i class="stream stream-module"></i>
-								{{container.title}}
+								{{container.name}}
 							</a>
 							<span class="abs-r-15 abs-t-5">
 								<span  ng-if="$root.globalConfMgr.valid && container.runtime.configurationValid">

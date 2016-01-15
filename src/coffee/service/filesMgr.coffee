@@ -23,6 +23,7 @@ app
 					)
 				@currentFile = filePath
 				@addRecentFile filePath
+				data.path = filePath
 				d.resolve data
 			, d.reject
 			return d.promise
