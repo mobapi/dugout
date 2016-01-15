@@ -1,3 +1,10 @@
+<div class="clear-log" ng-if="container.runtime.docker.container.log">
+	<a class="btn btn-primary" ng-click="ctrl.clearLog()">
+		<i class="fa fa-times"></i>
+		{{'Clear log'|translate}}
+	</a>
+</div>
+
 <perfect-scrollbar ng-if="container.runtime.docker.container.log" class="log scroller full-height" scroll-glue>
 	<pre>{{container.runtime.docker.container.log}}</pre>
 </perfect-scrollbar>

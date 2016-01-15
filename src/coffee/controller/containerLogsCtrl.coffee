@@ -9,6 +9,9 @@ app
 			$scope.container = container
 			container.startContainerLog()
 
+		clearLog: ->
+			$scope.container.clearContainerLog()
+
 	return new Controller()
 
 ]

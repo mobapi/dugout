@@ -16,7 +16,7 @@ msgstr ""
 msgid "Alias"
 msgstr ""
 
-#: navbar.html:45
+#: navbar.html:57
 msgid "All containers"
 msgstr ""
 
@@ -24,7 +24,11 @@ msgstr ""
 msgid "Certificates path"
 msgstr ""
 
-#: app.js:593
+#: container_logs.html:4
+msgid "Clear log"
+msgstr ""
+
+#: app.js:771
 msgid "Clear recent files"
 msgstr ""
 
@@ -38,9 +42,9 @@ msgstr ""
 
 #: app.js:262
 #: configuration.html:8
-#: containers.html:26
-#: containers.html:28
 #: navbar.html:23
+#: project.html:26
+#: project.html:28
 msgid "Configuration"
 msgstr ""
 
@@ -50,8 +54,8 @@ msgstr ""
 
 #: app.js:252
 #: container_container.html:5
-#: containers.html:18
-#: containers.html:20
+#: project.html:18
+#: project.html:20
 msgid "Container"
 msgstr ""
 
@@ -67,12 +71,8 @@ msgstr ""
 msgid "Container port"
 msgstr ""
 
-#: navbar.html:46
+#: navbar.html:58
 msgid "Containers"
-msgstr ""
-
-#: app.js:555
-msgid "Current file: %(file)s"
 msgstr ""
 
 #: container_configuration.html:108
@@ -84,17 +84,17 @@ msgid "Environment variable"
 msgstr ""
 
 #: app.js:182
-#: app.js:542
 #: app.js:63
-#: app.js:698
+#: app.js:732
+#: app.js:876
 msgid "Error"
 msgstr ""
 
-#: app.js:1061
+#: app.js:1259
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1056
+#: app.js:1254
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -116,8 +116,8 @@ msgstr ""
 
 #: app.js:257
 #: container_image.html:6
-#: containers.html:22
-#: containers.html:24
+#: project.html:22
+#: project.html:24
 msgid "Image"
 msgstr ""
 
@@ -139,12 +139,12 @@ msgid "Links"
 msgstr ""
 
 #: app.js:247
-#: containers.html:14
-#: containers.html:16
+#: project.html:14
+#: project.html:16
 msgid "Logs"
 msgstr ""
 
-#: app.js:366
+#: app.js:355
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Mounts"
 msgstr ""
 
-#: app.js:528
+#: app.js:718
 #: navbar.html:18
 msgid "Open containers configuration file"
 msgstr ""
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:527
+#: app.js:717
 msgid "Open..."
 msgstr ""
 
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: app.js:567
+#: app.js:745
 msgid "Recent files"
 msgstr ""
 
@@ -223,19 +223,19 @@ msgstr ""
 msgid "Select the socket path"
 msgstr ""
 
-#: navbar.html:49
+#: navbar.html:61
 msgid "Start all containers"
 msgstr ""
 
-#: navbar.html:65
+#: navbar.html:77
 msgid "Start container"
 msgstr ""
 
-#: navbar.html:52
+#: navbar.html:64
 msgid "Stop all containers"
 msgstr ""
 
-#: navbar.html:68
+#: navbar.html:80
 msgid "Stop container"
 msgstr ""
 
@@ -255,7 +255,7 @@ msgstr ""
 msgid "The container is not running"
 msgstr ""
 
-#: container_logs.html:6
+#: container_logs.html:13
 msgid "The logs are empty"
 msgstr ""
 

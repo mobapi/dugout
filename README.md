@@ -37,7 +37,7 @@ The projects configuration file is a JSON file, which must contain an object des
 
 |Field|Mandatory|Type|Description|
 |---|---|---|---|
-|name|x|string|Name (label) of the project|
+|name||string|Name (label) of the project|
 |version||string|Version of the project|
 
 #### Containers configuration

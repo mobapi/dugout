@@ -16,6 +16,8 @@ app
 						addToLog: (data) ->
 							@log = "" if not @log
 							@log += data
+						clearLog: ->
+							@log = ""
 			}
 
 		checkConfiguration: ->
@@ -114,6 +116,9 @@ app
 			# dockerUtil.stopContainerLog(@id).then =>
 			# , (error) =>
 			# 	console.dir error
+
+		clearContainerLog: ->
+			@runtime.docker.container.clearLog()
 
 		pullImage: ->
 			d = $q.defer()

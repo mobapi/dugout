@@ -24,7 +24,7 @@ msgstr "Adresse (nom d’hôte ou IP)"
 msgid "Alias"
 msgstr "Alias"
 
-#: navbar.html:45
+#: navbar.html:57
 msgid "All containers"
 msgstr "Tous les conteneurs"
 
@@ -32,7 +32,11 @@ msgstr "Tous les conteneurs"
 msgid "Certificates path"
 msgstr "Chemin des certificats"
 
-#: app.js:593
+#: container_logs.html:4
+msgid "Clear log"
+msgstr "Effacer les traces"
+
+#: app.js:771
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
@@ -44,8 +48,8 @@ msgstr "Fermer"
 msgid "Command"
 msgstr "Commande"
 
-#: app.js:262 configuration.html:8 containers.html:26 containers.html:28
-#: navbar.html:23
+#: app.js:262 configuration.html:8 navbar.html:23 project.html:26
+#: project.html:28
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -53,7 +57,7 @@ msgstr "Configuration"
 msgid "Configuration values"
 msgstr "Valeurs de configuration"
 
-#: app.js:252 container_container.html:5 containers.html:18 containers.html:20
+#: app.js:252 container_container.html:5 project.html:18 project.html:20
 msgid "Container"
 msgstr "Conteneur"
 
@@ -69,13 +73,9 @@ msgstr "Point de montage dans le conteneur"
 msgid "Container port"
 msgstr "Port du conteneur"
 
-#: navbar.html:46
+#: navbar.html:58
 msgid "Containers"
 msgstr "Conteneurs"
-
-#: app.js:555
-msgid "Current file: %(file)s"
-msgstr "Fichier courant : %(file)s"
 
 #: container_configuration.html:108
 msgid "Environment"
@@ -85,15 +85,15 @@ msgstr "Environnement"
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:182 app.js:542 app.js:63 app.js:698
+#: app.js:182 app.js:63 app.js:732 app.js:876
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1061
+#: app.js:1259
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1056
+#: app.js:1254
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -113,7 +113,7 @@ msgstr "Port de l’hôte"
 msgid "Id"
 msgstr "Identifiant"
 
-#: app.js:257 container_image.html:6 containers.html:22 containers.html:24
+#: app.js:257 container_image.html:6 project.html:22 project.html:24
 msgid "Image"
 msgstr "Image"
 
@@ -133,11 +133,11 @@ msgstr "Langue"
 msgid "Links"
 msgstr "Liens"
 
-#: app.js:247 containers.html:14 containers.html:16
+#: app.js:247 project.html:14 project.html:16
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:366
+#: app.js:355
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
@@ -153,7 +153,7 @@ msgstr "Réduire"
 msgid "Mounts"
 msgstr "Montages"
 
-#: app.js:528 navbar.html:18
+#: app.js:718 navbar.html:18
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -161,7 +161,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:527
+#: app.js:717
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -193,7 +193,7 @@ msgstr "Ports"
 msgid "Processing..."
 msgstr "Traitement en cours …"
 
-#: app.js:567
+#: app.js:745
 msgid "Recent files"
 msgstr "Fichiers récents"
 
@@ -213,19 +213,19 @@ msgstr "Sélectionnez le chemin des certificats"
 msgid "Select the socket path"
 msgstr "Sélectionnez le chemin du socket"
 
-#: navbar.html:49
+#: navbar.html:61
 msgid "Start all containers"
 msgstr "Démarrer tous les conteneurs"
 
-#: navbar.html:65
+#: navbar.html:77
 msgid "Start container"
 msgstr "Démarrer le conteneur"
 
-#: navbar.html:52
+#: navbar.html:64
 msgid "Stop all containers"
 msgstr "Arrêter tous les conteneurs"
 
-#: navbar.html:68
+#: navbar.html:80
 msgid "Stop container"
 msgstr "Arrêter le conteneur"
 
@@ -245,7 +245,7 @@ msgstr "Le fichier de configuration ne peut pas être ouvert."
 msgid "The container is not running"
 msgstr "Le conteneur n’est pas démarré"
 
-#: container_logs.html:6
+#: container_logs.html:13
 msgid "The logs are empty"
 msgstr "Les traces sont vides"
 
@@ -276,6 +276,9 @@ msgstr "Valeur"
 #: container_configuration.html:5
 msgid "Variables"
 msgstr "Variables"
+
+#~ msgid "Current file: %(file)s"
+#~ msgstr "Fichier courant : %(file)s"
 
 #~ msgid "Empty file !"
 #~ msgstr "Fichier vide !"

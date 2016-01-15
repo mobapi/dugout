@@ -68,6 +68,10 @@ body {
 	padding: 0;
 }
 
+.page-content .tab .tab-content {
+	position: relative;
+}
+
 .page-content > .full-height {
 	height: calc(100% - 89px)
 }
