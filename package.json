@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "gulp clean && gulp && gulp build",
-    "build_mac_icon": "./iconset.sh MOBAPI-logo-square.png",
+    "build_mac_icon": "./buildMacIconset.sh src/images/logo.png",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,

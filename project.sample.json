@@ -1,68 +1,72 @@
 {
-	"frontend": {
-		"title": "My website frontend",
-		"image": "nginx",
-		"ports": {
-			"80/tcp": "${hostPort}"
-		},
-		"mounts": {
-			"/usr/share/nginx/html:ro": "${repositoryDirectory}/${distDirName}"
-		},
-		"variables": {
-			"repositoryDirectory": {
-				"label": "Repository directory",
-				"type": "directory",
-				"value": null,
-				"mandatory": true
+	"name": "My test project",
+	"version": "1.0.0",
+	"containers": {
+		"frontend": {
+			"name": "My website frontend",
+			"image": "nginx",
+			"ports": {
+				"80/tcp": "${hostPort}"
 			},
-			"aFile": {
-				"label": "A file",
-				"type": "file",
-				"value": null,
-				"mandatory": false
+			"mounts": {
+				"/usr/share/nginx/html:ro": "${repositoryDirectory}/${distDirName}"
 			},
-			"hostPort": {
-				"label": "Host port",
-				"type": "integer",
-				"value": 8083,
-				"mandatory": true
-			},
-			"distDirName": {
-				"label": "Dist directory name",
-				"type": "string",
-				"value": null,
-				"mandatory": true
+			"variables": {
+				"repositoryDirectory": {
+					"name": "Repository directory",
+					"type": "directory",
+					"value": null,
+					"mandatory": true
+				},
+				"aFile": {
+					"name": "A file",
+					"type": "file",
+					"value": null,
+					"mandatory": false
+				},
+				"hostPort": {
+					"name": "Host port",
+					"type": "integer",
+					"value": 8083,
+					"mandatory": true
+				},
+				"distDirName": {
+					"name": "Dist directory name",
+					"type": "string",
+					"value": null,
+					"mandatory": true
+				}
 			}
-		}
-	},
-	"backend": {
-		"title": "My website backend",
-		"image": "iain/nodemon",
-		"ports": {
-			"8000/tcp": "8081"
 		},
-		"mounts": {
-			"/home/project:ro": "${repositoryDirectory}"
-		},
-		"links": {
-			"database": "database"
-		},
-		"cmd": "cd /home/project && nodemon dist 2>&1",
-		"variables": {
-			"repositoryDirectory": {
-				"label": "Repository directory",
-				"type": "directory",
-				"value": null,
-				"mandatory": true
+		"backend": {
+			"name": "My website backend",
+			"image": "iain/nodemon",
+			"ports": {
+				"8000/tcp": "8081"
+			},
+			"mounts": {
+				"/home/project:ro": "${repositoryDirectory}"
+			},
+			"links": {
+				"database": "database"
+			},
+			"cmd": "cd /home/project && nodemon dist 2>&1",
+			"variables": {
+				"repositoryDirectory": {
+					"name": "Repository directory",
+					"type": "directory",
+					"value": null,
+					"mandatory": true
+				}
 			}
-		}
-	},
-	"database": {
-		"title": "The database",
-		"image": "mongo",
-		"ports": {
-			"27017/tcp": "28018"
 		},
-		"cmd": "mongod --smallfiles"
+		"database": {
+			"name": "The database",
+			"image": "mongo",
+			"ports": {
+				"27017/tcp": "28018"
+			},
+			"cmd": "mongod --smallfiles"
+		}
 	}
 }

@@ -190,7 +190,7 @@ gulp.task 'app_build', ->
 		platforms: nw.platforms
 		buildType: ->
 			return @appVersion
-		macZip: false
+		# macZip: false
 		macIcns: "icon.icns"
 	}
 	if 'win64' in nw.platforms

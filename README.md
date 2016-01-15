@@ -7,9 +7,9 @@ The app is built for Mac OS X (64 bits), Linux (64 bits) and Windows (64 bits).
 ## Run
 
 - Download the [latest release](https://github.com/mobapi/dugout/releases/latest) for your platform, and unzip it.
-- Build your own projects configuration file. See `project.sample.json`.
+- Build your own project configuration file. See `project.sample.json`.
 - Launch the app and load your configuration file
-- Configure your projects if needed, and start them up !
+- Configure your containers if needed, and start them up !
 - You're done !
 
 ### The "project sample" configuration file (project.sample.json)
@@ -23,13 +23,32 @@ The 3 containers (aka tiers) are:
 
 ### The project configuration file structure
 
-The projects configuration file is a JSON file, which must contain an object describing each project.
-**The keys of the first-level objects are the machine names (aka container names) of the projects.**
-Each project has several fields to describe it, some are mandatories, some are optional:
+The projects configuration file is a JSON file, which must contain an object describing the project and each container:
+
+	{
+		"name": "<project name>",
+		"version": "<project version>",
+		"containers": {
+			...
+		}
+	}
+
+#### Project configuration
 
 |Field|Mandatory|Type|Description|
 |---|---|---|---|
-|title|x|string|Title of the container|
+|name|x|string|Name (label) of the project|
+|version||string|Version of the project|
+
+#### Containers configuration
+
+**The key of the container object is the container identifier.**
+
+Each container has several fields to describe it, some are mandatories, some are optional:
+
+|Field|Mandatory|Type|Description|
+|---|---|---|---|
+|name|x|string|Name (label) of the container|
 |image|x|string|Image name|
 |ports| |object|Ports redirection mappings|
 |mounts| |object|Volumes mounts mappings|
@@ -39,8 +58,8 @@ Each project has several fields to describe it, some are mandatories, some are o
 |variables| |object|Variables|
 
     {
-        "<project name (machine name)>": {
-            "title": "<project title>",
+        "<container identifier>": {
+            "name": "<container name>",
             "image": "<image name>",
             "ports": {
             },
@@ -56,13 +75,13 @@ Each project has several fields to describe it, some are mandatories, some are o
         }
     }
 
-#### container name
+#### container identifier
 
 This information is not contained in a field, but is the key of the object.
 
-#### title
+#### name
 
-Field of type string containing the title of the project.
+Field of type string containing the name of the project.
 
 #### image
 
@@ -144,14 +163,14 @@ Each variable will have a corresponding input field in the configuration tab of 
 
 |Field|Mandatory|Type|Description|
 |---|---|---|---|
-|label|x|string|Label of the variable input field|
+|name|x|string|Name (label) of the variable input field|
 |type|x|string|Variable type, possible values are: "string", "number", "directory", "file"|
 |value| | |Variable default value|
 |mandatory| |boolean|Will the varialbe value be mandatory ?|
 
     {
-        "<variable name (machine name)>": {
-            "label": "<label of the variable>",
+        "<variable identifier (machine name)>": {
+            "name": "<name of the variable>",
             "type": "<type of the variable>",
             "value": "<default value>",
             "mandatory": "<is the variable value mandatory ?>"
@@ -171,7 +190,7 @@ A variable could be reference in the project configuration, as the following exa
 *Example:*
 
     "frontend": {
-        "title": "My website frontend",
+        "name": "My website frontend",
         "image": "nginx",
         "ports": {
             "80/tcp": "8080"
@@ -181,7 +200,7 @@ A variable could be reference in the project configuration, as the following exa
         },
         "variables": {
             "repositoryDirectory": {
-                "label": "Repository directory",
+                "name": "Repository directory",
                 "type": "directory",
                 "value": null,
                 "mandatory": true
