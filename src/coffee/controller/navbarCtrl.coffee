@@ -1,7 +1,7 @@
 app
 .controller 'navbarCtrl',
-['$scope', '$state', '$q', 'appGuiMgr', 'projectMgr', 'containersMgr',
-($scope, $state, $q, appGuiMgr, projectMgr, containersMgr) ->
+['$scope', '$state', '$q', 'appGuiMgr', 'projectMgr', 'containersMgr', 'dockerUtil',
+($scope, $state, $q, appGuiMgr, projectMgr, containersMgr, dockerUtil) ->
 
 	class Controller
 
@@ -30,13 +30,16 @@ app
 			appGuiMgr.maximizeApp()
 
 		start: (container) ->
-			containersMgr.start container
+			containersMgr.start(container).then null, (errors) ->
+				notFoundErrors = _.filter errors, (item) ->
+					return item.error.statusCode == 404
+				if notFoundErrors.length
+					console.dir notFoundErrors
+					for error in notFoundErrors
+						dockerUtil.pullImage container.iamge.name
 
 		stop: (container) ->
 			containersMgr.stop container
-
-		startAll: ->
-			containersMgr.startAll()
 
 		stopAll: ->
 			containersMgr.stopAll()

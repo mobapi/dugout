@@ -29,41 +29,42 @@ app
 		start: (container) ->
 			d = $q.defer()
 			tasks = []
+			errors = []
 			for link, k of container.links
 				subcontainer = @containers[k]
 				((subcontainer) =>
 					tasks.push (callback) =>
 						if subcontainer.runtime.docker.container.infos
+							# Container is already started
 							return callback null, subcontainer
 						else
+							# Container stopped, so start it
 							@start subcontainer
 							.then ->
 								callback null, subcontainer
 							, (error) ->
-								callback error
+								callback
+									container: subcontainer
+									error: error
 				)(subcontainer)
 			async.parallel tasks, (error, results) ->
-				return d.reject error if error
-					# console.dir
-					# 	error: error
-					# 	results: results
+				if error
+					errors.push error
+					return d.reject errors
 				if results.length == tasks.length
-					container.startContainer().then ->
-						d.resolve()
-					, (error) ->
+					container.startContainer().then d.resolve, (error) ->
+						errors.push
+							container: container
+							error: error
 						toaster.pop
 							type: 'error'
 							title: gettextCatalog.getString gettext('Error')
 							body: "Unable to create container: #{error}"
-						d.reject error
+						d.reject errors
 			return d.promise
 
 		stop: (container) ->
 			container.stopContainer()
-
-		startAll: ->
-			for containerId, container of @containers
-				container.startContainer()			
 
 		stopAll: ->
 			d = $q.defer()
