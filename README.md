@@ -14,13 +14,11 @@ Windows (64 bits) support will be added later.
 - Automatic image pull
 - Flexible configuration through variables
 - Support following container features:
-
     - links
     - volumes
     - ports
     - environment variables
     - command
-
 - Private registries ready, even with basic-http authentication
 
 ## Run
