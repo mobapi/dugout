@@ -1,4 +1,4 @@
-{
+{"gulp-expect-file": "*",
   "name": "Dugout",
   "version": "2.0.0",
   "description": "",
@@ -16,6 +16,7 @@
     "gulp-angular-gettext": "*",
     "gulp-coffee": "*",
     "gulp-concat": "*",
+    "gulp-expect-file": "*",
     "gulp-less": "*",
     "gulp-minify-css": "*",
     "gulp-minify-html": "*",

@@ -1,7 +1,7 @@
 app
 .controller 'navbarCtrl',
-['$scope', '$state', '$q', 'appGuiMgr', 'projectMgr', 'containersMgr', 'dockerUtil',
-($scope, $state, $q, appGuiMgr, projectMgr, containersMgr, dockerUtil) ->
+['$scope', '$state', '$q', 'appGuiMgr', '$uibModal', 'projectMgr', 'containersMgr',
+($scope, $state, $q, appGuiMgr, $uibModal, projectMgr, containersMgr) ->
 
 	class Controller
 
@@ -30,13 +30,26 @@ app
 			appGuiMgr.maximizeApp()
 
 		start: (container) ->
-			containersMgr.start(container).then null, (errors) ->
+			containersMgr.start(container).then null, (errors) =>
+				# Missing image handling
 				notFoundErrors = _.filter errors, (item) ->
 					return item.error.statusCode == 404
 				if notFoundErrors.length
-					console.dir notFoundErrors
-					for error in notFoundErrors
-						dockerUtil.pullImage container.iamge.name
+					images = _.map notFoundErrors, (item) ->
+						return item.container.image
+
+					modalInstance = $uibModal.open
+						controller: 'pullDialogCtrl as ctrl'
+						templateUrl: 'pullDialog.html'
+						backdrop: 'static'
+						size: 'lg'
+						resolve:
+							images: -> images
+
+					modalInstance.result.then =>
+						@start container
+					, (error) ->
+						console.dir error
 
 		stop: (container) ->
 			containersMgr.stop container

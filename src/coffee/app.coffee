@@ -3,7 +3,6 @@ app = angular.module 'dugout', [
 	'gettext'
 	'LocalStorageModule'
 	'luegg.directives' # scroll-glue
-	'ngDialog'
 	'ngPrettyJson'
 	'ngSanitize'
 	'perfect_scrollbar'

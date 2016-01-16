@@ -33,22 +33,3 @@
 		</div>
 	</div>
 </perfect-scrollbar>
-
-<script type="text/ng-template" id="pullDialog.html">
-	<div class="container-fluid">
-		<div class="row" ng-if="!pullImageLog.length">
-			<div class="col-xs-12 fa-spin-fix">
-				<div>
-					<h3>
-						<i class="fa fa-gear fa-spin"></i>
-						{{'Processing...'|translate}}
-					</h3>
-				</div>
-			</div>
-		</div>
-		<div class="row" ng-repeat="l in pullImageLog track by l._id">
-			<div class="col-xs-4">{{l.id}}</div>
-			<div class="col-xs-8">{{l.status}}</div>
-		</div
-	</div>
-</script>

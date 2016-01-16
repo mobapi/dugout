@@ -1,0 +1,7 @@
+.modal .panel {
+	margin-bottom: 0;
+}
+
+.modal .panel .panel-body {
+	height: 500px;
+}

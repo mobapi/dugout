@@ -1,6 +1,7 @@
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
 del = require 'del'
+expect = require 'gulp-expect-file'
 less = require 'gulp-less'
 gettext = require 'gulp-angular-gettext'
 gulp = require 'gulp'
@@ -62,7 +63,6 @@ files =
 			"#{directories.libs}/metisMenu/dist/metisMenu.js"
 			"#{directories.libs}/moment/moment.js"
 			"#{directories.libs}/moment/locale/fr.js"
-			"#{directories.libs}/ngDialog/js/ngDialog.js"
 			"#{directories.libs}/ng-prettyjson/dist/ng-prettyjson.min.js"
 			"#{directories.libs}/perfect-scrollbar/src/perfect-scrollbar.js"
 			"#{directories.libs}/sprintf/src/sprintf.js"
@@ -73,8 +73,6 @@ files =
 			"#{directories.libs}/bootstrap/dist/css/bootstrap.css"
 			"#{directories.libs}/font-awesome/css/font-awesome.css"
 			"#{directories.libs}/metisMenu/dist/metisMenu.css"
-			"#{directories.libs}/ngDialog/css/ngDialog.css"
-			"#{directories.libs}/ngDialog/css/ngDialog-theme-default.css"
 			"#{directories.libs}/ng-prettyjson/dist/ng-prettyjson.min.css"
 			"#{directories.libs}/perfect-scrollbar/src/perfect-scrollbar.css"
 			"#{directories.libs}/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css"
@@ -86,8 +84,6 @@ files =
 			"#{directories.libs}/font-awesome/fonts/fontawesome-webfont.ttf"
 			"#{directories.libs}/font-awesome/fonts/fontawesome-webfont.woff"
 			"#{directories.libs}/font-awesome/fonts/fontawesome-webfont.woff2"
-			"#{directories.libs}/fonts/OpenSans-CondLight.ttf"
-			"#{directories.libs}/fonts/UbuntuMono-Regular.ttf"
 		]
 
 
@@ -96,16 +92,19 @@ gulp.task 'libs', [ 'libs_js', 'libs_css', 'libs_fonts' ]
 
 gulp.task 'libs_js', ->
 	return gulp.src files.libs.js
+		.pipe expect(files.libs.js)
 		.pipe concat("libs.js")
 		.pipe gulp.dest("#{directories.dist}/js/")
 
 gulp.task 'libs_css', ->
 	return gulp.src files.libs.css
+		.pipe expect(files.libs.css)
 		.pipe concat("libs.css")
 		.pipe gulp.dest("#{directories.dist}/css/")
 
 gulp.task 'libs_fonts', ->
 	return gulp.src files.libs.fonts
+		.pipe expect(files.libs.fonts)
 		.pipe gulp.dest("#{directories.dist}/fonts/")
 
 

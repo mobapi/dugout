@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3>{{'Image download'|translate}}</h3>
+	</div>
+	<div class="panel-body">
+		<perfect-scrollbar class="log scroller full-height" scroll-glue>
+			<div class="container-fluid">
+				<div class="row" ng-if="!pullImageLog.length">
+					<div class="col-xs-12 fa-spin-fix">
+						<div>
+							<h3>
+								<i class="fa fa-gear fa-spin"></i>
+								{{'Please wait...'|translate}}
+							</h3>
+						</div>
+					</div>
+				</div>
+				<div class="row" ng-repeat="l in pullImageLog track by l._id">
+					<div class="col-xs-4">{{l.id}}</div>
+					<div class="col-xs-8"><span>{{l.status}}</span></div>
+				</div>
+			</div>
+		</perfect-scrollbar>
+	</div>
+	<div class="panel-footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-10">
+					<span ng-if="pullImageLog.length">
+						<i class="fa fa-gear fa-spin"></i>
+						{{'Processing...'|translate}}
+					</span>
+				</div>
+				<div class="col-xs-2">
+					<button type="button" class="btn btn-default" ng-click="ctrl.cancel()">{{'Close'|translate}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

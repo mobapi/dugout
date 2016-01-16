@@ -1,9 +1,13 @@
 @font-face {
 	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: normal;
+	font-style: normal;
 	src: url(../fonts/OpenSans-CondLight.ttf);
 }
 
 @font-face {
-	font-family: 'Ubuntu Mono', ;
+	font-family: 'Ubuntu Mono';
+	font-weight: normal;
+	font-style: normal;
 	src: url(../fonts/UbuntuMono-Regular.ttf);
 }
