@@ -42,10 +42,8 @@ app
 							@start subcontainer
 							.then ->
 								callback null, subcontainer
-							, (error) ->
-								callback
-									container: subcontainer
-									error: error
+							, (errors) ->
+								callback errors[0]
 				)(subcontainer)
 			async.parallel tasks, (error, results) ->
 				if error
