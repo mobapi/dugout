@@ -1,8 +1,27 @@
 # Dugout
 
-Dugout is a companion app for "dockerized" micro-services applications.
+Dugout is a companion app for "dockerized" applications, specifically targetted to micro-services applications.
+
 It helps to maintain a coherent containerized development platform across a team.
-The app is built for Mac OS X (64 bits), Linux (64 bits) and Windows (64 bits).
+
+The app is built for **Mac OS X (64 bits)** and **Linux (64 bits)**.
+
+Windows (64 bits) support will be added later.
+
+## Features
+
+- Run/monitor/stop the containers of your projects with ease
+- Automatic image pull
+- Flexible configuration through variables
+- Support following container features:
+
+    - links
+    - volumes
+    - ports
+    - environment variables
+    - command
+
+- Private registries ready, even with basic-http authentication
 
 ## Run
 
