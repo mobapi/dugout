@@ -54,10 +54,10 @@ app
 						errors.push
 							container: container
 							error: error
-						toaster.pop
-							type: 'error'
-							title: gettextCatalog.getString gettext('Error')
-							body: "Unable to create container: #{error}"
+						# toaster.pop
+						# 	type: 'error'
+						# 	title: gettextCatalog.getString gettext('Error')
+						# 	body: "Unable to create container: #{error}"
 						d.reject errors
 			return d.promise
 

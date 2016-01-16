@@ -1,23 +1,23 @@
-<div class="panel panel-default">
+<div class="panel panel-color">
 	<div class="panel-heading">
-		<h3>{{'Image download'|translate}}</h3>
+		<h3>{{'Pulling image'|translate}} {{image}}</h3>
 	</div>
 	<div class="panel-body">
 		<perfect-scrollbar class="log scroller full-height" scroll-glue>
 			<div class="container-fluid">
-				<div class="row" ng-if="!pullImageLog.length">
-					<div class="col-xs-12 fa-spin-fix">
-						<div>
-							<h3>
-								<i class="fa fa-gear fa-spin"></i>
-								{{'Please wait...'|translate}}
-							</h3>
+				<div class="row" ng-repeat="(id, layer) in layers">
+					<div ng-if="layer.id">
+						<div class="col-xs-2"><span>{{layer.id}}</span></div>
+						<div class="col-xs-3"><span>{{layer.status}}</span></div>
+						<div class="col-xs-7">
+							<uib-progressbar ng-if="layer.progressDetail.percent" value="layer.progressDetail.percent">
+								<span>{{layer.progressDetail.percent}} %</span>
+							</uib-progressbar>
 						</div>
 					</div>
-				</div>
-				<div class="row" ng-repeat="l in pullImageLog track by l._id">
-					<div class="col-xs-4">{{l.id}}</div>
-					<div class="col-xs-8"><span>{{l.status}}</span></div>
+					<div ng-if="!layer.id">
+						<div class="col-xs-12"><span>{{layer.status}}</span></div>
+					</div>
 				</div>
 			</div>
 		</perfect-scrollbar>
@@ -26,13 +26,13 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-10">
-					<span ng-if="pullImageLog.length">
+					<span>
 						<i class="fa fa-gear fa-spin"></i>
-						{{'Processing...'|translate}}
+						{{'Please wait...'|translate}}
 					</span>
 				</div>
 				<div class="col-xs-2">
-					<button type="button" class="btn btn-default" ng-click="ctrl.cancel()">{{'Close'|translate}}</button>
+					<button type="button" class="btn btn-default pull-right" ng-click="ctrl.cancel()">{{'Close'|translate}}</button>
 				</div>
 			</div>
 		</div>

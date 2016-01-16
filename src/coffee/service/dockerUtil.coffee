@@ -181,16 +181,14 @@ app
 					d.resolve result
 			return d.promise
 
-		pullImage: (imageName) ->
+		pullImage: (imageName, authconfig) ->
 			d = $q.defer()
-			@docker.pull imageName, (error, stream) =>
+			opts = {}
+			if authconfig
+				opts.authconfig = authconfig
+			@docker.pull imageName, opts, (error, stream) =>
 				if error
 					return d.reject error
-				# stream.on 'readable', ->
-				# 	while((chunk = stream.read()) != null)
-				# 		q.notify JSON.parse(chunk.toString())
-				# stream.on 'end', ->
-				# 	q.resolve()
 				@docker.modem.followProgress stream
 				, (error, output) ->
 					if error

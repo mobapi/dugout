@@ -28,6 +28,14 @@ msgstr "Alias"
 msgid "All containers"
 msgstr "Tous les conteneurs"
 
+#: loginDialog.html:4
+msgid "Authentication"
+msgstr "Authentification"
+
+#: loginDialog.html:25
+msgid "Cancel"
+msgstr "Annuler"
+
 #: configuration.html:96
 msgid "Certificates path"
 msgstr "Chemin des certificats"
@@ -36,11 +44,11 @@ msgstr "Chemin des certificats"
 msgid "Clear log"
 msgstr "Effacer les traces"
 
-#: app.js:771
+#: app.js:693
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
-#: navbar.html:30
+#: navbar.html:30 pullDialog.html:35
 msgid "Close"
 msgstr "Fermer"
 
@@ -77,6 +85,10 @@ msgstr "Port du conteneur"
 msgid "Containers"
 msgstr "Conteneurs"
 
+#: loginDialog.html:16
+msgid "Email"
+msgstr "Email"
+
 #: container_configuration.html:108
 msgid "Environment"
 msgstr "Environnement"
@@ -85,15 +97,15 @@ msgstr "Environnement"
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:182 app.js:63 app.js:732 app.js:876
+#: app.js:182 app.js:63 app.js:654
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1259
+#: app.js:1195
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1254
+#: app.js:1190
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -133,11 +145,15 @@ msgstr "Langue"
 msgid "Links"
 msgstr "Liens"
 
+#: loginDialog.html:24
+msgid "Login"
+msgstr ""
+
 #: app.js:247 project.html:14 project.html:16
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:355
+#: app.js:368
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
@@ -153,7 +169,11 @@ msgstr "Réduire"
 msgid "Mounts"
 msgstr "Montages"
 
-#: app.js:718 navbar.html:18
+#: container_configuration.html:51
+msgid "Name"
+msgstr "Nom"
+
+#: app.js:640 navbar.html:18
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -161,9 +181,13 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:717
+#: app.js:639
 msgid "Open..."
 msgstr "Ouvrir..."
+
+#: loginDialog.html:12
+msgid "Password"
+msgstr "Mot de passe"
 
 #: configuration.html:56
 msgid "Path"
@@ -181,6 +205,10 @@ msgstr "Veuillez choisir un fichier"
 msgid "Please type a value"
 msgstr "Veuillez entrer une valeur"
 
+#: pullDialog.html:31
+msgid "Please wait..."
+msgstr "Veuillez patienter..."
+
 #: configuration.html:80 configuration.html:82
 msgid "Port"
 msgstr "Port"
@@ -189,11 +217,11 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Ports"
 
-#: container_image.html:44
-msgid "Processing..."
-msgstr "Traitement en cours …"
+#: pullDialog.html:3
+msgid "Pulling image"
+msgstr "Récupération de l'image"
 
-#: app.js:745
+#: app.js:667
 msgid "Recent files"
 msgstr "Fichiers récents"
 
@@ -249,10 +277,6 @@ msgstr "Le conteneur n’est pas démarré"
 msgid "The logs are empty"
 msgstr "Les traces sont vides"
 
-#: container_configuration.html:51
-msgid "Title"
-msgstr "Titre"
-
 #: navbar.html:4
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
@@ -265,6 +289,10 @@ msgstr "Socket UNIX"
 msgid "Update"
 msgstr "Mettre à jour"
 
+#: loginDialog.html:8
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
 #: configuration.html:9
 msgid "valid"
 msgstr "valide"
@@ -276,6 +304,12 @@ msgstr "Valeur"
 #: container_configuration.html:5
 msgid "Variables"
 msgstr "Variables"
+
+#~ msgid "Processing..."
+#~ msgstr "Traitement en cours …"
+
+#~ msgid "Title"
+#~ msgstr "Titre"
 
 #~ msgid "Current file: %(file)s"
 #~ msgstr "Fichier courant : %(file)s"

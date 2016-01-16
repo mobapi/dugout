@@ -6,7 +6,9 @@ input.form-control:active {
 }
 
 input[type=text].form-control,
-input[type=number].form-control {
+input[type=number].form-control,
+input[type=email].form-control,
+input[type=password].form-control {
 	background-color: transparent;
 	border: none;
 	border-radius: 0;
@@ -15,7 +17,9 @@ input[type=number].form-control {
 }
 
 input[type=text].form-control:focus,
-input[type=number].form-control:focus {
+input[type=number].form-control:focus,
+input[type=email].form-control:focus,
+input[type=password].form-control:focus {
 	border-bottom: 1px solid #bbb;
 }
 

@@ -13,23 +13,9 @@ app
 				controller: 'pullDialogCtrl as ctrl'
 				templateUrl: 'pullDialog.html'
 				backdrop: 'static'
+				size: 'lg'
 				resolve:
-					images: -> [$scope.container]
-
-			# dialog = ngDialog.open
-			# 	template: 'pullDialog.html'
-			# 	className: 'ngdialog-theme-default'
-			# 	scope: $scope
-			# $scope.pullImageLog = []
-			# $scope.container.pullImage().then ->
-			# 	# dialog.close()
-			# 	$scope.pullImageLog += "\n\nUpdate done."
-			# , (error) ->
-			# 	console.error error
-			# , (data) ->
-			# 	data._id = Math.round((new Date()).getTime() * Math.random() * 10000)
-			# 	console.dir data
-			# 	$scope.pullImageLog.push data
+					images: -> [$scope.container.image]
 
 	return new Controller()
 

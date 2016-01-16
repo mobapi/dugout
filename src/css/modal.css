@@ -5,3 +5,11 @@
 .modal .panel .panel-body {
 	height: 500px;
 }
+
+.modal .panel .panel-body .scroller {
+	white-space: initial;
+}
+
+.modal .panel .panel-body .progress {
+	margin-bottom: 0;
+}

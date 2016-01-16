@@ -1,0 +1,37 @@
+<form role="form" name="form" novalidate>
+	<div class="panel panel-color">
+		<div class="panel-heading">
+			<h3>{{'Authentication'|translate}}</h3>
+		</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<label>{{'Username'|translate}}</label>
+				<input type="text" class="form-control" name="username" ng-model="credentials.username" />
+			</div>
+			<div class="form-group">
+				<label>{{'Password'|translate}}</label>
+				<input type="password" class="form-control" name="password" ng-model="credentials.password" />
+			</div>
+			<div class="form-group">
+				<label>{{'Email'|translate}}</label>
+				<input type="email" class="form-control" name="email" ng-model="credentials.email" />
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12">
+						<button type="submit" class="btn btn-primary pull-right" ng-click="ctrl.login()">
+							<i class="fa fa-unlock-alt"></i>
+							{{'Login'|translate}}
+						</button>
+						<button type="button" class="btn btn-link pull-right" ng-click="$dismiss()">
+							<i class="fa fa-arrow-left"></i>
+							{{'Cancel'|translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

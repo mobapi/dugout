@@ -9,6 +9,15 @@
 	color: #fff;
 }
 
+.panel-color .panel-footer .btn-primary {
+	background-color: #fff;
+	color: #32afb2;
+}
+
+.panel-color .panel-footer .btn-link {
+	color: #fff;
+}
+
 .panel-color .panel-footer a {
 	color: #fff;
 	text-decoration: none;

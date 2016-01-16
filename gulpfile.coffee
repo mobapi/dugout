@@ -46,7 +46,7 @@ files =
 			"#{directories.libs}/jquery/dist/jquery.js"
 			"#{directories.libs}/angular/angular.js"
 			"#{directories.libs}/angular-animate/angular-animate.js"
-			"#{directories.libs}/angular-bootstrap/ui-bootstrap.js"
+			# "#{directories.libs}/angular-bootstrap/ui-bootstrap.js"
 			"#{directories.libs}/angular-bootstrap/ui-bootstrap-tpls.js"
 			"#{directories.libs}/angular-gettext/dist/angular-gettext.js"
 			"#{directories.libs}/angular-hotkeys/build/hotkeys.js"

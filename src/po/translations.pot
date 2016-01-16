@@ -20,6 +20,14 @@ msgstr ""
 msgid "All containers"
 msgstr ""
 
+#: loginDialog.html:4
+msgid "Authentication"
+msgstr ""
+
+#: loginDialog.html:25
+msgid "Cancel"
+msgstr ""
+
 #: configuration.html:96
 msgid "Certificates path"
 msgstr ""
@@ -28,11 +36,12 @@ msgstr ""
 msgid "Clear log"
 msgstr ""
 
-#: app.js:771
+#: app.js:693
 msgid "Clear recent files"
 msgstr ""
 
 #: navbar.html:30
+#: pullDialog.html:35
 msgid "Close"
 msgstr ""
 
@@ -75,6 +84,10 @@ msgstr ""
 msgid "Containers"
 msgstr ""
 
+#: loginDialog.html:16
+msgid "Email"
+msgstr ""
+
 #: container_configuration.html:108
 msgid "Environment"
 msgstr ""
@@ -85,16 +98,15 @@ msgstr ""
 
 #: app.js:182
 #: app.js:63
-#: app.js:732
-#: app.js:876
+#: app.js:654
 msgid "Error"
 msgstr ""
 
-#: app.js:1259
+#: app.js:1195
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1254
+#: app.js:1190
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -138,13 +150,17 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
+#: loginDialog.html:24
+msgid "Login"
+msgstr ""
+
 #: app.js:247
 #: project.html:14
 #: project.html:16
 msgid "Logs"
 msgstr ""
 
-#: app.js:355
+#: app.js:368
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
@@ -160,7 +176,11 @@ msgstr ""
 msgid "Mounts"
 msgstr ""
 
-#: app.js:718
+#: container_configuration.html:51
+msgid "Name"
+msgstr ""
+
+#: app.js:640
 #: navbar.html:18
 msgid "Open containers configuration file"
 msgstr ""
@@ -169,8 +189,12 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:717
+#: app.js:639
 msgid "Open..."
+msgstr ""
+
+#: loginDialog.html:12
+msgid "Password"
 msgstr ""
 
 #: configuration.html:56
@@ -190,6 +214,10 @@ msgstr ""
 msgid "Please type a value"
 msgstr ""
 
+#: pullDialog.html:31
+msgid "Please wait..."
+msgstr ""
+
 #: configuration.html:80
 #: configuration.html:82
 msgid "Port"
@@ -199,11 +227,11 @@ msgstr ""
 msgid "Ports"
 msgstr ""
 
-#: container_image.html:44
-msgid "Processing..."
+#: pullDialog.html:3
+msgid "Pulling image"
 msgstr ""
 
-#: app.js:745
+#: app.js:667
 msgid "Recent files"
 msgstr ""
 
@@ -259,10 +287,6 @@ msgstr ""
 msgid "The logs are empty"
 msgstr ""
 
-#: container_configuration.html:51
-msgid "Title"
-msgstr ""
-
 #: navbar.html:4
 msgid "Toggle navigation"
 msgstr ""
@@ -273,6 +297,10 @@ msgstr ""
 
 #: container_image.html:10
 msgid "Update"
+msgstr ""
+
+#: loginDialog.html:8
+msgid "Username"
 msgstr ""
 
 #: configuration.html:9

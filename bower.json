@@ -29,7 +29,7 @@
     "angularjs-toaster": "*",
     "async": "*",
     "bootstrap": "*",
-    "font-awesome": "4.4.*",
+    "font-awesome": "4.5.*",
     "jquery": "1.*",
     "lodash": "*",
     "moment": "*",
@@ -40,6 +40,6 @@
   "resolutions": {
     "angular": "1.4.*",
     "jquery": "1.*",
-    "font-awesome": "4.4.*"
+    "font-awesome": "4.5.*"
   }
 }
