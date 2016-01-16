@@ -24,7 +24,7 @@ msgstr ""
 msgid "Authentication"
 msgstr ""
 
-#: loginDialog.html:25
+#: loginDialog.html:30
 msgid "Cancel"
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Clear log"
 msgstr ""
 
-#: app.js:693
+#: app.js:887
 msgid "Clear recent files"
 msgstr ""
 
@@ -98,15 +98,15 @@ msgstr ""
 
 #: app.js:182
 #: app.js:63
-#: app.js:654
+#: app.js:848
 msgid "Error"
 msgstr ""
 
-#: app.js:1195
+#: app.js:1389
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1190
+#: app.js:1384
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: loginDialog.html:24
+#: loginDialog.html:26
 msgid "Login"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: app.js:640
+#: app.js:834
 #: navbar.html:18
 msgid "Open containers configuration file"
 msgstr ""
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:639
+#: app.js:833
 msgid "Open..."
 msgstr ""
 
@@ -231,7 +231,7 @@ msgstr ""
 msgid "Pulling image"
 msgstr ""
 
-#: app.js:667
+#: app.js:861
 msgid "Recent files"
 msgstr ""
 

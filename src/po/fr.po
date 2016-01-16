@@ -32,7 +32,7 @@ msgstr "Tous les conteneurs"
 msgid "Authentication"
 msgstr "Authentification"
 
-#: loginDialog.html:25
+#: loginDialog.html:30
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -44,7 +44,7 @@ msgstr "Chemin des certificats"
 msgid "Clear log"
 msgstr "Effacer les traces"
 
-#: app.js:693
+#: app.js:887
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
@@ -97,15 +97,15 @@ msgstr "Environnement"
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:182 app.js:63 app.js:654
+#: app.js:182 app.js:63 app.js:848
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1195
+#: app.js:1389
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1190
+#: app.js:1384
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -145,9 +145,9 @@ msgstr "Langue"
 msgid "Links"
 msgstr "Liens"
 
-#: loginDialog.html:24
+#: loginDialog.html:26
 msgid "Login"
-msgstr ""
+msgstr "S'authentifier"
 
 #: app.js:247 project.html:14 project.html:16
 msgid "Logs"
@@ -173,7 +173,7 @@ msgstr "Montages"
 msgid "Name"
 msgstr "Nom"
 
-#: app.js:640 navbar.html:18
+#: app.js:834 navbar.html:18
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -181,7 +181,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:639
+#: app.js:833
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -221,7 +221,7 @@ msgstr "Ports"
 msgid "Pulling image"
 msgstr "Récupération de l'image"
 
-#: app.js:667
+#: app.js:861
 msgid "Recent files"
 msgstr "Fichiers récents"
 
