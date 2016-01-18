@@ -198,6 +198,15 @@ app
 					d.notify event
 			return d.promise
 
+		ping: ->
+			d = $q.defer()
+			return d.reject() if not @globalConf
+			@docker.ping (error, data) ->
+				if error
+					return d.reject error
+				d.resolve()
+			return d.promise
+
 
 	return new Service()
 

@@ -1,7 +1,7 @@
 app
 .controller 'containerConfigurationCtrl',
-['$scope', '$state', 'containersMgr', 'container',
-($scope, $state, containersMgr, container) ->
+['$scope', '$state', 'projectMgr', 'container',
+($scope, $state, projectMgr, container) ->
 
 	class Controller
 
@@ -15,7 +15,7 @@ app
 			, true
 
 		save: ->
-			containersMgr.save()
+			projectMgr.save()
 
 	return new Controller()
 

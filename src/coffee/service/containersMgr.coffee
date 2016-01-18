@@ -1,7 +1,7 @@
 app
 .service 'containersMgr',
-['$rootScope', '$q', '$http', 'toaster', 'localStorageService', 'filesMgr','Container',
-($rootScope, $q, $http, toaster, storage, filesMgr, Container) ->
+['$rootScope', '$q', '$http', 'toaster', 'Container',
+($rootScope, $q, $http, toaster, Container) ->
 
 	class Service
 
@@ -80,17 +80,6 @@ app
 				if results.length == tasks.length
 					d.resolve()
 			return d.promise
-
-		save: ->
-			containers = angular.copy @containers
-			for k, p of containers
-				delete containers[k].runtime
-			fileContent = JSON.stringify containers
-			beautify = require('js-beautify').js_beautify
-			fileContent = beautify fileContent, 
-				indent_with_tabs: true
-			fs = require 'fs'
-			fs.writeFileSync filesMgr.currentFile, fileContent
 
 	return new Service()
 
