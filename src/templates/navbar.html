@@ -19,7 +19,7 @@
 		<li>
 			<a ui-sref="configuration" class="no-drag" title="{{'Configuration'|translate}}" ng-class="{'active': activeState == 'configuration'}">
 				<i class="stream stream-cog fa-2x"></i>
-				<small ng-if="!$root.globalConfMgr.valid" class="label label-danger pull-right">{{'invalid'|translate}}</small>
+				<small ng-if="!$root.globalConfMgr.valid" class="label label-warning pull-right">{{'invalid'|translate}}</small>
 			</a>
 		</li>
 	</ul>
@@ -58,7 +58,7 @@
 						<!--button class="btn btn-primary" ng-click="ctrl.startAll()" title="{{'Start all containers'|translate}}">
 							<i class="fa fa-play"></i>
 						</button-->
-						<button class="btn btn-warning" ng-click="ctrl.stopAll()" title="{{'Stop all containers'|translate}}">
+						<button class="btn btn-danger" ng-click="ctrl.stopAll()" title="{{'Stop all containers'|translate}}">
 							<i class="fa fa-stop"></i>
 						</button>
 					</span>
@@ -74,11 +74,11 @@
 									<button ng-if="!container.runtime.docker.container.infos.State" class="btn btn-primary btn-sm" ng-click="ctrl.start(container)" title="{{'Start container'|translate}}">
 										<i class="fa fa-play"></i>
 									</button>
-									<button ng-if="container.runtime.docker.container.infos.State" class="btn btn-warning btn-sm pull-right" ng-click="ctrl.stop(container)" title="{{'Stop container'|translate}}">
+									<button ng-if="container.runtime.docker.container.infos.State" class="btn btn-danger btn-sm pull-right" ng-click="ctrl.stop(container)" title="{{'Stop container'|translate}}">
 										<i class="fa fa-stop"></i>
 									</button>
 								</span>
-								<i ng-if="!$root.globalConfMgr.valid || !container.runtime.configurationValid" class="fa fa-warning fa-2x text-danger"></i>
+								<i ng-if="!$root.globalConfMgr.valid || !container.runtime.configurationValid" class="fa fa-warning fa-2x text-warning"></i>
 							</span>
 						</li>
 					</ul>
