@@ -75,17 +75,16 @@ app
 			@runtime.params = @substitute params, vars
 			# Create container
 			dockerUtil.startContainer(@id, @image, @runtime.params).then (container) =>
-				@startContainerLog()
 				@checkContainerStatus()
+				@startContainerLog()
 				d.resolve()
 			, (error) =>
 				console.error "Unable to create container: error #{error}"
 				@checkContainerStatus()
 				d.reject error
-			, (data) =>
-				@checkContainerStatus()
-				@runtime.docker.container.addToLog data.stdout.toString() if data.stdout
-				@runtime.docker.container.addToLog data.stderr.toString() if data.stderr
+			@runtime.docker.container.infos =
+				State:
+					Starting: true
 			return d.promise
 
 		stopContainer: ->
@@ -98,6 +97,9 @@ app
 				console.dir error
 				@checkContainerStatus()
 				d.reject()
+			if @runtime.docker.container.infos
+				@runtime.docker.container.infos.State.Stopping = true
+				@runtime.docker.container.infos.State.Running = false
 			return d.promise
 
 		startContainerLog: ->

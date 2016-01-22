@@ -2,3 +2,7 @@
 	-webkit-transform-origin: 50% calc(50% - .5px);
 	transform-origin: 50% calc(50% - .5px);
 }
+
+.fa.text-warning {
+	color: #f0ad4e;
+}
