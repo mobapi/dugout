@@ -74,7 +74,7 @@
 									<button ng-if="!container.runtime.docker.container.infos" class="btn btn-primary btn-sm" ng-click="ctrl.start(container)" title="{{'Start container'|translate}}">
 										<i class="fa fa-play"></i>
 									</button>
-									<button ng-if="container.runtime.docker.container.infos.State.Running" class="btn btn-danger btn-sm pull-right" ng-click="ctrl.stop(container)" title="{{'Stop container'|translate}}">
+									<button ng-if="container.runtime.docker.container.infos.State.Running || (container.runtime.docker.container.infos.State.Error && !container.runtime.docker.container.infos.State.Stopping)" class="btn btn-danger btn-sm pull-right" ng-click="ctrl.stop(container)" title="{{'Stop container'|translate}}">
 										<i class="fa fa-stop"></i>
 									</button>
 									<button ng-if="container.runtime.docker.container.infos.State.Starting || container.runtime.docker.container.infos.State.Stopping" class="btn btn-default btn-sm pull-right">

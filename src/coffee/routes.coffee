@@ -29,8 +29,8 @@ app
 		templateUrl: 'container.html'
 		controller: 'containerCtrl as ctrl'
 		resolve:
-			container: ['$stateParams', 'containersMgr', ($stateParams, containersMgr) ->
-				return containersMgr.get $stateParams.id
+			container: ['$stateParams', 'projectMgr', ($stateParams, projectMgr) ->
+				return projectMgr.getContainer $stateParams.id
 			]
 
 	.state 'container.logs',

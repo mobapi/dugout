@@ -7,7 +7,7 @@ app
 
 		constructor: ->
 			$scope.container = container
-			container.startContainerLog()
+			container && container.startContainerLog()
 
 		clearLog: ->
 			$scope.container.clearContainerLog()

@@ -1,22 +1,87 @@
 app
 .service 'projectMgr',
-['containersMgr', 'filesMgr',
-(containersMgr, filesMgr) ->
+['$q', 'filesMgr', 'Container',
+($q, filesMgr, Container) ->
 
 	class Service
 
 		constructor: ->
-			@project = {}
+			@project =
+				containers: {}
 
 		init: (project) ->
 			@project.path = project.path
 			@project.name = project.name
 			@project.version = project.version
-			containersMgr.init project.containers
-			@project.containers = containersMgr.containers
+			# Reset containers array
+			for id, p of @project.containers
+				delete @project.containers[id]
+			for id, p of project.containers
+				# Create container object from static configuration
+				container = new Container id, p
+				# Check container configuration
+				container.checkConfiguration()
+				# Docker status
+				container.checkContainerStatus()
+				# Add container to containers list
+				@project.containers[id] = container
+
+		getContainer: (id) ->
+			return @project.containers[id]
 
 		stop: ->
-			containersMgr.stopAll()
+			projectMgr.stopAll()
+
+		startContainer: (container) ->
+			d = $q.defer()
+			tasks = []
+			errors = []
+			for link, k of container.links
+				subcontainer = @project.containers[k]
+				((subcontainer) =>
+					tasks.push (callback) =>
+						if subcontainer.runtime.docker.container.infos
+							# Container is already started
+							return callback null, subcontainer
+						else
+							# Container stopped, so start it
+							@startContainer subcontainer
+							.then ->
+								callback null, subcontainer
+							, (errors) ->
+								callback errors[0]
+				)(subcontainer)
+			async.parallel tasks, (error, results) ->
+				if error
+					errors.push error
+					return d.reject errors
+				if results.length == tasks.length
+					container.startContainer().then d.resolve, (error) ->
+						errors.push
+							container: container
+							error: error
+						d.reject errors
+			return d.promise
+
+		stopContainer: (container) ->
+			container.stopContainer()
+
+		stopAll: ->
+			d = $q.defer()
+			tasks = []
+			for containerId, container of @project.containers
+				((container) =>
+					tasks.push (callback) =>
+						container.stopContainer().then ->
+							callback null
+						, (error) ->
+							callback error
+				)(container)
+			async.parallel tasks, (error, results) ->
+				return d.reject error if error
+				if results.length == tasks.length
+					d.resolve()
+			return d.promise
 
 		save: ->
 			project = angular.copy @project

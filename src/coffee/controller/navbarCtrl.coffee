@@ -1,7 +1,7 @@
 app
 .controller 'navbarCtrl',
-['$scope', '$state', '$q', 'appGuiMgr', '$uibModal', 'projectMgr', 'containersMgr',
-($scope, $state, $q, appGuiMgr, $uibModal, projectMgr, containersMgr) ->
+['$scope', '$state', '$q', 'toaster', 'appGuiMgr', '$uibModal', 'projectMgr',
+($scope, $state, $q, toaster, appGuiMgr, $uibModal, projectMgr) ->
 
 	class Controller
 
@@ -30,14 +30,13 @@ app
 			appGuiMgr.maximizeApp()
 
 		start: (container) ->
-			containersMgr.start(container).then null, (errors) =>
+			projectMgr.startContainer(container).then null, (errors) =>
 				# Missing image handling
 				notFoundErrors = _.filter errors, (item) ->
 					return item.error.statusCode == 404
 				if notFoundErrors.length
 					images = _.map notFoundErrors, (item) ->
 						return item.container.image
-
 					modalInstance = $uibModal.open
 						controller: 'pullDialogCtrl as ctrl'
 						templateUrl: 'pullDialog.html'
@@ -45,17 +44,25 @@ app
 						size: 'lg'
 						resolve:
 							images: -> images
-
 					modalInstance.result.then =>
 						@start container
 					, (error) ->
 						console.dir error
+				# Other errors
+				otherErrors = _.filter errors, (item) ->
+					return item.error.statusCode != 404
+				if otherErrors.length
+					for error in otherErrors
+						toaster.pop
+							type: 'error'
+							title: gettextCatalog.getString gettext('Error')
+							body: "Unable to start container: #{error.error}"
 
 		stop: (container) ->
-			containersMgr.stop container
+			projectMgr.stopContainer container
 
 		stopAll: ->
-			containersMgr.stopAll()
+			projectMgr.stopAll()
 
 	return new Controller()
 

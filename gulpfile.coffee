@@ -168,15 +168,22 @@ gulp.task 'app_fonts', ->
 		.pipe gulp.dest("#{directories.dist}/fonts/")
 
 gulp.task 'app_build', ->
-	nw_builder_files = [ "node_modules/**/*" ]
+	nw_builder_files = [ "node_modules/**/*", "!node_modules/**/node_modules/**/*" ]
+	nw_builder_files.push 
 	for d of packagejson.devDependencies
-		nw_builder_files.push "!node_modules/**/node_modules/**/*"
 		nw_builder_files.push "!node_modules/#{d}/**/*"
-	for i in [ '!node_modules/nw-gyp/**', '!node_modules/**/*.bin',
-		'!node_modules/**/*.c', '!node_modules/**/*.h',
-		'!node_modules/**/Makefile', '!node_modules/**/*.h',
-		'!**/test*/**', '!**/doc/**', '!**/example*/**',
-		'!**/demo*/**', '!**/bin/**', '!**/build/**',
+	for i in [ '!node_modules/nw-gyp/**',
+		'!node_modules/**/*.bin',
+		'!node_modules/**/*.c',
+		'!node_modules/**/*.h',
+		'!node_modules/**/Makefile',
+		'!node_modules/**/*.h',
+		'!**/test*/**',
+		'!**/doc/**',
+		'!**/example*/**',
+		'!**/demo*/**',
+		'!**/bin/**',
+		'!**/build/**',
 		'!**/.*/**',
 		"#{directories.dist}/**/*" ]
 		nw_builder_files.push i
