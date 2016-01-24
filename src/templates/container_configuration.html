@@ -43,16 +43,16 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<label>{{'Id'|translate}}</label>
-					<span class="conf-value">{{container.id}}</span>
+					<span class="conf-value pull-right">{{container.id}}</span>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
 					<label>{{'Name'|translate}}</label>
-					<span class="conf-value">{{container.name}}</span>
+					<span class="conf-value pull-right">{{container.name}}</span>
 				</div>
 			</div>
-			<div ng-if="container.links" class="row">
+			<div ng-if="!equals({}, container.links)" class="row">
 				<div class="col-xs-12">
 					<label>{{'Links'|translate}}</label>
 					<span class="conf-value">
@@ -69,7 +69,7 @@
 					</span>
 				</div>
 			</div>
-			<div ng-if="container.ports" class="row">
+			<div ng-if="!equals({}, container.ports)" class="row">
 				<div class="col-xs-12">
 					<label>{{'Ports'|translate}}</label>
 					<span class="conf-value">
@@ -86,7 +86,7 @@
 					</span>
 				</div>
 			</div>
-			<div ng-if="container.mounts" class="row">
+			<div ng-if="!equals({}, container.mounts)" class="row">
 				<div class="col-xs-12">
 					<label>{{'Mounts'|translate}}</label>
 					<span class="conf-value">
@@ -103,7 +103,7 @@
 					</span>
 				</div>
 			</div>
-			<div ng-if="container.environment" class="row">
+			<div ng-if="!equals({}, container.environment)" class="row">
 				<div class="col-xs-12">
 					<label>{{'Environment'|translate}}</label>
 					<span class="conf-value">

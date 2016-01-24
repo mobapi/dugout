@@ -88,6 +88,7 @@ app
 			delete project.path
 			for k, p of project.containers
 				delete project.containers[k].runtime
+				delete project.containers[k].id
 			fileContent = JSON.stringify project
 			beautify = require('js-beautify').js_beautify
 			fileContent = beautify fileContent, 
