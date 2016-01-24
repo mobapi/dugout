@@ -62,7 +62,7 @@ app
 			projectMgr.stopContainer container
 
 		stopAll: ->
-			projectMgr.stopAll()
+			projectMgr.stop()
 
 	return new Controller()
 

@@ -29,9 +29,6 @@ app
 		getContainer: (id) ->
 			return @project.containers[id]
 
-		stop: ->
-			projectMgr.stopAll()
-
 		startContainer: (container) ->
 			d = $q.defer()
 			tasks = []
@@ -66,7 +63,7 @@ app
 		stopContainer: (container) ->
 			container.stopContainer()
 
-		stopAll: ->
+		stop: ->
 			d = $q.defer()
 			tasks = []
 			for containerId, container of @project.containers
