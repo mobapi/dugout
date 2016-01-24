@@ -1,7 +1,7 @@
 app
 .controller 'pullDialogCtrl',
-['$scope', '$uibModal', '$uibModalInstance', 'dockerUtil', 'images',
-($scope, $uibModal, $uibModalInstance, dockerUtil, images) ->
+['$scope', 'toaster', '$uibModal', '$uibModalInstance', 'dockerUtil', 'images',
+($scope, toaster, $uibModal, $uibModalInstance, dockerUtil, images) ->
 
 	class Controller
 
@@ -31,8 +31,12 @@ app
 					console.error error
 					if /^Authentication is required/.test error
 						@login()
+					else
+						toaster.pop
+							type: 'error'
+							title: gettextCatalog.getString gettext('Error')
+							body: "Unable to pull image: #{error}"
 					return
-				console.dir $scope.layers
 				$uibModalInstance.close()
 
 		login: ->
