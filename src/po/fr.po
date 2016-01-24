@@ -24,7 +24,7 @@ msgstr "Adresse (nom d’hôte ou IP)"
 msgid "Alias"
 msgstr "Alias"
 
-#: navbar.html:57
+#: navbar.html:54
 msgid "All containers"
 msgstr "Tous les conteneurs"
 
@@ -44,11 +44,11 @@ msgstr "Chemin des certificats"
 msgid "Clear log"
 msgstr "Effacer les traces"
 
-#: app.js:887
+#: app.js:720
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
-#: navbar.html:30 pullDialog.html:35
+#: navbar.html:27 pullDialog.html:35
 msgid "Close"
 msgstr "Fermer"
 
@@ -56,7 +56,7 @@ msgstr "Fermer"
 msgid "Command"
 msgstr "Commande"
 
-#: app.js:262 configuration.html:8 navbar.html:23 project.html:26
+#: app.js:269 configuration.html:8 navbar.html:20 project.html:26
 #: project.html:28
 msgid "Configuration"
 msgstr "Configuration"
@@ -65,7 +65,7 @@ msgstr "Configuration"
 msgid "Configuration values"
 msgstr "Valeurs de configuration"
 
-#: app.js:252 container_container.html:5 project.html:18 project.html:20
+#: app.js:259 container_container.html:5 project.html:18 project.html:20
 msgid "Container"
 msgstr "Conteneur"
 
@@ -81,9 +81,13 @@ msgstr "Point de montage dans le conteneur"
 msgid "Container port"
 msgstr "Port du conteneur"
 
-#: navbar.html:58
+#: navbar.html:55
 msgid "Containers"
 msgstr "Conteneurs"
+
+#: app.js:60
+msgid "Could not contact docker"
+msgstr "Impossible de contacter docker"
 
 #: loginDialog.html:16
 msgid "Email"
@@ -97,15 +101,15 @@ msgstr "Environnement"
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:182 app.js:63 app.js:848
+#: app.js:189 app.js:440 app.js:525 app.js:59 app.js:681 app.js:70
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1389
+#: app.js:1105
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1384
+#: app.js:1100
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -125,7 +129,7 @@ msgstr "Port de l’hôte"
 msgid "Id"
 msgstr "Identifiant"
 
-#: app.js:257 container_image.html:6 project.html:22 project.html:24
+#: app.js:264 container_image.html:6 project.html:22 project.html:24
 msgid "Image"
 msgstr "Image"
 
@@ -133,7 +137,7 @@ msgstr "Image"
 msgid "Informations"
 msgstr "Informations"
 
-#: configuration.html:10 navbar.html:25
+#: configuration.html:10 navbar.html:22
 msgid "invalid"
 msgstr "invalide"
 
@@ -149,19 +153,19 @@ msgstr "Liens"
 msgid "Login"
 msgstr "S'authentifier"
 
-#: app.js:247 project.html:14 project.html:16
+#: app.js:254 project.html:14 project.html:16
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:368
+#: app.js:375
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
-#: navbar.html:36
+#: navbar.html:33
 msgid "Maximize"
 msgstr "Agrandir"
 
-#: navbar.html:33
+#: navbar.html:30
 msgid "Minimize"
 msgstr "Réduire"
 
@@ -173,7 +177,7 @@ msgstr "Montages"
 msgid "Name"
 msgstr "Nom"
 
-#: app.js:834 navbar.html:18
+#: app.js:667
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -181,7 +185,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:833
+#: app.js:666
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -221,7 +225,7 @@ msgstr "Ports"
 msgid "Pulling image"
 msgstr "Récupération de l'image"
 
-#: app.js:861
+#: app.js:694
 msgid "Recent files"
 msgstr "Fichiers récents"
 
@@ -241,19 +245,19 @@ msgstr "Sélectionnez le chemin des certificats"
 msgid "Select the socket path"
 msgstr "Sélectionnez le chemin du socket"
 
-#: navbar.html:61
+#: navbar.html:58
 msgid "Start all containers"
 msgstr "Démarrer tous les conteneurs"
 
-#: navbar.html:77
+#: navbar.html:74
 msgid "Start container"
 msgstr "Démarrer le conteneur"
 
-#: navbar.html:64
+#: navbar.html:61
 msgid "Stop all containers"
 msgstr "Arrêter tous les conteneurs"
 
-#: navbar.html:80
+#: navbar.html:77
 msgid "Stop container"
 msgstr "Arrêter le conteneur"
 
@@ -261,11 +265,11 @@ msgstr "Arrêter le conteneur"
 msgid "Stopped"
 msgstr "Arrêté"
 
-#: app.js:183
+#: app.js:190
 msgid "The configuration could not be saved."
 msgstr "La configuration ne peut pas être enregistrée."
 
-#: app.js:64
+#: app.js:71
 msgid "The configuration file could not be loaded."
 msgstr "Le fichier de configuration ne peut pas être ouvert."
 
@@ -280,6 +284,10 @@ msgstr "Les traces sont vides"
 #: navbar.html:4
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
+
+#: app.js:441
+msgid "Unable to start container"
+msgstr "Impossible de démarrer le conteneur"
 
 #: configuration.html:42
 msgid "UNIX Socket"
@@ -300,6 +308,10 @@ msgstr "valide"
 #: container_configuration.html:113
 msgid "Value"
 msgstr "Valeur"
+
+#: app.js:1516
+msgid "Variable substitution error"
+msgstr "Erreur lors de la substitution de variable"
 
 #: container_configuration.html:5
 msgid "Variables"

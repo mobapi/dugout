@@ -72,7 +72,11 @@ app
 			for k, v of @variables
 				vars[k] = v.value
 			# Variables substitution
-			@runtime.params = @substitute params, vars
+			try
+				@runtime.params = @substitute params, vars
+			catch e
+				d.reject "#{gettextCatalog.getString(gettext('Variable substitution error'))}: #{e}"
+				return d.promise
 			# Create container
 			dockerUtil.startContainer(@id, @image, @runtime.params).then (container) =>
 				@checkContainerStatus()

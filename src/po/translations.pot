@@ -16,7 +16,7 @@ msgstr ""
 msgid "Alias"
 msgstr ""
 
-#: navbar.html:57
+#: navbar.html:54
 msgid "All containers"
 msgstr ""
 
@@ -36,11 +36,11 @@ msgstr ""
 msgid "Clear log"
 msgstr ""
 
-#: app.js:887
+#: app.js:720
 msgid "Clear recent files"
 msgstr ""
 
-#: navbar.html:30
+#: navbar.html:27
 #: pullDialog.html:35
 msgid "Close"
 msgstr ""
@@ -49,9 +49,9 @@ msgstr ""
 msgid "Command"
 msgstr ""
 
-#: app.js:262
+#: app.js:269
 #: configuration.html:8
-#: navbar.html:23
+#: navbar.html:20
 #: project.html:26
 #: project.html:28
 msgid "Configuration"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Configuration values"
 msgstr ""
 
-#: app.js:252
+#: app.js:259
 #: container_container.html:5
 #: project.html:18
 #: project.html:20
@@ -80,8 +80,12 @@ msgstr ""
 msgid "Container port"
 msgstr ""
 
-#: navbar.html:58
+#: navbar.html:55
 msgid "Containers"
+msgstr ""
+
+#: app.js:60
+msgid "Could not contact docker"
 msgstr ""
 
 #: loginDialog.html:16
@@ -96,17 +100,20 @@ msgstr ""
 msgid "Environment variable"
 msgstr ""
 
-#: app.js:182
-#: app.js:63
-#: app.js:848
+#: app.js:189
+#: app.js:440
+#: app.js:525
+#: app.js:59
+#: app.js:681
+#: app.js:70
 msgid "Error"
 msgstr ""
 
-#: app.js:1389
+#: app.js:1105
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1384
+#: app.js:1100
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -126,7 +133,7 @@ msgstr ""
 msgid "Id"
 msgstr ""
 
-#: app.js:257
+#: app.js:264
 #: container_image.html:6
 #: project.html:22
 #: project.html:24
@@ -138,7 +145,7 @@ msgid "Informations"
 msgstr ""
 
 #: configuration.html:10
-#: navbar.html:25
+#: navbar.html:22
 msgid "invalid"
 msgstr ""
 
@@ -154,21 +161,21 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: app.js:247
+#: app.js:254
 #: project.html:14
 #: project.html:16
 msgid "Logs"
 msgstr ""
 
-#: app.js:368
+#: app.js:375
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
-#: navbar.html:36
+#: navbar.html:33
 msgid "Maximize"
 msgstr ""
 
-#: navbar.html:33
+#: navbar.html:30
 msgid "Minimize"
 msgstr ""
 
@@ -180,8 +187,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: app.js:834
-#: navbar.html:18
+#: app.js:667
 msgid "Open containers configuration file"
 msgstr ""
 
@@ -189,7 +195,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:833
+#: app.js:666
 msgid "Open..."
 msgstr ""
 
@@ -231,7 +237,7 @@ msgstr ""
 msgid "Pulling image"
 msgstr ""
 
-#: app.js:861
+#: app.js:694
 msgid "Recent files"
 msgstr ""
 
@@ -251,19 +257,19 @@ msgstr ""
 msgid "Select the socket path"
 msgstr ""
 
-#: navbar.html:61
+#: navbar.html:58
 msgid "Start all containers"
 msgstr ""
 
-#: navbar.html:77
+#: navbar.html:74
 msgid "Start container"
 msgstr ""
 
-#: navbar.html:64
+#: navbar.html:61
 msgid "Stop all containers"
 msgstr ""
 
-#: navbar.html:80
+#: navbar.html:77
 msgid "Stop container"
 msgstr ""
 
@@ -271,11 +277,11 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: app.js:183
+#: app.js:190
 msgid "The configuration could not be saved."
 msgstr ""
 
-#: app.js:64
+#: app.js:71
 msgid "The configuration file could not be loaded."
 msgstr ""
 
@@ -289,6 +295,10 @@ msgstr ""
 
 #: navbar.html:4
 msgid "Toggle navigation"
+msgstr ""
+
+#: app.js:441
+msgid "Unable to start container"
 msgstr ""
 
 #: configuration.html:42
@@ -309,6 +319,10 @@ msgstr ""
 
 #: container_configuration.html:113
 msgid "Value"
+msgstr ""
+
+#: app.js:1516
+msgid "Variable substitution error"
 msgstr ""
 
 #: container_configuration.html:5

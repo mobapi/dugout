@@ -56,7 +56,7 @@ app
 						toaster.pop
 							type: 'error'
 							title: gettextCatalog.getString gettext('Error')
-							body: "Unable to start container: #{error.error}"
+							body: "#{gettextCatalog.getString(gettext('Unable to start container'))}: #{error.error}"
 
 		stop: (container) ->
 			projectMgr.stopContainer container
