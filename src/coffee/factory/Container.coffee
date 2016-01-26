@@ -83,7 +83,7 @@ app
 				@startContainerLog()
 				d.resolve()
 			, (error) =>
-				console.error "Unable to create container: error #{error}"
+				console.error "Unable to create or start container: error #{error}"
 				@checkContainerStatus()
 				d.reject error
 			@runtime.docker.container.infos =
