@@ -1,3 +1,13 @@
+.form-group {
+	border: 1px solid #eee;
+	padding: 10px 15px;
+}
+
+.form-group label {
+	font-size: 90%;
+}
+
+
 input.form-control,
 input.form-control:focus,
 input.form-control:active {
