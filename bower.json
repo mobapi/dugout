@@ -26,6 +26,7 @@
     "angular-sanitize": "*",
     "angular-scroll-glue": "*",
     "angular-ui-router": "*",
+    "angular-ui-switch": "*",
     "angularjs-toaster": "*",
     "async": "*",
     "bootstrap": "*",

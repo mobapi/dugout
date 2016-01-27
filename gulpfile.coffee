@@ -56,6 +56,7 @@ files =
 			"#{directories.libs}/angular-sanitize/angular-sanitize.js"
 			"#{directories.libs}/angular-scroll-glue/src/scrollglue.js"
 			"#{directories.libs}/angular-ui-router/release/angular-ui-router.js"
+			"#{directories.libs}/angular-ui-switch/angular-ui-switch.js"
 			"#{directories.libs}/angularjs-toaster/toaster.js"
 			"#{directories.libs}/async/dist/async.js"
 			"#{directories.libs}/bootstrap/dist/js/bootstrap.js"
@@ -69,6 +70,7 @@ files =
 			"#{directories.libs}/sprintf/src/angular-sprintf.js"
 		]
 		css: [
+			"#{directories.libs}/angular-ui-switch/angular-ui-switch.css"
 			"#{directories.libs}/angularjs-toaster/toaster.css"
 			"#{directories.libs}/bootstrap/dist/css/bootstrap.css"
 			"#{directories.libs}/font-awesome/css/font-awesome.css"

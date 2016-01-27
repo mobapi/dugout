@@ -2,21 +2,53 @@
 	padding-top: 30px;
 }
 
-.clear-log {
+.log-buttons {
 	position: absolute;
 	z-index: 1;
-	top: 10px;
-	right: 10px;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 500ms ease;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
-.container .log pre {
+.tab-content .log:hover ~ .log-buttons ,
+.log-buttons:hover {
+	visibility: visible;
+	opacity: 1;
+}
+
+.log-buttons .switch {
+	width: 82px;
+}
+
+.log-buttons .switch.checked {
+	background: #fff;
+	border-color: #eee;
+}
+
+.log-buttons .switch.checked small {
+	left: 52px;
+}
+
+.log-buttons .switch .switch-text .on,
+.log-buttons .switch .switch-text .off {
+	color: #555;
+}
+
+
+.tab-content .log pre {
 	display: inline-block;
 	font-size: 0.9em;
 	word-wrap: normal;
 	overflow-x: hidden;
 }
 
-.container .conf-values .conf-value {
+.tab-content .conf-values .conf-value {
 	float: right;
 	width: 80%;
 }

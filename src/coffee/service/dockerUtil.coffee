@@ -144,7 +144,13 @@ app
 					stderr = new Stream.PassThrough()
 					container.modem.demuxStream stream, stdout, stderr
 					stdout.on 'data', (chunk) ->
-						d.notify chunk.toString()
+						d.notify
+							stream: 'stdout'
+							data: chunk.toString()
+					stderr.on 'data', (chunk) ->
+						d.notify
+							stream: 'stderr'
+							data: chunk.toString()
 			return d.promise
 
 		# stopContainerLog: (containerName) ->

@@ -7,18 +7,19 @@ app
 
 		constructor: (@id, conf) ->
 			angular.extend @, conf
-			@runtime = {
+			@runtime =
 				globalConf: {}
 				configurationValid: false
 				docker:
 					image: {}
 					container:
-						addToLog: (data) ->
-							@log = "" if not @log
-							@log += data
+						addToLog: (log) ->
+							@clearLog() if not @log
+							@log[log.stream] += log.data
 						clearLog: ->
-							@log = ""
-			}
+							@log =
+								stdout: ""
+								stderr: ""
 
 		checkConfiguration: ->
 			@runtime.configurationValid = false
@@ -118,10 +119,6 @@ app
 
 		stopContainerLog: ->
 			@runtime.docker.container.logging = false
-			# return if not @runtime.docker.container.logging
-			# dockerUtil.stopContainerLog(@id).then =>
-			# , (error) =>
-			# 	console.dir error
 
 		clearContainerLog: ->
 			@runtime.docker.container.clearLog()

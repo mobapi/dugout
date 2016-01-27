@@ -1,14 +1,34 @@
-<div class="clear-log" ng-if="container.runtime.docker.container.log">
-	<a class="btn btn-primary" ng-click="ctrl.clearLog()">
-		<i class="fa fa-eraser"></i>
-		{{'Clear log'|translate}}
-	</a>
+<div class="log full-height" ng-switch="stream">
+	<div ng-switch-when="stdout" class="full-height">
+		<perfect-scrollbar ng-if="container.runtime.docker.container.log['stdout']" class="logZ scroller full-height" scroll-glue>
+			<pre>{{container.runtime.docker.container.log['stdout']}}</pre>
+		</perfect-scrollbar>
+		<div ng-if="!container.runtime.docker.container.log['stdout']" class="text-empty">
+			<span>{{'The logs are empty'|translate}}</span>
+		</div>
+	</div>
+	<div ng-switch-when="stderr" class="full-height">
+		<perfect-scrollbar ng-if="container.runtime.docker.container.log['stderr']" class="logZ scroller full-height" scroll-glue>
+			<pre>{{container.runtime.docker.container.log['stderr']}}</pre>
+		</perfect-scrollbar>
+		<div ng-if="!container.runtime.docker.container.log['stderr']" class="text-empty">
+			<span>{{'The logs are empty'|translate}}</span>
+		</div>
+	</div>
 </div>
 
-<perfect-scrollbar ng-if="container.runtime.docker.container.log" class="log scroller full-height" scroll-glue>
-	<pre>{{container.runtime.docker.container.log}}</pre>
-</perfect-scrollbar>
-
-<div ng-if="!container.runtime.docker.container.log" class="text-empty">
-	<span>{{'The logs are empty'|translate}}</span>
+<div class="log-buttons">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-6">
+				<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="white"></switch>
+			</div>
+			<div class="col-xs-6">
+				<a class="btn btn-primary pull-right" ng-click="ctrl.clearLog()">
+					<i class="fa fa-eraser"></i>
+					{{'Clear log'|translate}}
+				</a>
+			</div>
+		</div>
+	</div>
 </div>

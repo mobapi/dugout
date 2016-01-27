@@ -10,6 +10,7 @@ app = angular.module 'dugout', [
 	'toaster'
 	'ui.bootstrap'
 	'ui.router'
+	'uiSwitch'
 ]
 
 .config [ 'localStorageServiceProvider', (localStorageServiceProvider) ->
