@@ -40,11 +40,11 @@ msgstr "Annuler"
 msgid "Certificates path"
 msgstr "Chemin des certificats"
 
-#: container_logs.html:4
+#: container_logs.html:31
 msgid "Clear log"
 msgstr "Effacer les traces"
 
-#: app.js:720
+#: app.js:950
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
@@ -56,7 +56,7 @@ msgstr "Fermer"
 msgid "Command"
 msgstr "Commande"
 
-#: app.js:269 configuration.html:8 navbar.html:20 project.html:26
+#: app.js:288 configuration.html:8 navbar.html:20 project.html:26
 #: project.html:28
 msgid "Configuration"
 msgstr "Configuration"
@@ -65,7 +65,7 @@ msgstr "Configuration"
 msgid "Configuration values"
 msgstr "Valeurs de configuration"
 
-#: app.js:259 container_container.html:5 project.html:18 project.html:20
+#: app.js:278 container_container.html:5 project.html:18 project.html:20
 msgid "Container"
 msgstr "Conteneur"
 
@@ -101,15 +101,15 @@ msgstr "Environnement"
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:189 app.js:440 app.js:525 app.js:59 app.js:681 app.js:70
+#: app.js:189 app.js:468 app.js:553 app.js:59 app.js:70 app.js:911
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1105
+#: app.js:1344
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1100
+#: app.js:1339
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -129,7 +129,7 @@ msgstr "Port de l’hôte"
 msgid "Id"
 msgstr "Identifiant"
 
-#: app.js:264 container_image.html:6 project.html:22 project.html:24
+#: app.js:283 container_image.html:6 project.html:22 project.html:24
 msgid "Image"
 msgstr "Image"
 
@@ -153,11 +153,11 @@ msgstr "Liens"
 msgid "Login"
 msgstr "S'authentifier"
 
-#: app.js:254 project.html:14 project.html:16
+#: app.js:273 project.html:14 project.html:16
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:375
+#: app.js:403
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
@@ -177,7 +177,7 @@ msgstr "Montages"
 msgid "Name"
 msgstr "Nom"
 
-#: app.js:667
+#: app.js:897
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -185,7 +185,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:666
+#: app.js:896
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -225,7 +225,7 @@ msgstr "Ports"
 msgid "Pulling image"
 msgstr "Récupération de l'image"
 
-#: app.js:694
+#: app.js:924
 msgid "Recent files"
 msgstr "Fichiers récents"
 
@@ -277,7 +277,7 @@ msgstr "Le fichier de configuration ne peut pas être ouvert."
 msgid "The container is not running"
 msgstr "Le conteneur n’est pas démarré"
 
-#: container_logs.html:13
+#: container_logs.html:20 container_logs.html:9
 msgid "The logs are empty"
 msgstr "Les traces sont vides"
 
@@ -285,7 +285,7 @@ msgstr "Les traces sont vides"
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
 
-#: app.js:441
+#: app.js:469
 msgid "Unable to start container"
 msgstr "Impossible de démarrer le conteneur"
 
@@ -309,7 +309,7 @@ msgstr "valide"
 msgid "Value"
 msgstr "Valeur"
 
-#: app.js:1516
+#: app.js:772
 msgid "Variable substitution error"
 msgstr "Erreur lors de la substitution de variable"
 
