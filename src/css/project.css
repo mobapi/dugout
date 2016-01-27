@@ -22,6 +22,11 @@
 	opacity: 1;
 }
 
+.tab-content h4 {
+	color: #32afb2;
+	font-weight: bold;
+}
+
 .log-buttons .switch {
 	width: 82px;
 }
