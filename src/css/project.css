@@ -31,13 +31,23 @@
 	border-color: #eee;
 }
 
+.log-buttons .switch small {
+	background-color: #32afb2;
+}
+
 .log-buttons .switch.checked small {
 	left: 52px;
 }
 
+.switch .switch-text {
+	font-family: inherit;
+	font-size: 12px;
+}
+
 .log-buttons .switch .switch-text .on,
 .log-buttons .switch .switch-text .off {
-	color: #555;
+	top: 6px;
+	color: #32afb2;
 }
 
 
