@@ -1,4 +1,4 @@
-<perfect-scrollbar ng-if="container.runtime.docker.container" class="scroller full-height">
+<div ng-if="container.runtime.docker.container" class="full-height" ng-scrollbars>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
@@ -7,7 +7,7 @@
 			</div>
 		</div>
 	</div>
-</perfect-scrollbar>
+</div>
 
 <div ng-if="!container.runtime.docker.container" class="text-empty">
 	<span>{{'The container is not running'|translate}}</span>

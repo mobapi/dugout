@@ -46,15 +46,12 @@ files =
 			"#{directories.libs}/jquery/dist/jquery.js"
 			"#{directories.libs}/angular/angular.js"
 			"#{directories.libs}/angular-animate/angular-animate.js"
-			# "#{directories.libs}/angular-bootstrap/ui-bootstrap.js"
 			"#{directories.libs}/angular-bootstrap/ui-bootstrap-tpls.js"
 			"#{directories.libs}/angular-gettext/dist/angular-gettext.js"
 			"#{directories.libs}/angular-hotkeys/build/hotkeys.js"
 			"#{directories.libs}/angular-i18n/angular-locale_fr.js"
 			"#{directories.libs}/angular-local-storage/dist/angular-local-storage.js"
-			"#{directories.libs}/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"
 			"#{directories.libs}/angular-sanitize/angular-sanitize.js"
-			"#{directories.libs}/angular-scroll-glue/src/scrollglue.js"
 			"#{directories.libs}/angular-ui-router/release/angular-ui-router.js"
 			"#{directories.libs}/angular-ui-switch/angular-ui-switch.js"
 			"#{directories.libs}/angularjs-toaster/toaster.js"
@@ -62,10 +59,11 @@ files =
 			"#{directories.libs}/bootstrap/dist/js/bootstrap.js"
 			"#{directories.libs}/lodash/lodash.js"
 			"#{directories.libs}/metisMenu/dist/metisMenu.js"
+			"#{directories.libs}/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
 			"#{directories.libs}/moment/moment.js"
 			"#{directories.libs}/moment/locale/fr.js"
+			"#{directories.libs}/ng-scrollbars/src/scrollbars.js"
 			"#{directories.libs}/ng-prettyjson/dist/ng-prettyjson.min.js"
-			"#{directories.libs}/perfect-scrollbar/src/perfect-scrollbar.js"
 			"#{directories.libs}/sprintf/src/sprintf.js"
 			"#{directories.libs}/sprintf/src/angular-sprintf.js"
 		]
@@ -74,9 +72,9 @@ files =
 			"#{directories.libs}/angularjs-toaster/toaster.css"
 			"#{directories.libs}/bootstrap/dist/css/bootstrap.css"
 			"#{directories.libs}/font-awesome/css/font-awesome.css"
+			"#{directories.libs}/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
 			"#{directories.libs}/metisMenu/dist/metisMenu.css"
 			"#{directories.libs}/ng-prettyjson/dist/ng-prettyjson.min.css"
-			"#{directories.libs}/perfect-scrollbar/src/perfect-scrollbar.css"
 			"#{directories.libs}/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css"
 		]
 		fonts: [
@@ -238,7 +236,6 @@ gulp.task 'watch', () ->
 
 gulp.task 'clean', (callback) ->
 	del [ directories.dist, directories.build ], callback
-
 
 gulp.task 'default', [ 'libs', 'app' ]
 

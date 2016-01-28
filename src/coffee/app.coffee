@@ -2,16 +2,26 @@ app = angular.module 'dugout', [
 	'cfp.hotkeys'
 	'gettext'
 	'LocalStorageModule'
-	'luegg.directives' # scroll-glue
 	'ngPrettyJson'
 	'ngSanitize'
-	'perfect_scrollbar'
+	'ngScrollbars'
 	'sprintf'
 	'toaster'
 	'ui.bootstrap'
 	'ui.router'
 	'uiSwitch'
 ]
+
+# Configure scrollbars
+.config (ScrollBarsProvider) ->
+	ScrollBarsProvider.defaults =
+		scrollButtons:
+			scrollAmount: 'auto'
+			enable: true
+		axis: 'yx'
+		scrollInertia: 100
+		autoHideScrollbar: true
+		theme: 'minimal-dark'
 
 .config [ 'localStorageServiceProvider', (localStorageServiceProvider) ->
 	localStorageServiceProvider
@@ -68,3 +78,11 @@ app = angular.module 'dugout', [
 	, (error) ->
 		console.dir error
 ]
+
+.run ->
+	chokidar = require 'chokidar'
+	watcher = chokidar.watch '.',
+		ignored: /[\/\\]\./
+	watcher.on 'all', (event, path) ->
+		if location.reload and event == "change"
+			location.reload()

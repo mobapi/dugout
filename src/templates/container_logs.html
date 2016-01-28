@@ -1,8 +1,8 @@
 <div class="log full-height" ng-switch="stream">
 	<div ng-switch-when="stdout" class="full-height">
-		<perfect-scrollbar ng-if="container.runtime.docker.container.log['stdout']" class="logZ scroller full-height" scroll-glue>
+		<div ng-if="container.runtime.docker.container.log['stdout']" class="full-height" ng-scrollbars ng-scrollbars-update="ctrl.updateScrollbarStdout">
 			<pre>{{container.runtime.docker.container.log['stdout']}}</pre>
-		</perfect-scrollbar>
+		</div>
 		<div ng-if="!container.runtime.docker.container.log['stdout']" class="text-empty">
 			<span>
 				<i class="fa fa-eye"></i>
@@ -11,9 +11,9 @@
 		</div>
 	</div>
 	<div ng-switch-when="stderr" class="full-height">
-		<perfect-scrollbar ng-if="container.runtime.docker.container.log['stderr']" class="logZ scroller full-height" scroll-glue>
+		<div ng-if="container.runtime.docker.container.log['stderr']" class="full-height" ng-scrollbars ng-scrollbars-update="ctrl.updateScrollbarStderr">
 			<pre>{{container.runtime.docker.container.log['stderr']}}</pre>
-		</perfect-scrollbar>
+		</div>
 		<div ng-if="!container.runtime.docker.container.log['stderr']" class="text-empty">
 			<span>
 				<i class="fa fa-eye"></i>

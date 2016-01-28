@@ -6,6 +6,7 @@
   "homepage": "http://www.mobapi.com/",
   "main": "index.html",
   "dependencies": {
+    "chokidar": "*",
     "dockerode": "*",
     "js-beautify": "*"
   },
@@ -29,6 +30,7 @@
     "vinyl-paths": "*"
   },
   "scripts": {
+    "debug": ".nwcache/0.12.3/osx64/nwjs.app/Contents/MacOS/nwjs www",
     "build": "gulp clean && gulp && gulp build",
     "build_mac_icon": "./buildMacIconset.sh src/images/logo.png",
     "test": "echo \"Error: no test specified\" && exit 1"

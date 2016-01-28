@@ -16,13 +16,6 @@ body {
 	top: 5px;
 }
 
-.scroller {
-	position: relative;
-	overflow-y: hidden;
-	overflow-x: hidden;
-	white-space: pre-line;
-}
-
 .breadcrumb {
 	border-radius: 0;
 	padding: 15px 0;

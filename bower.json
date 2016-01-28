@@ -22,9 +22,7 @@
     "angular-i18n": "*",
     "angular-local-storage": "*",
     "angular-moment": "*",
-    "angular-perfect-scrollbar": "*",
     "angular-sanitize": "*",
-    "angular-scroll-glue": "*",
     "angular-ui-router": "*",
     "angular-ui-switch": "*",
     "angularjs-toaster": "*",
@@ -34,6 +32,7 @@
     "jquery": "1.*",
     "lodash": "*",
     "moment": "*",
+    "ng-scrollbars": "*",
     "ng-prettyjson": "*",
     "sprintf": "*",
     "startbootstrap-sb-admin-2": "*"
