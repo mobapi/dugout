@@ -79,10 +79,10 @@ app = angular.module 'dugout', [
 		console.dir error
 ]
 
-.run ->
-	chokidar = require 'chokidar'
-	watcher = chokidar.watch '.',
-		ignored: /[\/\\]\./
-	watcher.on 'all', (event, path) ->
-		if location.reload and event == "change"
-			location.reload()
+# .run ->
+# 	chokidar = require 'chokidar'
+# 	watcher = chokidar.watch '.',
+# 		ignored: /[\/\\]\./
+# 	watcher.on 'all', (event, path) ->
+# 		if location.reload and event == "change"
+# 			location.reload()

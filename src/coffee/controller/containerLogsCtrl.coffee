@@ -7,7 +7,7 @@ app
 
 		constructor: ->
 			$scope.container = container
-			container && container.startContainerLog()
+			# container && container.startContainerLog()
 			$scope.$watch 'ctrl.stderr', (stderr, oldVal) =>
 				if stderr
 					$scope.stream = 'stderr'
