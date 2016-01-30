@@ -13,7 +13,7 @@
 	visibility: hidden;
 	opacity: 0;
 	transition: opacity 500ms ease;
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 .tab-content .log:hover ~ .log-buttons ,
@@ -25,6 +25,16 @@
 .tab-content h4 {
 	color: #32afb2;
 	font-weight: bold;
+}
+
+.scrollbar-lock-status {
+	display: table;
+	margin: 0 auto;
+}
+
+.scrollbar-lock-status i {
+	display: block;
+	color: #555;
 }
 
 .log-buttons .switch {

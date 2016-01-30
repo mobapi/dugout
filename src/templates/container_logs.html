@@ -1,20 +1,20 @@
-<div class="log full-height" ng-switch="stream">
-	<div ng-switch-when="stdout" class="full-height">
-		<div ng-if="container.runtime.docker.container.log['stdout']" class="full-height" ng-scrollbars ng-scrollbars-update="ctrl.updateScrollbarStdout">
+<div class="log full-height">
+	<div ng-show="stream == 'stdout'" class="full-height">
+		<div ng-show="container.runtime.docker.container.log['stdout']" class="stdout full-height" ng-scrollbars ng-scrollbars-update="ctrl.stdoutScrollbarUpdate" ng-scrollbars-config="ctrl.stdoutScrollbarConfig()">
 			<pre>{{container.runtime.docker.container.log['stdout']}}</pre>
 		</div>
-		<div ng-if="!container.runtime.docker.container.log['stdout']" class="text-empty">
+		<div ng-show="!container.runtime.docker.container.log['stdout']" class="text-empty">
 			<span>
 				<i class="fa fa-eye"></i>
 				{{'The logs are empty'|translate}}
 			</span>
 		</div>
 	</div>
-	<div ng-switch-when="stderr" class="full-height">
-		<div ng-if="container.runtime.docker.container.log['stderr']" class="full-height" ng-scrollbars ng-scrollbars-update="ctrl.updateScrollbarStderr">
+	<div ng-show="stream == 'stderr'" class="full-height">
+		<div ng-show="container.runtime.docker.container.log['stderr']" class="stderr full-height" ng-scrollbars ng-scrollbars-update="ctrl.stderrScrollbarUpdate">
 			<pre>{{container.runtime.docker.container.log['stderr']}}</pre>
 		</div>
-		<div ng-if="!container.runtime.docker.container.log['stderr']" class="text-empty">
+		<div ng-show="!container.runtime.docker.container.log['stderr']" class="text-empty">
 			<span>
 				<i class="fa fa-eye"></i>
 				{{'The logs are empty'|translate}}
@@ -25,10 +25,23 @@
 
 <div class="log-buttons">
 	<div class="container-fluid">
-		<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="color"></switch>
-		<a class="btn btn-primary pull-right" ng-click="ctrl.clearLog()">
-			<i class="fa fa-eraser"></i>
-			{{'Clear log'|translate}}
-		</a>
+		<div class="row">
+			<div class="col-xs-4">
+				<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="color"></switch>
+			</div>
+			<div class="col-xs-4">
+				<div class="scrollbar-lock-status">
+					<i ng-if="stdoutScrollbarLocked" class="fa fa-fw fa-lock"></i>
+					<i ng-if="!stdoutScrollbarLocked" class="fa fa-fw fa-unlock"></i>
+					<i class="fa fa-fw fa-chevron-down"></i>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<a class="btn btn-primary pull-right" ng-click="ctrl.clearLog()">
+					<i class="fa fa-eraser"></i>
+					{{'Clear log'|translate}}
+				</a>
+			</div>
+		</div>
 	</div>
 </div>
