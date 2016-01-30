@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div ng-show="stream == 'stderr'" class="full-height">
-		<div ng-show="container.runtime.docker.container.log['stderr']" class="stderr full-height" ng-scrollbars ng-scrollbars-update="ctrl.stderrScrollbarUpdate">
+		<div ng-show="container.runtime.docker.container.log['stderr']" class="stderr full-height" ng-scrollbars ng-scrollbars-update="ctrl.stderrScrollbarUpdate" ng-scrollbars-config="ctrl.stderrScrollbarConfig()">
 			<pre>{{container.runtime.docker.container.log['stderr']}}</pre>
 		</div>
 		<div ng-show="!container.runtime.docker.container.log['stderr']" class="text-empty">
