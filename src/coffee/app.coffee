@@ -17,7 +17,7 @@ app = angular.module 'dugout', [
 	ScrollBarsProvider.defaults =
 		scrollButtons:
 			scrollAmount: 'auto'
-			enable: false
+			enable: true
 		axis: 'y'
 		scrollInertia: 100
 		autoHideScrollbar: true
@@ -31,7 +31,7 @@ app = angular.module 'dugout', [
 
 # Translation
 .run ['gettext', 'gettextCatalog', (gettext, gettextCatalog) ->
-	gettextCatalog.debug = true
+	gettextCatalog.debug = false
 	# gettext and gettextCatalog need to be global
 	window.gettext = gettext
 	window.gettextCatalog = gettextCatalog
