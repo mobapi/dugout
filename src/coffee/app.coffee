@@ -18,7 +18,7 @@ app = angular.module 'dugout', [
 		scrollButtons:
 			scrollAmount: 'auto'
 			enable: true
-		axis: 'yx'
+		axis: 'y'
 		scrollInertia: 100
 		autoHideScrollbar: true
 		theme: 'minimal-dark'

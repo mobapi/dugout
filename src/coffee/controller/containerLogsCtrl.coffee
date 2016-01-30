@@ -45,6 +45,7 @@ app
 
 		stdoutScrollbarConfig: ->
 			return {
+				axis: 'xy'
 				callbacks:
 					onTotalScroll: ->
 						if not $scope.stdoutScrollbarLocked
@@ -55,6 +56,7 @@ app
 
 		stderrScrollbarConfig: ->
 			return {
+				axis: 'xy'
 				callbacks:
 					onTotalScroll: ->
 						if not $scope.stderrScrollbarLocked
