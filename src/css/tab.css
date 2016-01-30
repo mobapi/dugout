@@ -35,3 +35,7 @@
 	height: calc(100% - 45px)
 }
 
+.tab > .tab-content h4 {
+	color: #32afb2;
+	font-weight: bold;
+}

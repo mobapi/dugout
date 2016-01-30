@@ -1,46 +1,35 @@
 <div class="log full-height">
-	<div ng-show="stream == 'stdout'" class="full-height">
-		<div ng-show="container.runtime.docker.container.log['stdout']" class="stdout full-height" ng-scrollbars ng-scrollbars-update="ctrl.stdoutScrollbarUpdate" ng-scrollbars-config="ctrl.stdoutScrollbarConfig()">
-			<pre>{{container.runtime.docker.container.log['stdout']}}</pre>
-		</div>
-		<div ng-show="!container.runtime.docker.container.log['stdout']" class="text-empty">
-			<span>
-				<i class="fa fa-eye"></i>
-				{{'The logs are empty'|translate}}
-			</span>
-		</div>
-	</div>
-	<div ng-show="stream == 'stderr'" class="full-height">
-		<div ng-show="container.runtime.docker.container.log['stderr']" class="stderr full-height" ng-scrollbars ng-scrollbars-update="ctrl.stderrScrollbarUpdate" ng-scrollbars-config="ctrl.stderrScrollbarConfig()">
-			<pre>{{container.runtime.docker.container.log['stderr']}}</pre>
-		</div>
-		<div ng-show="!container.runtime.docker.container.log['stderr']" class="text-empty">
-			<span>
-				<i class="fa fa-eye"></i>
-				{{'The logs are empty'|translate}}
-			</span>
-		</div>
-	</div>
+	<log ng-class="{'invisible': stream != 'stdout'}" ng-model="container.runtime.docker.container.log['stdout']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log>
+	<log ng-class="{'invisible': stream != 'stderr'}" ng-model="container.runtime.docker.container.log['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log>
 </div>
 
-<div class="log-buttons">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-4">
-				<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="color" title="{{'Switch stream'|translate}}"></switch>
-			</div>
-			<div class="col-xs-4">
-				<div class="scrollbar-lock-status">
-					<i ng-if="stdoutScrollbarLocked" class="fa fa-fw fa-lock"></i>
-					<i ng-if="!stdoutScrollbarLocked" class="fa fa-fw fa-unlock"></i>
-					<i class="fa fa-fw fa-chevron-down"></i>
+<div class="log-action-bar">
+	<div class="log-action-bar-container">
+		<div style="flex-grow: 0">
+			<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="color" title="{{'Switch stream'|translate}}"></switch>
+		</div>
+		<div style="flex: 1">
+			<div class="search input-group">
+				<div>
+					<input type="text" class="form-control" ng-model="searchString" />
+					<i class="form-control-feedback fa fa-search"></i>
 				</div>
+				<span class="input-group-btn">
+					<button class="btn btn-link" type="button"><i class="fa fa-angle-up"></i></button>
+				</span>
+				<span class="input-group-btn">
+					<button class="btn btn-link" type="button"><i class="fa fa-angle-down"></i></button>
+				</span>
 			</div>
-			<div class="col-xs-4">
-				<a class="btn btn-primary pull-right" ng-click="ctrl.clearLog()" title="{{'Clear log'|translate}}">
-					<i class="fa fa-eraser"></i>
-				</a>
-			</div>
+		</div>
+		<div style="flex-grow: 0">
+			<i ng-show="stream == 'stdout'" class="fa fa-fw fa-2x fa-step-forward fa-rotate-90 text-color" ng-class="{'fa-disabled': !stdoutScrollbarLocked}"></i>
+			<i ng-show="stream == 'stderr'" class="fa fa-fw fa-2x fa-step-forward fa-rotate-90 text-color" ng-class="{'fa-disabled': !stderrScrollbarLocked}"></i>
+		</div>
+		<div style="flex-grow: 0">
+			<a class="btn btn-primary pull-right" ng-click="ctrl.clearLog()" title="{{'Clear log'|translate}}">
+				<i class="fa fa-eraser"></i>
+			</a>
 		</div>
 	</div>
 </div>

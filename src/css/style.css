@@ -4,6 +4,7 @@ body {
 	background-color: #fff;
 	/*background-color: #514A57;*/
 	color: #333;
+	border: 1px solid #32afb2
 }
 
 .abs-r-15 {
@@ -25,6 +26,11 @@ body {
 	height: 100%;
 }
 
+.text-color {
+	color: #32afb2;
+	background-color: transparent;
+}
+
 .text-grayed {
 	color: #888;
 	background-color: transparent;
@@ -41,17 +47,31 @@ body {
 	color: #bbb;
 }
 
+.fa-disabled {
+	color: #ddd !important;
+}
+
+.full-absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
 .page-wrapper {
 	width: 100%;
 	padding: 0;
 	border: none;
+	/*border-right: 1px solid #f5f5f5;*/
+	/*border-bottom: 1px solid #32afb2;*/
 	background-color: transparent;
 }
 
 @media(min-width: 768px) {
 .page-wrapper {
 	margin-left: 250px;
-	width: calc(100% - 251px);
+	width: calc(100% - 250px);
 	height: calc(100% - 65px); /* navbar */
 	border-left: 1px dashed #32afb2;
 }

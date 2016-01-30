@@ -1,0 +1,84 @@
+.log {
+	position: relative;
+}
+
+.log ~ .log-action-bar {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/*visibility: hidden;*/
+	/*opacity: 0;*/
+	transition: opacity 500ms ease;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.log-action-bar .log-action-bar-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.log-action-bar .log-action-bar-container > div {
+	margin: 0 5px;
+}
+
+.tab-content .log:hover ~ .log-action-bar ,
+.log-action-bar:hover {
+	visibility: visible;
+	opacity: 1;
+}
+
+.log-action-bar i {
+	/*color: #32afb2;*/
+}
+
+.log-action-bar .switch {
+	width: 82px;
+}
+
+.log-action-bar .switch.checked {
+	background: #fff;
+	border-color: #eee;
+}
+
+.log-action-bar .switch small {
+	background-color: #32afb2;
+}
+
+.log-action-bar .switch.checked small {
+	left: 52px;
+}
+
+.switch .switch-text {
+	font-family: inherit;
+	font-size: 12px;
+}
+
+.log-action-bar .switch .switch-text .on,
+.log-action-bar .switch .switch-text .off {
+	top: 6px;
+	color: #32afb2;
+}
+
+.log-action-bar .search div {
+	position: relative;
+}
+
+.log-action-bar .search .form-control-feedback {
+	color: #ddd;
+}
+
+.tab-content .log pre {
+	display: inline-block;
+	font-size: 0.9em;
+	word-wrap: normal;
+	overflow-x: hidden;
+}
+
+.tab-content .conf-values .conf-value {
+	float: right;
+	width: 80%;
+}

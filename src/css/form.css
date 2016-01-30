@@ -42,3 +42,8 @@ span.form-control {
 	float: left;
 	margin-right: 30px;
 }
+
+.form-control-feedback {
+	top: 10px;
+	right: -9px;
+}

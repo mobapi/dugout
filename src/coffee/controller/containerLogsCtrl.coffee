@@ -8,62 +8,24 @@ app
 		constructor: ->
 			$scope.container = container
 			container && container.startContainerLog()
+			$scope.searchString = ""
+			$scope.$watch 'searchString', (val) =>
+				@search val
 			$scope.$watch 'ctrl.stderr', (stderr) =>
 				if stderr
 					$scope.stream = 'stderr'
 				else
 					$scope.stream = 'stdout'
+			@stderr = false
 			$scope.stdoutScrollbarLocked = true
 			$scope.stderrScrollbarLocked = true
-			$scope.$watch 'container.runtime.docker.container.log["stdout"]', =>
-				return if not @stdoutScrollbarUpdate
-				if $scope.stdoutScrollbarLocked
-					setTimeout =>
-						@stdoutScrollbarUpdate 'scrollTo', [ 'bottom', 'left' ]
-					, 50
-			$scope.$watch 'container.runtime.docker.container.log["stderr"]', =>
-				return if not @stdoutScrollbarUpdate
-				if $scope.stderrScrollbarLocked
-					setTimeout =>
-						@stderrScrollbarUpdate 'scrollTo', [ 'bottom', 'left' ]
-					, 50
 
-			angular.element('.log .stdout pre')[0].addEventListener "mousewheel", @stdoutMouseScroll, false
-			angular.element('.log .stderr pre')[0].addEventListener "mousewheel", @stderrMouseScroll, false
-
-		stdoutMouseScroll: (e) ->
-			if $scope.stdoutScrollbarLocked and e.wheelDeltaY > 0
-				$scope.stdoutScrollbarLocked = false
-				try
-					$scope.$apply();
-
-		stderrMouseScroll: (e) ->
-			if $scope.stderrScrollbarLocked and e.wheelDeltaY > 0
-				$scope.stderrScrollbarLocked = false
-				try
-					$scope.$apply();
-
-		stdoutScrollbarConfig: ->
-			return {
-				axis: 'xy'
-				callbacks:
-					onTotalScroll: ->
-						if not $scope.stdoutScrollbarLocked
-							$scope.stdoutScrollbarLocked = true
-							try
-								$scope.$apply();
-			}
-
-		stderrScrollbarConfig: ->
-			return {
-				axis: 'xy'
-				callbacks:
-					onTotalScroll: ->
-						if not $scope.stderrScrollbarLocked
-							$scope.stderrScrollbarLocked = true
-							try
-								$scope.$apply();
-			}
+		search: (searchString) ->
+			return if not $scope.container?.runtime?.docker.container.log?[$scope.stream]
+			subject = $scope.container.runtime.docker.container.log[$scope.stream]
+			regex = new RegExp "^(.*#{searchString}.*)$", "gmi"
+			m = subject.match regex
+			console.dir m
 
 		clearLog: ->
 			$scope.container.clearContainerLog()
