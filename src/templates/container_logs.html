@@ -27,7 +27,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-4">
-				<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="color"></switch>
+				<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="color" title="{{'Switch stream'|translate}}"></switch>
 			</div>
 			<div class="col-xs-4">
 				<div class="scrollbar-lock-status">
@@ -37,9 +37,8 @@
 				</div>
 			</div>
 			<div class="col-xs-4">
-				<a class="btn btn-primary pull-right" ng-click="ctrl.clearLog()">
+				<a class="btn btn-primary pull-right" ng-click="ctrl.clearLog()" title="{{'Clear log'|translate}}">
 					<i class="fa fa-eraser"></i>
-					{{'Clear log'|translate}}
 				</a>
 			</div>
 		</div>

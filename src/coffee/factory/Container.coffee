@@ -80,6 +80,8 @@ app
 				return d.promise
 			# Create container
 			dockerUtil.startContainer(@id, @image, @runtime.params).then (container) =>
+				delete @runtime.docker.container.infos.State.Starting
+				@runtime.docker.container.infos.State.Running = true
 				@checkContainerStatus()
 				@startContainerLog()
 				d.resolve()
@@ -104,11 +106,10 @@ app
 				d.reject()
 			if @runtime.docker.container.infos
 				@runtime.docker.container.infos.State.Stopping = true
-				@runtime.docker.container.infos.State.Running = false
 			return d.promise
 
 		startContainerLog: ->
-			return if @runtime.docker.container.logging
+			@stopContainerLog() if @runtime.docker.container.logging
 			dockerUtil.startContainerLog(@id).then =>
 				@runtime.docker.container.logging = true
 			, (error) =>

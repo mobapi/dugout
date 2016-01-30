@@ -32,11 +32,11 @@ msgstr ""
 msgid "Certificates path"
 msgstr ""
 
-#: container_logs.html:31
+#: container_logs.html:40
 msgid "Clear log"
 msgstr ""
 
-#: app.js:950
+#: app.js:1039
 msgid "Clear recent files"
 msgstr ""
 
@@ -49,11 +49,11 @@ msgstr ""
 msgid "Command"
 msgstr ""
 
-#: app.js:288
+#: app.js:299
 #: configuration.html:8
 #: navbar.html:20
+#: project.html:24
 #: project.html:26
-#: project.html:28
 msgid "Configuration"
 msgstr ""
 
@@ -61,10 +61,10 @@ msgstr ""
 msgid "Configuration values"
 msgstr ""
 
-#: app.js:278
+#: app.js:289
 #: container_container.html:5
+#: project.html:16
 #: project.html:18
-#: project.html:20
 msgid "Container"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 msgid "Containers"
 msgstr ""
 
-#: app.js:60
+#: app.js:71
 msgid "Could not contact docker"
 msgstr ""
 
@@ -100,20 +100,20 @@ msgstr ""
 msgid "Environment variable"
 msgstr ""
 
-#: app.js:189
-#: app.js:468
-#: app.js:553
-#: app.js:59
+#: app.js:1000
+#: app.js:200
+#: app.js:556
+#: app.js:641
 #: app.js:70
-#: app.js:911
+#: app.js:81
 msgid "Error"
 msgstr ""
 
-#: app.js:1344
+#: app.js:1433
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1339
+#: app.js:1428
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -133,10 +133,10 @@ msgstr ""
 msgid "Id"
 msgstr ""
 
-#: app.js:283
+#: app.js:294
 #: container_image.html:6
+#: project.html:20
 #: project.html:22
-#: project.html:24
 msgid "Image"
 msgstr ""
 
@@ -161,13 +161,13 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: app.js:273
+#: app.js:284
+#: project.html:12
 #: project.html:14
-#: project.html:16
 msgid "Logs"
 msgstr ""
 
-#: app.js:403
+#: app.js:491
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: app.js:897
+#: app.js:986
 msgid "Open containers configuration file"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:896
+#: app.js:985
 msgid "Open..."
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Pulling image"
 msgstr ""
 
-#: app.js:924
+#: app.js:1013
 msgid "Recent files"
 msgstr ""
 
@@ -277,11 +277,15 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: app.js:190
+#: container_logs.html:30
+msgid "Switch stream"
+msgstr ""
+
+#: app.js:201
 msgid "The configuration could not be saved."
 msgstr ""
 
-#: app.js:71
+#: app.js:82
 msgid "The configuration file could not be loaded."
 msgstr ""
 
@@ -298,7 +302,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: app.js:469
+#: app.js:557
 msgid "Unable to start container"
 msgstr ""
 
@@ -322,7 +326,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: app.js:772
+#: app.js:860
 msgid "Variable substitution error"
 msgstr ""
 

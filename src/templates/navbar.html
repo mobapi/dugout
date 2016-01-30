@@ -71,13 +71,13 @@
 							</a>
 							<span class="abs-r-15 abs-t-5">
 								<span  ng-if="$root.globalConfMgr.valid && container.runtime.configurationValid">
-									<button ng-if="!container.runtime.docker.container.infos" class="btn btn-primary btn-sm" ng-click="ctrl.start(container)" title="{{'Start container'|translate}}">
+									<button ng-if="!container.runtime.docker.container.infos.State.Starting && !container.runtime.docker.container.infos.State.Stopping && !container.runtime.docker.container.infos.State.Running && !container.runtime.docker.container.infos.State.Error && container.runtime.docker.container.infos.State.Status != 'exited'" class="btn btn-primary btn-sm" ng-click="ctrl.start(container)" title="{{'Start container'|translate}}">
 										<i class="fa fa-play"></i>
 									</button>
-									<button ng-if="container.runtime.docker.container.infos.State.Running || (container.runtime.docker.container.infos.State.Error && !container.runtime.docker.container.infos.State.Stopping)" class="btn btn-danger btn-sm pull-right" ng-click="ctrl.stop(container)" title="{{'Stop container'|translate}}">
+									<button ng-if="(container.runtime.docker.container.infos.State.Running && !container.runtime.docker.container.infos.State.Stopping) || container.runtime.docker.container.infos.State.Error || container.runtime.docker.container.infos.State.Status == 'exited'" class="btn btn-danger btn-sm pull-right" ng-click="ctrl.stop(container)" title="{{'Stop container'|translate}}">
 										<i class="fa fa-stop"></i>
 									</button>
-									<button ng-if="container.runtime.docker.container.infos.State.Starting || container.runtime.docker.container.infos.State.Stopping" class="btn btn-default btn-sm pull-right">
+									<button ng-if="(container.runtime.docker.container.infos.State.Starting || container.runtime.docker.container.infos.State.Stopping) && container.runtime.docker.container.infos.State.Status != 'exited'" class="btn btn-default btn-sm pull-right">
 										<i class="fa fa-spinner fa-spin"></i>
 									</button>
 								</span>
