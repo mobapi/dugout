@@ -24,7 +24,7 @@
 					<div class="col-xs-12">
 						<div class="form-group">
 							<label>{{'Language'|translate}}</label>
-							<div class="">
+							<div>
 								<select class="form-control" ng-model="conf.language" ng-options="language.id as language.name for language in languages">
 								</select>
 							</div>
@@ -37,14 +37,17 @@
 				<div ng-if="platform == 'linux'" class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
-							<label>
-								<input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="socket" />
-								{{'UNIX Socket'|translate}}
-							</label>
-							<label>
-								 <input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="tcpip" />
-								 TCP/IP
-							</label>
+							<label>{{'Connection to docker daemon'|translate}}</label>
+							<div>
+								<label>
+									<input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="socket" />
+									{{'UNIX Socket'|translate}}
+								</label>
+								<label>
+									 <input type="radio" ng-model="conf.docker.connectionType" name="docker.connectionType" value="tcpip" />
+									 TCP/IP
+								</label>
+							</div>
 						</div>
 					</div>
 				</div>
