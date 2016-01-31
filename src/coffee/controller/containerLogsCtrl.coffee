@@ -1,21 +1,27 @@
 app
 .controller 'containerLogsCtrl',
-['$scope', '$state', 'container',
-($scope, $state, container) ->
+['$scope', '$state', '$timeout', 'container',
+($scope, $state, $timeout, container) ->
 
 	class Controller
 
 		constructor: ->
 			$scope.container = container
 			container && container.startContainerLog()
+			$scope.searchResult = {}
 			$scope.searchString = ""
 			$scope.$watch 'searchString', (val) =>
-				@search val
+				$timeout.cancel(@timeoutHandle) if @timeoutHandle
+				@timeoutHandle = $timeout =>
+					@search val
+				, 1000
 			$scope.$watch 'ctrl.stderr', (stderr) =>
 				if stderr
 					$scope.stream = 'stderr'
 				else
 					$scope.stream = 'stdout'
+				# Do search on the new stream
+				@search $scope.searchString
 			@stderr = false
 			$scope.stdoutScrollbarLocked = true
 			$scope.stderrScrollbarLocked = true
@@ -25,7 +31,7 @@ app
 			subject = $scope.container.runtime.docker.container.log[$scope.stream]
 			regex = new RegExp "^(.*#{searchString}.*)$", "gmi"
 			m = subject.match regex
-			console.dir m
+			$scope.searchResult[$scope.stream] = m?.join '\n'
 
 		clearLog: ->
 			$scope.container.clearContainerLog()

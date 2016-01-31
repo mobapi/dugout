@@ -1,6 +1,8 @@
 <div class="log full-height">
-	<log ng-class="{'invisible': stream != 'stdout'}" ng-model="container.runtime.docker.container.log['stdout']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log>
-	<log ng-class="{'invisible': stream != 'stderr'}" ng-model="container.runtime.docker.container.log['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log>
+	<log ng-class="{'invisible': stream != 'stdout'}" ng-model="searchResult['out']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log>
+	<!-- <log ng-class="{'invisible': stream != 'stdout'}" ng-model="container.runtime.docker.container.log['stdout']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log> -->
+	<log ng-class="{'invisible': stream != 'stderr'}" ng-model="searchResult['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log>
+	<!-- <log ng-class="{'invisible': stream != 'stderr'}" ng-model="container.runtime.docker.container.log['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log> -->
 </div>
 
 <div class="log-action-bar">
