@@ -11,18 +11,15 @@
 			<switch ng-model="ctrl.stderr" on="stderr" off="stdout" class="color" title="{{'Switch stream'|translate}}"></switch>
 		</div>
 		<div style="flex: 1">
-			<div class="search input-group">
-				<div>
-					<input type="text" class="form-control" ng-model="searchString" />
-					<i class="form-control-feedback fa fa-search"></i>
-				</div>
+			<input type="text" class="form-control" ng-model="searchString" placeholder="{{'Search in logs'|translate}}" />
+			<!--div class="search input-group">
 				<span class="input-group-btn">
 					<button class="btn btn-link" type="button"><i class="fa fa-angle-up"></i></button>
 				</span>
 				<span class="input-group-btn">
 					<button class="btn btn-link" type="button"><i class="fa fa-angle-down"></i></button>
 				</span>
-			</div>
+			</div-->
 		</div>
 		<div style="flex-grow: 0">
 			<i ng-show="stream == 'stdout'" class="fa fa-fw fa-2x fa-step-forward fa-rotate-90 text-color" ng-class="{'fa-disabled': !stdoutScrollbarLocked}"></i>

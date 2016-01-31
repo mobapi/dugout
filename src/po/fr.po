@@ -12,11 +12,11 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: configuration.html:72
+#: configuration.html:75
 msgid "Address"
 msgstr "Adresse"
 
-#: configuration.html:74
+#: configuration.html:77
 msgid "Address (host name or IP)"
 msgstr "Adresse (nom d’hôte ou IP)"
 
@@ -36,15 +36,15 @@ msgstr "Authentification"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: configuration.html:96
+#: configuration.html:99
 msgid "Certificates path"
 msgstr "Chemin des certificats"
 
-#: container_logs.html:40
+#: container_logs.html:29
 msgid "Clear log"
 msgstr "Effacer les traces"
 
-#: app.js:1039
+#: app.js:1051
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
@@ -64,6 +64,10 @@ msgstr "Configuration"
 #: container_configuration.html:40
 msgid "Configuration values"
 msgstr "Valeurs de configuration"
+
+#: configuration.html:40
+msgid "Connection to docker daemon"
+msgstr "Connexion au démon docker"
 
 #: app.js:289 container_container.html:5 project.html:16 project.html:18
 msgid "Container"
@@ -101,15 +105,15 @@ msgstr "Environnement"
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:1000 app.js:200 app.js:556 app.js:641 app.js:70 app.js:81
+#: app.js:1012 app.js:200 app.js:506 app.js:591 app.js:70 app.js:81
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1433
+#: app.js:1445
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1428
+#: app.js:1440
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -157,7 +161,7 @@ msgstr "S'authentifier"
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:491
+#: app.js:441
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
@@ -177,7 +181,7 @@ msgstr "Montages"
 msgid "Name"
 msgstr "Nom"
 
-#: app.js:986
+#: app.js:998
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -185,7 +189,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:985
+#: app.js:997
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -193,7 +197,7 @@ msgstr "Ouvrir..."
 msgid "Password"
 msgstr "Mot de passe"
 
-#: configuration.html:56
+#: configuration.html:59
 msgid "Path"
 msgstr "Chemin"
 
@@ -213,7 +217,7 @@ msgstr "Veuillez entrer une valeur"
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
 
-#: configuration.html:80 configuration.html:82
+#: configuration.html:83 configuration.html:85
 msgid "Port"
 msgstr "Port"
 
@@ -225,7 +229,7 @@ msgstr "Ports"
 msgid "Pulling image"
 msgstr "Récupération de l'image"
 
-#: app.js:1013
+#: app.js:1025
 msgid "Recent files"
 msgstr "Fichiers récents"
 
@@ -233,15 +237,19 @@ msgstr "Fichiers récents"
 msgid "Running"
 msgstr "Démarré"
 
-#: configuration.html:92
+#: container_logs.html:14
+msgid "Search in logs"
+msgstr "Rechercher dans les traces"
+
+#: configuration.html:95
 msgid "Secure connection"
 msgstr "Connexion sécurisée"
 
-#: configuration.html:98
+#: configuration.html:101
 msgid "Select the certificates path"
 msgstr "Sélectionnez le chemin des certificats"
 
-#: configuration.html:58
+#: configuration.html:61
 msgid "Select the socket path"
 msgstr "Sélectionnez le chemin du socket"
 
@@ -265,7 +273,7 @@ msgstr "Arrêter le conteneur"
 msgid "Stopped"
 msgstr "Arrêté"
 
-#: container_logs.html:30
+#: container_logs.html:11
 msgid "Switch stream"
 msgstr "Changer de flux"
 
@@ -281,19 +289,15 @@ msgstr "Le fichier de configuration ne peut pas être ouvert."
 msgid "The container is not running"
 msgstr "Le conteneur n’est pas démarré"
 
-#: container_logs.html:20 container_logs.html:9
-msgid "The logs are empty"
-msgstr "Les traces sont vides"
-
 #: navbar.html:4
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
 
-#: app.js:557
+#: app.js:507
 msgid "Unable to start container"
 msgstr "Impossible de démarrer le conteneur"
 
-#: configuration.html:42
+#: configuration.html:44
 msgid "UNIX Socket"
 msgstr "Socket UNIX"
 
@@ -313,13 +317,16 @@ msgstr "valide"
 msgid "Value"
 msgstr "Valeur"
 
-#: app.js:860
+#: app.js:872
 msgid "Variable substitution error"
 msgstr "Erreur lors de la substitution de variable"
 
 #: container_configuration.html:5
 msgid "Variables"
 msgstr "Variables"
+
+#~ msgid "The logs are empty"
+#~ msgstr "Les traces sont vides"
 
 #~ msgid "Processing..."
 #~ msgstr "Traitement en cours …"

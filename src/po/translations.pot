@@ -4,11 +4,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: configuration.html:72
+#: configuration.html:75
 msgid "Address"
 msgstr ""
 
-#: configuration.html:74
+#: configuration.html:77
 msgid "Address (host name or IP)"
 msgstr ""
 
@@ -28,15 +28,15 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: configuration.html:96
+#: configuration.html:99
 msgid "Certificates path"
 msgstr ""
 
-#: container_logs.html:40
+#: container_logs.html:29
 msgid "Clear log"
 msgstr ""
 
-#: app.js:1039
+#: app.js:1051
 msgid "Clear recent files"
 msgstr ""
 
@@ -59,6 +59,10 @@ msgstr ""
 
 #: container_configuration.html:40
 msgid "Configuration values"
+msgstr ""
+
+#: configuration.html:40
+msgid "Connection to docker daemon"
 msgstr ""
 
 #: app.js:289
@@ -100,20 +104,20 @@ msgstr ""
 msgid "Environment variable"
 msgstr ""
 
-#: app.js:1000
+#: app.js:1012
 #: app.js:200
-#: app.js:556
-#: app.js:641
+#: app.js:506
+#: app.js:591
 #: app.js:70
 #: app.js:81
 msgid "Error"
 msgstr ""
 
-#: app.js:1433
+#: app.js:1445
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1428
+#: app.js:1440
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -167,7 +171,7 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: app.js:491
+#: app.js:441
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
@@ -187,7 +191,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: app.js:986
+#: app.js:998
 msgid "Open containers configuration file"
 msgstr ""
 
@@ -195,7 +199,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:985
+#: app.js:997
 msgid "Open..."
 msgstr ""
 
@@ -203,7 +207,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: configuration.html:56
+#: configuration.html:59
 msgid "Path"
 msgstr ""
 
@@ -224,8 +228,8 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-#: configuration.html:80
-#: configuration.html:82
+#: configuration.html:83
+#: configuration.html:85
 msgid "Port"
 msgstr ""
 
@@ -237,7 +241,7 @@ msgstr ""
 msgid "Pulling image"
 msgstr ""
 
-#: app.js:1013
+#: app.js:1025
 msgid "Recent files"
 msgstr ""
 
@@ -245,15 +249,19 @@ msgstr ""
 msgid "Running"
 msgstr ""
 
-#: configuration.html:92
+#: container_logs.html:14
+msgid "Search in logs"
+msgstr ""
+
+#: configuration.html:95
 msgid "Secure connection"
 msgstr ""
 
-#: configuration.html:98
+#: configuration.html:101
 msgid "Select the certificates path"
 msgstr ""
 
-#: configuration.html:58
+#: configuration.html:61
 msgid "Select the socket path"
 msgstr ""
 
@@ -277,7 +285,7 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: container_logs.html:30
+#: container_logs.html:11
 msgid "Switch stream"
 msgstr ""
 
@@ -293,20 +301,15 @@ msgstr ""
 msgid "The container is not running"
 msgstr ""
 
-#: container_logs.html:20
-#: container_logs.html:9
-msgid "The logs are empty"
-msgstr ""
-
 #: navbar.html:4
 msgid "Toggle navigation"
 msgstr ""
 
-#: app.js:557
+#: app.js:507
 msgid "Unable to start container"
 msgstr ""
 
-#: configuration.html:42
+#: configuration.html:44
 msgid "UNIX Socket"
 msgstr ""
 
@@ -326,7 +329,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: app.js:860
+#: app.js:872
 msgid "Variable substitution error"
 msgstr ""
 
