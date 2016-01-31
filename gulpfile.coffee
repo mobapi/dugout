@@ -188,7 +188,7 @@ gulp.task 'app_build', ->
 		"#{directories.dist}/**/*" ]
 		nw_builder_files.push i
 	# console.dir nw_builder_files
-	options = {
+	options =
 		version: nw.version
 		buildDir: directories.build
 		cacheDir: nw.cacheDir
@@ -196,11 +196,8 @@ gulp.task 'app_build', ->
 		platforms: nw.platforms
 		buildType: ->
 			return @appVersion
-		# macZip: false
 		macIcns: "icon.icns"
-	}
-	if 'win64' in nw.platforms
-		options.winIco = "icon.ico"
+		winIco: "icon.ico" if 'win64' in nw.platforms
 	nodeWebkit = new NodeWebkitBuilder options
 	nodeWebkit.on 'log', console.log
 	return nodeWebkit.build()
@@ -238,5 +235,3 @@ gulp.task 'clean', (callback) ->
 	del [ directories.dist, directories.build ], callback
 
 gulp.task 'default', [ 'libs', 'app' ]
-
-# gulp.task 'build', [ 'app_build' ]
