@@ -10,11 +10,18 @@ app
 			container && container.startContainerLog()
 			$scope.searchResult = {}
 			$scope.searchString = ""
+			# Do search when logs are updated
+			$scope.$watch 'container.runtime.docker.container.log["stdout"]', =>
+				@search $scope.searchString
+			$scope.$watch 'container.runtime.docker.container.log["stderr"]', =>
+				@search $scope.searchString
+			# Do search when search string is modified
 			$scope.$watch 'searchString', (val) =>
 				$timeout.cancel(@timeoutHandle) if @timeoutHandle
 				@timeoutHandle = $timeout =>
 					@search val
 				, 1000
+			# React to log stream change
 			$scope.$watch 'ctrl.streamIsStderr', (streamIsStderr) =>
 				if streamIsStderr
 					$scope.stream = 'stderr'
