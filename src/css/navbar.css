@@ -24,6 +24,16 @@
 	width: 60px;
 }
 
+.navbar .navbar-nav {
+	margin: 0 15px;
+}
+
+@media (min-width: 768px) {
+.navbar .navbar-nav {
+	margin: 0;
+}
+}
+
 .navbar-color {
 	background-color: #32afb2;
 	color: #eee;

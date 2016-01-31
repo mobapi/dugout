@@ -68,11 +68,20 @@ body {
 	background-color: transparent;
 }
 
+.page-wrapper.full-height {
+	height: calc(100% - 120px);
+}
+
+@media(min-width: 768px) {
+.page-wrapper.full-height {
+	height: calc(100% - 65px); /* navbar */
+}
+}
+
 @media(min-width: 768px) {
 .page-wrapper {
 	margin-left: 250px;
 	width: calc(100% - 250px);
-	height: calc(100% - 65px); /* navbar */
 	border-left: 1px dashed #32afb2;
 }
 }
