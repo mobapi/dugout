@@ -15,14 +15,14 @@ app
 				@timeoutHandle = $timeout =>
 					@search val
 				, 1000
-			$scope.$watch 'ctrl.stderr', (stderr) =>
-				if stderr
+			$scope.$watch 'ctrl.streamIsStderr', (streamIsStderr) =>
+				if streamIsStderr
 					$scope.stream = 'stderr'
 				else
 					$scope.stream = 'stdout'
 				# Do search on the new stream
 				@search $scope.searchString
-			@stderr = false
+			@streamIsStderr = false
 			$scope.stdoutScrollbarLocked = true
 			$scope.stderrScrollbarLocked = true
 
