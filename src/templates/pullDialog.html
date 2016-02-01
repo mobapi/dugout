@@ -3,7 +3,7 @@
 		<h3>{{'Pulling image'|translate}} {{image}}</h3>
 	</div>
 	<div class="panel-body">
-		<perfect-scrollbar class="log scroller full-height" scroll-glue>
+		<div class="log full-height" ng-scrollbars>
 			<div class="container-fluid">
 				<div class="row" ng-repeat="(id, layer) in layers">
 					<div ng-if="layer.id">
@@ -20,7 +20,7 @@
 					</div>
 				</div>
 			</div>
-		</perfect-scrollbar>
+		</div>
 	</div>
 	<div class="panel-footer">
 		<div class="container-fluid">
