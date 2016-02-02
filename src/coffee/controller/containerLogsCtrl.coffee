@@ -34,7 +34,7 @@ app
 			$scope.stderrScrollbarLocked = true
 
 		search: (searchString) ->
-			return if not $scope.container?.runtime?.docker.container.log?[$scope.stream]
+			# return if not $scope.container?.runtime?.docker.container.log?[$scope.stream]
 			subject = $scope.container.runtime.docker.container.log[$scope.stream]
 			regex = new RegExp "^(.*#{searchString}.*)$", "gmi"
 			m = subject.match regex

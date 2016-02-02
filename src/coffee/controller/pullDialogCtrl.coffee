@@ -6,7 +6,6 @@ app
 	class Controller
 
 		constructor: ->
-			console.dir images
 			@pullImages()
 
 		pullImages: (credentials) ->
