@@ -23,7 +23,7 @@ body {
 }
 
 .full-height {
-	height: 100%;
+	height: 100% !important;
 }
 
 .text-color {
@@ -69,12 +69,12 @@ body {
 }
 
 .page-wrapper.full-height {
-	height: calc(100% - 120px);
+	height: calc(100% - 120px) !important;
 }
 
 @media(min-width: 768px) {
 .page-wrapper.full-height {
-	height: calc(100% - 65px); /* navbar */
+	height: calc(100% - 65px) !important; /* navbar */
 }
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 .page-content > .full-height {
-	height: calc(100% - 89px)
+	height: calc(100% - 89px) !important
 }
 
 pre {

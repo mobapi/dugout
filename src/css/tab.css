@@ -32,7 +32,7 @@
 }
 
 .tab > .tab-content.full-height {
-	height: calc(100% - 45px)
+	height: calc(100% - 45px) !important;
 }
 
 .tab > .tab-content h4 {

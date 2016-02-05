@@ -49,16 +49,13 @@
 
 	<div class="navbar-transparent sidebar no-drag" role="navigation">
 		<div class="sidebar-nav navbar-collapse collapse">
-			<ul class="nav" id="side-menu">
+			<ul class="nav full-height" id="side-menu" ng-scrollbars>
 				<li ng-if="project.containers">
-					<a ui-sref="project" class="pull-left" ng-class="{'active': activeState == 'project'}" title="{{'All containers'|translate}}">
+					<a ui-sref="project" class="" ng-class="{'active': activeState == 'project'}" title="{{'All containers'|translate}}">
 						<i class="fa fa-sitemap fa-fw"></i> {{'Containers'|translate}}
 					</a>
-					<span ng-if="$root.globalConfMgr.valid" class="btn-group btn-group-sm pull-right" style="padding: 10px 15px">
-						<!--button class="btn btn-primary" ng-click="ctrl.startAll()" title="{{'Start all containers'|translate}}">
-							<i class="fa fa-play"></i>
-						</button-->
-						<button class="btn btn-danger" ng-click="ctrl.stopAll()" title="{{'Stop all containers'|translate}}">
+					<span ng-if="$root.globalConfMgr.valid" class="abs-r-15 abs-t-5">
+						<button class="btn btn-danger btn-sm" ng-click="ctrl.stopAll()" title="{{'Stop all containers'|translate}}">
 							<i class="fa fa-stop"></i>
 						</button>
 					</span>
