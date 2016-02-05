@@ -1,4 +1,4 @@
-<div class="log full-height">
+<div class="log full-height" ng-mousemove="ctrl.onMouseMove($event)">
 	<log ng-class="{'invisible': stream != 'stdout'}" ng-model="searchResult['stdout']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log>
 	<log ng-class="{'invisible': stream != 'stderr'}" ng-model="searchResult['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log>
 </div>

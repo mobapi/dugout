@@ -25,7 +25,7 @@
 	margin: 0 5px;
 }
 
-.tab-content .log:hover ~ .log-action-bar ,
+.tab-content .log.show ~ .log-action-bar ,
 .log-action-bar:hover {
 	visibility: visible;
 	opacity: 1;

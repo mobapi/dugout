@@ -17,6 +17,10 @@ app
 				@search $scope.searchString
 			# Do search when search string is modified
 			$scope.$watch 'searchString', (val) =>
+				if val
+					@showActionBar()
+				else
+					@showActionBar 1000
 				$timeout.cancel(@timeoutHandle) if @timeoutHandle
 				@timeoutHandle = $timeout =>
 					@search val
@@ -32,6 +36,20 @@ app
 			@streamIsStderr = false
 			$scope.stdoutScrollbarLocked = true
 			$scope.stderrScrollbarLocked = true
+
+		onMouseMove: ($event) ->
+			return if $scope.searchString
+			@showActionBar 2000
+
+		showActionBar: (timeout) ->
+			$elt = angular.element '.log'
+			angular.element($elt).addClass('show')
+			$timeout.cancel(@showActionBarHandler) if @showActionBarHandler
+			if timeout
+				@showActionBarHandler = $timeout ->
+					angular.element($elt).removeClass('show')
+				, timeout
+			return false
 
 		search: (searchString) ->
 			return if not $scope.container?.runtime
