@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.4.*",
+    "angular": "1.5.*",
     "angular-bootstrap": "*",
     "angular-dynamic-locale": "*",
     "angular-hotkeys": "chieffancypants/angular-hotkeys",
@@ -38,7 +38,7 @@
     "startbootstrap-sb-admin-2": "*"
   },
   "resolutions": {
-    "angular": "1.4.*",
+    "angular": "1.5.*",
     "jquery": "1.*",
     "font-awesome": "4.5.*"
   }
