@@ -1,8 +1,6 @@
 <div class="log full-height">
 	<log ng-class="{'invisible': stream != 'stdout'}" ng-model="searchResult['stdout']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log>
-	<!-- <log ng-class="{'invisible': stream != 'stdout'}" ng-model="container.runtime.docker.container.log['stdout']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log> -->
 	<log ng-class="{'invisible': stream != 'stderr'}" ng-model="searchResult['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log>
-	<!-- <log ng-class="{'invisible': stream != 'stderr'}" ng-model="container.runtime.docker.container.log['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log> -->
 </div>
 
 <div class="log-action-bar">
@@ -12,14 +10,6 @@
 		</div>
 		<div style="flex: 1">
 			<input type="text" class="form-control" ng-model="searchString" placeholder="{{'Search in logs'|translate}}" />
-			<!--div class="search input-group">
-				<span class="input-group-btn">
-					<button class="btn btn-link" type="button"><i class="fa fa-angle-up"></i></button>
-				</span>
-				<span class="input-group-btn">
-					<button class="btn btn-link" type="button"><i class="fa fa-angle-down"></i></button>
-				</span>
-			</div-->
 		</div>
 		<div style="flex-grow: 0">
 			<i ng-show="stream == 'stdout'" class="fa fa-fw fa-2x fa-step-forward fa-rotate-90 text-color" ng-class="{'fa-disabled': !stdoutScrollbarLocked}"></i>

@@ -15,11 +15,11 @@ app = angular.module 'dugout', [
 # Configure scrollbars
 .config (ScrollBarsProvider) ->
 	ScrollBarsProvider.defaults =
-		scrollButtons:
-			scrollAmount: 'auto'
+		mouseWheel:
 			enable: true
+			scrollAmount: 100
 		axis: 'y'
-		scrollInertia: 100
+		scrollInertia: 200
 		autoHideScrollbar: true
 		theme: 'minimal-dark'
 
