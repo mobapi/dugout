@@ -17,6 +17,7 @@ i.stream {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
+	display: inline-block;
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;

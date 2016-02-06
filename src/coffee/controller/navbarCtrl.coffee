@@ -11,9 +11,14 @@ app
 			$scope.footerSentence = sprintf(gettextCatalog.getString(gettext('Made with %(love)s in French Guiana by')),
 				love: '<i class="fa fa-heart"></i>'
 			)
-			$scope.$root.$on '$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) ->
-				delete $scope.activeState
-				$scope.activeContainer = $scope.project.containers[$state.params.id]
+			$scope.$root.$on '$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) =>
+				@setActiveState()
+			@setActiveState()
+
+		setActiveState: ->
+			delete $scope.activeState
+			projectMgr.getContainer($state.params.id).then (container) ->
+				$scope.activeContainer = container
 				if not $scope.activeContainer
 					$scope.activeState = $state.current.name
 

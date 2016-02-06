@@ -63,7 +63,7 @@
 					<ul class="nav nav-second-level">
 						<li ng-repeat="(pid, container) in project.containers">
 							<a ui-sref="container.logs({id: pid})" ng-class="{'active': activeContainer.id == pid}">
-								<i class="stream stream-module"></i>
+								<i class="stream stream-module fa-fw"></i>
 								{{container.name}}
 							</a>
 							<span class="abs-r-15 abs-t-5">

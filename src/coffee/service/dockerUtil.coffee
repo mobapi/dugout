@@ -62,9 +62,9 @@ app
 				opts.Cmd.push "-c"
 				opts.Cmd.push "#{parameters.cmd}"
 			if parameters.mounts
-				opts.Volumes = {}
-				for k, v of parameters.mounts
-					opts.Volumes[k] = {}
+				# opts.Volumes = {}
+				# for k, v of parameters.mounts
+				# 	opts.Volumes[k] = {}
 				opts.HostConfig.Binds = []
 				for k, v of parameters.mounts
 					opts.HostConfig.Binds.push "#{v}:#{k}"

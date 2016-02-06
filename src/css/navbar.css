@@ -78,6 +78,12 @@
 }
 }
 
+.navbar .nav li > a:hover,
+.navbar .nav li > a:focus {
+	text-decoration: none;
+	background-color: transparent;
+}
+
 .navbar-color .sidebar li a {
 	position: relative;
 	display: block;
@@ -87,12 +93,7 @@
 
 .navbar-color .nav > li > a {
 	color: #eee;
-	background-color: transparent;
 }
-
-/*.navbar-color .sidebar .nav > li > a {
-	color: #eee;
-}*/
 
 @media (min-width: 768px) {
 .navbar-color .sidebar .nav li > a {
@@ -100,7 +101,7 @@
 }
 }
 
-.navbar-color .nav > li > a.active {
+.navbar-color .nav li > a.active {
 	background-color: transparent;
 	color: #bb5b31;
 }

@@ -1,11 +1,12 @@
 app
 .service 'projectMgr',
-['$q', 'filesMgr', 'Container',
-($q, filesMgr, Container) ->
+['$q', '$interval', 'filesMgr', 'Container',
+($q, $interval, filesMgr, Container) ->
 
 	class Service
 
 		constructor: ->
+			@initialized = false
 			@project =
 				containers: {}
 
@@ -25,9 +26,17 @@ app
 				container.checkContainerStatus()
 				# Add container to containers list
 				@project.containers[id] = container
+			@initialized = true
 
 		getContainer: (id) ->
-			return @project.containers[id]
+			d = $q.defer()
+			@getContainerHandler = $interval =>
+				if @initialized
+					$interval.cancel @getContainerHandler
+					container = @project.containers[id]
+					d.resolve container
+			, 100
+			return d.promise
 
 		startContainer: (container) ->
 			d = $q.defer()

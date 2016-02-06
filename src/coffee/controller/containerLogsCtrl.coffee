@@ -53,10 +53,13 @@ app
 
 		search: (searchString) ->
 			return if not $scope.container?.runtime
+			return if not $scope.stream
+			return if not $scope.container.runtime.docker.container.log
 			subject = $scope.container.runtime.docker.container.log[$scope.stream]
-			regex = new RegExp "^(.*#{searchString}.*)$", "gmi"
-			m = subject.match regex
-			$scope.searchResult[$scope.stream] = m?.join '\n'
+			if subject
+				regex = new RegExp "^(.*#{searchString}.*)$", "gmi"
+				m = subject.match regex
+				$scope.searchResult[$scope.stream] = m?.join '\n'
 
 		clearLog: ->
 			$scope.container.clearContainerLog()

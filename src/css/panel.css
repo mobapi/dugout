@@ -1,6 +1,19 @@
 .panel-color {
-	color: #32afb2;
+	/*color: #32afb2;*/
 	border: 1px solid #32afb2;
+}
+
+.panel-color,
+.panel-color a {
+	color: #32afb2;
+}
+
+.panel-color a {
+	text-decoration: none;
+}
+
+.panel-color a:hover {
+	color: #bb5b31;
 }
 
 .panel-color .panel-footer {
