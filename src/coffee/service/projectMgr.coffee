@@ -17,15 +17,18 @@ app
 			# Reset containers array
 			for id, p of @project.containers
 				delete @project.containers[id]
-			for id, p of project.containers
-				# Create container object from static configuration
-				container = new Container id, p
-				# Check container configuration
-				container.checkConfiguration()
-				# Docker status
-				container.checkContainerStatus()
-				# Add container to containers list
-				@project.containers[id] = container
+			for id, containerConf of project.containers
+				((containerConf) =>
+					# Create container object from static configuration
+					container = new Container id, containerConf
+					# Check container configuration
+					container.checkConfiguration()
+					# Docker status
+					container.checkContainerStatus()
+					# container.startLog()
+					# Add container to containers list
+					@project.containers[id] = container
+				)(containerConf)
 			@initialized = true
 
 		getContainer: (id) ->
@@ -46,7 +49,7 @@ app
 				subcontainer = @project.containers[k]
 				((subcontainer) =>
 					tasks.push (callback) =>
-						if subcontainer.runtime.docker.container.infos
+						if subcontainer.runtime.infos.container.infos
 							# Container is already started
 							return callback null, subcontainer
 						else
@@ -62,7 +65,7 @@ app
 					errors.push error
 					return d.reject errors
 				if results.length == tasks.length
-					container.startContainer().then d.resolve, (error) ->
+					container.start().then d.resolve, (error) ->
 						errors.push
 							container: container
 							error: error
@@ -70,7 +73,8 @@ app
 			return d.promise
 
 		stopContainer: (container) ->
-			container.stopContainer()
+			container.stop().then null, (error) ->
+				console.dir error
 
 		stop: ->
 			d = $q.defer()
@@ -78,7 +82,7 @@ app
 			for containerId, container of @project.containers
 				((container) =>
 					tasks.push (callback) =>
-						container.stopContainer().then ->
+						container.stop().then ->
 							callback null
 						, (error) ->
 							callback error

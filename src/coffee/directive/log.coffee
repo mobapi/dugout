@@ -7,10 +7,11 @@ app
 
 		scope:
 			ngModel: "="
+			ngHighlight: "="
 			locked: "="
 
 		template: '<div ng-show="ngModel" class="full-height" ng-scrollbars ng-scrollbars-update="scrollbarUpdate" ng-scrollbars-config="scrollbarConfig">
-				<pre>{{ngModel}}</pre>
+				<pre ng-bind-html="ngModel | search: ngHighlight : true"></pre>
 			</div>
 			<div ng-show="!ngModel" class="text-empty">
 				<span>
@@ -18,8 +19,6 @@ app
 					{{"The logs are empty"|translate}}
 				</span>
 			</div>'
-
-		controllerAs: 'ctrl'
 
 		link:
 			pre: (scope, iElement) ->
@@ -35,8 +34,8 @@ app
 						onTotalScroll: ->
 							if not scope.locked
 								scope.locked = true
-								try
-									scope.$apply();
+								# try
+								# 	scope.$apply();
 			post: (scope, iElement) ->
 				iElement.find('pre')[0].addEventListener "mousewheel", (e) ->
 					if scope.locked and e.wheelDeltaY > 0

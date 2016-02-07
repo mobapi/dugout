@@ -59,6 +59,10 @@ body {
 	bottom: 0;
 }
 
+.highlighted {
+	background-color: #ff0;
+}
+
 .page-wrapper {
 	width: 100%;
 	padding: 0;

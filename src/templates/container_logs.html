@@ -1,12 +1,12 @@
 <div class="log full-height" ng-mousemove="ctrl.onMouseMove($event)">
-	<log ng-class="{'invisible': stream != 'stdout'}" ng-model="searchResult['stdout']" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log>
-	<log ng-class="{'invisible': stream != 'stderr'}" ng-model="searchResult['stderr']" locked="stderrScrollbarLocked" class="stderr full-absolute"></log>
+	<log ng-class="{'invisible': stream != 'stdout'}" ng-model="container.runtime.log.streams.stdout" ng-highlight="searchString" locked="stdoutScrollbarLocked" class="stdout full-absolute"></log>
+	<log ng-class="{'invisible': stream != 'stderr'}" ng-model="container.runtime.log.streams.stderr" ng-highlight="searchString" locked="stderrScrollbarLocked" class="stderr full-absolute"></log>
 </div>
 
 <div class="log-action-bar">
 	<div class="log-action-bar-container">
 		<div style="flex-grow: 0">
-			<switch ng-model="ctrl.streamIsStderr" on="stderr" off="stdout" class="color" title="{{'Switch stream'|translate}}"></switch>
+			<switch ng-model="streamIsStderr" on="stderr" off="stdout" class="color" title="{{'Switch stream'|translate}}"></switch>
 		</div>
 		<div style="flex: 1">
 			<input type="text" class="form-control" ng-model="searchString" placeholder="{{'Search in logs'|translate}}" />

@@ -1,14 +1,14 @@
-<div ng-if="container.runtime.docker.container" class="full-height" ng-scrollbars>
+<div ng-if="container.runtime.infos.container" class="full-height" ng-scrollbars>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
-				<h4>{{'Container'|translate}} <small>{{container.id}} (#{{container.runtime.docker.container.id}})</small></h4>
-				<pre pretty-json="container.runtime.docker.container.infos"></pre>
+				<h4>{{'Container'|translate}} <small>{{container.id}} (#{{container.runtime.infos.container.id}})</small></h4>
+				<pre pretty-json="container.runtime.infos.container.infos"></pre>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div ng-if="!container.runtime.docker.container" class="text-empty">
+<div ng-if="!container.runtime.infos.container" class="text-empty">
 	<span>{{'The container is not running'|translate}}</span>
 </div>

@@ -15,6 +15,15 @@ app
 				@setActiveState()
 			@setActiveState()
 
+			$scope.$watch "project.containers", (containers) ->
+				return if not containers
+				for id, container of containers
+					state = container.runtime.infos.container.infos?.State
+					container.runtime.canStart = !state or (not state.Starting and not state.Stopping and not state.Running and not state.Error and state.Status != 'exited')
+					container.runtime.canStop = state && ((state.Running and not state.Stopping) or state.Error or state.Status == 'exited')
+					# (container.runtime.infos.container.infos.State.Starting || container.runtime.infos.container.infos.State.Stopping) && container.runtime.infos.container.infos.State.Status != 'exited'
+			, true
+
 		setActiveState: ->
 			delete $scope.activeState
 			projectMgr.getContainer($state.params.id).then (container) ->

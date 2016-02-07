@@ -13,10 +13,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" ng-if="container.runtime.docker.image.history">
+		<div class="row" ng-if="container.runtime.infos.image.history">
 			<div class="col-xs-12">
 				<h5>{{'History'|translate}}</h5>
-				<div ng-repeat="h in container.runtime.docker.image.history" class="row">
+				<div ng-repeat="h in container.runtime.infos.image.history" class="row">
 					<div class="col-xs-2">{{h.Id|limitTo: 12}}</div>
 					<div class="col-xs-2">{{h.Created}}</div>
 					<div class="col-xs-5">{{h.CreatedBy}}</div>
@@ -25,10 +25,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" ng-if="container.runtime.docker.image.infos">
+		<div class="row" ng-if="container.runtime.infos.image.infos">
 			<div class="col-xs-12">
 				<h5>{{'Informations'|translate}}</h5>
-				<pre pretty-json="container.runtime.docker.image.infos"></pre>
+				<pre pretty-json="container.runtime.infos.image.infos"></pre>
 			</div>
 		</div>
 	</div>
