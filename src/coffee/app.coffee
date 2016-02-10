@@ -60,11 +60,12 @@ app = angular.module 'dugout', [
 	globalConfMgr.load().then ->
 		$rootScope.globalConfMgr = globalConfMgr
 		dockerUtil.init()
-		dockerUtil.ping().then null, (error) ->
-			toaster.pop
-				type: 'error'
-				title: gettextCatalog.getString gettext('Error')
-				body: "#{gettextCatalog.getString gettext('Could not contact docker')}: #{error}"
+		dockerUtil.docker.ping (error) ->
+			if error
+				toaster.pop
+					type: 'error'
+					title: gettextCatalog.getString gettext('Error')
+					body: "#{gettextCatalog.getString gettext('Could not contact docker')}: #{error}"
 		recentFiles = filesMgr.loadRecentFiles()
 		if recentFiles.length
 			filesMgr.loadConfigurationFile recentFiles[0]

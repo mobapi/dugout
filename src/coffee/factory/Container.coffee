@@ -147,7 +147,7 @@ app
 				cmd: @cmd if @cmd
 			}
 			# Variables
-			vars = {}
+			vars = []
 			for k, v of @variables
 				vars[k] = v.value
 			# Variables substitution
