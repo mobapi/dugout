@@ -49,15 +49,16 @@ app
 				notFoundErrors = _.filter errors, (item) ->
 					return item.error.statusCode == 404
 				if notFoundErrors.length
-					images = _.map notFoundErrors, (item) ->
-						return item.container.image
+					# images = _.map notFoundErrors, (item) ->
+					# 	return item.container.image
+					containers = _.map notFoundErrors, (item) -> item.container
 					modalInstance = $uibModal.open
 						controller: 'pullDialogCtrl as ctrl'
 						templateUrl: 'pullDialog.html'
 						backdrop: 'static'
 						size: 'lg'
 						resolve:
-							images: -> images
+							containers: -> containers
 					modalInstance.result.then =>
 						@start container
 					, (error) ->

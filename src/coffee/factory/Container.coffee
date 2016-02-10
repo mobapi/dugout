@@ -245,26 +245,21 @@ app
 					d.resolve result
 			return d.promise
 
-		# pullImage: (imageName, authconfig) ->
-		# 	d = $q.defer()
-		# 	opts = {}
-		# 	if authconfig
-		# 		opts.authconfig = authconfig
-		# 	dockerUtil.docker.pull imageName, opts, (error, stream) =>
-		# 		if error
-		# 			return d.reject error
-		# 		dockerUtil.docker.modem.followProgress stream
-		# 		, (error, output) ->
-		# 			if error
-		# 				return d.reject error
-		# 			d.resolve output
-		# 		, (event) ->
-		# 			d.notify event
-		# 	return d.promise
-
-		pullImage: ->
+		pullImage: (authconfig) ->
 			d = $q.defer()
-			dockerUtil.pullImage(@image).then d.resolve, d.reject, d.notify
+			opts = {}
+			if authconfig
+				opts.authconfig = authconfig
+			dockerUtil.docker.pull @image, opts, (error, stream) =>
+				if error
+					return d.reject error
+				dockerUtil.docker.modem.followProgress stream
+				, (error, output) ->
+					if error
+						return d.reject error
+					d.resolve output
+				, (event) ->
+					d.notify event
 			return d.promise
 
 	return Container

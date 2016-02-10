@@ -44,23 +44,6 @@ app
 					options.key = fs.readFileSync "#{@globalConf.docker.certPath}/key.pem"
 				@docker = new Docker options
 
-		pullImage: (imageName, authconfig) ->
-			d = $q.defer()
-			opts = {}
-			if authconfig
-				opts.authconfig = authconfig
-			@docker.pull imageName, opts, (error, stream) =>
-				if error
-					return d.reject error
-				@docker.modem.followProgress stream
-				, (error, output) ->
-					if error
-						return d.reject error
-					d.resolve output
-				, (event) ->
-					d.notify event
-			return d.promise
-
 		ping: ->
 			d = $q.defer()
 			return d.reject() if not @globalConf
