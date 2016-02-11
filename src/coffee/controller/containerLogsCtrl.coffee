@@ -7,11 +7,12 @@ app
 
 		constructor: ->
 			$scope.container = container
-			if container
-				container.startLog().then ->
-					console.log 'log started'
-				, (error) ->
-					console.dir error
+			# if container
+			# 	container.startLog().then ->
+			# 		console.log 'log started'
+			# 	, (error) ->
+			# 		console.dir error
+
 				# , ->
 				# 	try
 				# 		$scope.$apply()

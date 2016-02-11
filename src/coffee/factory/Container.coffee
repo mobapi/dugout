@@ -1,9 +1,46 @@
 app
 .factory 'Container',
-['$q', 'dockerUtil',
-($q, dockerUtil) ->
+['$q', 'globalConfMgr',
+($q, globalConfMgr) ->
 
 	class Container
+
+		@docker: null
+
+		@initDocker: (globalConf) ->
+			throw new Error("Cannot initialize without configuration") if not globalConf
+			Docker = require 'dockerode'
+			Docker.prototype.getContainerByName = (name, cb) ->
+				@listContainers
+					all: true
+				, (error, containers) =>
+					if error
+						return cb error
+					matched = _.filter containers, (container) ->
+						found = false
+						for n in container.Names
+							if n.indexOf(name) > -1
+								found = true
+								break
+						return found
+					if matched.length
+						container = @getContainer matched[0].Id
+					else
+						container = null
+					return cb null, container
+			if globalConf.docker.connectionType == 'socket'
+				@docker = new Docker
+					socketPath: globalConf.docker.socket
+			else if globalConf.docker.connectionType == 'tcpip'
+				options =
+					host: globalConf.docker.address
+					port: globalConf.docker.port
+				if globalConf.docker.secure
+					fs = require 'fs'
+					options.ca = fs.readFileSync "#{@globalConf.docker.certPath}/ca.pem"
+					options.cert = fs.readFileSync "#{@globalConf.docker.certPath}/cert.pem"
+					options.key = fs.readFileSync "#{@globalConf.docker.certPath}/key.pem"
+				@docker = new Docker options
 
 		constructor: (@id, conf) ->
 			angular.extend @, conf
@@ -102,7 +139,7 @@ app
 				opts.Env = []
 				for k, v of parameters.environment
 					opts.Env.push "#{k}=#{v}"
-			dockerUtil.docker.createContainer opts, (error, container) =>
+			@constructor.docker.createContainer opts, (error, container) =>
 				if error
 					return d.reject error
 				container.start (error) ->
@@ -155,7 +192,7 @@ app
 
 		stop: ->
 			d = $q.defer()
-			dockerUtil.docker.getContainerByName @id, (error, container) =>
+			@constructor.docker.getContainerByName @id, (error, container) =>
 				if error
 					@checkContainerStatus()
 					return d.reject error
@@ -163,6 +200,7 @@ app
 					return d.resolve()
 				if @runtime.infos.container.infos
 					@runtime.infos.container.infos.State.Stopping = true
+				@stopLog()
 				container.remove
 					force: true
 					v: true
@@ -170,7 +208,6 @@ app
 					if error
 						@checkContainerStatus()
 						return d.reject error
-					@stopLog()
 					@checkContainerStatus()
 					d.resolve()
 			return d.promise
@@ -179,7 +216,7 @@ app
 			@stopLog() if @runtime.log.enabled
 
 			d = $q.defer()
-			dockerUtil.docker.getContainerByName @id, (error, container) =>
+			@constructor.docker.getContainerByName @id, (error, container) =>
 				if error
 					return d.reject error
 				if not container
@@ -198,9 +235,12 @@ app
 					stderr = new Stream.PassThrough()
 					container.modem.demuxStream stream, stdout, stderr
 					@runtime.log.streamsHandlers.stdout = stdout.on 'data', (chunk) =>
-						@runtime.log.addToLog
-							stream: 'stdout'
-							data: chunk.toString()
+						setTimeout =>
+							console.log 'add'
+							@runtime.log.addToLog
+								stream: 'stdout'
+								data: chunk.toString()
+						, 50
 						d.notify()
 					@runtime.log.streamsHandlers.stderr = stderr.on 'data', (chunk) =>
 						@runtime.log.addToLog
@@ -219,7 +259,7 @@ app
 
 		getContainerInfos: (containerName) ->
 			d = $q.defer()
-			dockerUtil.docker.getContainerByName @id, (error, container) ->
+			@constructor.docker.getContainerByName @id, (error, container) ->
 				if error
 					return d.reject error
 				if not container
@@ -233,7 +273,7 @@ app
 		getImageInfos: (imageName) ->
 			d = $q.defer()
 			result = {}
-			image = dockerUtil.docker.getImage @image
+			image = @constructor.docker.getImage @image
 			image.inspect (error, data) ->
 				if error
 					return d.reject error
@@ -250,10 +290,10 @@ app
 			opts = {}
 			if authconfig
 				opts.authconfig = authconfig
-			dockerUtil.docker.pull @image, opts, (error, stream) =>
+			@constructor.docker.pull @image, opts, (error, stream) =>
 				if error
 					return d.reject error
-				dockerUtil.docker.modem.followProgress stream
+				@constructor.docker.modem.followProgress stream
 				, (error, output) ->
 					if error
 						return d.reject error

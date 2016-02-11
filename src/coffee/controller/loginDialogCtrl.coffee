@@ -1,7 +1,7 @@
 app
 .controller 'loginDialogCtrl',
-['$scope', '$uibModalInstance', 'dockerUtil',
-($scope, $uibModalInstance, dockerUtil) ->
+['$scope', '$uibModalInstance',
+($scope, $uibModalInstance) ->
 
 	class Controller
 

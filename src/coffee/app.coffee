@@ -55,12 +55,12 @@ app = angular.module 'dugout', [
 ]
 
 # Run run run !
-.run [ '$rootScope', 'toaster', 'globalConfMgr', 'filesMgr', 'dockerUtil', 'projectMgr',
-($rootScope, toaster, globalConfMgr, filesMgr, dockerUtil, projectMgr) ->
+.run [ '$rootScope', 'toaster', 'globalConfMgr', 'filesMgr', 'projectMgr', 'Container',
+($rootScope, toaster, globalConfMgr, filesMgr, projectMgr, Container) ->
 	globalConfMgr.load().then ->
 		$rootScope.globalConfMgr = globalConfMgr
-		dockerUtil.init()
-		dockerUtil.docker.ping (error) ->
+		Container.initDocker globalConfMgr.conf
+		Container.docker.ping (error) ->
 			if error
 				toaster.pop
 					type: 'error'

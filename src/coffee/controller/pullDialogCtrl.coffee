@@ -1,7 +1,7 @@
 app
 .controller 'pullDialogCtrl',
-['$scope', 'toaster', '$uibModal', '$uibModalInstance', 'dockerUtil', 'containers',
-($scope, toaster, $uibModal, $uibModalInstance, dockerUtil, containers) ->
+['$scope', 'toaster', '$uibModal', '$uibModalInstance', 'containers',
+($scope, toaster, $uibModal, $uibModalInstance, containers) ->
 
 	class Controller
 
@@ -25,14 +25,6 @@ app
 							if data.progressDetail?.current
 								data.progressDetail.percent = parseInt(data.progressDetail.current * 100.0 / data.progressDetail.total)
 							$scope.layers[data.id] = data
-						# dockerUtil.pullImage(image, credentials).then ->
-						# 	callback null, image
-						# , (error) ->
-						# 	callback error
-						# , (data) =>
-						# 	if data.progressDetail?.current
-						# 		data.progressDetail.percent = parseInt(data.progressDetail.current * 100.0 / data.progressDetail.total)
-						# 	$scope.layers[data.id] = data
 				)(container)
 			async.series tasks, (error, result) =>
 				if error
