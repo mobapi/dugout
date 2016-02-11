@@ -37,9 +37,9 @@ app
 					port: globalConf.docker.port
 				if globalConf.docker.secure
 					fs = require 'fs'
-					options.ca = fs.readFileSync "#{@globalConf.docker.certPath}/ca.pem"
-					options.cert = fs.readFileSync "#{@globalConf.docker.certPath}/cert.pem"
-					options.key = fs.readFileSync "#{@globalConf.docker.certPath}/key.pem"
+					options.ca = fs.readFileSync "#{globalConf.docker.certPath}/ca.pem"
+					options.cert = fs.readFileSync "#{globalConf.docker.certPath}/cert.pem"
+					options.key = fs.readFileSync "#{globalConf.docker.certPath}/key.pem"
 				@docker = new Docker options
 
 		constructor: (@id, conf) ->

@@ -92,19 +92,31 @@ gulp.task 'libs', [ 'libs_js', 'libs_css', 'libs_fonts' ]
 
 gulp.task 'libs_js', ->
 	return gulp.src files.libs.js
-		.pipe expect(files.libs.js)
+		.pipe expect
+			errorOnFailure: true
+		, files.libs.js
+		.on 'error', ->
+			process.exit -1
 		.pipe concat("libs.js")
 		.pipe gulp.dest("#{directories.dist}/js/")
 
 gulp.task 'libs_css', ->
 	return gulp.src files.libs.css
-		.pipe expect(files.libs.css)
+		.pipe expect
+			errorOnFailure: true
+		, files.libs.css
+		.on 'error', ->
+			process.exit -1
 		.pipe concat("libs.css")
 		.pipe gulp.dest("#{directories.dist}/css/")
 
 gulp.task 'libs_fonts', ->
 	return gulp.src files.libs.fonts
-		.pipe expect(files.libs.fonts)
+		.pipe expect
+			errorOnFailure: true
+		, files.libs.fonts
+		.on 'error', ->
+			process.exit -1
 		.pipe gulp.dest("#{directories.dist}/fonts/")
 
 
