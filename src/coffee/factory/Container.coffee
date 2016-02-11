@@ -1,7 +1,7 @@
 app
 .factory 'Container',
-['$q', 'globalConfMgr',
-($q, globalConfMgr) ->
+['$q', '$timeout', 'globalConfMgr',
+($q, $timeout, globalConfMgr) ->
 
 	class Container
 
@@ -76,10 +76,10 @@ app
 			@getImageInfos(@image).then (infos) =>
 				@runtime.infos.image = infos
 				@getContainerInfos(@id).then (infos) =>
-					@runtime.infos.container.infos = infos
+					@runtime.infos.container = infos
 					q.resolve()
 				, (error) =>
-					delete @runtime.infos.container.infos
+					delete @runtime.infos.container
 					q.reject error
 			, (error) =>
 				q.reject error
@@ -158,17 +158,17 @@ app
 				catch e
 					d.reject "#{gettextCatalog.getString(gettext('Variable substitution error'))}: #{e}"
 					return d.promise
-				@runtime.infos.container.infos =
+				@runtime.infos.container =
 					State:
 						Starting: true
 				@_start().then =>
-					delete @runtime.infos.container.infos.State.Starting
-					@runtime.infos.container.infos.State.Running = true
+					delete @runtime.infos.container.State.Starting
+					@runtime.infos.container.State.Running = true
 					@checkContainerStatus()
 					@startLog()
 					d.resolve()
 				, (error) =>
-					delete @runtime.infos.container.infos.State.Starting
+					delete @runtime.infos.container.State.Starting
 					d.reject error
 			, d.reject
 			return d.promise
@@ -198,17 +198,17 @@ app
 					return d.reject error
 				if not container
 					return d.resolve()
-				if @runtime.infos.container.infos
-					@runtime.infos.container.infos.State.Stopping = true
-				@stopLog()
+				if @runtime.infos.container
+					@runtime.infos.container.State.Stopping = true
 				container.remove
 					force: true
 					v: true
 				, (error, data) =>
-					if error
-						@checkContainerStatus()
-						return d.reject error
+					delete @runtime.infos.container.State.Stopping
+					@stopLog()
 					@checkContainerStatus()
+					if error
+						return d.reject error
 					d.resolve()
 			return d.promise
 
@@ -235,18 +235,17 @@ app
 					stderr = new Stream.PassThrough()
 					container.modem.demuxStream stream, stdout, stderr
 					@runtime.log.streamsHandlers.stdout = stdout.on 'data', (chunk) =>
-						setTimeout =>
-							console.log 'add'
-							@runtime.log.addToLog
-								stream: 'stdout'
-								data: chunk.toString()
-						, 50
-						d.notify()
+						log =
+							stream: 'stdout'
+							data: chunk.toString()
+						@runtime.log.addToLog log
+						d.notify log
 					@runtime.log.streamsHandlers.stderr = stderr.on 'data', (chunk) =>
-						@runtime.log.addToLog
+						log =
 							stream: 'stderr'
 							data: chunk.toString()
-						d.notify()
+						@runtime.log.addToLog log
+						d.notify log
 			return d.promise
 
 		stopLog: ->

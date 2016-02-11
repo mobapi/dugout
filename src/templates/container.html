@@ -7,8 +7,8 @@
 					<h4>
 						{{container.name}}
 						<small>{{container.id}}</small>
-						<span class="label label-primary" ng-if="container.runtime.infos.container.infos.State.Running">{{'Running'|translate}}</span>
-						<span class="label label-default" ng-if="!container.runtime.infos.container.infos.State.Running">{{'Stopped'|translate}}</span>
+						<span class="label label-primary" ng-if="container.runtime.infos.container.State.Running">{{'Running'|translate}}</span>
+						<span class="label label-default" ng-if="!container.runtime.infos.container.State.Running">{{'Stopped'|translate}}</span>
 					</h4>
 				</div>
 			</div>

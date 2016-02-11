@@ -5,23 +5,16 @@ app
 
 	class Controller
 
+		actionbarTimeout: 500
+
 		constructor: ->
 			$scope.container = container
-			# if container
-			# 	container.startLog().then ->
-			# 		console.log 'log started'
-			# 	, (error) ->
-			# 		console.dir error
-
-				# , ->
-				# 	try
-				# 		$scope.$apply()
 
 			$scope.$watch 'searchString', (val) =>
 				if val
 					@showActionBar()
 				else
-					@showActionBar 1000
+					@showActionBar @actionbarTimeout
 				$timeout.cancel(@timeoutHandle) if @timeoutHandle
 			# React to log stream change
 			$scope.$watch 'streamIsStderr', (streamIsStderr) =>
@@ -35,7 +28,7 @@ app
 
 		onMouseMove: ($event) ->
 			return if $scope.searchString
-			@showActionBar 1000
+			@showActionBar @actionbarTimeout
 
 		showActionBar: (timeout) ->
 			$elt = angular.element '.log'

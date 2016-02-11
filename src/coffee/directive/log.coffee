@@ -1,5 +1,6 @@
 app
-.directive 'log', ->
+.directive 'log', 
+['$timeout', ($timeout) ->
 	
 	class Directive
 
@@ -22,20 +23,20 @@ app
 
 		link:
 			pre: (scope, iElement) ->
+				scope.first = true
 				scope.$watch 'ngModel', =>
 					return if not scope.scrollbarUpdate
 					if scope.locked
-						setTimeout =>
+						$timeout =>
 							scope.scrollbarUpdate 'scrollTo', [ 'bottom', 'left' ]
-						, 300
+							delete scope.first
+						, if scope.first then 500 else 10
 				scope.scrollbarConfig =
 					axis: 'xy'
 					callbacks:
 						onTotalScroll: ->
 							if not scope.locked
 								scope.locked = true
-								# try
-								# 	scope.$apply();
 			post: (scope, iElement) ->
 				iElement.find('pre')[0].addEventListener "mousewheel", (e) ->
 					if scope.locked and e.wheelDeltaY > 0
@@ -46,3 +47,4 @@ app
 
 
 	return new Directive()
+]

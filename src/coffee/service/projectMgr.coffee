@@ -18,17 +18,18 @@ app
 			for id, p of @project.containers
 				delete @project.containers[id]
 			for id, containerConf of project.containers
-				((containerConf) =>
+				((id, containerConf) =>
 					# Create container object from static configuration
 					container = new Container id, containerConf
 					# Check container configuration
 					container.checkConfiguration()
 					# Docker status
 					container.checkContainerStatus()
-					# container.startLog()
+					# Start log
+					container.startLog()
 					# Add container to containers list
 					@project.containers[id] = container
-				)(containerConf)
+				)(id, containerConf)
 			@initialized = true
 
 		getContainer: (id) ->
@@ -49,7 +50,7 @@ app
 				subcontainer = @project.containers[k]
 				((subcontainer) =>
 					tasks.push (callback) =>
-						if subcontainer.runtime.infos.container.infos
+						if subcontainer.runtime.infos.container
 							# Container is already started
 							return callback null, subcontainer
 						else
@@ -71,10 +72,6 @@ app
 							error: error
 						d.reject errors
 			return d.promise
-
-		stopContainer: (container) ->
-			container.stop().then null, (error) ->
-				console.dir error
 
 		stop: ->
 			d = $q.defer()
