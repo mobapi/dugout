@@ -165,7 +165,9 @@ app
 					delete @runtime.infos.container.State.Starting
 					@runtime.infos.container.State.Running = true
 					@checkContainerStatus()
-					@startLog()
+					$timeout =>
+						@startLog()
+					, 50
 					d.resolve()
 				, (error) =>
 					delete @runtime.infos.container.State.Starting
