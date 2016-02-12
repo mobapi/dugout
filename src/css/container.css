@@ -59,6 +59,26 @@
 	color: #32afb2;
 }
 
+.log-action-bar .switch .switch-text .on {
+	display: block;
+	opacity: 0;
+	transition: all 500ms ease;
+}
+
+.log-action-bar .switch.checked .switch-text .on {
+	opacity: 1;
+}
+
+.log-action-bar .switch .switch-text .off {
+	opacity: 1;
+	transition: all 500ms ease;
+}
+
+.log-action-bar .switch.checked .switch-text .off {
+	display: block;
+	opacity: 0;
+}
+
 .log-action-bar .search div {
 	position: relative;
 }
