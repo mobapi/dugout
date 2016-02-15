@@ -29,7 +29,8 @@ app
 			async.series tasks, (error, result) =>
 				if error
 					console.error error
-					if /^Authentication is required/.test error
+					# if /authentication is required/i.test error or /unauthorized/i.test error
+					if /(authentication is required)|(unauthorized)/i.test error
 						@login()
 					else
 						toaster.pop
@@ -46,7 +47,6 @@ app
 				backdrop: 'static'
 
 			loginInstance.result.then (credentials) =>
-				console.dir credentials
 				@pullImages credentials
 			, ->
 				$uibModalInstance.dismiss()
