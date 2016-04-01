@@ -1,7 +1,7 @@
 app
 .controller 'configurationCtrl',
-['$scope', '$state', 'toaster',
-($scope, $state, toaster) ->
+['$scope', '$state', 'toaster', 'globalConfMgr',
+($scope, $state, toaster, globalConfMgr) ->
 
 	class Controller
 
@@ -23,6 +23,10 @@ app
 				if newVal and newVal != oldVal
 					@save()
 			, true
+
+		deleteCredentials: (key) ->
+			delete globalConfMgr.conf.credentials[key]
+			globalConfMgr.save()
 
 		save: ->
 			$scope.globalConfMgr.setLanguage $scope.conf.language

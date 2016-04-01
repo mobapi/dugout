@@ -108,6 +108,30 @@
 					</div>
 				</div>
 
+				<h4>{{'Stored credentials'|translate}}</h4>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<span class="conf-value">
+							<ul class="list-group">
+								<li class="list-group-item list-group-header">
+									<span>{{'Repository'|translate}}</span>
+									<span class="pull-right">{{'Username'|translate}}</span>
+								</li>
+								<li class="list-group-item" ng-repeat="(k, v) in conf.credentials">
+									<span>
+										<a href="" ng-click="ctrl.deleteCredentials(k)" title="{{'Delete these credentials'|translate}}">
+											<i class="fa fa-times text-danger"></i>
+										</a>
+									</span>
+									<span>{{k}}</span>
+									<span class="pull-right">{{v.username}}</span>
+								</li>
+							</ul>
+						</span>
+					</div>
+				</div>
+			
 			</div>
 
 		</div>

@@ -44,6 +44,7 @@ files =
 	libs:
 		js: [
 			"#{directories.libs}/jquery/dist/jquery.js"
+			"#{directories.libs}/jquery-mousewheel/jquery.mousewheel.js"
 			"#{directories.libs}/angular/angular.js"
 			"#{directories.libs}/angular-animate/angular-animate.js"
 			"#{directories.libs}/angular-bootstrap/ui-bootstrap-tpls.js"

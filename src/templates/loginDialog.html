@@ -6,15 +6,21 @@
 		<div class="panel-body">
 			<div class="form-group">
 				<label>{{'Username'|translate}}</label>
-				<input type="text" class="form-control" name="username" ng-model="credentials.username" />
+				<input type="text" class="form-control" name="username" ng-model="credentials.username" autofocus />
 			</div>
 			<div class="form-group">
 				<label>{{'Password'|translate}}</label>
 				<input type="password" class="form-control" name="password" ng-model="credentials.password" />
 			</div>
-			<div class="form-group">
+			<!--div class="form-group">
 				<label>{{'Email'|translate}}</label>
 				<input type="email" class="form-control" name="email" ng-model="credentials.email" />
+			</div-->
+			<div class="form-group">
+				<label>
+					<input type="checkbox" class="ZZform-control" name="remember" ng-model="credentials.remember" />
+					{{'Remember credentials'|translate}}
+				</label>
 			</div>
 		</div>
 		<div class="panel-footer">

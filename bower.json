@@ -30,6 +30,7 @@
     "bootstrap": "*",
     "font-awesome": "4.5.*",
     "jquery": "1.*",
+    "jquery-mousewheel": "*",
     "lodash": "*",
     "moment": "*",
     "ng-scrollbars": "*",
