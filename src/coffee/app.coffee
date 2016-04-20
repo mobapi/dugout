@@ -54,6 +54,10 @@ app = angular.module 'dugout', [
 	appGuiMgr.createMenu()
 ]
 
+.run ['updateMgr', (updateMgr) ->
+	updateMgr.checkUpdate()
+]
+
 # Run run run !
 .run [ '$rootScope', 'toaster', 'globalConfMgr', 'filesMgr', 'projectMgr', 'Container',
 ($rootScope, toaster, globalConfMgr, filesMgr, projectMgr, Container) ->

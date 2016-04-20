@@ -1,0 +1,35 @@
+<div class="about full-height">
+
+	<div class="container-fluid full-height" ng-scrollbars>
+
+		<div class="row" style="margin-bottom: 50px;">
+			<div class="col-sm-12">
+
+				<h2>{{pkg.name}} <small>version {{pkg.version}}</small></h2>
+
+				<span>{{'Last release:'}} {{lastVersion}}</span><br />
+
+				<span ng-if="lastVersion > pkg.version">
+					{{'Your Dugout version is outdated, please download a new one at '}}
+					<a external-link href="https://github.com/mobapi/dugout/releases/latest">https://github.com/mobapi/dugout/releases/latest</a>
+				</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="list-group">
+					<li class="list-group-item list-group-header">
+						<span>{{'Nodewebkit libraries'|translate}}</span>
+					</li>
+					<li class="list-group-item" ng-repeat="(lib, version) in nw_libs">
+						<label>{{lib}}</label>
+						<span class="pull-right">{{version}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+</div>

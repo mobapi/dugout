@@ -9,8 +9,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: navbar.html:7
+msgid "About Dugout"
+msgstr "A propos de Dugout"
 
 #: configuration.html:75
 msgid "Address"
@@ -32,7 +36,7 @@ msgstr "Tous les conteneurs"
 msgid "Authentication"
 msgstr "Authentification"
 
-#: loginDialog.html:30
+#: loginDialog.html:36
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -40,11 +44,11 @@ msgstr "Annuler"
 msgid "Certificates path"
 msgstr "Chemin des certificats"
 
-#: container_logs.html:29
+#: container_logs.html:19
 msgid "Clear log"
 msgstr "Effacer les traces"
 
-#: app.js:1051
+#: app.js:1400
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
@@ -56,8 +60,8 @@ msgstr "Fermer"
 msgid "Command"
 msgstr "Commande"
 
-#: app.js:299 configuration.html:8 navbar.html:20 project.html:24
-#: project.html:26
+#: app.js:334 configuration.html:8 navbar.html:20 project.html:26
+#: project.html:28
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -69,7 +73,7 @@ msgstr "Valeurs de configuration"
 msgid "Connection to docker daemon"
 msgstr "Connexion au démon docker"
 
-#: app.js:289 container_container.html:5 project.html:16 project.html:18
+#: app.js:324 container_container.html:5 project.html:18 project.html:20
 msgid "Container"
 msgstr "Conteneur"
 
@@ -89,9 +93,13 @@ msgstr "Port du conteneur"
 msgid "Containers"
 msgstr "Conteneurs"
 
-#: app.js:71
+#: app.js:76
 msgid "Could not contact docker"
 msgstr "Impossible de contacter docker"
+
+#: configuration.html:123
+msgid "Delete these credentials"
+msgstr "Supprimer ces identifiants"
 
 #: loginDialog.html:16
 msgid "Email"
@@ -105,15 +113,15 @@ msgstr "Environnement"
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:1012 app.js:200 app.js:506 app.js:591 app.js:70 app.js:81
+#: app.js:1361 app.js:235 app.js:578 app.js:676 app.js:75 app.js:87
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1445
+#: app.js:1465
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1440
+#: app.js:1460
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -133,7 +141,7 @@ msgstr "Port de l’hôte"
 msgid "Id"
 msgstr "Identifiant"
 
-#: app.js:294 container_image.html:6 project.html:20 project.html:22
+#: app.js:329 container_image.html:6 project.html:22 project.html:24
 msgid "Image"
 msgstr "Image"
 
@@ -153,15 +161,15 @@ msgstr "Langue"
 msgid "Links"
 msgstr "Liens"
 
-#: loginDialog.html:26
+#: loginDialog.html:32
 msgid "Login"
 msgstr "S'authentifier"
 
-#: app.js:284 project.html:12 project.html:14
+#: app.js:319 project.html:14 project.html:16 project.html:8
 msgid "Logs"
 msgstr "Traces"
 
-#: app.js:441
+#: app.js:487
 msgid "Made with %(love)s in French Guiana by"
 msgstr "Réalisé avec %(love)s en Guyane française par"
 
@@ -181,7 +189,11 @@ msgstr "Montages"
 msgid "Name"
 msgstr "Nom"
 
-#: app.js:998
+#: about.html:23
+msgid "Nodewebkit libraries"
+msgstr "Librairies Nodewebkit"
+
+#: app.js:1347
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -189,7 +201,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:997
+#: app.js:1346
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -229,15 +241,23 @@ msgstr "Ports"
 msgid "Pulling image"
 msgstr "Récupération de l'image"
 
-#: app.js:1025
+#: app.js:1374
 msgid "Recent files"
 msgstr "Fichiers récents"
+
+#: loginDialog.html:22
+msgid "Remember credentials"
+msgstr "Se souvenir des identifiants"
+
+#: configuration.html:118
+msgid "Repository"
+msgstr "Dépôt"
 
 #: container.html:10
 msgid "Running"
 msgstr "Démarré"
 
-#: container_logs.html:14
+#: container_logs.html:12
 msgid "Search in logs"
 msgstr "Rechercher dans les traces"
 
@@ -253,19 +273,15 @@ msgstr "Sélectionnez le chemin des certificats"
 msgid "Select the socket path"
 msgstr "Sélectionnez le chemin du socket"
 
-#: navbar.html:58
-msgid "Start all containers"
-msgstr "Démarrer tous les conteneurs"
-
-#: navbar.html:74
+#: navbar.html:71
 msgid "Start container"
 msgstr "Démarrer le conteneur"
 
-#: navbar.html:61
+#: navbar.html:58
 msgid "Stop all containers"
 msgstr "Arrêter tous les conteneurs"
 
-#: navbar.html:77
+#: navbar.html:74
 msgid "Stop container"
 msgstr "Arrêter le conteneur"
 
@@ -273,15 +289,19 @@ msgstr "Arrêter le conteneur"
 msgid "Stopped"
 msgstr "Arrêté"
 
-#: container_logs.html:11
+#: configuration.html:111
+msgid "Stored credentials"
+msgstr "Identifiants stockés"
+
+#: container_logs.html:9
 msgid "Switch stream"
 msgstr "Changer de flux"
 
-#: app.js:201
+#: app.js:236
 msgid "The configuration could not be saved."
 msgstr "La configuration ne peut pas être enregistrée."
 
-#: app.js:82
+#: app.js:88
 msgid "The configuration file could not be loaded."
 msgstr "Le fichier de configuration ne peut pas être ouvert."
 
@@ -293,7 +313,7 @@ msgstr "Le conteneur n’est pas démarré"
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
 
-#: app.js:507
+#: app.js:579
 msgid "Unable to start container"
 msgstr "Impossible de démarrer le conteneur"
 
@@ -305,7 +325,7 @@ msgstr "Socket UNIX"
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: loginDialog.html:8
+#: configuration.html:119 loginDialog.html:8
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
@@ -317,13 +337,16 @@ msgstr "valide"
 msgid "Value"
 msgstr "Valeur"
 
-#: app.js:872
+#: app.js:1084
 msgid "Variable substitution error"
 msgstr "Erreur lors de la substitution de variable"
 
 #: container_configuration.html:5
 msgid "Variables"
 msgstr "Variables"
+
+#~ msgid "Start all containers"
+#~ msgstr "Démarrer tous les conteneurs"
 
 #~ msgid "The logs are empty"
 #~ msgstr "Les traces sont vides"

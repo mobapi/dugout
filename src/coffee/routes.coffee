@@ -16,6 +16,12 @@ app
 			'main':
 				template: '<div ui-view class="full-height"></div>'
 
+	.state 'about',
+		parent: 'app'
+		url: '/about'
+		templateUrl: 'about.html'
+		controller: 'aboutCtrl as ctrl'
+
 	.state 'project',
 		parent: 'app'
 		url: '/project'

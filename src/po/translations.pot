@@ -4,6 +4,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: navbar.html:7
+msgid "About Dugout"
+msgstr ""
+
 #: configuration.html:75
 msgid "Address"
 msgstr ""
@@ -24,7 +28,7 @@ msgstr ""
 msgid "Authentication"
 msgstr ""
 
-#: loginDialog.html:30
+#: loginDialog.html:36
 msgid "Cancel"
 msgstr ""
 
@@ -32,11 +36,11 @@ msgstr ""
 msgid "Certificates path"
 msgstr ""
 
-#: container_logs.html:29
+#: container_logs.html:19
 msgid "Clear log"
 msgstr ""
 
-#: app.js:1051
+#: app.js:1400
 msgid "Clear recent files"
 msgstr ""
 
@@ -49,11 +53,11 @@ msgstr ""
 msgid "Command"
 msgstr ""
 
-#: app.js:299
+#: app.js:334
 #: configuration.html:8
 #: navbar.html:20
-#: project.html:24
 #: project.html:26
+#: project.html:28
 msgid "Configuration"
 msgstr ""
 
@@ -65,10 +69,10 @@ msgstr ""
 msgid "Connection to docker daemon"
 msgstr ""
 
-#: app.js:289
+#: app.js:324
 #: container_container.html:5
-#: project.html:16
 #: project.html:18
+#: project.html:20
 msgid "Container"
 msgstr ""
 
@@ -88,8 +92,12 @@ msgstr ""
 msgid "Containers"
 msgstr ""
 
-#: app.js:71
+#: app.js:76
 msgid "Could not contact docker"
+msgstr ""
+
+#: configuration.html:123
+msgid "Delete these credentials"
 msgstr ""
 
 #: loginDialog.html:16
@@ -104,20 +112,20 @@ msgstr ""
 msgid "Environment variable"
 msgstr ""
 
-#: app.js:1012
-#: app.js:200
-#: app.js:506
-#: app.js:591
-#: app.js:70
-#: app.js:81
+#: app.js:1361
+#: app.js:235
+#: app.js:578
+#: app.js:676
+#: app.js:75
+#: app.js:87
 msgid "Error"
 msgstr ""
 
-#: app.js:1445
+#: app.js:1465
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1440
+#: app.js:1460
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -137,10 +145,10 @@ msgstr ""
 msgid "Id"
 msgstr ""
 
-#: app.js:294
+#: app.js:329
 #: container_image.html:6
-#: project.html:20
 #: project.html:22
+#: project.html:24
 msgid "Image"
 msgstr ""
 
@@ -161,17 +169,18 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: loginDialog.html:26
+#: loginDialog.html:32
 msgid "Login"
 msgstr ""
 
-#: app.js:284
-#: project.html:12
+#: app.js:319
 #: project.html:14
+#: project.html:16
+#: project.html:8
 msgid "Logs"
 msgstr ""
 
-#: app.js:441
+#: app.js:487
 msgid "Made with %(love)s in French Guiana by"
 msgstr ""
 
@@ -191,7 +200,11 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: app.js:998
+#: about.html:23
+msgid "Nodewebkit libraries"
+msgstr ""
+
+#: app.js:1347
 msgid "Open containers configuration file"
 msgstr ""
 
@@ -199,7 +212,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:997
+#: app.js:1346
 msgid "Open..."
 msgstr ""
 
@@ -241,15 +254,23 @@ msgstr ""
 msgid "Pulling image"
 msgstr ""
 
-#: app.js:1025
+#: app.js:1374
 msgid "Recent files"
+msgstr ""
+
+#: loginDialog.html:22
+msgid "Remember credentials"
+msgstr ""
+
+#: configuration.html:118
+msgid "Repository"
 msgstr ""
 
 #: container.html:10
 msgid "Running"
 msgstr ""
 
-#: container_logs.html:14
+#: container_logs.html:12
 msgid "Search in logs"
 msgstr ""
 
@@ -265,19 +286,15 @@ msgstr ""
 msgid "Select the socket path"
 msgstr ""
 
-#: navbar.html:58
-msgid "Start all containers"
-msgstr ""
-
-#: navbar.html:74
+#: navbar.html:71
 msgid "Start container"
 msgstr ""
 
-#: navbar.html:61
+#: navbar.html:58
 msgid "Stop all containers"
 msgstr ""
 
-#: navbar.html:77
+#: navbar.html:74
 msgid "Stop container"
 msgstr ""
 
@@ -285,15 +302,19 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
-#: container_logs.html:11
+#: configuration.html:111
+msgid "Stored credentials"
+msgstr ""
+
+#: container_logs.html:9
 msgid "Switch stream"
 msgstr ""
 
-#: app.js:201
+#: app.js:236
 msgid "The configuration could not be saved."
 msgstr ""
 
-#: app.js:82
+#: app.js:88
 msgid "The configuration file could not be loaded."
 msgstr ""
 
@@ -305,7 +326,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: app.js:507
+#: app.js:579
 msgid "Unable to start container"
 msgstr ""
 
@@ -317,6 +338,7 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
+#: configuration.html:119
 #: loginDialog.html:8
 msgid "Username"
 msgstr ""
@@ -329,7 +351,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: app.js:872
+#: app.js:1084
 msgid "Variable substitution error"
 msgstr ""
 
