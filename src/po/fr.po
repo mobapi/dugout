@@ -157,6 +157,10 @@ msgstr "invalide"
 msgid "Language"
 msgstr "Langue"
 
+#: about.html:10
+msgid "Last available version:"
+msgstr "Dernière version disponible :"
+
 #: container_configuration.html:57
 msgid "Links"
 msgstr "Liens"
@@ -344,6 +348,10 @@ msgstr "Erreur lors de la substitution de variable"
 #: container_configuration.html:5
 msgid "Variables"
 msgstr "Variables"
+
+#: about.html:13
+msgid "Your Dugout version is outdated, please download a new one at"
+msgstr "Votre version de Dugout est ancienne, merci de télécharger une nouvelle version sur"
 
 #~ msgid "Start all containers"
 #~ msgstr "Démarrer tous les conteneurs"

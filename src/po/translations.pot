@@ -165,6 +165,10 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+#: about.html:10
+msgid "Last available version:"
+msgstr ""
+
 #: container_configuration.html:57
 msgid "Links"
 msgstr ""
@@ -357,4 +361,8 @@ msgstr ""
 
 #: container_configuration.html:5
 msgid "Variables"
+msgstr ""
+
+#: about.html:13
+msgid "Your Dugout version is outdated, please download a new one at"
 msgstr ""
