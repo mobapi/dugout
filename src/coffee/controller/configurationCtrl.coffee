@@ -9,7 +9,7 @@ app
 			$scope.globalConfMgr = $scope.$root.globalConfMgr
 			$scope.conf = $scope.$root.globalConfMgr.conf
 			$scope.platform = window.process.platform
-			if $scope.platform != 'linux'
+			if $scope.platform != 'linux' and not $scope.conf.docker.connectionType
 				$scope.conf.docker.connectionType = 'tcpip'
 			$scope.languages = [{
 				id: 'en'
