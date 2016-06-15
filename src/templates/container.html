@@ -5,8 +5,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<h4>
-						{{container.name}}
-						<small>{{container.id}}</small>
+						{{container.label}}
+						<small>{{container.name}}</small>
 						<span class="label label-primary" ng-if="container.runtime.infos.container.State.Running">{{'Running'|translate}}</span>
 						<span class="label label-default" ng-if="!container.runtime.infos.container.State.Running">{{'Stopped'|translate}}</span>
 					</h4>

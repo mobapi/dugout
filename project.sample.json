@@ -1,9 +1,9 @@
 {
-	"name": "My test project",
+	"label": "My test project",
 	"version": "1.0.0",
 	"containers": {
 		"frontend": {
-			"name": "My website frontend",
+			"label": "My website frontend",
 			"image": "nginx",
 			"ports": {
 				"80/tcp": "${hostPort}"
@@ -13,25 +13,25 @@
 			},
 			"variables": {
 				"repositoryDirectory": {
-					"name": "Repository directory",
+					"label": "Repository directory",
 					"type": "directory",
 					"value": null,
 					"mandatory": true
 				},
 				"aFile": {
-					"name": "A file",
+					"label": "A file",
 					"type": "file",
 					"value": null,
 					"mandatory": false
 				},
 				"hostPort": {
-					"name": "Host port",
+					"label": "Host port",
 					"type": "integer",
 					"value": 8083,
 					"mandatory": true
 				},
 				"distDirName": {
-					"name": "Dist directory name",
+					"label": "Dist directory name",
 					"type": "string",
 					"value": null,
 					"mandatory": true
@@ -39,7 +39,7 @@
 			}
 		},
 		"backend": {
-			"name": "My website backend",
+			"label": "My website backend",
 			"image": "iain/nodemon",
 			"ports": {
 				"8000/tcp": "8081"
@@ -53,7 +53,7 @@
 			"cmd": "cd /home/project && nodemon dist 2>&1",
 			"variables": {
 				"repositoryDirectory": {
-					"name": "Repository directory",
+					"label": "Repository directory",
 					"type": "directory",
 					"value": null,
 					"mandatory": true
@@ -61,7 +61,7 @@
 			}
 		},
 		"database": {
-			"name": "The database",
+			"label": "The database",
 			"image": "mongo",
 			"ports": {
 				"27017/tcp": "28018"

@@ -41,7 +41,7 @@
 		</div>
 		<div>
 			<h4>
-				{{project.name}}
+				{{project.label}}
 				{{project.version}}
 			</h4>
 		</div>
@@ -61,10 +61,10 @@
 					</span>
 					<div class="clearfix"></div>
 					<ul class="nav nav-second-level">
-						<li ng-repeat="(pid, container) in project.containers">
-							<a ui-sref="container.logs({id: pid})" ng-class="{'active': activeContainer.id == pid}">
+						<li ng-repeat="(containerName, container) in project.containers">
+							<a ui-sref="container.logs({name: container.name})" ng-class="{'active': activeContainer.name == containerName}">
 								<i class="stream stream-module fa-fw"></i>
-								{{container.name}}
+								{{container.label}}
 							</a>
 							<span class="abs-r-15 abs-t-5">
 								<span  ng-if="$root.globalConfMgr.valid && container.runtime.configurationValid">

@@ -12,15 +12,15 @@ app
 
 		init: (project) ->
 			@project.path = project.path
-			@project.name = project.name
+			@project.label = project.label
 			@project.version = project.version
 			# Reset containers array
-			for id, p of @project.containers
-				delete @project.containers[id]
-			for id, containerConf of project.containers
-				((id, containerConf) =>
+			for containerName of @project.containers
+				delete @project.containers[containerName]
+			for containerName, containerConf of project.containers
+				((containerName, containerConf) =>
 					# Create container object from static configuration
-					container = new Container id, containerConf
+					container = new Container containerName, containerConf
 					# Check container configuration
 					container.checkConfiguration()
 					# Docker status
@@ -28,16 +28,16 @@ app
 					# Start log
 					container.startLog()
 					# Add container to containers list
-					@project.containers[id] = container
-				)(id, containerConf)
+					@project.containers[containerName] = container
+				)(containerName, containerConf)
 			@initialized = true
 
-		getContainer: (id) ->
+		getContainer: (name) ->
 			d = $q.defer()
 			@getContainerHandler = $interval =>
 				if @initialized
 					$interval.cancel @getContainerHandler
-					container = @project.containers[id]
+					container = @project.containers[name]
 					d.resolve container
 			, 100
 			return d.promise
@@ -46,11 +46,14 @@ app
 			d = $q.defer()
 			tasks = []
 			errors = []
-			for link, k of container.links
-				subcontainer = @project.containers[k]
+			if _.isObject container.links
+				console.debug "Starting subcontainers: #{_.join(Object.keys(container.links), ', ')}"
+			for alias, containerId of container.links
+				subcontainer = @project.containers[containerId]
 				((subcontainer) =>
 					tasks.push (callback) =>
 						if subcontainer.runtime.infos.container
+							console.debug "#{subcontainer.name}: already started"
 							# Container is already started
 							return callback null, subcontainer
 						else
@@ -65,18 +68,22 @@ app
 				if error
 					errors.push error
 					return d.reject errors
-				if results.length == tasks.length
-					container.start().then d.resolve, (error) ->
-						errors.push
-							container: container
-							error: error
-						d.reject errors
+				# if results.length == tasks.length
+				if results.length
+					console.debug "Started subcontainers: #{_.join(Object.keys(container.links), ', ')}"
+				container.start().then ->
+					d.resolve()
+				, (error) ->
+					errors.push
+						container: container
+						error: error
+					d.reject errors
 			return d.promise
 
 		stop: ->
 			d = $q.defer()
 			tasks = []
-			for containerId, container of @project.containers
+			for containerName, container of @project.containers
 				((container) =>
 					tasks.push (callback) =>
 						container.stop().then ->

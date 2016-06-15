@@ -7,7 +7,7 @@
 			<div class="col-xs-12">
 				<form>
 					<div ng-repeat="(varName, var) in container.variables" class="form-group">
-						<label>{{var.name}} <small class="text-grayed">{{varName}}</small></label>
+						<label>{{var.label}} <small class="text-grayed">{{varName}}</small></label>
 						<div class="controls" ng-if="var.type == 'directory'">
 							<button class="btn btn-primary" file-chooser="directory" ng-model="var.value" title="{{var.label}}">
 								<i class="fa fa-folder-o"></i>
@@ -42,14 +42,14 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<label>{{'Id'|translate}}</label>
-					<span class="conf-value pull-right">{{container.id}}</span>
+					<label>{{'Name'|translate}}</label>
+					<span class="conf-value pull-right">{{container.name}}</span>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<label>{{'Name'|translate}}</label>
-					<span class="conf-value pull-right">{{container.name}}</span>
+					<label>{{'Label'|translate}}</label>
+					<span class="conf-value pull-right">{{container.label}}</span>
 				</div>
 			</div>
 			<div ng-if="container.links && !equals({}, container.links)" class="row">

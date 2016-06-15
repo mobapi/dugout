@@ -40,7 +40,7 @@ msgstr ""
 msgid "Clear log"
 msgstr ""
 
-#: app.js:1400
+#: app.js:1405
 msgid "Clear recent files"
 msgstr ""
 
@@ -70,7 +70,6 @@ msgid "Connection to docker daemon"
 msgstr ""
 
 #: app.js:324
-#: container_container.html:5
 #: project.html:18
 #: project.html:20
 msgid "Container"
@@ -112,7 +111,7 @@ msgstr ""
 msgid "Environment variable"
 msgstr ""
 
-#: app.js:1361
+#: app.js:1366
 #: app.js:235
 #: app.js:578
 #: app.js:676
@@ -121,11 +120,11 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: app.js:1465
+#: app.js:1470
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1460
+#: app.js:1465
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -141,12 +140,7 @@ msgstr ""
 msgid "Host port"
 msgstr ""
 
-#: container_configuration.html:45
-msgid "Id"
-msgstr ""
-
 #: app.js:329
-#: container_image.html:6
 #: project.html:22
 #: project.html:24
 msgid "Image"
@@ -161,12 +155,12 @@ msgstr ""
 msgid "invalid"
 msgstr ""
 
-#: configuration.html:26
-msgid "Language"
+#: container_configuration.html:51
+msgid "Label"
 msgstr ""
 
-#: about.html:10
-msgid "Last available version:"
+#: configuration.html:26
+msgid "Language"
 msgstr ""
 
 #: container_configuration.html:57
@@ -200,15 +194,15 @@ msgstr ""
 msgid "Mounts"
 msgstr ""
 
-#: container_configuration.html:51
+#: container_configuration.html:45
 msgid "Name"
 msgstr ""
 
-#: about.html:23
+#: about.html:26
 msgid "Nodewebkit libraries"
 msgstr ""
 
-#: app.js:1347
+#: app.js:1352
 msgid "Open containers configuration file"
 msgstr ""
 
@@ -216,7 +210,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:1346
+#: app.js:1351
 msgid "Open..."
 msgstr ""
 
@@ -258,7 +252,7 @@ msgstr ""
 msgid "Pulling image"
 msgstr ""
 
-#: app.js:1374
+#: app.js:1379
 msgid "Recent files"
 msgstr ""
 
@@ -355,7 +349,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: app.js:1084
+#: app.js:1099
 msgid "Variable substitution error"
 msgstr ""
 
@@ -363,6 +357,10 @@ msgstr ""
 msgid "Variables"
 msgstr ""
 
-#: about.html:13
+#: about.html:12
+msgid "You are running the latest version of Dugout."
+msgstr ""
+
+#: about.html:16
 msgid "Your Dugout version is outdated, please download a new one at"
 msgstr ""

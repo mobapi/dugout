@@ -42,7 +42,7 @@ app
 					options.key = fs.readFileSync "#{globalConf.docker.certPath}/key.pem"
 				@docker = new Docker options
 
-		constructor: (@id, conf) ->
+		constructor: (@name, conf) ->
 			angular.extend @, conf
 			@runtime =
 				globalConf: {}
@@ -75,7 +75,7 @@ app
 			q = $q.defer()
 			@getImageInfos(@image).then (infos) =>
 				@runtime.infos.image = infos
-				@getContainerInfos(@id).then (infos) =>
+				@getContainerInfos(@name).then (infos) =>
 					@runtime.infos.container = infos
 					q.resolve()
 				, (error) =>
@@ -99,14 +99,14 @@ app
 					out[kp] = _.template(p)(vars)
 			return out
 
-		_start: () ->
+		_start: ->
 			d = $q.defer()
 			parameters = @runtime.parameters
 			opts =
-				name: @id
+				name: @name
 				Image: @image
 				# Tty: true
-				Hostname: @id
+				Hostname: @name
 				HostConfig: {}
 			if parameters.hostname
 				opts.Hostname = parameters.hostname
@@ -141,6 +141,9 @@ app
 					opts.Env.push "#{k}=#{v}"
 			@constructor.docker.createContainer opts, (error, container) =>
 				if error
+					# console.log @name
+					# console.dir opts
+					# console.dir error
 					return d.reject error
 				container.start (error) ->
 					if error
@@ -149,30 +152,28 @@ app
 			return d.promise
 
 		start: (parameters) ->
+			console.debug "#{@name}: starting"
 			d = $q.defer()
-			# First search if the container is already present
-			# If so, kill it
-			@stop().then =>
-				try
-					@createRuntimeParameters()
-				catch e
-					d.reject "#{gettextCatalog.getString(gettext('Variable substitution error'))}: #{e}"
-					return d.promise
-				@runtime.infos.container =
-					State:
-						Starting: true
-				@_start().then =>
-					delete @runtime.infos.container.State.Starting
-					@runtime.infos.container.State.Running = true
-					@checkContainerStatus()
-					$timeout =>
-						@startLog()
-					, 50
-					d.resolve()
-				, (error) =>
-					delete @runtime.infos.container.State.Starting
-					d.reject error
-			, d.reject
+			try
+				@createRuntimeParameters()
+			catch e
+				d.reject "#{gettextCatalog.getString(gettext('Variable substitution error'))}: #{e}"
+				return d.promise
+			@runtime.infos.container =
+				State:
+					Starting: true
+			@_start().then =>
+				delete @runtime.infos.container.State.Starting
+				@runtime.infos.container.State.Running = true
+				@checkContainerStatus()
+				$timeout =>
+					@startLog()
+				, 50
+				console.debug "#{@name}: started"
+				d.resolve()
+			, (error) =>
+				delete @runtime.infos.container.State.Starting
+				d.reject error
 			return d.promise
 
 		createRuntimeParameters: ->
@@ -194,23 +195,27 @@ app
 
 		stop: ->
 			d = $q.defer()
-			@constructor.docker.getContainerByName @id, (error, container) =>
+			@constructor.docker.getContainerByName @name, (error, container) =>
+				# if @name == "core-api"
+				# 	console.dir container
+				# 	return d.resolve()
 				if error
 					@checkContainerStatus()
 					return d.reject error
 				if not container
 					return d.resolve()
-				if @runtime.infos.container
-					@runtime.infos.container.State.Stopping = true
+				console.debug "#{@name}: stopping"
+				@runtime.infos.container.State.Stopping = true if @runtime.infos.container?
 				container.remove
 					force: true
 					v: true
 				, (error, data) =>
-					delete @runtime.infos.container.State.Stopping
+					delete @runtime.infos.container.State.Stopping if @runtime.infos.container?
 					@stopLog()
 					@checkContainerStatus()
 					if error
 						return d.reject error
+					console.debug "#{@name}: stopped"
 					d.resolve()
 			return d.promise
 
@@ -218,7 +223,7 @@ app
 			@stopLog() if @runtime.log.enabled
 
 			d = $q.defer()
-			@constructor.docker.getContainerByName @id, (error, container) =>
+			@constructor.docker.getContainerByName @name, (error, container) =>
 				if error
 					return d.reject error
 				if not container
@@ -260,7 +265,7 @@ app
 
 		getContainerInfos: (containerName) ->
 			d = $q.defer()
-			@constructor.docker.getContainerByName @id, (error, container) ->
+			@constructor.docker.getContainerByName @name, (error, container) ->
 				if error
 					return d.reject error
 				if not container

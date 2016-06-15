@@ -31,12 +31,12 @@ app
 	.state 'container',
 		abstract: true
 		parent: 'app'
-		url: '/containers/:id'
+		url: '/containers/:name'
 		templateUrl: 'container.html'
 		controller: 'containerCtrl as ctrl'
 		resolve:
 			container: ['$stateParams', 'projectMgr', ($stateParams, projectMgr) ->
-				return projectMgr.getContainer $stateParams.id
+				return projectMgr.getContainer $stateParams.name
 			]
 
 	.state 'container.logs',

@@ -7,7 +7,10 @@
 
 				<h2>{{pkg.name}} <small>version {{pkg.version}}</small></h2>
 
-				<span>{{'Last available version:'|translate}} {{lastVersion}}</span><br />
+
+				<span ng-if="lastVersion == pkg.version" class="text-muted">
+					{{'You are running the latest version of Dugout.'|translate}}
+				</span>
 
 				<span ng-if="lastVersion > pkg.version">
 					{{'Your Dugout version is outdated, please download a new one at '|translate}}

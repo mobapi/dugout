@@ -38,10 +38,10 @@ The 3 containers (aka tiers) are:
 
 ### The project configuration file structure
 
-The projects configuration file is a JSON file, which must contain an object describing the project and each container:
+The project configuration file is a JSON file, which must contain an object describing the project and each container:
 
 	{
-		"name": "<project name>",
+		"label": "<project name>",
 		"version": "<project version>",
 		"containers": {
 			...
@@ -52,7 +52,7 @@ The projects configuration file is a JSON file, which must contain an object des
 
 |Field|Mandatory|Type|Description|
 |---|---|---|---|
-|name||string|Name (label) of the project|
+|label||string|Label of the project|
 |version||string|Version of the project|
 
 #### Containers configuration
@@ -63,7 +63,7 @@ Each container has several fields to describe it, some are mandatories, some are
 
 |Field|Mandatory|Type|Description|
 |---|---|---|---|
-|name|x|string|Name (label) of the container|
+|label|x|string|Label of the container|
 |image|x|string|Image name|
 |ports| |object|Ports redirection mappings|
 |mounts| |object|Volumes mounts mappings|
@@ -73,8 +73,8 @@ Each container has several fields to describe it, some are mandatories, some are
 |variables| |object|Variables|
 
     {
-        "<container identifier>": {
-            "name": "<container name>",
+        "<container name>": {
+            "label": "<container label>",
             "image": "<image name>",
             "ports": {
             },
@@ -90,13 +90,13 @@ Each container has several fields to describe it, some are mandatories, some are
         }
     }
 
-#### container identifier
+#### container name
 
 This information is not contained in a field, but is the key of the object.
 
-#### name
+#### label
 
-Field of type string containing the name of the project.
+Field of type string containing the label of the container.
 
 #### image
 
@@ -104,7 +104,7 @@ Field of type string containing the name of the image.
 
 #### ports
 
-Field of type object containing the ports redirections mappings.
+Field of type object containing the port redirection mappings.
 
     {
         "<container port/range>": "<host port/range>"
@@ -170,22 +170,22 @@ If no value is provided, the default will be the "CMD" field of the container im
 
 #### variables
 
-Field of type object containing the variables that will be used in the project configuration.
+Field of type object containing the variables that will be used in the container configuration.
 Each variable will have a corresponding input field in the configuration tab of the project.
-*Note: the scope of a variable is the containing project.*
+*Note: the scope of a variable is the container.*
 
 ##### Variable description
 
 |Field|Mandatory|Type|Description|
 |---|---|---|---|
-|name|x|string|Name (label) of the variable input field|
+|label|x|string|Label of the variable input field|
 |type|x|string|Variable type, possible values are: "string", "number", "directory", "file"|
 |value| | |Variable default value|
 |mandatory| |boolean|Will the varialbe value be mandatory ?|
 
     {
-        "<variable identifier (machine name)>": {
-            "name": "<name of the variable>",
+        "<variable name (machine name)>": {
+            "label": "<label of the variable>",
             "type": "<type of the variable>",
             "value": "<default value>",
             "mandatory": "<is the variable value mandatory ?>"
@@ -194,7 +194,7 @@ Each variable will have a corresponding input field in the configuration tab of 
 
 ##### Variable reference
 
-A variable could be reference in the project configuration, as the following examples:
+A variable could be reference in the container configuration, as the following examples:
 
 |Variable|Reference|
 |---|---|
@@ -205,7 +205,7 @@ A variable could be reference in the project configuration, as the following exa
 *Example:*
 
     "frontend": {
-        "name": "My website frontend",
+        "label": "My website frontend",
         "image": "nginx",
         "ports": {
             "80/tcp": "8080"
@@ -215,7 +215,7 @@ A variable could be reference in the project configuration, as the following exa
         },
         "variables": {
             "repositoryDirectory": {
-                "name": "Repository directory",
+                "label": "Repository directory",
                 "type": "directory",
                 "value": null,
                 "mandatory": true

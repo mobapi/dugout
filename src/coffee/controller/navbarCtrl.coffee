@@ -17,7 +17,7 @@ app
 
 			$scope.$watch "project.containers", (containers) ->
 				return if not containers
-				for id, container of containers
+				for containerName, container of containers
 					((container) ->
 						state = container.runtime.infos.container?.State
 						container.runtime.canStart = !state or (not state.Starting and not state.Stopping and not state.Running and not state.Error)
@@ -30,7 +30,7 @@ app
 
 		setActiveState: ->
 			delete $scope.activeState
-			projectMgr.getContainer($state.params.id).then (container) ->
+			projectMgr.getContainer($state.params.name).then (container) ->
 				$scope.activeContainer = container
 				if not $scope.activeContainer
 					$scope.activeState = $state.current.name
