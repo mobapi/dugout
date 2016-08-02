@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: navbar.html:7
@@ -48,7 +48,7 @@ msgstr "Chemin des certificats"
 msgid "Clear log"
 msgstr "Effacer les traces"
 
-#: app.js:1405
+#: app.js:1414
 msgid "Clear recent files"
 msgstr "Effacer les fichiers récents"
 
@@ -56,7 +56,7 @@ msgstr "Effacer les fichiers récents"
 msgid "Close"
 msgstr "Fermer"
 
-#: container_configuration.html:125
+#: container_configuration.html:142
 msgid "Command"
 msgstr "Commande"
 
@@ -81,11 +81,11 @@ msgstr "Conteneur"
 msgid "Container id"
 msgstr "Identifiant du conteneur"
 
-#: container_configuration.html:96
+#: container_configuration.html:113
 msgid "Container mount point"
 msgstr "Point de montage dans le conteneur"
 
-#: container_configuration.html:78
+#: container_configuration.html:95
 msgid "Container port"
 msgstr "Port du conteneur"
 
@@ -105,23 +105,23 @@ msgstr "Supprimer ces identifiants"
 msgid "Email"
 msgstr "Email"
 
-#: container_configuration.html:108
+#: container_configuration.html:125
 msgid "Environment"
 msgstr "Environnement"
 
-#: container_configuration.html:112
+#: container_configuration.html:129
 msgid "Environment variable"
 msgstr "Variable d'environnement"
 
-#: app.js:1366 app.js:235 app.js:578 app.js:676 app.js:75 app.js:87
+#: app.js:1375 app.js:235 app.js:578 app.js:676 app.js:75 app.js:87
 msgid "Error"
 msgstr "Erreur"
 
-#: app.js:1470
+#: app.js:1479
 msgid "File %(file)s is empty"
 msgstr "Le fichier %(file)s est vide"
 
-#: app.js:1465
+#: app.js:1474
 msgid "File %(file)s is not a valid json file"
 msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 
@@ -129,13 +129,21 @@ msgstr "Le fichier %(file)s n'est pas un fichier json valide"
 msgid "History"
 msgstr "Historique"
 
-#: container_configuration.html:95
+#: container_configuration.html:112
 msgid "Host directory"
 msgstr "Répertoire de l’hôte"
 
-#: container_configuration.html:79
+#: container_configuration.html:96
 msgid "Host port"
 msgstr "Port de l’hôte"
+
+#: container_configuration.html:78
+msgid "Hostname"
+msgstr "Nom d’hôte"
+
+#: container_configuration.html:74
+msgid "Hosts"
+msgstr "Hôtes"
 
 #: app.js:329 project.html:22 project.html:24
 msgid "Image"
@@ -148,6 +156,10 @@ msgstr "Informations"
 #: configuration.html:10 navbar.html:22
 msgid "invalid"
 msgstr "invalide"
+
+#: container_configuration.html:79
+msgid "IP Address"
+msgstr "Adresse IP"
 
 #: container_configuration.html:51
 msgid "Label"
@@ -181,7 +193,7 @@ msgstr "Agrandir"
 msgid "Minimize"
 msgstr "Réduire"
 
-#: container_configuration.html:91
+#: container_configuration.html:108
 msgid "Mounts"
 msgstr "Montages"
 
@@ -193,7 +205,7 @@ msgstr "Nom"
 msgid "Nodewebkit libraries"
 msgstr "Librairies Nodewebkit"
 
-#: app.js:1352
+#: app.js:1361
 msgid "Open containers configuration file"
 msgstr "Ouvrir un fichier de configuration de conteneurs"
 
@@ -201,7 +213,7 @@ msgstr "Ouvrir un fichier de configuration de conteneurs"
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
-#: app.js:1351
+#: app.js:1360
 msgid "Open..."
 msgstr "Ouvrir..."
 
@@ -233,7 +245,7 @@ msgstr "Veuillez patienter..."
 msgid "Port"
 msgstr "Port"
 
-#: container_configuration.html:74
+#: container_configuration.html:91
 msgid "Ports"
 msgstr "Ports"
 
@@ -241,7 +253,7 @@ msgstr "Ports"
 msgid "Pulling image"
 msgstr "Récupération de l'image"
 
-#: app.js:1379
+#: app.js:1388
 msgid "Recent files"
 msgstr "Fichiers récents"
 
@@ -333,11 +345,11 @@ msgstr "Nom d'utilisateur"
 msgid "valid"
 msgstr "valide"
 
-#: container_configuration.html:113
+#: container_configuration.html:130
 msgid "Value"
 msgstr "Valeur"
 
-#: app.js:1099
+#: app.js:1090
 msgid "Variable substitution error"
 msgstr "Erreur lors de la substitution de variable"
 

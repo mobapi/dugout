@@ -124,8 +124,12 @@ app
 					opts.HostConfig.Binds.push "#{v}:#{k}"
 			if parameters.links
 				opts.HostConfig.Links = []
-				for k, l of parameters.links
-					opts.HostConfig.Links.push "#{l}:#{k}"
+				for k, v of parameters.links
+					opts.HostConfig.Links.push "#{v}:#{k}"
+			if parameters.hosts
+				opts.HostConfig.ExtraHosts = []
+				for k, v of parameters.hosts
+					opts.HostConfig.ExtraHosts.push "#{k}:#{v}"
 			if parameters.ports
 				opts.ExposedPorts = {}
 				for k, p of parameters.ports
@@ -181,6 +185,7 @@ app
 			params = {
 				hostname: @hostname if @hostname
 				links: @links if @links
+				hosts: @hosts if @hosts
 				ports: @ports if @ports
 				mounts: angular.copy @mounts if @mounts
 				environment: @environment if @environment

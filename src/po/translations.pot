@@ -40,7 +40,7 @@ msgstr ""
 msgid "Clear log"
 msgstr ""
 
-#: app.js:1405
+#: app.js:1414
 msgid "Clear recent files"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: container_configuration.html:125
+#: container_configuration.html:142
 msgid "Command"
 msgstr ""
 
@@ -79,11 +79,11 @@ msgstr ""
 msgid "Container id"
 msgstr ""
 
-#: container_configuration.html:96
+#: container_configuration.html:113
 msgid "Container mount point"
 msgstr ""
 
-#: container_configuration.html:78
+#: container_configuration.html:95
 msgid "Container port"
 msgstr ""
 
@@ -103,15 +103,15 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: container_configuration.html:108
+#: container_configuration.html:125
 msgid "Environment"
 msgstr ""
 
-#: container_configuration.html:112
+#: container_configuration.html:129
 msgid "Environment variable"
 msgstr ""
 
-#: app.js:1366
+#: app.js:1375
 #: app.js:235
 #: app.js:578
 #: app.js:676
@@ -120,11 +120,11 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: app.js:1470
+#: app.js:1479
 msgid "File %(file)s is empty"
 msgstr ""
 
-#: app.js:1465
+#: app.js:1474
 msgid "File %(file)s is not a valid json file"
 msgstr ""
 
@@ -132,12 +132,20 @@ msgstr ""
 msgid "History"
 msgstr ""
 
-#: container_configuration.html:95
+#: container_configuration.html:112
 msgid "Host directory"
 msgstr ""
 
-#: container_configuration.html:79
+#: container_configuration.html:96
 msgid "Host port"
+msgstr ""
+
+#: container_configuration.html:78
+msgid "Hostname"
+msgstr ""
+
+#: container_configuration.html:74
+msgid "Hosts"
 msgstr ""
 
 #: app.js:329
@@ -153,6 +161,10 @@ msgstr ""
 #: configuration.html:10
 #: navbar.html:22
 msgid "invalid"
+msgstr ""
+
+#: container_configuration.html:79
+msgid "IP Address"
 msgstr ""
 
 #: container_configuration.html:51
@@ -190,7 +202,7 @@ msgstr ""
 msgid "Minimize"
 msgstr ""
 
-#: container_configuration.html:91
+#: container_configuration.html:108
 msgid "Mounts"
 msgstr ""
 
@@ -202,7 +214,7 @@ msgstr ""
 msgid "Nodewebkit libraries"
 msgstr ""
 
-#: app.js:1352
+#: app.js:1361
 msgid "Open containers configuration file"
 msgstr ""
 
@@ -210,7 +222,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: app.js:1351
+#: app.js:1360
 msgid "Open..."
 msgstr ""
 
@@ -244,7 +256,7 @@ msgstr ""
 msgid "Port"
 msgstr ""
 
-#: container_configuration.html:74
+#: container_configuration.html:91
 msgid "Ports"
 msgstr ""
 
@@ -252,7 +264,7 @@ msgstr ""
 msgid "Pulling image"
 msgstr ""
 
-#: app.js:1379
+#: app.js:1388
 msgid "Recent files"
 msgstr ""
 
@@ -345,11 +357,11 @@ msgstr ""
 msgid "valid"
 msgstr ""
 
-#: container_configuration.html:113
+#: container_configuration.html:130
 msgid "Value"
 msgstr ""
 
-#: app.js:1099
+#: app.js:1090
 msgid "Variable substitution error"
 msgstr ""
 

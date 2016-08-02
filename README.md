@@ -68,6 +68,7 @@ Each container has several fields to describe it, some are mandatories, some are
 |ports| |object|Ports redirection mappings|
 |mounts| |object|Volumes mounts mappings|
 |links| |object|Container links mappings|
+|hosts| |object|Container extra hosts|
 |environment| |object|Environment variables|
 |cmd| |string|Command line to run in the container (defaults to "CMD" of the dockerfile)|
 |variables| |object|Variables|
@@ -81,6 +82,8 @@ Each container has several fields to describe it, some are mandatories, some are
             "mounts": {
             },
             "links": {
+            },
+            "hosts": {
             },
             "environment": {
             },
@@ -146,6 +149,20 @@ Field of type object containing the container links mappings.
         "mydatabase": "my-database"
     }
 In this example, the container named "my-database" is linked in the current container via a "/etc/hosts" alias ("mydatabase").
+
+#### hosts
+
+Field of type object containing the container extra hosts.
+
+    {
+        "<hostname>": "<IP address>"
+    }
+
+*Example:*
+
+    {
+        "app-dev.myapp.com": "192.168.0.3"
+    }
 
 #### environment
 

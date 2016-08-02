@@ -69,6 +69,23 @@
 					</span>
 				</div>
 			</div>
+			<div ng-if="container.hosts && !equals({}, container.hosts)" class="row">
+				<div class="col-xs-12">
+					<label>{{'Hosts'|translate}}</label>
+					<span class="conf-value">
+						<ul class="list-group">
+							<li class="list-group-item list-group-header">
+								<span>{{'Hostname'|translate}}</span>
+								<span class="pull-right">{{'IP Address'|translate}}</span>
+							</li>
+							<li class="list-group-item" ng-repeat="(k, v) in container.hosts">
+								<span>{{k}}</span>
+								<span class="pull-right">{{v}}</span>
+							</li>
+						</ul>
+					</span>
+				</div>
+			</div>
 			<div ng-if="container.ports && !equals({}, container.ports)" class="row">
 				<div class="col-xs-12">
 					<label>{{'Ports'|translate}}</label>
