@@ -15,6 +15,7 @@ vinylpaths = require 'vinyl-paths'
 
 nw =
 	version: '0.16.0'
+	# version: '0.13.0'
 	# version: '0.12.3'
 	cacheDir: '.nwcache'
 	platforms: [ 'linux64', 'osx64', 'win64' ]
