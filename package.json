@@ -1,4 +1,4 @@
-{"gulp-expect-file": "*",
+{
   "name": "Dugout",
   "version": "2.1.5",
   "description": "",
@@ -41,7 +41,6 @@
   "window": {
     "title": "Dugout",
     "icon": "images/logo.png",
-    "toolbar": false,
     "frame": false,
     "width": 1280,
     "height": 768,
@@ -49,7 +48,6 @@
     "min_height": 300,
     "resizable": true,
     "position": "mouse",
-    "single-instance": true
-  },
-  "node-remote": "localhost"
+    "node-remote": "file://*/*"
+  }
 }

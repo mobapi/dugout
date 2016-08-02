@@ -14,7 +14,8 @@ packagejson = require './package.json'
 vinylpaths = require 'vinyl-paths'
 
 nw =
-	version: '0.12.3'
+	version: '0.16.0'
+	# version: '0.12.3'
 	cacheDir: '.nwcache'
 	platforms: [ 'linux64', 'osx64', 'win64' ]
 
@@ -182,15 +183,16 @@ gulp.task 'app_fonts', ->
 
 gulp.task 'app_build', ->
 	nw_builder_files = [ "node_modules/**/*", "!node_modules/**/node_modules/**/*" ]
-	nw_builder_files.push 
 	for d of packagejson.devDependencies
 		nw_builder_files.push "!node_modules/#{d}/**/*"
 	for i in [ '!node_modules/nw-gyp/**',
+		'!node_modules/**/*.md',
 		'!node_modules/**/*.bin',
 		'!node_modules/**/*.c',
 		'!node_modules/**/*.h',
 		'!node_modules/**/Makefile',
 		'!node_modules/**/*.h',
+		'!node_modules/package-json'
 		'!**/test*/**',
 		'!**/doc/**',
 		'!**/example*/**',
@@ -208,7 +210,7 @@ gulp.task 'app_build', ->
 		files: nw_builder_files
 		platforms: nw.platforms
 		buildType: ->
-			return @appVersion
+			return packagejson.version
 		macIcns: "icon.icns"
 		winIco: "icon.ico" if 'win64' in nw.platforms
 	nodeWebkit = new NodeWebkitBuilder options
