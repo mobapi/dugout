@@ -214,6 +214,7 @@ gulp.task 'app_build', ->
 			return packagejson.version
 		macIcns: "icon.icns"
 		winIco: "icon.ico" if 'win64' in nw.platforms
+		flavor: 'sdk'
 	nodeWebkit = new NodeWebkitBuilder options
 	nodeWebkit.on 'log', console.log
 	return nodeWebkit.build()
