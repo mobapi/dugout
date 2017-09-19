@@ -17,7 +17,7 @@ app
 
 			menubar = new @gui.Menu
 				type: 'menubar'
-			
+
 			menubar.createMacBuiltin 'Dugout',
 				hideEdit: false
 				hideWindow: false
@@ -34,7 +34,7 @@ app
 			openConfigurationFileMenuItem.click = ->
 				input = $('#openConfigurationFile')
 				evt = input.on 'change', ->
-					filesMgr.loadConfigurationFile @value
+					filesMgr.loadProject @value
 					.then (data) ->
 						projectMgr.stop()
 						projectMgr.init data
@@ -58,7 +58,7 @@ app
 						menuItem = new @gui.MenuItem
 							label: recentFile
 						menuItem.click = ->
-							filesMgr.loadConfigurationFile recentFile
+							filesMgr.loadProject recentFile
 							.then (data) ->
 								projectMgr.stop()
 								projectMgr.init data

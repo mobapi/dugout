@@ -3,37 +3,70 @@ app
 ['$rootScope', '$q', 'localStorageService',
 ($rootScope, $q, storage) ->
 
+	crypto = require 'crypto'
+	fs = require 'fs'
+	path = require 'path'
+
 	class Service
 
 		maxRecentFiles: 20
 		currentFile: null
 
-		loadConfigurationFile: (filePath) ->
+		loadProject: (filePath) ->
 			d = $q.defer()
-			@loadFileContent(filePath).then (content) =>
-				try
-					data = JSON.parse content
-				catch e
-					return d.reject sprintf(gettextCatalog.getString(gettext('File %(file)s is not a valid json file')),
-						file: filePath
-					)
-				if not data
-					return d.reject sprintf(gettextCatalog.getString(gettext('File %(file)s is empty')),
-						file: filePath
-					)
+			tasks = [
+				(cb) =>
+					fs.readFile filePath, 'utf8', (error, content) ->
+						if error
+							return cb error
+						try
+							content = JSON.parse content
+						catch e
+							return cb sprintf(gettextCatalog.getString(gettext('File %(file)s is not a valid json file')),
+								file: filePath
+							)
+						if not content
+							return cb sprintf(gettextCatalog.getString(gettext('File %(file)s is empty')),
+								file: filePath
+							)
+						cb null, content
+				(projectConfiguration, cb) =>
+					filename = path.join(nw.App.dataPath, "projects", filePath.replace(new RegExp(path.sep, "g"), '_'))
+					fs.readFile filename, 'utf8', (error, content) ->
+						try
+							content = JSON.parse content
+							for containerName, containerVariables of content
+								for variableName, variableValue of containerVariables
+									projectConfiguration.containers[containerName].variables[variableName].value = variableValue
+						cb null, projectConfiguration
+			]
+			async.waterfall tasks, (error, projectConfiguration) =>
+				if error
+					return d.reject error
 				@currentFile = filePath
 				@addRecentFile filePath
-				data.path = filePath
-				d.resolve data
-			, d.reject
+				projectConfiguration.path = filePath
+				d.resolve projectConfiguration
 			return d.promise
 
-		loadFileContent: (file) ->
+		saveProject: (project) ->
 			d = $q.defer()
-			fs = require 'fs'
-			fs.readFile file, 'utf8', (error, content) ->
-				return d.reject error if error
-				d.resolve content
+			project = angular.copy project
+			containersVariables = {}
+			for containerName, container of project.containers
+				containersVariables[containerName] = {}
+				for variableName, variable of container.variables
+					containersVariables[container.name][variableName] = variable.value
+			fileContent = JSON.stringify containersVariables, null, 2
+			fs.mkdir path.join(nw.App.dataPath, "projects"), (error) =>
+				if error and error.code != "EEXIST"
+					return d.reject error
+				filename = path.join(nw.App.dataPath, "projects", @currentFile.replace(new RegExp(path.sep, "g"), '_'))
+				fs.writeFile filename, fileContent, (error) ->
+					if error
+						console.dir error
+						return d.reject error
+					d.resolve()
 			return d.promise
 
 		addRecentFile: (recentFilePath) ->

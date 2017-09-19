@@ -72,7 +72,7 @@ app = angular.module 'dugout', [
 					body: "#{gettextCatalog.getString gettext('Could not contact docker')}: #{error}"
 		recentFiles = filesMgr.loadRecentFiles()
 		if recentFiles.length
-			filesMgr.loadConfigurationFile recentFiles[0]
+			filesMgr.loadProject recentFiles[0]
 			.then (data) ->
 				projectMgr.init data
 			, (error) ->

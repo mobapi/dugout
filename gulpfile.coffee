@@ -14,9 +14,8 @@ packagejson = require './package.json'
 vinylpaths = require 'vinyl-paths'
 
 nw =
-	version: '0.16.0'
-	# version: '0.13.0'
-	# version: '0.12.3'
+	version: '0.25.0'
+	# version: '0.16.0'
 	cacheDir: '.nwcache'
 	platforms: [ 'linux64', 'osx64', 'win64' ]
 
