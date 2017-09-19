@@ -2,6 +2,7 @@ coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
 del = require 'del'
 expect = require 'gulp-expect-file'
+fs = require 'fs'
 less = require 'gulp-less'
 gettext = require 'gulp-angular-gettext'
 gulp = require 'gulp'
@@ -220,15 +221,15 @@ gulp.task 'app_build', ->
 gulp.task 'build', [ 'app_build' ], ->
 	for platform in nw.platforms
 		((platform) ->
-			olddirectory = "#{directories.build}/#{packagejson.version}/#{platform}/"
+			olddirectory = "#{directories.build}/#{packagejson.version}/#{platform}"
 			newdirectory = "#{directories.build}/#{packagejson.version}/#{packagejson.name}-#{platform}-v#{packagejson.version}/"
-			gulp.src "#{olddirectory}/**/*"
-				.pipe gulp.dest newdirectory
-				.on 'end', ->
-					gulp.src "project.sample.json"
-						.pipe gulp.dest newdirectory
-						.on 'end', ->
-							del olddirectory
+			fs.rename olddirectory, newdirectory, (error) ->
+				if error
+					throw error
+				gulp.src "./project.sample.json"
+					.pipe gulp.dest newdirectory
+					.on 'end', ->
+						del olddirectory
 		)(platform)
 
 
