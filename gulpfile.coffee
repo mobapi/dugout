@@ -6,8 +6,8 @@ fs = require 'fs'
 less = require 'gulp-less'
 gettext = require 'gulp-angular-gettext'
 gulp = require 'gulp'
-gutil = require 'gulp-util'
 html2js = require 'gulp-ng-html2js'
+log = require 'fancy-log'
 merge = require 'merge2'
 minifyhtml = require 'gulp-minify-html'
 NodeWebkitBuilder = require 'nw-builder'
@@ -15,8 +15,7 @@ packagejson = require './package.json'
 vinylpaths = require 'vinyl-paths'
 
 nw =
-	version: '0.25.0'
-	# version: '0.16.0'
+	version: '0.31.0'
 	cacheDir: '.nwcache'
 	platforms: [ 'linux64', 'osx64', 'win64' ]
 
@@ -140,7 +139,7 @@ gulp.task 'app_js', [ 'app_coffee', 'app_templates', 'app_translations' ], ->
 
 gulp.task 'app_coffee', ->
 	return gulp.src files.app.coffee
-		.pipe coffee({ bare: true }).on('error', gutil.log)
+		.pipe coffee({ bare: true }).on('error', log)
 		.pipe concat("coffee.js")
 		.pipe gulp.dest("#{directories.dist}/js/")
 
@@ -150,7 +149,7 @@ gulp.task 'app_templates', ->
 			empty: true
 			spare: true
 			quotes: true
-    	)
+		)
 		.pipe html2js(
 			moduleName: 'dugout'
 			declareModule: false
