@@ -1,7 +1,7 @@
 app
 .controller 'navbarCtrl',
-['$scope', '$state', '$q', 'toaster', 'appGuiMgr', '$uibModal', 'projectMgr',
-($scope, $state, $q, toaster, appGuiMgr, $uibModal, projectMgr) ->
+['$scope', '$state', '$q', 'toaster', 'appGuiMgr', '$uibModal', '$transitions', 'projectMgr',
+($scope, $state, $q, toaster, appGuiMgr, $uibModal, $transitions, projectMgr) ->
 
 	class Controller
 
@@ -11,22 +11,9 @@ app
 			$scope.footerSentence = sprintf(gettextCatalog.getString(gettext('Made with %(love)s in French Guiana by')),
 				love: '<i class="fa fa-heart"></i>'
 			)
-			$scope.$root.$on '$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) =>
+			$transitions.onSuccess {}, (transition) =>
 				@setActiveState()
 			@setActiveState()
-
-			$scope.$watch "project.containers", (containers) ->
-				return if not containers
-				for containerName, container of containers
-					((container) ->
-						state = container.runtime.infos.container?.State
-						container.runtime.canStart = !state or (not state.Starting and not state.Stopping and not state.Running and not state.Error)
-						# container.runtime.canStart = !state or (not state.Starting and not state.Stopping and not state.Running and not state.Error and state.Status != 'exited')
-						container.runtime.canStop = state && ((state.Running and not state.Stopping) or state.Error)
-						# container.runtime.canStop = state && ((state.Running and not state.Stopping) or state.Error or state.Status == 'exited')
-						# (container.runtime.infos.container.State.Starting || container.runtime.infos.container.State.Stopping) && container.runtime.infos.container.State.Status != 'exited'
-					)(container)
-			, true
 
 		setActiveState: ->
 			delete $scope.activeState
@@ -47,6 +34,19 @@ app
 		maximizeApp: ->
 			appGuiMgr.maximizeApp()
 
+		pullImage: (container) ->
+			modalInstance = $uibModal.open
+				controller: 'pullDialogCtrl as ctrl'
+				templateUrl: 'pullDialog.html'
+				backdrop: 'static'
+				size: 'lg'
+				resolve:
+					containers: -> [ container ]
+			modalInstance.result.then ->
+				container.checkContainerStatus()
+			.catch ->
+				console.log 'cancelled'
+
 		start: (container) ->
 			projectMgr.startContainer(container).then null, (errors) =>
 				# Missing image handling
@@ -65,7 +65,7 @@ app
 							containers: -> containers
 					modalInstance.result.then =>
 						@start container
-					, (error) ->
+					.catch (error) ->
 						console.dir error
 				# Other errors
 				otherErrors = _.filter errors, (item) ->

@@ -15,29 +15,39 @@ app
 		loadProject: (filePath) ->
 			d = $q.defer()
 			tasks = [
+				# Load project file
 				(cb) =>
 					fs.readFile filePath, 'utf8', (error, content) ->
 						if error
 							return cb error
 						try
-							content = JSON.parse content
+							projectConfiguration = JSON.parse content
+							if not projectConfiguration
+								return cb sprintf(gettextCatalog.getString(gettext('File %(file)s is empty')),
+									file: filePath
+								)
+							for containerName, containerConfiguration of projectConfiguration.containers
+								projectConfiguration.containers[containerName].variablesLength = Object.keys(containerConfiguration.variables || {}).length
+							cb null, projectConfiguration
 						catch e
 							return cb sprintf(gettextCatalog.getString(gettext('File %(file)s is not a valid json file')),
 								file: filePath
 							)
-						if not content
-							return cb sprintf(gettextCatalog.getString(gettext('File %(file)s is empty')),
-								file: filePath
-							)
-						cb null, content
+				# Load project variables
 				(projectConfiguration, cb) =>
 					filename = path.join(nw.App.dataPath, "projects", filePath.replace(new RegExp(path.sep, "g"), '_'))
 					fs.readFile filename, 'utf8', (error, content) ->
+						if error
+							if error.code == 'ENOENT'
+								return cb null, projectConfiguration
+							return cb error
 						try
 							content = JSON.parse content
 							for containerName, containerVariables of content
 								for variableName, variableValue of containerVariables
 									projectConfiguration.containers[containerName].variables[variableName].value = variableValue
+						catch e
+							cb e
 						cb null, projectConfiguration
 			]
 			async.waterfall tasks, (error, projectConfiguration) =>

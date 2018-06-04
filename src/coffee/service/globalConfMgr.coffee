@@ -43,13 +43,14 @@ app
 			@conf.docker = {} if not @conf.docker
 			@isConfigurationValid()
 			q.resolve @conf
+			console.log "Configuration loaded", @conf
 			return q.promise
 
 		save: ->
 			defer = $q.defer()
 			storage.set "configuration", @conf
 			defer.resolve()
-			console.log "Configuration saved"
+			console.log "Configuration saved", @conf
 			return defer.promise
 
 	return new Service()

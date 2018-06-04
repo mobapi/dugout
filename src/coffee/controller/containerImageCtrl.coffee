@@ -15,7 +15,7 @@ app
 				backdrop: 'static'
 				size: 'lg'
 				resolve:
-					containers: -> [$scope.container]
+					containers: -> [ $scope.container ]
 
 	return new Controller()
 

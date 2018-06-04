@@ -72,18 +72,26 @@ app
 			return @runtime.configurationValid
 
 		checkContainerStatus: ->
-			q = $q.defer()
+			d = $q.defer()
+			state = @runtime.infos.container?.State
+			@runtime.canStart = !state or (not state.Starting and not state.Stopping and not state.Running and not state.Error)
+			@runtime.canStop = state && ((state.Running and not state.Stopping) or state.Error)
 			@getImageInfos(@image).then (infos) =>
 				@runtime.infos.image = infos
 				@getContainerInfos(@name).then (infos) =>
 					@runtime.infos.container = infos
-					q.resolve()
-				, (error) =>
+					d.resolve()
+				.catch (error) =>
 					delete @runtime.infos.container
-					q.reject error
-			, (error) =>
-				q.reject error
-			return q.promise
+					d.reject error
+			.catch (error) =>
+				if error.statusCode == 404
+					delete @runtime.infos.image
+					@runtime.canStart = false
+					return d.resolve()
+				console.log @runtime
+				d.reject error
+			return d.promise
 
 		substitute: (params, vars) ->
 			out = {}
@@ -305,11 +313,13 @@ app
 				if error
 					return d.reject error
 				@constructor.docker.modem.followProgress stream
-				, (error, output) ->
+				, (error, output) =>
 					if error
 						return d.reject error
 					d.resolve output
-				, (event) ->
+					@checkContainerStatus()
+				, (event) =>
+					@checkContainerStatus()
 					d.notify event
 			return d.promise
 

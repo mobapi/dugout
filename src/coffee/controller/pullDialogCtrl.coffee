@@ -22,7 +22,7 @@ app
 					tasks.push (callback) =>
 						$scope.pullImageLog = []
 						container.pullImage(credentials).then ->
-							if credentials.remember
+							if credentials?.remember
 								repositoryUrl = container.image.substring 0, container.image.indexOf('/')
 								globalConfMgr.conf.credentials[repositoryUrl] = credentials
 								globalConfMgr.save()
@@ -55,7 +55,7 @@ app
 
 			loginInstance.result.then (credentials) =>
 				@pullImages credentials
-			, ->
+			.catch ->
 				$uibModalInstance.dismiss()
 
 		cancel: ->

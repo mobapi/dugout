@@ -75,7 +75,8 @@ app = angular.module 'dugout', [
 			filesMgr.loadProject recentFiles[0]
 			.then (data) ->
 				projectMgr.init data
-			, (error) ->
+			.catch (error) ->
+				console.error error
 				toaster.pop
 					type: 'error'
 					title: gettextCatalog.getString gettext('Error')
