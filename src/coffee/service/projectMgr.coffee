@@ -52,6 +52,8 @@ app
 				subcontainer = @project.containers[containerId]
 				((subcontainer) =>
 					tasks.push (callback) =>
+						if not subcontainer
+							return callback gettextCatalog.getString(gettext("Container #{containerId} linked by #{container.name} was not found."))
 						if subcontainer.runtime.infos.container
 							console.debug "#{subcontainer.name}: already started"
 							# Container is already started
@@ -61,7 +63,8 @@ app
 							@startContainer subcontainer
 							.then ->
 								callback null, subcontainer
-							, (errors) ->
+							.catch (errors) ->
+								console.dir errors
 								callback errors[0]
 				)(subcontainer)
 			async.parallel tasks, (error, results) ->
@@ -73,7 +76,7 @@ app
 					console.debug "Started subcontainers: #{_.join(Object.keys(container.links), ', ')}"
 				container.start().then ->
 					d.resolve()
-				, (error) ->
+				.catch (error) ->
 					errors.push
 						container: container
 						error: error

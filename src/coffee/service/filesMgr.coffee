@@ -43,9 +43,11 @@ app
 							return cb error
 						try
 							content = JSON.parse content
-							for containerName, containerVariables of content
-								for variableName, variableValue of containerVariables
-									projectConfiguration.containers[containerName].variables[variableName].value = variableValue
+							for containerName, containerConfiguration of projectConfiguration.containers
+								if containerConfiguration.variablesLength
+									containerVariablesValues = content[containerName]
+									for variableName, variableConfiguration of containerConfiguration.variables
+										projectConfiguration.containers[containerName].variables[variableName].value = containerVariablesValues[variableName]
 						catch e
 							cb e
 						cb null, projectConfiguration

@@ -51,7 +51,7 @@ app
 			projectMgr.startContainer(container).then null, (errors) =>
 				# Missing image handling
 				notFoundErrors = _.filter errors, (item) ->
-					return item.error.statusCode == 404
+					return item.error?.statusCode == 404
 				if notFoundErrors.length
 					# images = _.map notFoundErrors, (item) ->
 					# 	return item.container.image
@@ -69,13 +69,14 @@ app
 						console.dir error
 				# Other errors
 				otherErrors = _.filter errors, (item) ->
-					return item.error.statusCode != 404
+					return item.error?.statusCode != 404
 				if otherErrors.length
 					for error in otherErrors
+						error = error.error || error
 						toaster.pop
 							type: 'error'
 							title: gettextCatalog.getString gettext('Error')
-							body: "#{gettextCatalog.getString(gettext('Unable to start container'))}: #{error.error}"
+							body: "#{gettextCatalog.getString(gettext('Unable to start container'))}: #{error}"
 
 		stop: (container) ->
 			container.stop()

@@ -183,8 +183,8 @@ app
 				, 50
 				console.debug "#{@name}: started"
 				d.resolve()
-			, (error) =>
-				delete @runtime.infos.container.State.Starting
+			.catch (error) =>
+				delete @runtime.infos.container?.State.Starting
 				d.reject error
 			return d.promise
 
