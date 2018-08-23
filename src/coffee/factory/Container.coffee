@@ -73,23 +73,25 @@ app
 
 		checkContainerStatus: ->
 			d = $q.defer()
-			state = @runtime.infos.container?.State
-			@runtime.canStart = !state or (not state.Starting and not state.Stopping and not state.Running and not state.Error)
-			@runtime.canStop = state && ((state.Running and not state.Stopping) or state.Error)
+			setFlags = =>
+				state = @runtime.infos.container?.State
+				@runtime.canStart = !state or (not state.Starting and not state.Stopping and not state.Running and not state.Error)
+				@runtime.canStop = state && ((state.Running and not state.Stopping) or state.Error)
 			@getImageInfos(@image).then (infos) =>
 				@runtime.infos.image = infos
 				@getContainerInfos(@name).then (infos) =>
 					@runtime.infos.container = infos
+					setFlags()
 					d.resolve()
 				.catch (error) =>
 					delete @runtime.infos.container
+					setFlags()
 					d.reject error
 			.catch (error) =>
 				if error.statusCode == 404
 					delete @runtime.infos.image
 					@runtime.canStart = false
 					return d.resolve()
-				console.log @runtime
 				d.reject error
 			return d.promise
 
@@ -219,17 +221,45 @@ app
 					return d.resolve()
 				console.debug "#{@name}: stopping"
 				@runtime.infos.container.State.Stopping = true if @runtime.infos.container?
+
+				# container.stop (error, data) =>
+				# 	console.dir @runtime.infos.container.State
+				# 	delete @runtime.infos.container.State.Stopping if @runtime.infos.container?
+				# 	@stopLog()
+				# 	@checkContainerStatus().then =>
+				# 		if error
+				# 			return d.reject error
+				# 		console.dir @runtime
+				# 		console.debug "#{@name}: stopped"
+				# 		console.debug "#{@name}: removing"
+				# 		container.remove
+				# 			force: true
+				# 			v: true
+				# 		, (error, data) =>
+				# 			delete @runtime.infos.container.State.Stopping if @runtime.infos.container?
+				# 			# @stopLog()
+				# 			@checkContainerStatus().then =>
+				# 				if error
+				# 					return d.reject error
+				# 				# console.dir @runtime.infos.container.State
+				# 				console.debug "#{@name}: removed"
+				# 				d.resolve()
+				# 			.catch d.reject
+				# 	.catch d.reject
+
 				container.remove
 					force: true
 					v: true
 				, (error, data) =>
 					delete @runtime.infos.container.State.Stopping if @runtime.infos.container?
 					@stopLog()
-					@checkContainerStatus()
-					if error
-						return d.reject error
-					console.debug "#{@name}: stopped"
-					d.resolve()
+					@checkContainerStatus().then =>
+						if error
+							return d.reject error
+						console.dir @runtime
+						console.debug "#{@name}: stopped"
+						d.resolve()
+					.catch d.reject
 			return d.promise
 
 		startLog: ->

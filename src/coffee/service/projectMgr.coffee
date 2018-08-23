@@ -91,8 +91,7 @@ app
 					tasks.push (callback) =>
 						container.stop().then ->
 							callback null
-						, (error) ->
-							callback error
+						.catch callback
 				)(container)
 			async.parallel tasks, (error, results) ->
 				return d.reject error if error
