@@ -1,6 +1,6 @@
 {
   "name": "Dugout",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "",
   "author": "Mobapi <contact@mobapi.com>",
   "homepage": "http://www.mobapi.com/",
@@ -30,7 +30,6 @@
     "vinyl-paths": "^2.1.0"
   },
   "scripts": {
-    "bower": "bower up",
     "debug-osx": ".nwcache/0.31.0-sdk/osx64/nwjs.app/Contents/MacOS/nwjs www",
     "debug-linux": ".nwcache/0.31.0-sdk/linux64/nw www",
     "build": "gulp clean && gulp && gulp build",
