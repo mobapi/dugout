@@ -47,7 +47,7 @@ app
 								if containerConfiguration.variablesLength
 									containerVariablesValues = content[containerName]
 									for variableName, variableConfiguration of containerConfiguration.variables
-										projectConfiguration.containers[containerName].variables[variableName].value = containerVariablesValues[variableName]
+										projectConfiguration.containers[containerName].variables[variableName].value = containerVariablesValues?[variableName]
 						catch e
 							cb e
 						cb null, projectConfiguration
