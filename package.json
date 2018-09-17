@@ -1,6 +1,6 @@
 {
   "name": "Dugout",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "",
   "author": "Mobapi <contact@mobapi.com>",
   "homepage": "http://www.mobapi.com/",
@@ -30,8 +30,8 @@
     "vinyl-paths": "^2.1.0"
   },
   "scripts": {
-    "debug-osx": ".nwcache/0.31.0-sdk/osx64/nwjs.app/Contents/MacOS/nwjs www",
-    "debug-linux": ".nwcache/0.31.0-sdk/linux64/nw www",
+    "debug-osx": ".nwcache/0.33.2-sdk/osx64/nwjs.app/Contents/MacOS/nwjs www",
+    "debug-linux": ".nwcache/0.33.2-sdk/linux64/nw www",
     "build": "gulp clean && gulp && gulp build",
     "build_mac_icon": "./buildMacIconset.sh src/images/logo.png",
     "test": "echo \"Error: no test specified\" && exit 1"

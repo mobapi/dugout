@@ -19,7 +19,8 @@ app
 					matched = _.filter containers, (container) ->
 						found = false
 						for n in container.Names
-							if n.indexOf(name) > -1
+							containerName = n.substring n.lastIndexOf('/') + 1, n.length
+							if containerName == name
 								found = true
 								break
 						return found
