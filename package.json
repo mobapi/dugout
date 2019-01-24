@@ -27,11 +27,13 @@
     "gulp-watch": "^5.0.0",
     "merge2": "^1.2.2",
     "nw-builder": "^3.5.4",
+    "run-script-os": "^1.0.5",
     "vinyl-paths": "^2.1.0"
   },
   "scripts": {
-    "debug-osx": ".nwcache/0.33.2-sdk/osx64/nwjs.app/Contents/MacOS/nwjs www",
-    "debug-linux": ".nwcache/0.33.2-sdk/linux64/nw www",
+    "debug": "run-script-os",
+    "debug:darwin": ".nwcache/0.33.2-sdk/osx64/nwjs.app/Contents/MacOS/nwjs www",
+    "debug:linux": ".nwcache/0.33.2-sdk/linux64/nw www",
     "build": "gulp clean && gulp && gulp build",
     "build_mac_icon": "./buildMacIconset.sh src/images/logo.png",
     "test": "echo \"Error: no test specified\" && exit 1"
