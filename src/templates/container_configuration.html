@@ -131,8 +131,10 @@
 								<span class="pull-right">{{'Value'|translate}}</span>
 							</li>
 							<li class="list-group-item" ng-repeat="(k, v) in container.environment">
-								<span>{{k}}</span>
-								<span class="pull-right">{{v}}</span>
+								<div class="list-group-item-content" title="{{v}}">
+									<div class="list-group-item-label">{{k}}</div>
+									<div class="list-group-item-value">{{v}}</div>
+								</div>
 							</li>
 						</ul>
 					</span>

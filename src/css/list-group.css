@@ -1,0 +1,22 @@
+.list-group .list-group-header {
+	background-color: #eee;
+}
+
+.list-group .list-group-item .list-group-item-content {
+	display: flex;
+	flex-direction: row;
+}
+
+.list-group .list-group-item .list-group-item-label {
+	flex: 0;
+}
+
+.list-group .list-group-item .list-group-item-value {
+	flex: 1;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	text-align: right;
+	white-space: nowrap;
+	margin-left: 1em;
+}
