@@ -40,6 +40,9 @@
   },
   "private": true,
   "license": "proprietary",
+  "engines": {
+    "node": "=10"
+  },
   "window": {
     "title": "Dugout",
     "icon": "images/logo.png",
